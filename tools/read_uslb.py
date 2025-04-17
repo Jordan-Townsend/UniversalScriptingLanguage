@@ -1,0 +1,1 @@
+print("[USL] Reading compressed .uslb binary...")

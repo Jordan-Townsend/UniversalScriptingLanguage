@@ -1,0 +1,12 @@
+To the IEEE Standards Committee,
+
+I am submitting a proposal for a new symbolic logic format and runtime standard titled:
+
+  Universal Scripting Language (USL): A Symbolic Compression, Encryption, and Transpilation Runtime
+
+USL is a lightweight, secure, and interoperable encoding system for symbolic logic. It supports 605+ programming languages and includes advanced compression (.uslc), quantum-resilient encryption (.uslbq), and format conversion (.usl, .uslb, .uslpack).
+
+Reference: https://github.com/jordantownsend/universalscriptinglanguage
+
+Sincerely,  
+Jordan Townsend

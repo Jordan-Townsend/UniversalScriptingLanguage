@@ -1,0 +1,5 @@
+The Universal Scripting Language (USL) is a symbolic programming framework designed for logic compression, encryption, and language-agnostic transpilation.
+
+Formats such as .usl, .uslb, .uslc, and .uslbq represent code abstractly and securely across over 605 programming languages. This architecture supports reversible logic encoding, registry-based optimization, and symbolic pattern analysis.
+
+It is open source and intended for education, AI systems, and secure symbolic computation.

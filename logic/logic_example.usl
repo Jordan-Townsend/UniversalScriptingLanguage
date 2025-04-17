@@ -1,0 +1,8 @@
+
+Symbolic[USL]: tokens = {
+  T0 = "def greet(name):"
+  T1 = "    return f'Hello, {name}!'"
+  T2 = "name = 'Jordan'"
+  T3 = "print(greet(name))"
+}
+Symbolic[USL]: sequence = [T0, T1, T2, T3]

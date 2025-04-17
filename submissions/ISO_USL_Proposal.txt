@@ -1,0 +1,16 @@
+To the ISO/IEC JTC 1 / SC 22 Committee,
+
+Proposal Title:
+  Universal Scripting Language (USL): A Symbolic Runtime and Encoding Standard
+
+Deliverables:
+- Symbolic logic format (.usl)
+- Registry-optimized compression (.uslc)
+- Encrypted transmission (.uslbq)
+- Full runtime bundle (.uslpack)
+- Transpilation support for 605+ languages
+
+Reference: https://github.com/jordantownsend/universalscriptinglanguage
+
+Sincerely,  
+Jordan Townsend

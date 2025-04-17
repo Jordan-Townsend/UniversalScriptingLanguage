@@ -1,0 +1,11 @@
+To the NIST Cryptographic Standards and Technology Division,
+
+Proposal:
+  USL – Universal Scripting Language
+
+USL compresses symbolic logic into encrypted and verifiable formats (.uslb, .uslc, .uslbq). It has applications in secure firmware, smart contracts, and symbolic transport.
+
+Reference: https://github.com/jordantownsend/universalscriptinglanguage
+
+Sincerely,  
+Jordan Townsend
