@@ -1,0 +1,122 @@
+{
+  "ALL_LANGUAGE_ACTION_PLAN.csv": {
+    "sha256": "801ca50002169c52e08bc5d8343e172f06e99c982b734a32f372236070d8939e",
+    "bytes": 119247
+  },
+  "ALL_LANGUAGE_ACTION_PLAN.html": {
+    "sha256": "1a6c8527ce3406a4c8c250a452b764fd827dc63a2235db071a14a031c0244760",
+    "bytes": 1276158
+  },
+  "ALL_LANGUAGE_ACTION_PLAN.json": {
+    "sha256": "31ac6939072b189864482d5de95d2d104c08e0896c7db3bebef201574acf5085",
+    "bytes": 9090567
+  },
+  "BUILD_STATUS.md": {
+    "sha256": "f9ffe3f8a070d5bc8948578928d9570bd22edecb6b6aff7b2e5ec742cbe10996",
+    "bytes": 4512
+  },
+  "BUILD_VERIFICATION.json": {
+    "sha256": "ade309283fdc90c6bff753a99b44e33ee7dd3f63e6f57b9c670fb211a654f13c",
+    "bytes": 6010
+  },
+  "CANONICAL_ADMISSION_FIX.json": {
+    "sha256": "60b09f6125f4a9c7857484fa1be88d022f1060ca9184f13d5ddc41b1de777102",
+    "bytes": 658
+  },
+  "CLEAN_CHECKPOINT_AUDIT.json": {
+    "sha256": "be10364a635f523ce49abf0eab4025109125863b1c26ac01d42191eba15d8c67",
+    "bytes": 411
+  },
+  "CONTINUE_FROM_HERE.md": {
+    "sha256": "a2085903cb671a6777c6c334c910c1a9881094e532283893bc822250a4829d8c",
+    "bytes": 2591
+  },
+  "HISTORICAL_EVIDENCE_ARCHIVE.json": {
+    "sha256": "ea8bcb7574349ebda1e549114d821709f50ed8994943f8ed3e9ea97a9222f75a",
+    "bytes": 1981816
+  },
+  "INTERNAL_USL_CALCULATIONS.json": {
+    "sha256": "6378784d2a07fdd7cd783c2929cea4481682f3ad68f41cbb8eaf7cdc29d89c9f",
+    "bytes": 6800
+  },
+  "ISOLATED_REGRESSIONS.json": {
+    "sha256": "f2201df73c8841fe737945d5cc7b42888eb392639ada71871f107ef576a1aef1",
+    "bytes": 44404
+  },
+  "LANGUAGE_STATUS.csv": {
+    "sha256": "ff2d294bb6b98efb7dc66c3006aa39627a1f65fbc9defb25bbb770169d2751d6",
+    "bytes": 326914
+  },
+  "LANGUAGE_STATUS.html": {
+    "sha256": "7a9fa9e79b1ea340296678802024906121ab5fd76d300cb7571f136c1d49f0ff",
+    "bytes": 398625
+  },
+  "LANGUAGE_STATUS.json": {
+    "sha256": "6a021402a514fbe3aa6889ab4dc6ae46240b2fa738c27edd79745df9869becb8",
+    "bytes": 1699909
+  },
+  "LEARNED_NATIVE_TRANSFER.py": {
+    "sha256": "fd1e1add3b25f71180021ec77af7e7395aa9bd3b153695a73829c41945aa8403",
+    "bytes": 7966
+  },
+  "LEARNED_NATIVE_TRANSFER_QUALIFICATION.json": {
+    "sha256": "56da2551d59afd74ed725d10cbe791841316db128820431cd6021cf6dd67055f",
+    "bytes": 682860
+  },
+  "MULTIPLEX_QUALIFICATION.json": {
+    "sha256": "0292c0e3ecd3d8e0e1348085ddb674ba2178fca0898527716a52a078a285b9d3",
+    "bytes": 2514966
+  },
+  "README.md": {
+    "sha256": "b07929163e99ad5c8cc8ffb22605bac808d32c4449e986a042b0097364055b45",
+    "bytes": 5277
+  },
+  "RELEASE_MANIFEST.json": {
+    "sha256": "f5eb3eca03e5f13662ba4a6aab8d263766e4324ab307a0158481bdb7f001faaa",
+    "bytes": 541919
+  },
+  "SERVICES_RESTART.json": {
+    "sha256": "8809666173eb9b69695250f760bb9b45207519ba1c17993ed8428ea2973c9015",
+    "bytes": 602
+  },
+  "TABLE_BROWSER_QUALIFICATION.json": {
+    "sha256": "2d097960df855067e277f9211f85ceff7983ae2b527150a65d6c544a44674325",
+    "bytes": 385
+  },
+  "TESTING.txt": {
+    "sha256": "9c3a53c8f5477552f5efe2d9d60b17c650f8da76a4ada2c0b95a7b307cb8a176",
+    "bytes": 3187
+  },
+  "USL-UNIVERSAL-SYSTEMS-V4.10.0-FULL-SOURCE.zip": {
+    "sha256": "70a6f2bbd075d56100009907c9e89588819ee7f64f0346fa05c7803271f100d6",
+    "bytes": 45078033
+  },
+  "USL-UNIVERSAL-SYSTEMS-V4.10.0-FULL-SOURCE.zip.sha256": {
+    "sha256": "3d8bfc2a7c12474a7831ac46be6751dee8f519104e336d42d4143a80d9b131a7",
+    "bytes": 112
+  },
+  "USL-V4.10.0-HISTORICAL-EVIDENCE.tar.xz": {
+    "sha256": "aefc139711e528da075ad101dfccc4bbd443d4f9a7e2df2e50e1bbb4a9d66f5b",
+    "bytes": 16146676
+  },
+  "USL-V4.10.0-HISTORICAL-EVIDENCE.tar.xz.sha256": {
+    "sha256": "1b29e8c5f178397bb0e09af36d6eabcae318da259d8fbf295beb3b2a01409984",
+    "bytes": 105
+  },
+  "USL-V4.10.0-WORKER-CHECKPOINTS.tar.xz": {
+    "sha256": "fb8debfac053fc4367fa35f73de682c1c9fcd96425e9276f118149b8715d875b",
+    "bytes": 17944748
+  },
+  "USL-V4.10.0-WORKER-CHECKPOINTS.tar.xz.sha256": {
+    "sha256": "121f7f3ae2169b112a368c51fc6b1dce0e23534e982e25974a95e0820243ae50",
+    "bytes": 104
+  },
+  "WORKER_CHECKPOINT_ARCHIVE.json": {
+    "sha256": "14788edcb445e66f4e10480764ec9b2aecaf53b1014a3829d823eb142de5559e",
+    "bytes": 1638122
+  },
+  "WORKER_INTEGRATION_QUALIFICATION.json": {
+    "sha256": "647ccb214a237999b551be158246d782b8879a67b7a6520770903a7cbf37ed1f",
+    "bytes": 429
+  }
+}

@@ -1,0 +1,608 @@
+catalog_id,name,family,scope_kind,scoped_profile,specification_profile,original_native_tool_requirement,full_standard_qualified
+abap,ABAP,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+abnf,ABNF,"Grammars, interfaces and schemas",schema_processing,True,Exact version/dialect and normative chapters still require audit,,False
+actionscript,ActionScript,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+actionscript3,ActionScript 3,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ada,Ada,Systems and native imperative,function_fragment,True,Exact version/dialect and normative chapters still require audit,gnatmake,False
+adl,ADL,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+agda,Agda,ML/Haskell and typed functional,none,False,Agda 2.6.4.3 MAlonzo/GHC compile/run,agda,False
+aheui,Aheui,Esoteric languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+alloy,Alloy,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ambienttalk,AmbientTalk,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+amdgpu,AMDGPU,"HDL, shaders and compute",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ampl,Ampl,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ng2,Angular2,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ansys,ANSYS parametric design language,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+antlr,ANTLR,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+antlr-actionscript,ANTLR With ActionScript Target,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+antlr-csharp,ANTLR With C# Target,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+antlr-cpp,ANTLR With CPP Target,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+antlr-java,ANTLR With Java Target,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+antlr-objc,ANTLR With ObjectiveC Target,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+antlr-perl,ANTLR With Perl Target,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+antlr-python,ANTLR With Python Target,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+antlr-ruby,ANTLR With Ruby Target,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+apacheconf,ApacheConf,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+apl,APL,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+applescript,AppleScript,Shell and automation languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+arduino,Arduino,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+arrow,Arrow,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+arturo,Arturo,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+asc,ASCII armored,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+asn1,ASN.1,"Grammars, interfaces and schemas",schema_processing,True,Exact version/dialect and normative chapters still require audit,,False
+aspectj,AspectJ,JVM and managed object languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+aspx-cs,aspx-cs,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+aspx-vb,aspx-vb,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+asymptote,Asymptote,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+augeas,Augeas,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+autohotkey,autohotkey,Shell and automation languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+autoit,AutoIt,Shell and automation languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+awk,Awk,Shell and automation languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,semantic_more_functions,False
+bare,BARE,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+basemake,Base Makefile,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+bash,Bash,Shell and automation languages,program_expression_subset,True,Exact version/dialect and normative chapters still require audit,semantic_more_functions,False
+console,Bash Session,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+batch,Batchfile,Shell and automation languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+bbcbasic,BBC Basic,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+bbcode,BBCode,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+bc,BC,"Array, numerical and statistical",function_fragment,True,Exact version/dialect and normative chapters still require audit,bc,False
+bdd,Bdd,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+befunge,Befunge,Esoteric languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+berry,Berry,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+bibtex,BibTeX,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+blitzbasic,BlitzBasic,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+blitzmax,BlitzMax,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+blueprint,Blueprint,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+bnf,BNF,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+boa,Boa,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+boo,Boo,.NET managed languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+boogie,Boogie,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+bqn,BQN,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+brainfuck,Brainfuck,Esoteric languages,none,False,"Beef 1.2.0 / libcattle 1.4.0, exact-byte-output integer-counter fixture subset",beef,False
+bst,BST,"Markup, documents and styles",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+bugs,BUGS,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+c,C,Systems and native imperative,function_fragment,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+csharp,C#,.NET managed languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,mcs,False
+cpp,C++,Systems and native imperative,function_fragment,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+c-objdump,c-objdump,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ca65,ca65 assembler,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cadl,cADL,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+camkes,CAmkES,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+capnp,Cap'n Proto,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+capdl,CapDL,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+carbon,Carbon,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cbmbas,CBM BASIC V2,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cddl,CDDL,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ceylon,Ceylon,JVM and managed object languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cfengine3,CFEngine3,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cfs,cfstatement,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+chaiscript,ChaiScript,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+chapel,Chapel,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+charmci,Charmci,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cheetah,Cheetah,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+cirru,Cirru,Lisp and related languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+clay,Clay,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+clean,Clean,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+clojure,Clojure,Lisp and related languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,clojure,False
+clojurescript,ClojureScript,Lisp and related languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cmake,CMake,"Configuration, build and deployment",program_expression_subset,True,Exact version/dialect and normative chapters still require audit,semantic_next_functions,False
+cobol,COBOL,BASIC and business procedural,function_fragment,True,"GnuCOBOL 3.2, -std=cobol2014 fixed/free source",cobc,False
+cobolfree,COBOLFree,BASIC and business procedural,function_fragment,True,"GnuCOBOL 3.2, -std=cobol2014 fixed/free source",cobc,False
+codeql,CodeQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+coffeescript,CoffeeScript,Scripting and general application languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,semantic_next_functions,False
+cfc,Coldfusion CFC,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cfm,Coldfusion HTML,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+comal,COMAL-80,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+common-lisp,Common Lisp,Lisp and related languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,sbcl,False
+componentpascal,Component Pascal,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cplint,cplint,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cpp-objdump,cpp-objdump,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cpsa,CPSA,Lisp and related languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+crmsh,Crmsh,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+croc,Croc,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cryptol,Cryptol,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cr,Crystal,Systems and native imperative,function_fragment,True,Crystal 1.14.0 native compile/run,crystal,False
+csound-document,Csound Document,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+csound,Csound Orchestra,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+csound-score,Csound Score,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+css,CSS,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+css+django,CSS+Django/Jinja,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+css+genshitext,CSS+Genshi Text,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+css+lasso,CSS+Lasso,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+css+mako,CSS+Mako,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+css+mako-111,CSS+Mako,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+css+mozpreproc,CSS+mozpreproc,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+css+myghty,CSS+Myghty,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+css+php,CSS+PHP,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+css+ruby,CSS+Ruby,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+css+smarty,CSS+Smarty,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+css+ul4,CSS+UL4,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+cuda,CUDA,"HDL, shaders and compute",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cypher,Cypher,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+cython,Cython,Systems and native imperative,function_fragment,True,Exact version/dialect and normative chapters still require audit,semantic_more_functions,False
+d,D,Systems and native imperative,function_fragment,True,Exact version/dialect and normative chapters still require audit,gdc,False
+d-objdump,d-objdump,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+dpatch,Darcs Patch,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+dart,Dart,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+dasm16,DASM16,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+dax,Dax,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+debcontrol,Debian Control file,"Configuration, build and deployment",document_processing,True,Exact version/dialect and normative chapters still require audit,,False
+debsources,Debian Sourcelist,"Configuration, build and deployment",document_processing,True,Exact version/dialect and normative chapters still require audit,,False
+debian.sources,Debian Sources file,"Configuration, build and deployment",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+delphi,Delphi,Systems and native imperative,function_fragment,True,Exact version/dialect and normative chapters still require audit,fpc,False
+desktop,Desktop file,"Configuration, build and deployment",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+devicetree,Devicetree,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+dg,dg,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+diff,Diff,"Transcripts, logs and protocol messages",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+django,Django/Jinja,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+docker,Docker,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+dtd,DTD,"Grammars, interfaces and schemas",schema_processing,True,Exact version/dialect and normative chapters still require audit,semantic_queries,False
+duel,Duel,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+dylan,Dylan,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+dylan-console,Dylan session,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+dylan-lid,DylanLID,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+email,E-mail,"Transcripts, logs and protocol messages",document_processing,True,Exact version/dialect and normative chapters still require audit,,False
+earl-grey,Earl Grey,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+easytrieve,Easytrieve,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ebnf,EBNF,"Grammars, interfaces and schemas",schema_processing,True,Exact version/dialect and normative chapters still require audit,,False
+ec,eC,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ecl,ECL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+eiffel,Eiffel,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+elixir,Elixir,BEAM languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,elixir,False
+iex,Elixir iex session,"Transcripts, logs and protocol messages",embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+elm,Elm,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+elpi,Elpi,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+emacs-lisp,EmacsLisp,Lisp and related languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ragel-em,Embedded Ragel,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+erb,ERB,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,ruby,False
+erlang,Erlang,BEAM languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,erl,False
+erl,Erlang erl session,"Transcripts, logs and protocol messages",embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+evoque,Evoque,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+execline,execline,Shell and automation languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ezhil,Ezhil,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+fsharp,F#,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+factor,Factor,Stack and concatenative languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+fancy,Fancy,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+fan,Fantom,JVM and managed object languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+felix,Felix,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+fennel,Fennel,Lisp and related languages,embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,fennel,False
+fift,Fift,Stack and concatenative languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+fish,Fish,Shell and automation languages,program_expression_subset,True,Exact version/dialect and normative chapters still require audit,fish,False
+flatline,Flatline,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+floscript,FloScript,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+forth,Forth,Stack and concatenative languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+fortran,Fortran,Systems and native imperative,function_fragment,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+fortranfixed,FortranFixed,Systems and native imperative,function_fragment,True,Exact version/dialect and normative chapters still require audit,gfortran,False
+foxpro,FoxPro,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+freefem,Freefem,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+fstar,FStar,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+func,FunC,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+futhark,Futhark,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+gcode,g-code,Domain-specific and classification pending,document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+gap,GAP,"Array, numerical and statistical",function_fragment,True,GAP 4.14.0 core language,gap,False
+gap-console,GAP session,"Transcripts, logs and protocol messages",embedded_source_subset,True,"GAP 4.14.0 gap> transcript replay, one-line commands",gap,False
+gas,GAS,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+gdscript,GDScript,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+genshi,Genshi,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+genshitext,Genshi Text,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+pot,Gettext Catalog,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+gherkin,Gherkin,"Grammars, interfaces and schemas",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+gleam,Gleam,BEAM languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+glsl,GLSL,"HDL, shaders and compute",none,False,"GLSL 4.50 compute, Vulkan 1.0 SPIR-V compile and validation",glslangValidator,False
+gnuplot,Gnuplot,Domain-specific and classification pending,function_fragment,True,Gnuplot 6.0.2 non-graphical scripting,gnuplot,False
+go,Go,Systems and native imperative,function_fragment,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+golo,Golo,JVM and managed object languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+gooddata-cl,GoodData-CL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+googlesql,GoogleSQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+gosu,Gosu,JVM and managed object languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+gst,Gosu Template,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+graphql,GraphQL,SQL and query languages,query_processing,True,Exact version/dialect and normative chapters still require audit,semantic_queries,False
+graphviz,Graphviz,Domain-specific and classification pending,document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+groff,Groff,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+groovy,Groovy,JVM and managed object languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,groovy,False
+gsql,GSQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+haml,Haml,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+handlebars,Handlebars,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+hare,Hare,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+haskell,Haskell,ML/Haskell and typed functional,function_fragment,True,Haskell 2010; GHC 9.6.6,ghc,False
+haxe,Haxe,Scripting and general application languages,function_fragment,True,Haxe 4.3.6 interpreter target,haxe,False
+hexdump,Hexdump,"Transcripts, logs and protocol messages",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+hlsl,HLSL,"HDL, shaders and compute",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+hsail,HSAIL,"HDL, shaders and compute",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+hspec,Hspec,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+html,HTML,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+html+ng2,HTML + Angular2,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+html+cheetah,HTML+Cheetah,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+html+django,HTML+Django/Jinja,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+html+evoque,HTML+Evoque,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+html+genshi,HTML+Genshi,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+html+handlebars,HTML+Handlebars,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+html+lasso,HTML+Lasso,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+html+mako,HTML+Mako,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+html+mako-220,HTML+Mako,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+html+myghty,HTML+Myghty,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+html+php,HTML+PHP,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+html+smarty,HTML+Smarty,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+html+twig,HTML+Twig,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+html+ul4,HTML+UL4,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+html+velocity,HTML+Velocity,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+http,HTTP,"Transcripts, logs and protocol messages",document_processing,True,Exact version/dialect and normative chapters still require audit,,False
+haxeml,Hxml,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+hylang,Hy,Lisp and related languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,semantic_next_functions,False
+hybris,Hybris,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+icon,Icon,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+idl,IDL,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+idris,Idris,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+igor,Igor,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+inform6,Inform 6,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+i6t,Inform 6 template,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+inform7,Inform 7,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ini,INI,"Configuration, build and deployment",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+io,Io,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ioke,Ioke,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ipython,IPython,Scripting and general application languages,embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+ipython-242,IPython,Scripting and general application languages,embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+ipythonconsole,IPython console session,"Transcripts, logs and protocol messages",embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+irc,IRC logs,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+isabelle,Isabelle,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+j,J,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+jags,JAGS,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+janet,Janet,Lisp and related languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+jasmin,Jasmin,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+java,Java,JVM and managed object languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+jsp,Java Server Page,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+javascript,JavaScript,Scripting and general application languages,closed_source_subset,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+javascript+cheetah,JavaScript+Cheetah,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+javascript+django,JavaScript+Django/Jinja,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+js+genshitext,JavaScript+Genshi Text,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+javascript+lasso,JavaScript+Lasso,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+javascript+mako,JavaScript+Mako,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+js+mako,JavaScript+Mako,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+javascript+mozpreproc,Javascript+mozpreproc,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+javascript+myghty,JavaScript+Myghty,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+javascript+php,JavaScript+PHP,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+javascript+ruby,JavaScript+Ruby,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+javascript+smarty,JavaScript+Smarty,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+js+ul4,Javascript+UL4,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+jcl,JCL,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+jmespath,JMESPath,SQL and query languages,query_processing,True,Exact version/dialect and normative chapters still require audit,semantic_queries,False
+jsgf,JSGF,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+jslt,JSLT,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+json,JSON,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+jsonld,JSON-LD,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+json5,JSON5,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+jsonbareobject,JSONBareObject,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+jsonnet,Jsonnet,"Configuration, build and deployment",function_fragment,True,Exact version/dialect and normative chapters still require audit,,False
+jsx,JSX,Scripting and general application languages,embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+julia,Julia,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+jlcon,Julia console,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+juttle,Juttle,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+k,K,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+kal,Kal,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+kconfig,Kconfig,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+kmsg,Kernel log,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+koka,Koka,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+kotlin,Kotlin,JVM and managed object languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+kuin,Kuin,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+kql,Kusto,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+lasso,Lasso,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ldapconf,LDAP configuration file,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ldif,LDIF,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+lean,Lean,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+lean4,Lean4,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+less,LessCss,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+lighttpd,Lighttpd configuration file,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+lilypond,LilyPond,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+limbo,Limbo,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+liquid,liquid,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+literate-agda,Literate Agda,ML/Haskell and typed functional,none,False,Agda 2.6.4.3 MAlonzo/GHC compile/run,agda,False
+literate-cryptol,Literate Cryptol,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+literate-haskell,Literate Haskell,ML/Haskell and typed functional,embedded_source_subset,True,Haskell 2010; GHC 9.6.6,ghc,False
+literate-idris,Literate Idris,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+livescript,LiveScript,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+llvm,LLVM,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+llvm-mir,LLVM-MIR,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+llvm-mir-body,LLVM-MIR Body,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+logos,Logos,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+logtalk,Logtalk,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+lsl,LSL,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+lua,Lua,Scripting and general application languages,closed_source_subset,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+luau,Luau,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+macaulay2,Macaulay2,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+make,Makefile,"Configuration, build and deployment",program_expression_subset,True,Exact version/dialect and normative chapters still require audit,semantic_next_functions,False
+mako,Mako,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+mako-312,Mako,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+maple,Maple,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+maql,MAQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+markdown,Markdown,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+mask,Mask,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mason,Mason,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mathematica,Mathematica,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+matlab,Matlab,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+matlabsession,Matlab session,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+maxima,Maxima,"Array, numerical and statistical",function_fragment,True,Maxima 5.47.0 core interpreter,maxima,False
+mcfunction,MCFunction,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mcschema,MCSchema,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+meson,Meson,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mime,MIME,"Transcripts, logs and protocol messages",document_processing,True,Exact version/dialect and normative chapters still require audit,,False
+minid,MiniD,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+miniscript,MiniScript,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mips,MIPS,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+modelica,Modelica,"HDL, shaders and compute",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+modula2,Modula-2,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+trac-wiki,MoinMoin/Trac Wiki markup,"Markup, documents and styles",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mojo,Mojo,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+monkey,Monkey,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+monte,Monte,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+moocode,MOOCode,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+moonscript,MoonScript,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mosel,Mosel,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mozhashpreproc,mozhashpreproc,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mozpercentpreproc,mozpercentpreproc,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mql,MQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mscgen,Mscgen,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+doscon,MSDOS Session,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mupad,MuPAD,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mxml,MXML,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+myghty,Myghty,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+mysql,MySQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+nasm,NASM,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ncl,NCL,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+nemerle,Nemerle,.NET managed languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+nesc,nesC,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+nestedtext,NestedText,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,,False
+newlisp,NewLisp,Lisp and related languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+newspeak,Newspeak,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+nginx,Nginx configuration file,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+nimrod,Nimrod,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+nit,Nit,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+nixos,Nix,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+nodejsrepl,Node.js REPL console session,"Transcripts, logs and protocol messages",embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+notmuch,Notmuch,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+nsis,NSIS,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+numba_ir,Numba_IR,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+numpy,NumPy,Scripting and general application languages,embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+nusmv,NuSMV,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+objdump,objdump,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+objdump-nasm,objdump-nasm,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+objective-c,Objective-C,Systems and native imperative,function_fragment,True,"GNU Objective-C runtime, GCC 14.2.0; no Cocoa/Foundation",objc-gcc,False
+objective-c++,Objective-C++,Systems and native imperative,function_fragment,True,"GNU Objective-C++ runtime, GCC 14.2.0; no Cocoa/Foundation",objc-g++,False
+objective-j,Objective-J,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ocaml,OCaml,ML/Haskell and typed functional,function_fragment,True,Exact version/dialect and normative chapters still require audit,ocaml,False
+octave,Octave,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+odin,ODIN,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+omg-idl,OMG Interface Definition Language,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ooc,Ooc,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+opa,Opa,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+openedge,OpenEdge ABL,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+openscad,OpenSCAD,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+org,Org Mode,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+pacmanconf,PacmanConf,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pan,Pan,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+parasail,ParaSail,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pawn,Pawn,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pddl,PDDL,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+peg,PEG,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+perl,Perl,Scripting and general application languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+perl6,Perl6,Scripting and general application languages,function_fragment,True,Rakudo 2024.09 MoarVM backend; Raku formerly Perl 6,raku,False
+phix,Phix,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+php,PHP,Scripting and general application languages,closed_source_subset,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pig,Pig,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pike,Pike,Scripting and general application languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,pike,False
+pkgconfig,PkgConfig,"Configuration, build and deployment",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+plpgsql,PL/pgSQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pointless,Pointless,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pony,Pony,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+portugol,Portugol,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+psql,PostgreSQL console (psql),"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+postgres-explain,PostgreSQL EXPLAIN dialect,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+postgresql,PostgreSQL SQL dialect,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+postscript,PostScript,"Markup, documents and styles",stack_expression_subset,True,"Ghostscript 10.05.1 PostScript interpreter, native scalar arithmetic subset",gs,False
+pov,POVRay,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+powershell,PowerShell,Shell and automation languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pwsh-session,PowerShell Session,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+praat,Praat,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+procfile,Procfile,"Configuration, build and deployment",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+prolog,Prolog,"Logic, proof and verification",function_fragment,True,Exact version/dialect and normative chapters still require audit,swipl,False
+promela,Promela,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+promql,PromQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+properties,Properties,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,java,False
+protobuf,Protocol Buffer,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+prql,PRQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+psysh,PsySH console session for PHP,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ptx,PTX,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pug,Pug,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+puppet,Puppet,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pypylog,PyPy Log,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+python,Python,Scripting and general application languages,closed_source_subset,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+python2,Python 2.x,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+py2tb,Python 2.x Traceback,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+pycon,Python console session,"Transcripts, logs and protocol messages",embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+pytb,Python Traceback,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+py+ul4,Python+UL4,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+q,Q,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+qbasic,QBasic,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+qlik,Qlik,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+qml,QML,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+qvto,QVTO,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+racket,Racket,Lisp and related languages,function_fragment,True,"Racket 8.16, #lang racket",racket,False
+ragel,Ragel,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ragel-c,Ragel in C Host,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ragel-cpp,Ragel in CPP Host,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ragel-d,Ragel in D Host,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ragel-java,Ragel in Java Host,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ragel-objc,Ragel in Objective C Host,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ragel-ruby,Ragel in Ruby Host,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+raw-token-data,Raw token data,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+rconsole,RConsole,"Transcripts, logs and protocol messages",embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_next_functions,False
+rd,Rd,"Markup, documents and styles",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+reasonml,ReasonML,ML/Haskell and typed functional,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+rebol,REBOL,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+red,Red,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+redcode,Redcode,Esoteric languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+registry,reg,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+rego,Rego,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+rng-compact,Relax-NG Compact,"Grammars, interfaces and schemas",schema_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+rell,Rell,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+resourcebundle,ResourceBundle,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+restructuredtext,reStructuredText,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+rexx,Rexx,Scripting and general application languages,function_fragment,True,Regina 3.9.5 REXX interpreter,rexx,False
+rhtml,RHTML,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,ruby,False
+ride,Ride,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+rita,Rita,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+roboconf-graph,Roboconf Graph,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+roboconf-instances,Roboconf Instances,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+robotframework,RobotFramework,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+coq,Rocq Prover,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+spec,RPMSpec,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+rql,RQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+rsl,RSL,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ruby,Ruby,Scripting and general application languages,closed_source_subset,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+rbcon,Ruby irb session,"Transcripts, logs and protocol messages",embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+rust,Rust,Systems and native imperative,function_fragment,True,Exact version/dialect and normative chapters still require audit,rustc,False
+splus,S,"Array, numerical and statistical",function_fragment,True,Exact version/dialect and normative chapters still require audit,Rscript,False
+sarl,SARL,JVM and managed object languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+sas,SAS,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+sass,Sass,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+savi,Savi,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+scala,Scala,JVM and managed object languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,scala,False
+ssp,Scalate Server Page,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+scaml,Scaml,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+scdoc,scdoc,"Markup, documents and styles",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+scheme,Scheme,Lisp and related languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,guile,False
+scilab,Scilab,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+scss,SCSS,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+sed,Sed,Shell and automation languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+shen,Shen,Lisp and related languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+shexc,ShExC,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+sieve,Sieve,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+silver,Silver,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+singularity,Singularity,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+slash,Slash,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+slim,Slim,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+slurm,Slurm,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+smali,Smali,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+smalltalk,Smalltalk,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+sgf,SmartGameFormat,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+smarty,Smarty,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+smithy,Smithy,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+snbt,SNBT,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+snobol,Snobol,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+snowball,Snowball,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+solidity,Solidity,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+androidbp,Soong,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+sophia,Sophia,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+sp,SourcePawn,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+sparql,SPARQL,SQL and query languages,query_processing,True,Exact version/dialect and normative chapters still require audit,semantic_queries,False
+spice,Spice,"HDL, shaders and compute",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+sql,SQL,SQL and query languages,query_processing,True,Exact version/dialect and normative chapters still require audit,semantic_queries,False
+sql+jinja,SQL+Jinja,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+sqlite3,sqlite3con,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+squidconf,SquidConf,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+srcinfo,Srcinfo,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+stan,Stan,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+sml,Standard ML,ML/Haskell and typed functional,embedded_source_subset,True,"SML# 4.1.0 compiler, basis interface; not full SML conformance",smlsharp,False
+stata,Stata,"Array, numerical and statistical",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+supercollider,SuperCollider,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+swift,Swift,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+swig,SWIG,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+systemd,Systemd,"Configuration, build and deployment",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+systemverilog,systemverilog,"HDL, shaders and compute",function_fragment,True,Exact version/dialect and normative chapters still require audit,iverilog,False
+tablegen,TableGen,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tact,Tact,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tads3,TADS 3,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tal,Tal,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tap,TAP,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tasm,TASM,Assembly and intermediate representations,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tcl,Tcl,Scripting and general application languages,function_fragment,True,Exact version/dialect and normative chapters still require audit,semantic_more_functions,False
+tcsh,Tcsh,Shell and automation languages,program_expression_subset,True,Exact version/dialect and normative chapters still require audit,tcsh,False
+tcshcon,Tcsh Session,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tea,Tea,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+teal,teal,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+teratermmacro,Tera Term macro,Shell and automation languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+termcap,Termcap,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+terminfo,Terminfo,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+terraform,Terraform,"Configuration, build and deployment",document_processing,True,Exact version/dialect and normative chapters still require audit,,False
+tex,TeX,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+text,Text only,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+output,Text output,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ti,ThingsDB,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+thrift,Thrift,"Grammars, interfaces and schemas",schema_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+tid,tiddler,"Markup, documents and styles",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tlb,Tl-b,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tls,TLS Presentation Language,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+todotxt,Todotxt,"Markup, documents and styles",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+toml,TOML,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+trafficscript,TrafficScript,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tsql,Transact-SQL,SQL and query languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+treetop,Treetop,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tsx,TSX,Scripting and general application languages,embedded_source_subset,True,Exact version/dialect and normative chapters still require audit,semantic_embedded,False
+turtle,Turtle,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+twig,Twig,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+typescript,TypeScript,Scripting and general application languages,closed_source_subset,True,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+tnt,Typographic Number Theory,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+typoscript,TypoScript,"Markup, documents and styles",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+typoscriptcssdata,TypoScriptCssData,"Markup, documents and styles",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+typoscripthtmldata,TypoScriptHtmlData,"Markup, documents and styles",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+typst,Typst,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+ucode,ucode,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+ul4,UL4,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+unicon,Unicon,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+unixconfig,Unix/Linux config files,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+urbiscript,UrbiScript,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+urlencoded,urlencoded,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,,False
+usd,USD,"Markup, documents and styles",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+vala,Vala,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+vb.net,VB.net,.NET managed languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+vbscript,VBScript,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+vcl,VCL,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+vclsnippets,VCLSnippets,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+vctreestatus,VCTreeStatus,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+velocity,Velocity,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+verifpal,Verifpal,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+verilog,verilog,"HDL, shaders and compute",function_fragment,True,Exact version/dialect and normative chapters still require audit,iverilog,False
+vgl,VGL,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+vhdl,vhdl,"HDL, shaders and compute",function_fragment,True,Exact version/dialect and normative chapters still require audit,ghdl,False
+vim,VimL,Shell and automation languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+visualprolog,Visual Prolog,"Logic, proof and verification",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+visualprologgrammar,Visual Prolog Grammar,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+vue,Vue,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+vyper,Vyper,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+wdiff,WDiff,"Transcripts, logs and protocol messages",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+webidl,Web IDL,"Grammars, interfaces and schemas",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+wast,WebAssembly,Assembly and intermediate representations,function_fragment,True,Exact version/dialect and normative chapters still require audit,,False
+wgsl,WebGPU Shading Language,"HDL, shaders and compute",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+whiley,Whiley,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+wikitext,Wikitext,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_next_processing,False
+wowtoc,World of Warcraft TOC,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+wren,Wren,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+xpp,X++,BASIC and business procedural,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+x10,X10,JVM and managed object languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+xml,XML,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+xml+cheetah,XML+Cheetah,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+xml+django,XML+Django/Jinja,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+xml+evoque,XML+Evoque,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+xml+lasso,XML+Lasso,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+xml+mako,XML+Mako,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+xml+mako-585,XML+Mako,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+xml+myghty,XML+Myghty,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+xml+php,XML+PHP,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+xml+ruby,XML+Ruby,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+xml+smarty,XML+Smarty,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+xml+ul4,XML+UL4,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,,False
+xml+velocity,XML+Velocity,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+xorg.conf,Xorg,"Configuration, build and deployment",none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+xquery,XQuery,SQL and query languages,query_processing,True,Exact version/dialect and normative chapters still require audit,semantic_queries,False
+xslt,XSLT,SQL and query languages,query_processing,True,Exact version/dialect and normative chapters still require audit,semantic_queries,False
+xtend,Xtend,JVM and managed object languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+extempore,xtlang,Lisp and related languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+xul+mozpreproc,XUL+mozpreproc,Templates and composite sources,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+yaml,YAML,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,semantic_documents,False
+yaml+jinja,YAML+Jinja,Templates and composite sources,template_processing,True,Exact version/dialect and normative chapters still require audit,semantic_templates,False
+yang,YANG,"Grammars, interfaces and schemas",schema_processing,True,Exact version/dialect and normative chapters still require audit,,False
+yara,YARA,"Logic, proof and verification",query_processing,True,Exact version/dialect and normative chapters still require audit,,False
+zeek,Zeek,Domain-specific and classification pending,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+zephir,Zephir,Scripting and general application languages,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+zig,Zig,Systems and native imperative,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False
+zone,Zone,"Markup, documents and styles",document_processing,True,Exact version/dialect and normative chapters still require audit,,False
+usl,USL,USL host language,none,False,Exact version/dialect and normative chapters still require audit,Unresolved upstream host; research/install public compatible implementation,False

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "complete_record_CAS_hashes_checked": 2428,
+  "source_bytes_identical": true,
+  "native_runtime_snapshot_identical": true,
+  "relocated_dependency_context_changed": true,
+  "relocated_checkpoint_requires_fresh_qualification": true,
+  "checkpoint_resume_executed": false,
+  "native_execution_observations_replayed": 0,
+  "current_source_matching_context_resume_verified_separately": true
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "usl.unified.worker.integration.qualification.v1",
+  "passed": true,
+  "all607_audits_performed": true,
+  "actual_parallel_evaluators": 4,
+  "first_round_partial_jobs": 2428,
+  "first_round_backend_profiles": 187,
+  "first_round_semantic_native_executions": 1648,
+  "all_result_CAS_hashes_verified": true,
+  "restart_native_results_replayed": 0,
+  "restart_jobs_reexecuted": 0,
+  "full_objective_complete": false
+}

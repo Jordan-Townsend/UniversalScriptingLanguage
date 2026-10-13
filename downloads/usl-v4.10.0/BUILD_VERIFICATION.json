@@ -1,0 +1,165 @@
+{
+  "schema": "usl.download.verified.v10",
+  "version": "4.10.0",
+  "qualification": {
+    "book_pages": 293,
+    "checkpoint_native_replays": 0,
+    "code_comparisons": 816,
+    "current_Linux_host_verified": true,
+    "current_case_result_CAS_verified": true,
+    "exact_reference_stages": 36,
+    "fresh_backend_case_checks": 377,
+    "fresh_backend_profiles": 187,
+    "fresh_native_code_program_executions": 1648,
+    "multiplex_seconds": 16.909714718989562,
+    "multiplex_workers": 4,
+    "new_feature_tests": 36,
+    "new_installation_or_other_OS_verified": false,
+    "new_profile_ids_passed": 34,
+    "processing_generated_USL_executions": 16177,
+    "processing_native_worker_programs": 265,
+    "processing_original_engine_evaluations": 16207,
+    "test_modules": 100,
+    "tests_enumerated": 946,
+    "tests_executed": 937,
+    "tests_skipped": 9,
+    "worker_jobs": 2428
+  },
+  "scope": {
+    "all_scoped_ids": 183,
+    "category_processing_profiles": 107,
+    "entity_tracks_complete": 0,
+    "extra_ids": 1,
+    "full_objective_complete": false,
+    "full_standard_ids_remaining": 606,
+    "full_standards_qualified": 0,
+    "original_ids": 606,
+    "original_ids_without_any_scope": 423,
+    "typed_code_profiles": 76
+  },
+  "clean_extraction_manifest": {
+    "verified": true,
+    "version": "4.10.0",
+    "expected_files": 2888,
+    "errors": [],
+    "manifest_signed": false
+  },
+  "clean_extraction_new_tests": {
+    "passed": true,
+    "executed": 36,
+    "skipped": 0
+  },
+  "clean_new_profile_round": {
+    "schema": "usl.multiplex.profile-round.v1",
+    "original_catalog": 606,
+    "previous_scoped_ids": 149,
+    "candidate_count": 34,
+    "active_worker_limit": 4,
+    "completed": 34,
+    "passed_new_profiles": 34,
+    "failed_profiles": 0,
+    "remaining_original_ids_without_scoped_profile": 423,
+    "pending_candidate_ids": 0,
+    "elapsed_seconds": 22.871264127999893,
+    "provisional_validation_only_ETA_seconds": null,
+    "full_606_objective_ETA_seconds": null,
+    "ETA_excludes_implementation_and_host_blocks": true,
+    "native_observations_replayed": 0,
+    "source_identity": "701c351812b571c3d75033bee78a8fbfeb23c6b324f7a8d59a6666dea7b12fa7",
+    "source_unchanged_during_run": true,
+    "round_finished": true,
+    "passed": true,
+    "all_complete_language_standards_qualified": false
+  },
+  "archive_restoration": {
+    "passed": true,
+    "source_root": "/workspace/usl-v4.10.0-clean-test",
+    "archives": [
+      {
+        "archive": "USL-V4.10.0-WORKER-CHECKPOINTS.tar.xz",
+        "restored_files": 6883,
+        "every_file_restored_byte_exact": true
+      },
+      {
+        "archive": "USL-V4.10.0-HISTORICAL-EVIDENCE.tar.xz",
+        "restored_files": 7893,
+        "every_file_restored_byte_exact": true
+      }
+    ],
+    "checkpoint_resume_not_executed_by_restorer": true
+  },
+  "relocated_checkpoint_read_only_audit": {
+    "passed": true,
+    "complete_record_CAS_hashes_checked": 2428,
+    "source_bytes_identical": true,
+    "native_runtime_snapshot_identical": true,
+    "relocated_dependency_context_changed": true,
+    "relocated_checkpoint_requires_fresh_qualification": true,
+    "checkpoint_resume_executed": false,
+    "native_execution_observations_replayed": 0,
+    "current_source_matching_context_resume_verified_separately": true
+  },
+  "matching_original_source_checkpoint_resume": {
+    "schema": "usl.unified.worker.integration.qualification.v1",
+    "passed": true,
+    "all607_audits_performed": true,
+    "actual_parallel_evaluators": 4,
+    "first_round_partial_jobs": 2428,
+    "first_round_backend_profiles": 187,
+    "first_round_semantic_native_executions": 1648,
+    "all_result_CAS_hashes_verified": true,
+    "restart_native_results_replayed": 0,
+    "restart_jobs_reexecuted": 0,
+    "full_objective_complete": false
+  },
+  "prior_archives_unchanged": {
+    "4.5.0": "413ea5b8ec2e07e432249ae3a4ce4bd9b62939830b35473fff1de8536cd1a12b",
+    "4.6.0": "06a64986032e8aa25b778541219b64df70c2c56167410624ace7c68d0b3a3da7",
+    "4.7.0": "05e53d8eaa3f9cc26d1bb0e493cf05e4d62eff616e44b556055b60c722ee2073",
+    "4.8.0": "224c1e184fc415942316e12df80791b9245d97e55497b70f589827e9ca138d6c",
+    "4.9.0": "7f4fef6786867ca0e6dfe4eed11fd0825d9248b3ad4794216c1ae8f2de5a2315"
+  },
+  "onboarding_draft": {
+    "revision": 10,
+    "install_script_saved": true,
+    "start_skill_saved": true,
+    "published": false,
+    "fresh_task_verified": false
+  },
+  "canonical_source_admission_counterexamples": {
+    "counterexample": "Fixed COBOL expression moved to column1 remained arithmetic in the authored parser, but the native compiler rejected its indicator column. Adjacent CoffeeScript increment tokens also need their native meaning preserved.",
+    "repair": "Require exact reproduction from the admitted canonical arithmetic AST and source grammar before proof or translation.",
+    "regression_cases": [
+      "test_fixed_source_in_wrong_native_columns_rejected",
+      "test_native_increment_tokens_cannot_be_read_as_arithmetic"
+    ],
+    "before_invalid_fixed_source_admitted": true,
+    "before_native_compiler_rejected": true,
+    "qualification_invalidated": true
+  },
+  "table_browser": {
+    "rows": 607,
+    "collapsed": 0,
+    "expanded": 23,
+    "searchRows": 1,
+    "searchCount": "1 IDs",
+    "actionIds": 607,
+    "actionExpanded": 607,
+    "actionCollapsed": 0,
+    "errors": [],
+    "passed": true,
+    "table_HTML_sha256": "7a9fa9e79b1ea340296678802024906121ab5fd76d300cb7571f136c1d49f0ff",
+    "action_HTML_sha256": "1a6c8527ce3406a4c8c250a452b764fd827dc63a2235db071a14a031c0244760"
+  },
+  "additional_learned_transfer": {
+    "passed": true,
+    "profile_count": 15,
+    "fresh_native_program_executions": 60,
+    "source_unchanged_during_run": true,
+    "native_observations_replayed": 0,
+    "language_grammars_learned": false,
+    "general_self_study_or_human_equivalence": false,
+    "runner_sha256": "fd1e1add3b25f71180021ec77af7e7395aa9bd3b153695a73829c41945aa8403"
+  },
+  "full_objective_complete": false
+}

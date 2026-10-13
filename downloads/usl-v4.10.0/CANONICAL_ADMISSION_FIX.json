@@ -1,0 +1,11 @@
+{
+  "counterexample": "Fixed COBOL expression moved to column1 remained arithmetic in the authored parser, but the native compiler rejected its indicator column. Adjacent CoffeeScript increment tokens also need their native meaning preserved.",
+  "repair": "Require exact reproduction from the admitted canonical arithmetic AST and source grammar before proof or translation.",
+  "regression_cases": [
+    "test_fixed_source_in_wrong_native_columns_rejected",
+    "test_native_increment_tokens_cannot_be_read_as_arithmetic"
+  ],
+  "before_invalid_fixed_source_admitted": true,
+  "before_native_compiler_rejected": true,
+  "qualification_invalidated": true
+}

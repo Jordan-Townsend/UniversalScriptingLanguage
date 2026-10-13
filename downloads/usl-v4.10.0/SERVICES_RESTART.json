@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "health": {
+    "status": "ok",
+    "version": "4.10.0",
+    "port": 8777
+  },
+  "language_total": 606,
+  "job": {
+    "id": "3617064037c94582ab",
+    "kind": "run",
+    "status": "completed",
+    "request": {
+      "source": "print(\"v410 final source\")\nprint(7 * 8)\n"
+    },
+    "result": {
+      "output": "v410 final source\n56\n",
+      "variables": {},
+      "operations": 8,
+      "elapsed_ms": 0.036
+    },
+    "created": 1791932568.6744192,
+    "updated": 1791932568.6804137
+  },
+  "source": "/workspace/usl-v4.10.0",
+  "service_restart_functionally_verified": true
+}

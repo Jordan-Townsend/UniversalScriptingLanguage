@@ -1,0 +1,20 @@
+USL 4.10 — prepared Linux host qualified
+
+Extract the source ZIP. Run python tools/verify_release.py.
+Install requirements-catalog.txt, requirements-engines.txt, requirements-batch-v49.txt and requirements-batch-v410.txt. Neural regressions need requirements-neural.txt and USL_NEURAL_PYTHON. Actual upstream native compilers/runtimes remain host prerequisites; they are not inside the ZIP. Install locked CoffeeScript/Pug/Sass/Less from examples/v410_profiles/node-package*.json with npm ci and set USL_V410_NODE_ROOT to that npm directory. Retain the v4.9 Handlebars host described by its guide.
+
+In this prepared cloud: source /workspace/.onboarding/activate-usl.sh
+python -m unittest tests.test_v410_native_profiles tests.test_v410_processing_profiles
+python -m tools.run_profile_multiplex --workers 4 --i-allow-execution
+python -m tools.build_language_action_plan
+python -m usl_systems function-verify examples/v410_profiles/wast.source --language wast --target javascript --function transform --contract examples/v410_profiles/intent.json --invocations examples/v410_profiles/invocations.json --i-allow-execution --output /tmp/usl-wasm-proof.json
+python -m usl_systems workers-run --file examples/accelerated_language_workers.usl --data /tmp/usl-fresh-v410-workers --workers 4 --offline --i-allow-execution
+Exit2 means scoped operational checks passed while the complete objective is unfinished;1 failed checks,3 cancellation. Removing --offline changes configuration identity and requires fresh reference/native qualification. Matching-context checkpoint reports trigger zero new executions; they never replay native effects/observations.
+python tools/run_isolated_regressions.py
+Run regressions after catalog work to retain the35-second per-module budgets.
+
+Open docs/UNIFIED_WORKER_STATUS.html and docs/ALL_LANGUAGE_ACTION_PLAN.html locally. The new-only multiplex round uses149 prior scoped IDs and457 uncovered as a fixed baseline; reruns/subsets do not add duplicate coverage. Use the complete worker table for all current profiles. Processing scopes and code profiles are distinct.
+
+Optional checkpoint and historical-evidence tar.xz companions restore archived files into the source root. Every archive member has an indexed size and hash; restore only safe relative regular-file paths. Source relocation changes owned implementation-path dependency identity and requires fresh qualification; only subsequent unchanged-context resumes execute zero new native actions. Fresh tests work without checkpoint restoration. Historical evidence and embedded earlier ZIPs are separated to keep source downloads below GitHub's100MB file limit; prior immutable sources/download branches remain unchanged.
+
+Optional freshly tested learning/transfer addon (download it beside this guide): python LEARNED_NATIVE_TRANSFER.py --source-root /path/to/extracted/source --output learned_transfer.json --workers 4 --i-allow-execution. It discovers one bounded affine .usl task using a new sealed holdout and verifies its independent intent through all15 new native profiles, with60 fresh native programs. It does not learn new language grammars or qualify general self-study/human abilities.
