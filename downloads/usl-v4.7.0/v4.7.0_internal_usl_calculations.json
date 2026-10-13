@@ -1,0 +1,48 @@
+{
+  "schema": "usl.internal.workload-calculation.v1",
+  "passed": true,
+  "actual_usl_source": "// Build accounting from observed reports; these calculations award no semantics.\nlet data = workload_inputs()\nassert data[\"catalog_original_entries\"] == 606\nlet source_profiles = 0\nlet function_profiles = 0\nfor mode in data[\"profile_modes\"]:\n    if mode == \"closed_source_subset\":\n        source_profiles += 1\n    else:\n        assert mode == \"function_fragment\"\n        function_profiles += 1\nlet scoped_profiles = source_profiles + function_profiles\nlet logical_partial_jobs = data[\"total_entries\"] * 4\nlet original_ids_without_any_typed_profile = 606 - scoped_profiles\nlet original_ids_without_closed_source_profile = 606 - source_profiles\nlet original_ids_without_native_subset_evidence = 606 - data[\"native_subset_union\"]\nlet normative_language_obligations = 606 * data[\"obligation_dimensions\"]\nlet admitted_workers = min(data[\"requested_workers\"], max(1, int(data[\"cpu_effective\"])))\nassert logical_partial_jobs == data[\"observed_partial_jobs\"]\nassert admitted_workers == data[\"observed_physical_workers\"]\nassert scoped_profiles <= data[\"catalog_original_entries\"]\nassert data[\"fresh_native_executions\"] == 2 * data[\"fresh_differentials\"]\nprint(\"closed source profiles\", source_profiles)\nprint(\"native function profiles\", function_profiles)\nprint(\"remaining without any typed profile\", original_ids_without_any_typed_profile)\nprint(\"remaining without native subset evidence\", original_ids_without_native_subset_evidence)\nprint(\"normative obligations retained\", normative_language_obligations)\nprint(\"resource-admitted workers\", admitted_workers)\n",
+  "source_sha256": "b8a5a721acc7ed5990ece5f88c1c096ebda60a1cd80525928db20252ef70eb72",
+  "inputs": {
+    "catalog_original_entries": 606,
+    "total_entries": 607,
+    "profile_modes": [
+      "function_fragment",
+      "function_fragment",
+      "function_fragment",
+      "function_fragment",
+      "function_fragment",
+      "closed_source_subset",
+      "closed_source_subset",
+      "closed_source_subset",
+      "closed_source_subset",
+      "closed_source_subset",
+      "function_fragment",
+      "closed_source_subset"
+    ],
+    "native_subset_union": 159,
+    "obligation_dimensions": 18,
+    "observed_partial_jobs": 2428,
+    "requested_workers": 4,
+    "cpu_effective": 4.0,
+    "observed_physical_workers": 4,
+    "fresh_native_executions": 792,
+    "fresh_differentials": 396
+  },
+  "outputs": {
+    "source_profiles": 6,
+    "function_profiles": 6,
+    "scoped_profiles": 12,
+    "logical_partial_jobs": 2428,
+    "original_ids_without_any_typed_profile": 594,
+    "original_ids_without_closed_source_profile": 600,
+    "original_ids_without_native_subset_evidence": 447,
+    "normative_language_obligations": 10908,
+    "admitted_workers": 4
+  },
+  "stdout": "closed source profiles 6\nnative function profiles 6\nremaining without any typed profile 594\nremaining without native subset evidence 447\nnormative obligations retained 10908\nresource-admitted workers 4\n",
+  "interpreter_operations": 217,
+  "wall_ms": 0.149,
+  "input_report_sha256": "e7c9b8009e64f29a48e8ccdf084f5d71981d2f4e26561c69399d589e7dbd410d",
+  "integer_accounting_only_no_semantic_guarantees_awarded": true
+}

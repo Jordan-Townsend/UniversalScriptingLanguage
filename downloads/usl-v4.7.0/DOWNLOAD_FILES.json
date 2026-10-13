@@ -1,0 +1,86 @@
+{
+  "BUILD_VERIFICATION.json": {
+    "sha256": "fb284f532e5b4835403d65a1fee7cf5af2a5beb56bd61824707cb76997dd6d33",
+    "bytes": 3128
+  },
+  "CONTINUE_FROM_HERE_V4.7.md": {
+    "sha256": "99319c4bed3295ba42ba7ebbaaee3b27aa98e60e7ee7bd91e3718d099326c2be",
+    "bytes": 2732
+  },
+  "LUA_SEMANTIC_PROFILE.md": {
+    "sha256": "1c4982095486eeac99d5b6c80b12b23cc6abb4104a3977918f4e70565935811b",
+    "bytes": 3901
+  },
+  "README.md": {
+    "sha256": "d22decc17b913c301702cded3ae3e91534f64187981ab0a8c3dc5d3fbfec9431",
+    "bytes": 4009
+  },
+  "TESTING-V4.7.txt": {
+    "sha256": "1213b424483fc4999a551627a354e10ca8487a1446ba4135213141d81ae60960",
+    "bytes": 3045
+  },
+  "UNIFIED_WORKER_STATUS.csv": {
+    "sha256": "f1c11b2d83f95dd0ed2c03b2bcae95562955c5490e05f88b60d754d29bec5f67",
+    "bytes": 298865
+  },
+  "UNIFIED_WORKER_STATUS.html": {
+    "sha256": "82591c1d78585be649367626b256a43a570853da88d122ff2791b4688abb5261",
+    "bytes": 370802
+  },
+  "UNIFIED_WORKER_STATUS.json": {
+    "sha256": "814f071da14756169e77d6515075e8fdc3d89447d95d732f36e0ebb7fb53df6e",
+    "bytes": 1595028
+  },
+  "USL-UNIVERSAL-SYSTEMS-V4.7.0-FULL-SOURCE.zip": {
+    "sha256": "05e53d8eaa3f9cc26d1bb0e493cf05e4d62eff616e44b556055b60c722ee2073",
+    "bytes": 96354614
+  },
+  "USL-UNIVERSAL-SYSTEMS-V4.7.0-FULL-SOURCE.zip.sha256": {
+    "sha256": "793164e5e2ad1a076bf92d5ba7f41141dfb09b3cfefb9290fa994a1e011081e3",
+    "bytes": 111
+  },
+  "V4.7_BUILD_STATUS.md": {
+    "sha256": "ab863f474e00f30861bc83c7ec0a0c73083a8c3b1dc5089aae8479974f5dd719",
+    "bytes": 4976
+  },
+  "V4.7_ENTITY_PROGRAM_DISCOVERY.md": {
+    "sha256": "c31ebff50b97c430c637317f5b8c012b95c3ad7964a318787865765466e9d4bf",
+    "bytes": 7536
+  },
+  "V4.7_INTENT_AND_DISCOVERED_NATIVE.md": {
+    "sha256": "5e01f35784e06c114167c44a27a60268168a4e0e3c22a3a238ebe3e878050452",
+    "bytes": 3015
+  },
+  "V4.7_NATIVE_FUNCTION_PROFILES.md": {
+    "sha256": "77c358ecc288e02cab168e46f3a58330429773219db64b2f58c123b12f515550",
+    "bytes": 2315
+  },
+  "V4.7_OWNED_NATIVE_ABI.md": {
+    "sha256": "a2ee80571401513236eb5aea34e288e9805c676ccec898b7e4ad31ab87936445",
+    "bytes": 5308
+  },
+  "V4.7_PHP_SEMANTIC_PROFILE.md": {
+    "sha256": "ffdee866151b2fa394bc04c0d270e029dd6ad30e77ec5aa347133faa5e46e87f",
+    "bytes": 5518
+  },
+  "V4.7_SENSORY_GROUNDING.md": {
+    "sha256": "7f3ff8ec6f827bb0f09766a41e0ed28f28cac36a0050e7caf867d9353ddce10a",
+    "bytes": 6285
+  },
+  "V4.7_TYPESCRIPT_SEMANTICS.md": {
+    "sha256": "41aa6d8065b3e436b4c85ef39819a6707785e6badcd3ef13efaf0b4e67244fde",
+    "bytes": 8692
+  },
+  "integration_qualification.json": {
+    "sha256": "8116a2682fd6e35b2a2e53f5bb7fbf2fddcf2984acf60b65338533b4dc5d5a85",
+    "bytes": 428
+  },
+  "v4.7.0_internal_usl_calculations.json": {
+    "sha256": "f7b55c387a0ca1c449522d14ba21a01e52d5e6e3f55d3c7840b33939b1ce6184",
+    "bytes": 3322
+  },
+  "v4.7.0_isolated_regressions.json": {
+    "sha256": "06cdbb65ca9e5346e166a7fbf393be8a79b3ab25b613ffcffa0200e995943a61",
+    "bytes": 40080
+  }
+}

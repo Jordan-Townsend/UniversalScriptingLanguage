@@ -1,0 +1,104 @@
+{
+  "schema": "usl.download.verification.v7",
+  "version": "4.7.0",
+  "zip_sha256": "05e53d8eaa3f9cc26d1bb0e493cf05e4d62eff616e44b556055b60c722ee2073",
+  "zip_bytes": 96354614,
+  "regression": {
+    "count_files": 91,
+    "tests": 850,
+    "tests_executed": 841,
+    "skipped": 9,
+    "passed": true,
+    "source_unchanged_during_run": true,
+    "source_snapshot_sha256": "1303802f9b226dd1992ba5296eb696e81cc0a5baf87ff36d667ace97a6a238ac"
+  },
+  "clean_extraction": {
+    "all_manifest_files_verified": true,
+    "manifest_files": 13969,
+    "new_feature_tests_passed": 131,
+    "learned_usl_native_supervisor_executed": true,
+    "native_owned_ABI_sanitizers_passed": true,
+    "existing_trained_model_sensory_fixture_bridge_passed": true,
+    "actual_browser_table_check": {
+      "passed": true,
+      "rows": 607,
+      "closed_source_profiles": 6,
+      "function_profiles": 6,
+      "families": 23,
+      "actual_Chromium": true
+    }
+  },
+  "fresh_workers": {
+    "logical_partial_jobs": 2428,
+    "physical_workers": 4,
+    "observed_peak_evaluator_processes": 4,
+    "fresh_backend_profiles_passed": 105,
+    "fresh_backend_cases_passed": 420,
+    "fresh_semantic_source_languages_passed": [
+      "c",
+      "cpp",
+      "csharp",
+      "go",
+      "java",
+      "javascript",
+      "lua",
+      "php",
+      "python",
+      "ruby",
+      "rust",
+      "typescript"
+    ],
+    "semantic_profile_modes": {
+      "c": "function_fragment",
+      "cpp": "function_fragment",
+      "csharp": "function_fragment",
+      "go": "function_fragment",
+      "java": "function_fragment",
+      "javascript": "closed_source_subset",
+      "lua": "closed_source_subset",
+      "php": "closed_source_subset",
+      "python": "closed_source_subset",
+      "ruby": "closed_source_subset",
+      "rust": "function_fragment",
+      "typescript": "closed_source_subset"
+    },
+    "fresh_semantic_differentials": 396,
+    "fresh_semantic_native_executions": 792,
+    "fresh_parser_case_pairs_passed": 46,
+    "pure_artifact_cache_hits": 1199,
+    "pure_artifact_cache_builds": 0,
+    "native_execution_results_replayed": 0,
+    "elapsed_seconds": 142.28075466200244,
+    "job_states": {
+      "observed": 607,
+      "blocked": 1655,
+      "passed": 166
+    },
+    "complete_graph_join_verified": true
+  },
+  "profile_counts": {
+    "closed_source_subsets": 6,
+    "native_function_fragments": 6,
+    "without_any_typed_profile": 594,
+    "without_closed_source_profile": 600,
+    "full_standards_qualified": 0
+  },
+  "entity_human_equivalence_complete": false,
+  "physical_sensor_modalities_qualified": [],
+  "full_objective_complete": false,
+  "historical_state_packaging": {
+    "archive": "prior_releases/v4.6.0_worker_evidence.tar.xz",
+    "every_file_restored_byte_exact": true,
+    "historical_files": 8137,
+    "current_v47_state_unpacked": true
+  },
+  "original_books_preserved": {
+    "pages": 293,
+    "requirements": 131,
+    "exact_reference_stages": 36
+  },
+  "current_instance_services_verified": true,
+  "cloud_draft_saved": true,
+  "cloud_draft_applied_or_published": false,
+  "new_machine_or_other_OS_qualified": false
+}

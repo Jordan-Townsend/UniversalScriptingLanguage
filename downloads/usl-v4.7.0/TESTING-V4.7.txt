@@ -1,0 +1,23 @@
+USL 4.7 testing — current Linux/POSIX host qualified
+
+1. Extract the flat-root full-source ZIP into a new directory.
+2. Run python tools/verify_release.py to verify every bundled file hash.
+3. Install requirements-catalog.txt and requirements-engines.txt and the native tools reported by doctor. For neural checks use requirements-neural.txt and requirements-multimodal.txt where supplied. The bundle contains source, models and evidence; installed native binaries are not bundled.
+4. In this prepared cloud instance: source /workspace/.onboarding/activate-usl.sh
+5. Run python -m usl_systems run examples/hello.usl
+6. Run python -m unittest discover -s tests -p 'test_v47_*.py'
+7. Run python -m tools.qualify_translation_intent
+8. Run python -m tools.qualify_native_scalar_frontends
+9. Run python -m tools.qualify_entity_discovery
+10. Run python -m tools.qualify_owned_abi --i-allow-native
+11. Run python -m tools.qualify_sensory_grounding --output /tmp/usl-sense-test --bundle test_results/v4.5.0_multimodal with the neural interpreter; the prepared cloud provides USL_NEURAL_PYTHON.
+12. Run python -m usl_systems discovery-program examples/entity_discovery_native.usl --imports-file examples/entity_discovery_native_imports.json --data /tmp/usl-new-discovery-test --i-allow-execution
+    Use a new data directory for a new sealed-suite demonstration; reusing consumed holdouts is deliberately refused.
+13. Run python -m usl_systems workers-run --file examples/accelerated_language_workers.usl --data /tmp/usl-new-worker-test --workers 4 --i-allow-execution
+    Exit 2 deliberately means the operational scoped checks passed and the complete 606/entity objective remains unfinished. Exit 1 means failed checks; exit 3 means cancellation. Inspect job states and fresh counts. Matching checkpoints perform no new native execution; --fresh-native requests new execution.
+14. Run python tools/run_isolated_regressions.py for all modules and inspect tests executed, skips, failures and source identity in test_results/v4.7.0_isolated_regressions.json.
+15. Open docs/UNIFIED_WORKER_STATUS.html locally for searchable collapsible families. Read V4.7_BUILD_STATUS.md and every profile scope before interpreting coverage.
+
+TypeScript requires actual tsc --strict plus Node; PHP requires php; Lua requires genuine 64-bit-integer Lua 5.4. Native function profiles require GCC/G++, Go, Rust, Java javac/java and Mono mcs/mono as appropriate. Missing runtime/platform inputs stay blocked. The general full-standard/entity objective is not certified. Tests were performed on this host and a clean ZIP extraction, not on a newly installed machine or another OS.
+
+Historical v4.6 worker state is stored losslessly under prior_releases/v4.6.0_worker_evidence.tar.xz (or .gz if selected by measured byte cost). docs/HISTORICAL_WORKER_ARCHIVE_V4.7.json records every restored file hash. To inspect that state, extract the listed tar archive into a separate directory. Current v4.7 worker state remains directly available; earlier public ZIPs remain unchanged.
