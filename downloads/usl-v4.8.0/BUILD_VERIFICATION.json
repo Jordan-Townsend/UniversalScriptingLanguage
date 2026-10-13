@@ -1,0 +1,111 @@
+{
+  "schema": "usl.download.build-verification.v8",
+  "version": "4.8.0",
+  "source_snapshot_sha256": "b3e4bea73f2448120d53d3909fa6ed060e5a03a5c8bc4e11a46875fd828e7f35",
+  "qualification": {
+    "current_Linux_host_qualified": true,
+    "discovered_skill_family_languages": 16,
+    "discovered_skill_fresh_native_programs": 68,
+    "fresh_backend_checks": 432,
+    "fresh_backend_profiles": 108,
+    "fresh_parser_pairs": 47,
+    "fresh_semantic_comparisons": 556,
+    "fresh_semantic_native_executions": 1112,
+    "full_worker_round_seconds": 223.07752937798796,
+    "large_evidence_CAS_segments_bounded_and_exact": true,
+    "new_family_comparisons": 160,
+    "new_family_independent_invocation_observations": 1728,
+    "new_family_native_executions": 320,
+    "new_feature_tests": 27,
+    "new_machine_or_other_OS_qualified": false,
+    "physical_workers": 4,
+    "restart_native_program_replays": 0,
+    "test_modules": 96,
+    "tests_enumerated": 877,
+    "tests_executed": 868,
+    "tests_failed": 0,
+    "tests_skipped": 9,
+    "worker_partial_jobs": 2428
+  },
+  "scope": {
+    "all_scoped_typed_profiles": 28,
+    "closed_source_profiles": 6,
+    "entity_tracks_complete": 0,
+    "full_objective_complete": false,
+    "full_standards_qualified": 0,
+    "historical_or_current_native_subset_ids": 159,
+    "native_function_profiles": 22,
+    "original_catalog": 606,
+    "original_ids_without_any_typed_profile": 578,
+    "original_ids_without_closed_source_profile": 600,
+    "physical_sensor_modalities_qualified": [],
+    "registered_extra": 1
+  },
+  "clean_extraction_manifest": {
+    "verified": true,
+    "version": "4.8.0",
+    "expected_files": 2894,
+    "errors": [],
+    "manifest_signed": false
+  },
+  "clean_extraction_tests": {
+    "passed": true,
+    "executed": 27,
+    "skipped": 0
+  },
+  "clean_extraction_original_native_and_generated_intent_passed": true,
+  "clean_extraction_learned_usl_native_transfer_passed": true,
+  "checkpoint_restoration": {
+    "passed": true,
+    "restored_files": 34182,
+    "archive_sha256": "243d1b148d0ee56b7aa6c9921f1b55e30500bcd5e5d1d76ccc0661c8126e6d98",
+    "every_file_hash_verified": true,
+    "seconds": 6.17536318700877
+  },
+  "checkpoint_resume": {
+    "passed": true,
+    "checkpoint_resume_fresh_jobs": 0,
+    "checkpoint_resume_fresh_native_executions": 0,
+    "native_observations_replayed": 0,
+    "verified_case_records": 2428,
+    "complete_evidence_bytes_restored": 19242642,
+    "source_identity": "633026f09ed90f581e48a83c50b63b1984533e6911559614e378c52d3f267285"
+  },
+  "interactive_language_table": {
+    "passed": true,
+    "rows": 607,
+    "closed_source_profiles": 6,
+    "function_profiles": 22,
+    "families": 23,
+    "actual_Chromium": true
+  },
+  "service_functional_request": {
+    "passed": true,
+    "health": {
+      "status": "ok",
+      "version": "4.8.0",
+      "port": 8775
+    },
+    "catalog_total": 606,
+    "actual_fresh_hello_output": "Hello from USL Universal Systems\n55\n"
+  },
+  "owned_service_and_watcher_restart": {
+    "passed": true,
+    "service_version": "4.8.0",
+    "watcher_registered_handlers_ready": true,
+    "restart_jobs_executed": 0,
+    "restart_native_results_replayed": 0,
+    "all_other_service_ownership_preserved": true
+  },
+  "onboarding_config_draft": {
+    "revision": 8,
+    "install_script_saved": true,
+    "start_skill_saved": true,
+    "configuration_published": false,
+    "new_task_restoration_verified": false
+  },
+  "earlier_4_5_4_6_4_7_archive_checksums_unchanged": true,
+  "current_Linux_host_and_clean_extraction_verified": true,
+  "fresh_installation_or_other_OS_verified": false,
+  "full_606_and_entity_objective_complete": false
+}

@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checkpoint_resume_fresh_jobs": 0,
+  "checkpoint_resume_fresh_native_executions": 0,
+  "native_observations_replayed": 0,
+  "verified_case_records": 2428,
+  "complete_evidence_bytes_restored": 19242642,
+  "source_identity": "633026f09ed90f581e48a83c50b63b1984533e6911559614e378c52d3f267285"
+}

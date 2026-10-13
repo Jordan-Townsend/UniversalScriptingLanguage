@@ -1,0 +1,19 @@
+# USL 4.8 runnable source and checkpoint downloads
+
+Sixteen additional original catalog IDs now have bounded native function-fragment translation with real AST parsing, typed IR, guarded integer intent proofs and fresh native tests: Kotlin, Scala, D, Groovy, Haskell, OCaml, Clojure, Common Lisp, Scheme, Racket, Elixir, Erlang, Fortran, Ada, Perl and Delphi (Free Pascal Delphi mode).
+
+Download [the full source ZIP](USL-UNIVERSAL-SYSTEMS-V4.8.0-FULL-SOURCE.zip?raw=true) and [its checksum](USL-UNIVERSAL-SYSTEMS-V4.8.0-FULL-SOURCE.zip.sha256). Follow [TESTING.txt](TESTING.txt). The ZIP contains runnable source, tests, model/book assets and complete current case reports. Native binaries and Python/Node dependencies must be installed for your host; this release was qualified on the prepared Linux environment.
+
+For checkpoint resumption, also download [the checkpoint archive](USL-V4.8.0-WORKER-CHECKPOINTS.tar.xz?raw=true) and [its checksum](USL-V4.8.0-WORKER-CHECKPOINTS.tar.xz.sha256). Extract it into the extracted source directory. Fresh source tests and fresh workers run without this optional archive. All 34,182 archived files were restored and hash-checked; the restored current worker checkpoint resumed with zero new jobs, zero fresh native executions and zero replayed native observations. Raw third-party reference bodies follow the explicit omission/refetch policy; their cache lookups are invalidated.
+
+Verification: 868 regression tests passed, nine were skipped, and all 27 new tests passed again after clean extraction. The fresh all-catalog worker run completed 2,428 stage jobs across 606 original IDs plus USL using four admitted workers: 108 backend profiles/432 case checks, 556 typed comparisons/1,112 fresh native executions and 47 parser fixture pairs. It took 223.08 seconds on this host. Complete joins, checkpoint integrity and lossless segmented evidence restoration passed. These timings are observations for this workload and machine.
+
+The actual promoted scalar `.usl` skill also transferred through all sixteen new native syntaxes and Python/JavaScript with independent original-intent proofs and 68 fresh program executions. Its discovery uses a finite grammar and one-use independent sealed holdouts. This is a scoped learned-task transfer; general autonomous language learning remains unfinished.
+
+Current scope: six closed-source subsets plus 22 narrower function profiles cover 28 original catalog IDs. 578 still lack any typed translation profile, 600 lack a closed-source profile, zero complete language standards are qualified, and all 21 entity capability tracks remain unfinished. Full libraries, modules, objects, closures, effects, concurrency, ABI, upstream conformance, physical senses and human abilities require further implementation and evidence. Read [BUILD_STATUS.md](BUILD_STATUS.md), [FAMILY_FUNCTION_PROFILES.md](FAMILY_FUNCTION_PROFILES.md) and the searchable/collapsible [language table](LANGUAGE_STATUS.html) (download and open locally).
+
+All four supplied books, 293 indexed pages, 131 mapped requirements and 36 exact reference stages remain included. Earlier published releases and branches remain unchanged. `BUILD_VERIFICATION.json`, complete case reports in the ZIP, the per-file release manifest and `DOWNLOAD_FILES.json` record exact checks and scope. Checksums detect altered bytes; the manifest is not digitally signed. Current-host and clean-extraction checks do not certify a fresh installation or another OS.
+
+Reusable cloud installation/start instructions are saved as draft revision 8. Saving that draft does not apply or publish it; review and publish it in environment settings for future tasks. Current helper-owned services and the worker watcher were functionally checked and restarted without stopping earlier services.
+
+Use [CONTINUE_FROM_HERE.md](CONTINUE_FROM_HERE.md) to continue from this verified source and preserve the complete backlog.

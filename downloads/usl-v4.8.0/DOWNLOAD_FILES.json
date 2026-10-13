@@ -1,0 +1,94 @@
+{
+  "BUILD_STATUS.md": {
+    "sha256": "30ecfa270c17b671a26ff73cde873eb7fe301fd53e409e46a4a298d0af969672",
+    "bytes": 5754
+  },
+  "BUILD_VERIFICATION.json": {
+    "sha256": "e0f48fc55ecd6eab9d7070369eb0ea68586f09f4f033c54a0952638fe2ac0c32",
+    "bytes": 3672
+  },
+  "CLEAN_CHECKPOINT_RESUME.json": {
+    "sha256": "66caafc994181363667cb641cfed1a2accc7ee48fae293cf3299b22c1bc5c6e3",
+    "bytes": 315
+  },
+  "CONTINUE_FROM_HERE.md": {
+    "sha256": "e9aec3da4095db7a711201f4627efe82eae782ea317ba9fcd94df0272ed2534e",
+    "bytes": 2373
+  },
+  "FAMILY_FUNCTION_PROFILES.md": {
+    "sha256": "d642a57ed59a0ca51458aa145cb4b42b217109b9018bbb3267a94fe37f3e363c",
+    "bytes": 4082
+  },
+  "FAMILY_FUNCTION_QUALIFICATION.json": {
+    "sha256": "19578f9bfb1b2d06b90bed4fb44a0554a0044ef21d1a01a645f04f64320ff2df",
+    "bytes": 7387371
+  },
+  "INTERNAL_USL_CALCULATIONS.json": {
+    "sha256": "00efded56c112b3d54d1268eba66ab61d276b7925e0a2988255ac180c30fc79f",
+    "bytes": 3757
+  },
+  "ISOLATED_REGRESSIONS.json": {
+    "sha256": "205a934e607f302a8a55bf6ffdc8a7c4d7a1aade7ec3f1f89a4c51b0fca6c2df",
+    "bytes": 41950
+  },
+  "LANGUAGE_STATUS.csv": {
+    "sha256": "459e72bf9820bdab24966324549c7298a6b52b66844ab66ef7260f3408b23198",
+    "bytes": 300653
+  },
+  "LANGUAGE_STATUS.html": {
+    "sha256": "e302d1c9faab32d9ec9c5c63005d871e286b6fb3a9aa72ff3884c810e8205829",
+    "bytes": 372864
+  },
+  "LANGUAGE_STATUS.json": {
+    "sha256": "463857cb24e18da4230a7538c5aa99d9f212a8e1fd29a7e4841d092564ab0d82",
+    "bytes": 1597023
+  },
+  "LEARNED_FAMILY_TRANSFER.json": {
+    "sha256": "b9de9cbae2afbe3be39aea139b2d8ab7fcb276e900a560d797db7e06e97c0421",
+    "bytes": 845572
+  },
+  "README.md": {
+    "sha256": "eef62e3957d8b3b6f8662c3c7fece3f23b758e8b241fb3dd77f6cc07d4ace3d8",
+    "bytes": 3931
+  },
+  "REFERENCE_BODY_DISTRIBUTION.json": {
+    "sha256": "ae9509c5eee4d785c19b745d408d7a96547435b71ef5a85c4bc038688802e095",
+    "bytes": 274954
+  },
+  "RELEASE_MANIFEST.json": {
+    "sha256": "c0838940f97221a3da4b6ebdea9ccfccce420a63df4bc28e224b88e47649b355",
+    "bytes": 585074
+  },
+  "TABLE_BROWSER_QUALIFICATION.json": {
+    "sha256": "847b4b18c867c88f600449b49675818eb59f5d693fd290ed1c08b29a2cde004d",
+    "bytes": 114
+  },
+  "TESTING.txt": {
+    "sha256": "36a200df93ef5b3a84103c968aaa6e39956e759065feee390250716e30a9012d",
+    "bytes": 2940
+  },
+  "USL-UNIVERSAL-SYSTEMS-V4.8.0-FULL-SOURCE.zip": {
+    "sha256": "224c1e184fc415942316e12df80791b9245d97e55497b70f589827e9ca138d6c",
+    "bytes": 62021723
+  },
+  "USL-UNIVERSAL-SYSTEMS-V4.8.0-FULL-SOURCE.zip.sha256": {
+    "sha256": "21da123f9b08c1f2eed6917d39e767b0572ab84016438cff35c625eea7acb73d",
+    "bytes": 111
+  },
+  "USL-V4.8.0-WORKER-CHECKPOINTS.tar.xz": {
+    "sha256": "243d1b148d0ee56b7aa6c9921f1b55e30500bcd5e5d1d76ccc0661c8126e6d98",
+    "bytes": 52011200
+  },
+  "USL-V4.8.0-WORKER-CHECKPOINTS.tar.xz.sha256": {
+    "sha256": "70d9d3e3df284a82ff393cccfd04794aa1692ccc06b466458c2b96298208a2a2",
+    "bytes": 103
+  },
+  "WORKER_CHECKPOINT_ARCHIVE.json": {
+    "sha256": "05906d53d284668ebc3ca2083df907a7901d1595282ff089ba49c9bd443e9d62",
+    "bytes": 7987974
+  },
+  "WORKER_INTEGRATION_QUALIFICATION.json": {
+    "sha256": "389de0b14eb4626a0330232c6d3bb2a668c9a6056cf7da01324fedea638eb827",
+    "bytes": 429
+  }
+}

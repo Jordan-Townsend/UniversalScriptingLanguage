@@ -1,0 +1,21 @@
+USL 4.8 testing — current Linux/POSIX host qualified
+
+1. Extract the full-source ZIP into a new directory; run python tools/verify_release.py.
+2. Install requirements-catalog.txt and requirements-engines.txt plus the native tools required by the selected profiles. Neural checks use requirements-neural.txt and actual eSpeak/model assets. Native binaries are not included in the ZIP.
+3. In the prepared cloud: source /workspace/.onboarding/activate-usl.sh
+4. Run python -m usl_systems run examples/hello.usl
+5. Run python -m unittest discover -s tests -p 'test_v48_*.py'
+6. Run python -m tools.qualify_family_functions --workers 3
+7. Run python -m tools.qualify_family_discovery --workers 3
+8. Run python -m usl_systems function-verify examples/family_functions/absolute.hs --language haskell --target javascript --function transform --contract examples/family_functions/haskell_intent.json --invocations examples/family_functions/absolute_invocations.json --i-allow-execution
+   Use the matching provided source and intent files for the other fifteen languages. These are function fragments with explicit bounded intent, not arbitrary complete programs.
+9. Run python -m usl_systems discovery-program examples/entity_family_native.usl --imports-file examples/entity_family_native_imports.json --data /tmp/usl-fresh-family-discovery --i-allow-execution
+   A new sealed-suite demonstration requires a new data directory. Consumed holdouts cannot be reused.
+10. Run python -m usl_systems workers-run --file examples/accelerated_language_workers.usl --data /tmp/usl-fresh-workers --workers 4 --i-allow-execution
+    Exit 2 means operational scoped checks passed while the full 606/entity objective remains incomplete; 1 means failed checks, 3 cancellation. Matching checkpoints execute no new native actions; --fresh-native requests a new run.
+11. Run python tools/run_isolated_regressions.py; inspect executed/passed/skipped counts and exact source identity in test_results/v4.8.0_isolated_regressions.json.
+12. Open docs/UNIFIED_WORKER_STATUS.html locally for searchable/collapsible families; read V4.8_BUILD_STATUS.md and profile scope documents.
+
+Compiler hosts: Kotlin kotlinc/JVM; Scala compiler/JVM; GDC; Groovy compiler/JVM; GHC; OCaml; Clojure/JVM; SBCL; Guile; Racket; Elixir/Erlang; gfortran; GNAT; Perl; Free Pascal Delphi mode. Missing hosts remain explicit blockers. Every qualified profile binds the actual recorded tool versions/files; complete standard libraries, other platforms and whole specifications remain unqualified.
+
+Complete v4.6/v4.7/v4.8 worker SQLite/CAS checkpoints are in the companion USL-V4.8.0-WORKER-CHECKPOINTS.tar.xz download. Its index records every restored file hash. For checkpoint resumption, extract it into the source directory after the ZIP. The source ZIP already includes complete current case reports and runs fresh workers without that archive. Earlier v4.5/v4.6/v4.7 ZIPs remain unchanged.
