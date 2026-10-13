@@ -1,0 +1,27 @@
+USL v4.4 testing and master prompt
+
+1. Download the full source ZIP and checksum. Verify the hash, then extract into a new folder.
+2. Open MASTER_IMPLEMENTATION_PROMPT.md and use its full contents as the implementation request. Supply the source ZIP alongside the prompt when starting a new session.
+3. Python 3.12 is recommended. The core learning demo needs only the standard library:
+
+   python -m usl_systems entity-plan examples/entity_plan.json --data ./entity-data --i-allow-execution
+   python -m usl_systems entity-memory "double integer" --data ./entity-data
+
+   The independently checked skill result is 25 followed by a newline.
+
+4. Install requirements-catalog.txt and the compatible native runtimes listed in NATIVE_RUNTIME_SETUP.md before the full catalog sweep and formal intent checks. The optional neural runtime is listed in requirements-neural.txt.
+
+   python -m usl_systems intent-prove examples/intent_twice.usl --function twice --contract examples/intent_twice.contract.json
+   python tools/qualify_translation_intent.py
+   python -m usl_systems catalog-sweep --workers 4 --i-allow-execution
+
+   The sweep deliberately exits 2 while the all-606 objective remains incomplete. Read its JSON evidence and blockers; parser availability does not imply semantic translation.
+
+5. Read docs/V4.4_BUILD_STATUS.md for exact evidence and limitations. This is a development source package, not a completed 606-language compiler or an EXE installer. Windows, live model and physical device qualification remain outstanding.
+
+Linux/macOS verification:
+   sha256sum -c USL-UNIVERSAL-SYSTEMS-V4.4.0-FULL-SOURCE.zip.sha256
+
+Windows PowerShell:
+   Get-FileHash .\USL-UNIVERSAL-SYSTEMS-V4.4.0-FULL-SOURCE.zip -Algorithm SHA256
+Compare the result with the checksum file.
