@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "service_version": "4.6.0",
+  "watcher_restart_verified": true,
+  "watcher_ready": "waiting_for_new_implementations",
+  "restart_jobs_replayed": 0,
+  "native_execution_evidence_replayed": 0
+}

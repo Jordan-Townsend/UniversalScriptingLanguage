@@ -1,0 +1,24 @@
+{
+  "release_integrity": {
+    "verified": true,
+    "version": "4.6.0",
+    "expected_files": 10741,
+    "errors": [],
+    "manifest_signed": false
+  },
+  "new_feature_tests_log": ".........................................\n----------------------------------------------------------------------\nRan 41 tests in 14.334s\n\nOK\n",
+  "native_repair_trial": {
+    "passed": true,
+    "native_executions": 64,
+    "restart_native_actions_replayed": 0,
+    "book_corpus": {
+      "source_manifest_sha256": "51463f568e204eb12b90343d8eacaa60daa99a44d2ec3a32b82ad2a878888f1f",
+      "total_pages": 293,
+      "source_hashes_verified": true,
+      "source_text_never_grants_authority": true,
+      "reconstructed_ladder_stages": 36
+    }
+  },
+  "qualification_platform": "Linux, same prepared host and installed pinned dependencies",
+  "fresh_machine_or_Windows_qualified": false
+}

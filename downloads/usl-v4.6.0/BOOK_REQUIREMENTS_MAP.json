@@ -1,0 +1,1962 @@
+{
+  "schema": "usl.book.requirement.map.v1",
+  "provided_pages": 293,
+  "chapter_section_stage_requirements": 131,
+  "requirement_counts": {
+    "VolumeII_chapters": 39,
+    "VolumeIII_sections": 16,
+    "VolumeIV_chapters": 40,
+    "VolumeV_stages": 36
+  },
+  "requirements": [
+    {
+      "id": "II-31",
+      "volume": 2,
+      "title": "Canonical USL Semantic IR",
+      "contract": "Canonical typed value/control/call/workflow/resource/evidence/policy/transformation/verification/audit nodes carry IDs, typed inputs/outputs, capabilities, effects and source locations. Unsupported executable semantics are explicit; development guidance is not production implementation.",
+      "remaining": "The four-part production expression is necessary, not sufficient for the user\u2019s full-standard conformance and intent proof requirement. Finite tests do not establish universal semantic equivalence.",
+      "proposed_implementation": "Extend the existing typed IR with versioned workflow/resource/evidence node schemas and source spans; independently validate effects and required capabilities, then lower through registered native handlers. Add source\u2192IR\u2192target observational tests per supported profile.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-32",
+      "volume": 2,
+      "title": "Work Graphs",
+      "contract": "Work and resource graphs are distinct. Nodes have durable dependency/state identity from operation, normalized input, environment, version and policy. Ready residual obligations, not requested worker totals, drive scheduling.",
+      "remaining": "Define disjoint count bins: residual as all unresolved work would overlap running/blocked work. Failed/reused/superseded/cancelled states also need accounting; route outcome and lifecycle status should be separate axes.",
+      "proposed_implementation": "Use durable DAG nodes with explicit state transitions, ready queues, dependency lineage, resumable verified coverage and invalidation. Validate missing edges/cycles and preserve node identities on restart.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-33",
+      "volume": 2,
+      "title": "Resource Graphs",
+      "contract": "Advertise measured CPUs/GPUs/memory/storage/network/sensors/providers and costs/permissions on connecting paths. Match capabilities before vendor brands; include locality, transfer, energy and process ownership.",
+      "remaining": "A discovered provider or device is not an executed native qualification. Unknown latency/energy/sensor health must stay unknown; brand names cannot fill missing measurements.",
+      "proposed_implementation": "Wrap existing resource probes in timestamped typed nodes and permission-aware edges. Treat absent/unknown/blocked capabilities separately; intersect available capacity with actual container limits and owner budgets.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-34",
+      "volume": 2,
+      "title": "Physical and Logical Resource Accounting",
+      "contract": "Separate measured physical capacity from logical requests/workers/virtual views/reconstructed references/shared mappings. Avoided work and throughput gains are never extra installed cores or RAM.",
+      "remaining": "OS logical processors are hardware-topology views, distinct from logical work factors. AvoidedWork subtraction is valid only for equivalent baseline execution units; verification/extra retries can make naive counts misleading.",
+      "proposed_implementation": "Add distinct physical.*, effective_limits.*, logical.*, execution.* and reuse.* telemetry namespaces with units, source, timestamps and unknown flags; test that dashboards cannot relabel logical counts as hardware.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-35",
+      "volume": 2,
+      "title": "USL Resource Algebra",
+      "contract": "Every logical request has an accounted outcome. Optimize over correctness-, integrity-, QoS- and policy-feasible plans using a vector of time/compute/memory/I/O/energy/price costs.",
+      "remaining": "The W_physical equation mixes task counts and costs unless converted to a declared common work-equivalent unit. Weighting energy, bytes, seconds and price requires explicit conversion weights or a Pareto policy.",
+      "proposed_implementation": "Record disjoint route outcomes and per-phase cost vectors; implement feasibility before ranking. Expose a declared policy objective with typed units instead of a magic scalar score.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/equations.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/simlab.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-36",
+      "volume": 2,
+      "title": "Exact Collapse and Content Addressability",
+      "contract": "Collapse immutable content only within an explicit semantic identity domain; hashes index evidence and content/metadata integrity still gets checked. Mutable equal bytes do not imply shareable identity; snapshots and rollback references constrain reclamation.",
+      "remaining": "Digest equality is not a mathematical collision-free proof. StorageSaved must separate logical uncompressed size, physical encoded bytes, metadata and retained snapshots; side effects and mutable owners cannot be deduplicated by bytes.",
+      "proposed_implementation": "Extend exact CAS keys with specification, implementation, runtime/dependency, policy and platform identities; verify objects on read, quarantine corruption, track owners/snapshots and retain rollback roots before GC.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/collapse.py",
+        "usl_systems/equations.py",
+        "usl_systems/incremental.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/simlab.py"
+      ]
+    },
+    {
+      "id": "II-37",
+      "volume": 2,
+      "title": "Memoization and Verified Reuse",
+      "contract": "Keys include every observable input, semantic operation, runtime/model/environment and policy flag. Byte-exact, semantic-exact, tolerance-, freshness- and user-approved reuse are separate levels that cannot silently weaken.",
+      "remaining": "A high hit ratio can have negative net benefit. Explicit freshness is required for time-sensitive outputs; external actions must not be replayed or skipped simply because earlier request bytes match.",
+      "proposed_implementation": "Add typed reuse modes and obligation validators; retain miss/invalidation/verification-cost counters and nonzero-denominator rules. Re-execute nondeterministic or effectful operations unless an explicit admissible evidence contract permits otherwise.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "II-38",
+      "volume": 2,
+      "title": "Delta and Residual Computation",
+      "contract": "Delta changes a verified base; residual identifies unresolved obligations. Incremental execution falls back to broader recomputation when completeness of the delta cannot be verified.",
+      "remaining": "H0/H1/H2 labels are implementation-specific and not defined in this volume; do not equate them with these concepts by name alone. General semantic differences cannot be inferred from textual diffs.",
+      "proposed_implementation": "Extend existing incremental H0/H1/H2 integration with base digests, operation versions, complete dependency invalidation and domain-specific coverage differences. Differentially compare incremental and full results, including deletion and changed dependencies.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/collapse.py",
+        "usl_systems/incremental.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "II-39",
+      "volume": 2,
+      "title": "Reconstruction",
+      "contract": "Evict only reproducible derived state whose authoritative inputs, versioned operation/environment and verification rule remain available. Materialized objects still consume physical memory.",
+      "remaining": "Bytes minus compute cost requires an explicit conversion policy. Resident bytes and recipe/reference counts cannot be added as one capacity number; keep resident bytes, backed bytes and recipe counts separate.",
+      "proposed_implementation": "Create reconstruction recipes rooted in retained immutable inputs; estimate latency/cost, enforce output integrity after materialization and prioritize eviction of derivable over irreplaceable state.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "II-40",
+      "volume": 2,
+      "title": "Backing, Spill, and State Migration",
+      "contract": "Hot RAM/VRAM, warm mmap and cold storage tiers preserve logical references through verified migration. Old authoritative copies remain until the destination and reference commit are verified.",
+      "remaining": "SSD-backed state is not DRAM-equivalent. RAM/VRAM sharing and double counting need platform-aware identities; remote/object-store paths require credentials/policy and actual acceptance tests.",
+      "proposed_implementation": "Implement a transactional local-store spill/mmap prototype: staging file, digest verification, atomic reference swap, durable recovery journal and release-after-commit. Record cold/warm latency and bytes moved.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "II-41",
+      "volume": 2,
+      "title": "Heterogeneous CPU, GPU, and Accelerator Routing",
+      "contract": "Route only to real supported operation/dtype/provider combinations, including transfer, residency, queueing and verification costs. Invalidate preferences after relevant hardware/version/thermal/workload changes.",
+      "remaining": "No GPU or accelerator equivalence follows from a CPU implementation. ONNX tolerance must be domain-specific; 1e-5 in the example is not a universal correctness threshold.",
+      "proposed_implementation": "Register CPU and discovered accelerator providers with supported operations, shapes and measured route costs; benchmark end-to-end cold/warm paths and retain negative results. Require provider execution evidence before marking GPU qualified.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "II-42",
+      "volume": 2,
+      "title": "Partial and Factored Workers",
+      "contract": "Factor work by tiles/ranges/partitions/stages/dimensions/residuals and stop recursive decomposition when overhead wins. Logical factors and OS threads/cores are separate.",
+      "remaining": "Fractal means recursive algorithmic decomposition, not extra hardware or automatic intelligence. Benefits/costs need common units and measured workload baselines; more logical workers can be slower.",
+      "proposed_implementation": "Use existing factored/fractal workers with concrete dependency partitions, exact CAS-compatible shared intermediates, measured coordinator costs and admission ceilings. Preserve task coverage and correctness under serial and concurrent scheduling.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-43",
+      "volume": 2,
+      "title": "Adaptive Worker Admission",
+      "contract": "Queued and admitted work differ; admission budgets memory/descriptors/cache/device queues/latency. Observe throughput and p95/p99 pressure; expand cautiously and contract quickly.",
+      "remaining": "A rejected upper candidate does not bracket a global optimum without monotonicity and stationary conditions. Label the measured admissible interval, not an unproved optimal admission bound.",
+      "proposed_implementation": "Add hysteresis, bounded exploration, cooldown, pressure backoff and a durable record of tested admissions to existing adaptive workers. Include fairness and cancellation, and reserve foreground demand.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/collapse.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/incremental.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-44",
+      "volume": 2,
+      "title": "Quality of Service and Resource Pressure",
+      "contract": "Foreground/high-priority work supersedes opportunistic jobs. Contracts specify latency/throughput/deadline/jitter/availability/interference; failures require a declared degraded mode, backoff or rejection.",
+      "remaining": "Opportunity is a resource vector, not a cross-unit scalar. Available/reserved/demand terms must avoid double counting. Unknown interactive/thermal state is not zero demand or a passed safety gate.",
+      "proposed_implementation": "Build per-resource pressure/QoS guards using actual CPU, memory, I/O, GPU, thermal and battery probes when available. Make missing metrics explicit and impose owner ceilings; report sample windows and p95/p99 methods.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-45",
+      "volume": 2,
+      "title": "Cross-Resource Transformations",
+      "contract": "Transforms declare source/target roles, preconditions, costs, proof obligations and reversal/fallback. Reconstruction, backing, sharing and verified reuse change how a requirement is satisfied, not physical laws.",
+      "remaining": "A role substitution is not a physical resource conversion. Network fetch and storage backing incur real latency/permissions; reconstructing state still requires eventual materialization memory.",
+      "proposed_implementation": "Create a versioned transformation registry linked to exact CAS, reconstruction, spill and immutable mapping handlers; validate obligations before selecting a transformed plan and record rejected branches.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-46",
+      "volume": 2,
+      "title": "Shared Models, KV, and Immutable State",
+      "contract": "Share verified immutable weights/tokenizers/constants/read-only segments with explicit host scope and lifetimes; isolate request-specific mutable KV state and consider model residency in routes.",
+      "remaining": "Mapping one file does not prove one physical RAM/VRAM copy; page residency must be measured. KV sharing is model/backend-specific and requires actual model fixtures and privacy isolation tests.",
+      "proposed_implementation": "Use digest-pinned mmap/read-only weights and model descriptors shared by workers, with retained references and actual resident/backing-byte telemetry. Key KV prefixes by model/tokenizer/positions/attention/configuration and security scope.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-47",
+      "volume": 2,
+      "title": "Causal Debt",
+      "contract": "Durable debt tokens record claim, missing evidence, affected nodes, creation time, severity and discharge rule. Speculation remains provisional; debt discharges only after evidence and revalidation/invalidation of dependants.",
+      "remaining": "The addition is a union/accounting shorthand, not a scalar physics quantity. Debt zero is necessary, not sufficient for correctness. Elapsed time, model confidence and lease expiry do not discharge evidence obligations.",
+      "proposed_implementation": "Attach typed obligation sets to graph nodes and output evidence; propagate through dependency lineage, invalidate affected descendants on evidence changes and block verified/promotion states while debt remains.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/equations.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/simlab.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-48",
+      "volume": 2,
+      "title": "Temporal Work Graphs",
+      "contract": "Distinguish event, observation and version time plus validity intervals. Preserve immutable observed history; predictions carry model/version/confidence; late evidence revises provisional descendants with lineage.",
+      "remaining": "Predicted and observed values need tagged types even when bytes match. Distributed clock alignment and real-time sensor validity require measured clock/calibration error; abstract unions do not solve causality.",
+      "proposed_implementation": "Add bitemporal/valid-time event records, monotonic sequence IDs, versioned derived/predicted nodes and targeted recomputation. Test late/out-of-order observations, timestamp skew and restart continuity.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-49",
+      "volume": 2,
+      "title": "Autoplastic Runtime Adaptation",
+      "contract": "Adapt scheduler/cache/route/chunk/prefetch strategy inside immutable security/truth/correctness/owner limits. Proposals include expected benefit, scope, evidence, rollback state and trial duration; promotion is gated.",
+      "remaining": "The plus sign denotes a configuration update, not numeric addition. Adaptive strategies cannot grant permissions, change semantic versions or weaken the user\u2019s accepted objective.",
+      "proposed_implementation": "Implement staged candidate configurations, canary trials, independent holdout/regression checks, durable rollback pointers and automatic rejection on gate failure. Reuse existing tested skill/model promotion patterns for runtime parameters.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/collapse.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/incremental.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-50",
+      "volume": 2,
+      "title": "Learn to Instruct to Learn",
+      "contract": "Learn reality, encode a concrete semantic rule/test/template/policy/remediation, run it and retain what passed/failed/remains unknown. Guidance or a placeholder is not a healed implementation.",
+      "remaining": "Knowledge retrieval, learning a program and updating weights are distinct. General language/AI competence does not follow from a small verified rule family or an LLM\u2019s own proposed answer.",
+      "proposed_implementation": "Connect entity self-study to a gap ledger, traceable source records, explicit hypotheses, independently specified tests and versioned candidate promotion. Retain rejected observations and invalidate assumptions without deleting lineage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "II-51",
+      "volume": 2,
+      "title": "Self-Diagnosis and Self-Repair",
+      "contract": "Gather symptoms/change/log/dependency/resource/probe evidence before a bounded repair. Quarantine corrupted cache, rebuild derived state, restart isolated workers or revert known configurations within actual capabilities.",
+      "remaining": "Reproducible diagnosis can remain unknown; no permission bypass, invented authoritative data or silent owner-policy changes. Hardware faults and missing model assets cannot be repaired by metadata alone.",
+      "proposed_implementation": "Add deterministic repair playbooks with evidence predicates and reversible actions; regression-test recovered invariants and record attempt/failure/provenance. Separate authoritative from safely rebuildable derived state.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/collapse.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/incremental.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-52",
+      "volume": 2,
+      "title": "Verification and Proof Obligations",
+      "contract": "Declare byte/semantic/tolerance/order/freshness/confidentiality/QoS/domain invariants before optimization. Retain hashes, replay/property/reference/dual-execution/type/signature/domain evidence; failed optimized output is rejected and failed branches retained.",
+      "remaining": "Hashes establish integrity, not original intent or general semantics. Typechecks, test cases and bounded SMT models have distinct scopes; solver unknowns and unsupported operations must not be reported as proof.",
+      "proposed_implementation": "Create independent obligation validators with PASS/FAIL/UNKNOWN/BLOCKED results; fail closed on required unknowns and separate fallback success from optimization success. Link exact runtime/source/implementation identities to evidence.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "II-53",
+      "volume": 2,
+      "title": "Rollback and Transactional Mutation",
+      "contract": "Stage mutations outside active state, validate and atomically commit where possible. Durably retain sufficient rollback state before change; use explicit compensation/idempotency for external effects.",
+      "remaining": "Idempotency plus durable local intent does not universally guarantee exactly-once effects. Remote hosts must support the key/fencing or compensation; uncertain effects require reconciliation, not blind retry.",
+      "proposed_implementation": "Use a durable prepare/commit/rollback journal and content-addressed snapshots for configurations/artifacts; recover interrupted candidates without automatically replaying external actions. Retain effect intent, idempotency key, acknowledgement and uncertainty state.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "II-54",
+      "volume": 2,
+      "title": "Persistent Runtime Evidence",
+      "contract": "Store environment/workload/decision/measurements/verification/timestamp/expiry/version records. Valid evidence guides heuristics but cannot redefine language semantics, keywords, physical reporting or permissions.",
+      "remaining": "Benchmark priors are workload-specific and decay; aggregate confidence is not a mandatory override. User-controlled system time needs explicit monotonic/UTC validity handling.",
+      "proposed_implementation": "Extend the durable evidence store with typed scope, expiry and dependency invalidation; index workload shapes and route/admission histories. Revalidate against current runtime/specification/configuration identities before reuse.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "II-55",
+      "volume": 2,
+      "title": "Shadow Integration",
+      "contract": "Shadow is an optional planning/admin client above independently executable USL. Proposals and conversational mutations pass deterministic syntax/semantic/capability/owner gates; read-only queries stay distinct.",
+      "remaining": "An installed adapter is not live model inference. No model may infer authorization or grant itself capabilities; the book is not authority to send messages, mutate external systems or install elevated services.",
+      "proposed_implementation": "Bind existing Shadow/Ollama proposal adapters to typed workflows and evidence queries; keep proposed source inert until validation and actual capability admission. Test hostile/unresolved/incorrect proposals and retain explanation/provenance.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "II-56",
+      "volume": 2,
+      "title": "Sensors and Multimodal Resources",
+      "contract": "Advertise modality/rate/resolution/calibration/timestamps/permissions/health. Derived fusion retains source provenance and temporal alignment; acquisition and use both require capabilities.",
+      "remaining": "Real cameras/microphones/IMUs/chemical/touch sensors and calibration assets are required for live qualification. Synthetic fixtures/fusion output do not establish physical devices, human sensation or sensory equivalence.",
+      "proposed_implementation": "Connect existing typed sensor packets/adapters to resource nodes and calibration/time-validity obligations; distinguish live/recorded/synthetic/derived modes. Add dropouts, stale calibration, skew and contradictory-stream acceptance cases.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-57",
+      "volume": 2,
+      "title": "Edge and Embedded USL",
+      "contract": "Declare host/edge/embedded semantic profiles and flash/RAM/timing/energy/I/O budgets. Omitting JIT/large registries/network is a declared profile, not a silently different language; offline bundles preserve integrity.",
+      "remaining": "The example 128KiB budget is a requested limit, not evidence Python USL fits it. Native MCU binaries, measured peak RAM and real-time deadlines require a target toolchain and hardware qualification.",
+      "proposed_implementation": "Define an explicit deterministic embedded feature matrix, resource-budget report and pinned offline package manifest. Qualify packaging/determinism on a real target or emulator whose limitations are recorded.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-58",
+      "volume": 2,
+      "title": "Distributed USL Fabrics",
+      "contract": "Nodes have authenticated identities, owner scopes, advertised capabilities and health. Use durable work identity, leases/checkpoints/idempotency and locality to survive failures without silent duplicate side effects.",
+      "remaining": "A single-machine process pool is not distributed host qualification. Failure risk and bytes/latency costs need declared units; expired leases cannot trigger automatic external-effect replay without reconciliation.",
+      "proposed_implementation": "Extend existing mesh/cooperative workers with authenticated advertisements, fenced leases, durable assignments and locality-aware CAS transfer. Exercise node loss, late results, duplicated messages, corruption and ownership boundaries.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-59",
+      "volume": 2,
+      "title": "Windows Runtime",
+      "contract": "Use documented Windows process/filesystem/service/token/resource/GPU APIs with a user-profile installation and optional isolated elevation. PowerShell is an owner launch/admin adapter, not a separate USL dialect.",
+      "remaining": "This Linux environment cannot certify PowerShell, Windows tokens/services/process termination or GPU providers. OWNER.ps1 paths in the book are examples, not confirmed existing files or authority to elevate.",
+      "proposed_implementation": "Add guarded platform probes and a reviewed owner launcher exposing doctor/validate/benchmark/start; keep portable core imports usable where POSIX resource APIs are absent. Run native Windows clean-install and lifecycle tests when a host is supplied.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-60",
+      "volume": 2,
+      "title": "Linux Runtime",
+      "contract": "Keep parser/verifier/CAS/evidence/graphs portable while discovering procfs/sysfs/POSIX/cgroup and optional namespaces/epoll/io_uring/sensors/providers. Container constraints participate separately from host topology.",
+      "remaining": "Do not assume namespaces/cgroups/io_uring access or fabricate host totals from container-visible values. The book\u2019s python3 -m usl2 command differs from the current project package name.",
+      "proposed_implementation": "Extend actual probes for cgroup v1/v2 quota/memory/cpuset, CPU affinity and known capacities; report unknowns and apply the minimum usable limit per resource. Validate process-group cancellation and current-user service ownership.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-61",
+      "volume": 2,
+      "title": "macOS Runtime",
+      "contract": "Preserve SIR on Darwin/Apple Silicon with unified-memory identities, optional Metal/Core ML providers and appropriate signing/notarization for production distribution.",
+      "remaining": "A Linux packaging check cannot certify Darwin APIs, Apple accelerators, unified-memory residency or notarization. Signing/notarization requires owner identity and an actual macOS release path.",
+      "proposed_implementation": "Add platform-guarded resource/provider adapters and a shared-memory-pool ID in accounting; prepare smoke/upgrade/rollback procedures for a native macOS host.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-62",
+      "volume": 2,
+      "title": "Security and Capability Permissions",
+      "contract": "Capabilities cover files/destinations/sensors/processes/install/model/elevated adapters; deny undelegated actions and keep secrets as protected references. Audit use without secret values.",
+      "remaining": "The example deny network '*' plus allow one destination leaves precedence unspecified; define and test conflict resolution before execution. Static capabilities are not an OS sandbox, and book examples do not override current permissions.",
+      "proposed_implementation": "Reuse explicit interpreter host capabilities with scoped file/network/device selectors and context checks; prevent adaptation from broadening authority. Validate redaction and capability inheritance/revocation.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "II-63",
+      "volume": 2,
+      "title": "Benchmark Science",
+      "contract": "Declare hardware/software/corpus/seed/baseline/warm-cold/repetitions and unique inputs. Record physical executions, logical requests, verified hits, moved bytes, memory/utilization/correctness and slower results.",
+      "remaining": "Zero denominators and insufficient tail samples need explicit outcomes. 256 requests over 32 unique inputs tests disclosed repeat-work reuse only; it is not a universal speedup or added hardware.",
+      "proposed_implementation": "Extend existing benchmark reports with end-to-end phase costs, median/p95/p99, independent inputs, cold/warm labels and parameter/compute budgets. Require matching correctness before speedup calculation.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "II-64",
+      "volume": 2,
+      "title": "USL Equation Reference",
+      "contract": "Collect accounting/scheduling/integrity equations as operational definitions with explicit terms, units, domains and validity conditions; reuse_ratio specifically requires denominator > 0.",
+      "remaining": "Equations are a design reference, not physical conservation laws or completed algorithms. The book does not supply general proofs, benchmark data or algorithms for every formula.",
+      "proposed_implementation": "Build a typed equation registry with canonical IDs, units, parameter validation and links to validators/evidence. Preserve documented aliases such as NetBenefit/NetReuseBenefit while rejecting dimensional errors.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/equations.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/simlab.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-65",
+      "volume": 2,
+      "title": "USL Fabric Symbolic Reference",
+      "contract": "Version resource directives fabric/discover/resource/capability/invariant/policy/route; work directives workflow/step/residual/execute/worker/admit/checkpoint/debt; optimization directives reuse/transform/share/reconstruct/adapt/verify/transaction/evidence/repair. Preserve existing symbolic/call/heal/audit meanings.",
+      "remaining": "Current indentation-based .usl syntax does not parse these brace blocks. Cosmetic stripping, ignored directives or mapping unimplemented handlers to success would violate the book and the user\u2019s request.",
+      "proposed_implementation": "Introduce a separate versioned fabric frontend or explicit lowering adapter with registered field schemas and executable handlers; maintain profile capability matrices. Unknown directives fail with actionable unsupported diagnostics.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "II-66",
+      "volume": 2,
+      "title": "Production Deployment",
+      "contract": "Build from a clean revision, dependency locks/SBOM/docs/test/benchmark metadata and applicable signatures. Native clean-install/upgrade/rollback/parser/semantics/discovery/smoke gates apply independently per OS; owner keeps canonical sources/keys/history.",
+      "remaining": "Clean extraction is not fresh-machine qualification. Linux success cannot certify Windows/macOS; signed distribution requires real keys and platform tooling, not generated metadata.",
+      "proposed_implementation": "Preserve prior releases, package explicit manifests and checksums, run clean extraction/verification, archive gate evidence and publish only the actual qualified platform/profile claim. Prepare native OS gate matrices and rollback procedures.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "II-67",
+      "volume": 2,
+      "title": "USL 2 Grammar and Conformance Appendix",
+      "contract": "The conservative C-like grammar adds declarative blocks and requires lowering to canonical SIR, explicit supported profiles, unknown-directive rejection, invariant preservation and non-weakened proof rules.",
+      "remaining": "The printed EBNF is incomplete: function/class/module/argument/letter/digit/character are undefined; expression syntax, assignment, dotted names, arrows, units and escaping are unspecified. It conflicts with the current indentation frontend; do not market a parser of the sketch as full USL2 conformance.",
+      "proposed_implementation": "Turn the EBNF sketch into an explicit testable profile grammar and typed parser with source spans; define all nonterminals and every directive\u2019s argument/field schema before native lowering. Test valid syntax, unknown directives and unresolved semantics.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "II-68",
+      "volume": 2,
+      "title": "Owner Operations Field Manual",
+      "contract": "Provide install/doctor/validate/run/audit/benchmark/start/stop/status/logs/test/package through one owner surface, a local authenticated node and cross-platform launch adapters. Production-candidate and native cross-platform certification are separate labels.",
+      "remaining": "Shadow/USL2 paths, OWNER.ps1 and python -m usl2 are illustrative names. ExecutionPolicy Bypass in an example is not a request to bypass current controls; Windows launch actions need a native host and explicit qualification.",
+      "proposed_implementation": "Map these owner actions to the existing runtime\u2019s actual CLI/API, preserve process ownership and localhost authentication, and provide supported-platform testing guides. Verify each command and package route before claiming it exists.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "II-69",
+      "volume": 2,
+      "title": "Glossary and Symbol Index",
+      "contract": "Normalize autoplastic/CAS/causal-debt/delta/evidence/fabric/logical-worker/physical-resource/proof-obligation/residual/SIR/transformation/verified-reuse terminology. Closing note explicitly says replacing prototype directives with complete SIR nodes/native adapters remains work.",
+      "remaining": "Glossary alignment is documentation, not implementation or certification. The closing note confirms the book is an engineering framework with unfinished native semantics, not evidence that all proposed features already run.",
+      "proposed_implementation": "Add a stable terminology/schema mapping and glossary references to telemetry, diagnostics and backlog IDs; preserve distinctions between delta/residual, observed/predicted, logical/physical and verified/provisional.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/collapse.py",
+        "usl_systems/fractal.py",
+        "usl_systems/incremental.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "3-1",
+      "volume": 3,
+      "title": "Evolution / p.4",
+      "contract": "Separate original books, Master v0.22 experiments, Universal Runtime Fabric and Universal Systems versions. Original chapters describe ambition, not present feature support.",
+      "remaining": "Existing `legacy_sources` and prior releases preserve source lineages. Add explicit lineage IDs to report/schema metadata; never compare v0.22 and v4.x as one monotonically ordered release stream.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "3-2",
+      "volume": 3,
+      "title": "Syntax, AST, IR / pp.4\u20135",
+      "contract": "`hello.usl` sums 1\u202610 to 55; `square` example sums 1\u00b2\u20264\u00b2 to 30. Parse \u2192 link \u2192 supported type/effect checks \u2192 execute; interpreter/emitter/native bridge are separate contracts. Formats may carry serialized USL but do not thereby become executable languages.",
+      "remaining": "`language.py`, `module_linker.py`, `compiler.py`, `semantic_types.py` provide identified bounded implementations. `semantic_ir_v2.py` and `semantic_translation.py` now provide real finite foreign-source IR/lowering beyond the book's historical opaque imports. Maintain explicit unsupported AST/type/effect refusals, independent program contracts and native differential tests. Do not retrofit every Part I syntax example as implemented.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "3-3",
+      "volume": 3,
+      "title": "Universality / pp.5\u20136",
+      "contract": "606\u00b2 = **367,236 ordered address cells**; each cell requires its own compatible route/evidence. Recognition < parser sample < native/format case < scoped profile < full standard.",
+      "remaining": "`catalog.py`, parser/native adapters and `completion_ledger.py` separate stages. Real Python/JS scalar-list frontends and a Ruby module exist in the developing tree; their complete language standards remain unqualified. Preserve every catalog ID, classify aliases/dialects/formats/transcripts, and qualify pairwise semantics rather than filling a Boolean matrix from labels.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "3-4",
+      "volume": 3,
+      "title": "Architecture and lanes / p.7",
+      "contract": "Each work item declares dependencies, values, source fingerprint, resources, cancellation/deadline and output oracle; verified predecessors release dependent work. H0 portable interpreter, H1 native, H2 candidate comparison, H3 cooperative graph.",
+      "remaining": "`server.py`, store/journal, `CooperativeScheduler`, interpreter/native routes exist. H0\u2013H3 are conceptual route labels, not evidence that every lane supports every program. Add explicit route descriptors and effect-aware admission records. Localhost tokens/origin checks are controls; native workers remain explicitly short of an OS security sandbox.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "3-5",
+      "volume": 3,
+      "title": "Bridges / p.8",
+      "contract": "Preserve typed values with specified transfer semantics; distinguish process JSON, native calls and callbacks. Book records v3.8 401 eligible probes, v4.1 289 typed transfers, v4.2 196; these are different scopes.",
+      "remaining": "`polyglot_native.py`, structural ABI, callback code and native engines provide finite cases. Fourteen v4.2 catalog additions are listed below; alias variants cannot count as fourteen distinct compilers. Extend ABI tests to reentrancy, lifetimes/GC, errors, encoding, cancellation and actual calling conventions.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "3-6",
+      "volume": 3,
+      "title": "Semantics/imports / p.9",
+      "contract": "Preserve negative division, Unicode representation, aliasing, truthiness and >2\u2075\u00b3 precision. Certificate binds grammar/source, static/effects, ABI, observable values/errors/effects and versioned host.",
+      "remaining": "Book's 40 native fixtures / 160 compatibility cells / 122 matches / 38 adaptation cases / five shim cases are historical observations. Current typed IR and compatibility helpers address an explicit scalar/list subset; closure/object/module/stdlib/concurrency coverage remains separate. Add chapter-traced semantic feature inventory and source-native versus translated-native holdouts; parser provenance never counts as native execution or general translation.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "3-7",
+      "volume": 3,
+      "title": "Workers/resources/state / pp.9\u201310",
+      "contract": "`G=(V,E)`; `Task=(inputs,effects,cost,state,proof)`; ready iff every predecessor is verified. `P=(partial_i,dimension_j,depth_k)` is a logical coordinate. Pure deterministic checkpoints may be reused only on compatible identities; native external effects must run fresh.",
+      "remaining": "`cooperative_workers.py`, `fractal.py`, `collapse.py` implement bounded DAGs, threads/processes, factoring and CAS. Book limits (40 tasks, eight threads, four processes, 20 dependencies) are historical configuration, not immutable universal requirements. Current scheduler cancellation stops pending dispatch and lets already-running tasks finish. Add measured per-worker counters and complete runtime/config/spec identity keys; do not call logical partitions additional processors.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/collapse.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/incremental.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "3-8",
+      "volume": 3,
+      "title": "Collapse/routes / pp.10\u201311",
+      "contract": "A transform must preserve observations, effects and required trace on its declared domain. Count physically avoided work and new overhead. Compiled artifacts may be cached; native results must still be freshly checked. Exact decoding requires predictor/reference/state/residual information.",
+      "remaining": "`collapse.py` offers verified byte reconstruction and serialized codec cost; `native_build_cache.py` supplies native build reuse; `adaptive.py` measures verified serial/factored candidates. Add dependency-closure/version identities, cache corruption/staleness cases and end-to-end metadata/reference costs. Pure-result reuse is a separate policy from native artifact reuse. The printed routing pseudocode is explanatory, not a drop-in executable `.usl` file.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/collapse.py",
+        "usl_systems/incremental.py"
+      ]
+    },
+    {
+      "id": "3-9",
+      "volume": 3,
+      "title": "Autonomy/repair / p.12",
+      "contract": "`observe\u2192diagnose\u2192stage\u2192authorize\u2192atomic apply\u2192independent tests\u2192commit evidence OR rollback`. Model proposals do not validate themselves. Authority persists only within the authorized scope.",
+      "remaining": "`entity_cycle.py` now stages experiments, checks independent cases/retention, atomically promotes versioned skills and supports rollback; it remains a finite workflow. Add robust state/transaction journals and crash/failure injection for actual project patches; never autoreplay interrupted external effects. Book's Chrome missing console observation/resume difficulties are historical integration issues requiring real host tests.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "3-10",
+      "volume": 3,
+      "title": "Platforms/integrations / pp.12\u201313",
+      "contract": "Windows install/model lifecycle; real stdout/stderr and task observation in Chrome; actual microphones/cameras/models; GPU device+kernel+transfer+correctness+measurement; distributed node/version/backpressure/idempotency/clock/partition controls.",
+      "remaining": "Sensor/device adapters, recovered Shadow/EmoVision/Chrome sources and CPU neural code exist. Model/device discovery or a health endpoint is not qualified operation. `resources.py` reads affinity/cgroup constraints and GPU discovery. Add real Windows/browser tests, installed model inference, calibrated live sensor cases and qualifying kernel/device tasks; distributed fabrics remain a separate explicit implementation/qualification track.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "3-11",
+      "volume": 3,
+      "title": "Applications / pp.13\u201314",
+      "contract": "Software orchestrates reproducible models and experiments; products and physical hypotheses need independent domain evidence.",
+      "remaining": "All ten listed application areas map below. Do not upgrade a numeric result, mockup or old discussion into a shipped product, stable isotope, novel material, battery claim or guaranteed trading outcome.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "3-12",
+      "volume": 3,
+      "title": "Formal scheduling models / pp.15\u201316",
+      "contract": "`\u2200x\u2208D: Obs(P,x)=Obs(T(P),x)`; evidence `E=(source hash,IR hash,ABI,toolchain,D,oracle,result)`; known blockers `K\u2212=\u2205` plus `K+` obligations is admission, not proof of checker completeness. `Cost=Csetup+Ccompute+Ctransfer+Cio+Cverify+Cqueue`; speedup `Tref/Tcand`; avoidance `(logical\u2212executed)/logical`; Amdahl ceiling.",
+      "remaining": "Typed IR, bounded solver/compatibility model checks and differential tests exist, with explicit unmodelled obligations. Add a structured observation schema for state/effects/errors/order and quantified domain/assumption/timeout records. Cost coefficients need consistent units and measured calibration. Canonical length-framed cache keys must include source, inputs, specification, runtime/dependencies, platform, configuration, ABI and effects; raw ambiguous concatenation is inadequate.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/collapse.py",
+        "usl_systems/fractal.py",
+        "usl_systems/incremental.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "3-13",
+      "volume": 3,
+      "title": "Physics/information / p.16",
+      "contract": "Account for all energy sources/losses/boundaries; compression retains necessary information; numerical models require parameters, units, initial/boundary conditions and uncertainty.",
+      "remaining": "The scalar equation registry computes formulas; it does not qualify quantum devices, fluids, materials, sub-Planck structures or isotope claims. Add versioned domain/unit/assumption metadata and independent solver/measurement interfaces. Keep toy, established-model, experimental-data and validated-device status separate.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/equations.py",
+        "usl_systems/simlab.py"
+      ]
+    },
+    {
+      "id": "3-14",
+      "volume": 3,
+      "title": "Chronology / p.17",
+      "contract": "Preserve each release's actual scope and reports. Original I/II and Master v0.22 are reference/experimental; v3.9 still zero complete specs; book v4.1 53 subsets, v4.2 67.",
+      "remaining": "Keep provenance-indexed historical reports immutable. Current reports must be generated from current code and original independent acceptance contracts, not overwritten book tables. Broader source generation, ownership/GC, sandbox, Windows, browser/device and GPU qualification remain distinct obligations.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "3-15",
+      "volume": 3,
+      "title": "Archived benchmarks / pp.17\u201318",
+      "contract": "Book v4.2: 606 IDs, 67 subsets, 539 unqualified, zero complete specs; 28/28 new cases, 490 reported regressions, 26/26 frontend checks, 196 typed transfers; 12\u00d742=504 join; eight observed tasks. One-worker median 1332.070 ms vs eight-worker 794.274 ms, three samples, **1.6771\u00d7** for that fixture workload.",
+      "remaining": "These numbers are historical book/source claims; this review did not rerun their complete historical suite. Add cold/warm raw trials, source/compiler/device fingerprints, independent holdouts, end-to-end time, peak memory, energy where measurable, spread/failures and negative results. No universal speed or Windows/model inference claim follows.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "3-16",
+      "volume": 3,
+      "title": "Completion / pp.18\u201319",
+      "contract": "Per profile: exact normative version, grammar/AST, binding/types/effects, dynamic/numeric/Unicode/ownership/concurrency, library/host, backend/lowering, ABI, independent conformance, performance/platform, safety/license/reproducibility and independent sign-off. A tranche of \u226510 executable subsets is an objective, not ten finished standards.",
+      "remaining": "The evidence ledger models 14 normative gates plus parser/native/translation/intent stages. Implement actual missing semantic chapters and standards suites; don't substitute ledger infrastructure for those implementations. Integrate host/model/sensor/GPU tasks only after their own acceptance. Continue independent work through external blockers; do not emit an all-complete handoff while gates remain pending.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-1",
+      "volume": 4,
+      "title": "Universal promise",
+      "contract": "Use one source, transformation and execution contract per language profile; integrate `semantic_translation.py`, `completion_ledger.py`.",
+      "remaining": "Compare return, streams, exit/errors, effects and committed state on admitted inputs/environments. Keywords or matching stdout alone do not establish conformance.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-2",
+      "volume": 4,
+      "title": "Safe `.usl` evaluation",
+      "contract": "Retain AST allowlists and resource bounds in `language.py`; label supported binding/function/loop/collection scopes.",
+      "remaining": "Reject imports, attributes, undefined names and unsupported syntax before effects; test adversarial time/output/memory behavior.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "4-3",
+      "volume": 4,
+      "title": "Semantic IR",
+      "contract": "Adapt through `semantic_ir_v2.py`, explicit binding/type analysis and typed lowering.",
+      "remaining": "Canonical schema/operator/type/numeric/profile/effect identity; original source spans and generated-operation reverse maps; roundtrip/tamper/schema-mismatch checks. CFG/SSA and exceptions require additional semantics.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-4",
+      "volume": 4,
+      "title": "Effects and lifetime",
+      "contract": "Add conservative read/write/process/network/device/random/clock/unknown effects; native buffer ownership contract.",
+      "remaining": "Reorder only nonconflicting operations; validate owned/borrowed/pinned lifetimes and callbacks with sanitizers. JSON structural types are insufficient for native memory safety.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-5",
+      "volume": 4,
+      "title": "Three-layer routes",
+      "contract": "Keep portable, verified native, opaque foreign-host and rejection routes distinct.",
+      "remaining": "Route admission requires semantic/environment/permission matches; fallback must satisfy the same requested behavior and expose its reason.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-6",
+      "volume": 4,
+      "title": "Collapse taxonomy",
+      "contract": "Separate compression, deduplication, exact incremental update and scheduling records in `collapse.py`/workers.",
+      "remaining": "Decode bytes exactly; count actual executed work and full elapsed cost independently. Metadata reuse is not a fresh native run.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/collapse.py",
+        "usl_systems/fractal.py",
+        "usl_systems/incremental.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "4-7",
+      "volume": 4,
+      "title": "Exact CAS",
+      "contract": "Key immutable results by schema, operator, complete inputs/dependencies and relevant environment; retain provenance separately.",
+      "remaining": "Corruption/missing/truncated objects fail; changing compiler, ABI or numeric/effect policy invalidates reuse. Effectful operations never silently replay.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-8",
+      "volume": 4,
+      "title": "Compression Success All",
+      "contract": "Keep a finite approved codec tournament with decoder authority.",
+      "remaining": "Include all metadata/references in size/cost; high-entropy/empty/missing-reference/decompression-bound tests; no universal-shortening claim.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-9",
+      "volume": 4,
+      "title": "Incremental state",
+      "contract": "Implement admitted exact delta rules and dependency invalidation.",
+      "remaining": "Numeric-domain/overflow identity, no-op/overlapping edits and downstream recomputation; report audit overhead and predictions separately.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/collapse.py",
+        "usl_systems/incremental.py"
+      ]
+    },
+    {
+      "id": "4-10",
+      "volume": 4,
+      "title": "H0\u2013H3",
+      "contract": "Namespace historical H-labels and use explicit protocol identifiers.",
+      "remaining": "Every route passes reference observations before measured cost selection; no partial-stage versus full-pipeline comparison.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "4-11",
+      "volume": 4,
+      "title": "Cache economics",
+      "contract": "Estimate lookup, hit validation, miss compute, eviction and maintenance costs per workload.",
+      "remaining": "Cold/warm/cache-disabled paired baselines and representative hit distributions; cache value may be provenance rather than speed.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/collapse.py",
+        "usl_systems/incremental.py"
+      ]
+    },
+    {
+      "id": "4-12",
+      "volume": 4,
+      "title": "Parallel limits",
+      "contract": "Use work/span bounds and actual measured workers in `cooperative_workers.py`/`unified_workers.py`.",
+      "remaining": "Identical 1/2/4/8-worker workloads, grain-size/overhead/OS-process telemetry; logical dimensions never multiply physical cores.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "4-13",
+      "volume": 4,
+      "title": "Verified DAG joins",
+      "contract": "Persist typed node inputs/results/digests and require verified predecessors.",
+      "remaining": "Independent branches survive unrelated failures; consumers block; detect cycles, oversized graphs, tampered outputs and lane limits. Historical caps are version-qualified.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "4-14",
+      "volume": 4,
+      "title": "N/M factoring",
+      "contract": "Partition domain exactly once; normalized resource-demand vectors and bounded recursive trees.",
+      "remaining": "Coverage/no overlap, ordered or proven associative joins, skewed-load benchmarks and hard memory limits. Work-stealing/global-optimal placement remain separate features.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "4-15",
+      "volume": 4,
+      "title": "Concurrency lanes",
+      "contract": "Select threads/processes/async from measured work characteristics.",
+      "remaining": "Bound startup/serialization/merge; cancellation before dispatch and native process-group cleanup; never assume stopping the supervisor undoes effects.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "4-16",
+      "volume": 4,
+      "title": "CPU/GPU placement",
+      "contract": "Enumerate providers, benchmark real kernels, apply capacity/correctness gates.",
+      "remaining": "Warmup, synchronization, transfers, memory/thermal budgets and provider-loss fallback. GPU inventory and SwiftShader browser rendering are not GPU compute qualification.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "4-17",
+      "volume": 4,
+      "title": "Persistent learning",
+      "contract": "Reuse durable `entity_memory.py`/`entity_cycle.py`, provenance and accepted skill versions.",
+      "remaining": "Independent sealed holdouts, rejection/retention, corruption/migration and restart without duplicated actions. Retrieval/persistence, program synthesis and neural learning remain distinct.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "4-18",
+      "volume": 4,
+      "title": "Catalog semantics",
+      "contract": "Preserve all 606 IDs, aliases, categories and separate stages in the completion ledger.",
+      "remaining": "Exact unique inventory, runtime/format-specific gates and zero automatic upgrade from subset to full specification. Book's 67/539 is historical.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-19",
+      "volume": 4,
+      "title": "Foreign import",
+      "contract": "Extend genuine typed Python/JS/Ruby profile frontends in `semantic_translation.py`/`semantic_ruby.py`.",
+      "remaining": "Original runtime versus IR versus native target boundary/negative differentials; scope/capture/numeric/errors/modules explicitly supported or rejected. Parser acceptance is insufficient.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-20",
+      "volume": 4,
+      "title": "Matrix meaning",
+      "contract": "Keep addressability, typed handoff, native subset and profile conformance distinct per edge.",
+      "remaining": "367,236 addresses default unverified; require real host/guest data/error/lifetime/callback evidence before stronger claims.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-21",
+      "volume": 4,
+      "title": "Full standards",
+      "contract": "Normative-clause traceability per exact version/dialect/platform; upstream suites and independent boundary/metamorphic/fuzz cases.",
+      "remaining": "Evaluate numbers/Unicode/aliasing/errors/effects/modules/libraries/concurrency. No finite test count proves arbitrary Turing-complete equivalence.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-22",
+      "volume": 4,
+      "title": "ABI/callbacks",
+      "contract": "Extend `abi_types.py`/`interop.py` beyond JSON structure to a concrete native layout.",
+      "remaining": "Width/sign/endian/UTF-8 lengths/strides/alignment/allocator/deleter/thread/cancel/error contracts, native callback/reentrancy fixtures and sanitizer checks per platform.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-23",
+      "volume": 4,
+      "title": "Bounded autonomy",
+      "contract": "Use approved-plan versus proposal distinction, step validation and durable checkpoints.",
+      "remaining": "Unauthorized mutation denied; pending external action after crash becomes `needs_review`; failed verification blocks dependent actions; no self-approval.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "4-24",
+      "volume": 4,
+      "title": "Agent repair",
+      "contract": "Disjoint implementer/evaluator/reviewer responsibilities and finite hypothesis budgets.",
+      "remaining": "New independent reproducer plus retained regressions/policy; preserve last-known-good version, negative discoveries and real tool logs. Dialogue is not evidence.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "4-25",
+      "volume": 4,
+      "title": "Shadow/Ollama",
+      "contract": "Separate live model serving, history, ASR/TTS, perception, planning and execution.",
+      "remaining": "Real tokens/audio references/runtime identity; report capture/load/first-token/total/playback latency and cold/warm separately. Healthy mocks do not qualify inference.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-26",
+      "volume": 4,
+      "title": "Chrome/desktop",
+      "contract": "Exact process instance, authenticated event cursor, scoped tab/action permissions.",
+      "remaining": "Actual console/browser messages, duplicate events, browser/controller crash/reconnect; logs from the controller do not prove unrelated application state.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-27",
+      "volume": 4,
+      "title": "EmoVision/embodiment",
+      "contract": "Typed frames with identity/time/orientation/color/calibration; model hashes; signed wearable build/pairing contracts.",
+      "remaining": "Actual permission denial/acquisition/model outputs and separate APK/hardware installation; emotion predictions remain uncertain estimates.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-28",
+      "volume": 4,
+      "title": "Windows delivery",
+      "contract": "Flat reproducible source, writable state outside release, optional dependencies and rollback.",
+      "remaining": "Clean Windows VM and real-device install, spaces/long paths, occupied ports, data preservation and absent-provider reduced mode. Linux evidence does not qualify Windows.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-29",
+      "volume": 4,
+      "title": "Scientific simulation",
+      "contract": "Machine-readable experiment schema with solver/version/units/parameters/boundaries and four evidence tiers.",
+      "remaining": "Algebra, numerical convergence/reference, measured predictive validity and reproduced experiment are separate gates; RK4 correctness is not new physics.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/equations.py",
+        "usl_systems/simlab.py"
+      ]
+    },
+    {
+      "id": "4-30",
+      "volume": 4,
+      "title": "Materials/BEC",
+      "contract": "Use established oscillator/energy models as rejection baselines.",
+      "remaining": "Measured parameters, Hamiltonians/boundaries, controls and conservation; room-temperature BEC, H70, hard-light and sub-Planck claims remain research/unestablished.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-31",
+      "volume": 4,
+      "title": "Fluids/drones",
+      "contract": "Established Reynolds/Bernoulli/Betz models with actual geometry/boundaries/actuator limits.",
+      "remaining": "Conventional rotor first, matched area/power/inlet/noise, mesh convergence, wind-tunnel uncertainty and loss-of-link/sensor failures before actual flight.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-32",
+      "volume": 4,
+      "title": "Perception measurement",
+      "contract": "Use hashed preprocessing/models and independently labelled static/live inputs, temporal uncertainty.",
+      "remaining": "Full-pipeline capture\u2192display times, no-camera/privacy-denial tests, lighting/occlusion/distribution robustness. Classifiers are model estimates, not inner-state knowledge.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-33",
+      "volume": 4,
+      "title": "Prediction/finance",
+      "contract": "Offline chronological, leakage-free forecasts/backtests with frozen strategy and realistic costs.",
+      "remaining": "Vintage/horizon/splits/baselines/rolling-origin/fees/spread/slippage/drawdown; actual fills require broker evidence. No automatic real-money permission follows.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-34",
+      "volume": 4,
+      "title": "Shared research platform",
+      "contract": "Typed hypothesis/input/source/unit/hash/resource/reference/failure/result record.",
+      "remaining": "Null hypothesis, refuting observation, heldout independence and rerunnable provenance. Negative results remain valid outputs.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "4-35",
+      "volume": 4,
+      "title": "Narrow benchmark",
+      "contract": "Preserve historical samples and rerun newer workloads separately.",
+      "remaining": "At least 20 randomized paired repeats when practical, absolute times/distributions/CIs, exact timer boundaries, input/tool/hardware identities and regressions.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-36",
+      "volume": 4,
+      "title": "Release gate",
+      "contract": "Clean extraction, immutable hashes, negatives, native oracles, regressions, licenses and platform evidence.",
+      "remaining": "Fail or downgrade stale evidence; show exact scope/date/unsupported APIs; no fabricated 606-complete badge.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-37",
+      "volume": 4,
+      "title": "Source conservation",
+      "contract": "Preserve all release lines and recovered archives with checksums/licenses/adapters.",
+      "remaining": "Flat extraction, state/schema migration and rollback; avoided build work and actual wall-clock gain are separate metrics.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-38",
+      "volume": 4,
+      "title": "Oversight/non-harm",
+      "contract": "Capabilities, origin/token controls, isolated untrusted native work, secrets outside artifacts and tested abort.",
+      "remaining": "Tokens/argv/loopback alone are not a sandbox; test emergency cancel/recovery, denial/rotation, network/filesystem restrictions and immutable policy.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "4-39",
+      "volume": 4,
+      "title": "Next milestones",
+      "contract": "A: real semantic import; B: adapter trait with family standards; C: native ABI/ONNXCPU then actual GPU; D: real Windows acceptance.",
+      "remaining": "Do not add ten labels as a quota without distinct semantics. Keep each failed external gate local to that feature; retain portable core.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_workflow.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "4-40",
+      "volume": 4,
+      "title": "Falsifiable success",
+      "contract": "Measure newly verified minus invalidated claims; real workload routing preserves intent and reproducible observations.",
+      "remaining": "Clean independent reproduction, admitted effects and workload-specific benefit; make missing obligations visible rather than replacing them with claims.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": []
+    },
+    {
+      "id": "V-00",
+      "volume": 5,
+      "title": "Authorize, isolate, and establish the machine contract",
+      "page": 14,
+      "reference_text_sha256": "cf40fac980f00e395bb43d48ef32e85e729f22e5dbeab37824df35b3841a02aa",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-01",
+      "volume": 5,
+      "title": "Ingest all four books and current source records",
+      "page": 14,
+      "reference_text_sha256": "d4c8bb0e3c896cd819206911f82b0f433300e7eb3a37a5ab121e12f5ce611788",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-02",
+      "volume": 5,
+      "title": "Resolve conflicting specifications into a versioned canon",
+      "page": 15,
+      "reference_text_sha256": "2fad6ded4441da91ba89a662058d66881b704cbf6d0bc8d534c3f934c893db0e",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-03",
+      "volume": 5,
+      "title": "Audit tools, baseline files, and historical evidence",
+      "page": 16,
+      "reference_text_sha256": "7b21bde46cff08e6898602598c484603297f118798e24e3d92292862196c7933",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-04",
+      "volume": 5,
+      "title": "Build the requirements and proof-obligation graph",
+      "page": 16,
+      "reference_text_sha256": "d9215c32b1b9f616ed29d6f64e2eac9fb978fe26641638d6108750fafa2ac4e5",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "V-05",
+      "volume": 5,
+      "title": "Specify reproducible build, test, and release contracts",
+      "page": 17,
+      "reference_text_sha256": "289c762b6a02b66d0dae233c1afddf562f8f36dcbefd039d1cd7b3058924b10e",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-06",
+      "volume": 5,
+      "title": "Map the 606-language inventory honestly",
+      "page": 17,
+      "reference_text_sha256": "1d3d3237b325ff9671e9a568eda2997bececd4a3df4da3920001df4664d422a1",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-07",
+      "volume": 5,
+      "title": "Define lexical grammar and well-formed .usl programs",
+      "page": 18,
+      "reference_text_sha256": "a0cc0fafd618979ae1006fd454c8f7daff1db7dda4217f5799958826ae562f41",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "V-08",
+      "volume": 5,
+      "title": "Implement parser and source provenance",
+      "page": 19,
+      "reference_text_sha256": "ba01357b7093bb9f8bc47e42fad6d9b3b00dfb4b7c7393cf76386fc5f86700ec",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "V-09",
+      "volume": 5,
+      "title": "Specify a canonical typed semantic IR",
+      "page": 19,
+      "reference_text_sha256": "1f23c524a236226f485eadc5d04c9735303a893952662adcb11578b208fcdb3e",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "V-10",
+      "volume": 5,
+      "title": "Type, numeric, ownership and effects rules",
+      "page": 20,
+      "reference_text_sha256": "bdc2b19848bd16b5e223c10b1c379c52d69f1f0f62329bed74f9b70941d37119",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "V-11",
+      "volume": 5,
+      "title": "Establish a correct portable reference interpreter",
+      "page": 20,
+      "reference_text_sha256": "26b6f2dcb089aa17197047f21188baa695b11a869d986cae305c0d6b927ea79f",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-12",
+      "volume": 5,
+      "title": "Lower native Python safely with source maps",
+      "page": 21,
+      "reference_text_sha256": "184d99fee8d6302d10bccaa5686e33357f4fac6d4405fa6221258b952415d69d",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-13",
+      "volume": 5,
+      "title": "Add authenticated native engine adapters",
+      "page": 22,
+      "reference_text_sha256": "161d349962f1d9437408f8d0bce7f272829a17751ba4392e61c6fdea2ed2edd9",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-14",
+      "volume": 5,
+      "title": "Typed transport and complete ABI boundaries",
+      "page": 22,
+      "reference_text_sha256": "3d35de89de9e7aeae7a5ef7291ac8e51bf60ba9b02f99962cd336866beb023d1",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/book_workflow.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/semantic_ir_v2.py",
+        "usl_systems/semantic_ruby.py",
+        "usl_systems/semantic_translation.py"
+      ]
+    },
+    {
+      "id": "V-15",
+      "volume": 5,
+      "title": "Build an evidence-based 606 by 606 route graph",
+      "page": 23,
+      "reference_text_sha256": "887cfa1c9c673a4e527547825d5e14933247d0e87a739cc741cb417724c9ef9f",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "V-16",
+      "volume": 5,
+      "title": "Differential conformance and adversarial tests",
+      "page": 23,
+      "reference_text_sha256": "14d87f8d7d222ced0e6a063677288e938051535ccedbc98823db36330624fbf9",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-17",
+      "volume": 5,
+      "title": "Implement exact collapse and memoization proofs",
+      "page": 24,
+      "reference_text_sha256": "7d380a444a66dbdbad3a7257defdb614053021d2a683884b1b5099b97deaac2f",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/collapse.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/incremental.py"
+      ]
+    },
+    {
+      "id": "V-18",
+      "volume": 5,
+      "title": "Incremental residual and speculative candidate gates",
+      "page": 25,
+      "reference_text_sha256": "c75f0a73734bcd89eaf2631b85d92afebd29bc754bcc47e3e32d866d989f8e69",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/collapse.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/incremental.py"
+      ]
+    },
+    {
+      "id": "V-19",
+      "volume": 5,
+      "title": "Plan N partial workers in M real resource dimensions",
+      "page": 25,
+      "reference_text_sha256": "b5f8165549f150d8c1235a52970fe7c6e1023932c058615e3731954ea9acf446",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py",
+        "usl_systems/fractal.py",
+        "usl_systems/resource_graph.py",
+        "usl_systems/unified_workers.py"
+      ]
+    },
+    {
+      "id": "V-20",
+      "volume": 5,
+      "title": "Measure GPU routes and actual hardware acceleration",
+      "page": 26,
+      "reference_text_sha256": "cef37a804c0100e65418aead001597abf1b70e0bd4e58a08fc023c622ebf8d47",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-21",
+      "volume": 5,
+      "title": "Version durable memory and validated learning",
+      "page": 26,
+      "reference_text_sha256": "2b00ff414f9b790d69f9530740a6b5bd5765a5c2460099d52b04473e19148706",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-22",
+      "volume": 5,
+      "title": "Coordinate builder, verifier, critic and releaser agents",
+      "page": 27,
+      "reference_text_sha256": "9e9cdacb296ca7378d9234782fc1ddcedf3b3b9e0f120fbb7dbc1754b1ff365b",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-23",
+      "volume": 5,
+      "title": "Construct authorized self-repair and patch loops",
+      "page": 27,
+      "reference_text_sha256": "c05ac7c3f374ff2d94dd77a45cc550f8c1fcc3e38edb021da0454ccefc241cca",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-24",
+      "volume": 5,
+      "title": "Connect Shadow and local Ollama with latency evidence",
+      "page": 28,
+      "reference_text_sha256": "4c6824eef9c718f6979ee878f77668116e7f7ff57ff181cda761ea355431b868",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-25",
+      "volume": 5,
+      "title": "Implement Chrome Bridge observe-interpret-act",
+      "page": 29,
+      "reference_text_sha256": "f7b7048958b8d54234740f0b05eed44088e301725218599559941dca21e2fa89",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-26",
+      "volume": 5,
+      "title": "Integrate EmoVision and device sensors safely",
+      "page": 29,
+      "reference_text_sha256": "545e21f35a3fc862a12a940d11be89f1d90e08eff9bb6c505befbb89242d0ab7",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-27",
+      "volume": 5,
+      "title": "Create science simulation with falsification contracts",
+      "page": 30,
+      "reference_text_sha256": "3df13f8d054f7bd9fdbad7b0a73705a17da3d1c8b5e659ad15b1d5cd52c962ce",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-28",
+      "volume": 5,
+      "title": "Build a recoverable one-command Windows installer",
+      "page": 30,
+      "reference_text_sha256": "f7f23c30f9e6689cc2e26e8387d7e3ad590fa068ce7ae185206eebd8d0c3b63c",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-29",
+      "volume": 5,
+      "title": "Establish security, non-harm and policy controls",
+      "page": 31,
+      "reference_text_sha256": "1cbc278a7ff821ab3a76d3668872220f0a2c65ca672c0881ffd8061dab870f3d",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-30",
+      "volume": 5,
+      "title": "Run end-to-end acceptance and standards-based conformance",
+      "page": 32,
+      "reference_text_sha256": "5f0bfd5492ac5359bfeec677ca9af3f2128c5cdfbeb748083741afa2888a8b5b",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-31",
+      "volume": 5,
+      "title": "Measure performance and accept or reject each optimization",
+      "page": 32,
+      "reference_text_sha256": "32c52e135d49cb2629773829322f976bfc2f463fa8445a6cfb10f2cf4a0cfd0e",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-32",
+      "volume": 5,
+      "title": "Write the evidence-backed complete technical reference",
+      "page": 33,
+      "reference_text_sha256": "3b7ca3c6d0ea4dbee9e45e45d89c6ec05ec5d98d7b9a4f10ab62217a391040cf",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-33",
+      "volume": 5,
+      "title": "Create reproducible release and recoverable resume",
+      "page": 33,
+      "reference_text_sha256": "934c2e22c568fe1a915d1471a1c9274434343688fa6340fe80b0d75f9c30e728",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-34",
+      "volume": 5,
+      "title": "Self-extension cycle: discover, propose, prove, incorporate",
+      "page": 34,
+      "reference_text_sha256": "e8b5aa974e9e1328406061a26f838f030879a5be1fac3aa6790a092310bea3a2",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    },
+    {
+      "id": "V-35",
+      "volume": 5,
+      "title": "Final independent audit and closure decision",
+      "page": 35,
+      "reference_text_sha256": "46bffa8e32b9c02c95bd9e4659a9ce628b8ae5e36450cdd572788ae7d7bb3c40",
+      "contract": "Full stage reference preserved in reference_books/PROMPT_LADDER.json",
+      "remaining": "All criteria must be independently satisfied; a scoped patch does not complete this stage.",
+      "status": "partial_implementation; outstanding acceptance retained",
+      "existing_source_integration_points": [
+        "usl_systems/book_bootstrap.py",
+        "usl_systems/book_sources.py",
+        "usl_systems/entity_cycle.py"
+      ]
+    }
+  ],
+  "all_books_fully_implemented": false,
+  "fresh_evidence": [
+    "test_results/v4.6.0_book_adaptation/qualification.json",
+    "test_results/v4.6.0_unified_workers/first_full_round.json",
+    "test_results/v4.6.0_isolated_regressions.json"
+  ],
+  "missing_inputs": [
+    "VolumeI grammar",
+    "VolumeV companion ZIP",
+    "actual Windows/macOS/proprietary hosts",
+    "live models and calibrated physical devices",
+    "normative full-language libraries/conformance"
+  ]
+}

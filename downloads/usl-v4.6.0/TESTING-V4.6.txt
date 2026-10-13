@@ -1,0 +1,16 @@
+USL 4.6 testing — Linux/POSIX qualified host
+
+1. Extract the flat-root full-source ZIP into a new directory.
+2. Run python tools/verify_release.py to verify every bundled file hash.
+3. Install requirements-catalog.txt and requirements-engines.txt, plus the native tools listed by doctor. Optional neural/physical dependencies have separate profiles. This source bundle ships no native binaries.
+4. In this prepared cloud machine: source /workspace/.onboarding/activate-usl.sh
+5. Run python -m usl_systems run examples/hello.usl
+6. Run python -m unittest tests.test_v46_book_adaptation tests.test_v46_semantic_ruby tests.test_v46_native_profiles tests.test_v46_unified_workers
+7. Run python tools/qualify_book_adaptation.py --output /tmp/usl-book-test --i-allow-execution
+8. Run python -m usl_systems workers-run --syntax-profile book-workflow --file examples/book_partial_workers.usl --data /tmp/usl-worker-test --workers 4 --i-allow-execution
+   Use --workers 4 (with a space); exit2 deliberately signals an operational run with unfinished full 606/entity completion. Exit1 is a failed check; exit3 is cancellation.
+9. Open docs/UNIFIED_WORKER_STATUS.html locally for search/collapsible families. Read docs/BOOK_IMPLEMENTATION_MAP.md and BOOK_REQUIREMENTS_MAP.json for remaining obligations.
+10. To watch for new registered implementations: python tools/watch_unified_workers.py --data /tmp/usl-worker-test --workers 4 --i-allow-execution
+    Again use --workers 4. The watcher reloads real handlers; it does not synthesize missing compilers. It runs only while its process/environment remains alive.
+
+Ruby subset needs genuine Ruby/Ripper/JSON. Brainfuck requires the pinned Beef/libcattle packages; setup_native_v46.py installs these nonroot from verified archives. Ghostscript needs a real gs executable. Missing runtimes/specs/platforms produce explicitblocked outcomes. Full standards and general human abilities are not certified by this package.
