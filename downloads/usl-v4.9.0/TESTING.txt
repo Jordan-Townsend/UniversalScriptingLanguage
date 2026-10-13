@@ -1,0 +1,19 @@
+USL 4.9 test instructions — prepared Linux host qualified
+
+Extract the source ZIP, then run python tools/verify_release.py.
+Install requirements-catalog.txt, requirements-engines.txt, requirements-batch-v49.txt and the actual native tools needed by selected profiles. Neural tests require requirements-neural.txt and USL_NEURAL_PYTHON. The ZIP does not bundle compiler/runtime binaries. Install Handlebars with the pinned node-package/node-package-lock files in examples/v49_templates; set USL_TEMPLATE_NODE_ROOT to that npm root (see V4.9_TEMPLATE_PROFILES.md).
+
+In the prepared cloud: source /workspace/.onboarding/activate-usl.sh
+python -m usl_systems run examples/hello.usl
+python -m unittest tests.test_v49_batch_profiles tests.test_v49_templates
+python -m tools.run_profile_multiplex --workers 4 --i-allow-execution
+python -m tools.build_language_action_plan
+python -m usl_systems function-verify examples/v49_functions/awk.source --language awk --target javascript --function transform --contract examples/v49_functions/intent.json --invocations examples/v49_functions/invocations.json --i-allow-execution
+python -m usl_systems workers-run --file examples/accelerated_language_workers.usl --data /tmp/usl-fresh-v49-workers --workers 4 --offline --i-allow-execution
+Exit 2 means scoped operational checks passed while the complete objective remains unfinished; 1 is failed checks, 3 cancellation. Matching checkpoints perform zero new native actions. Remove --offline to retrieve public reference bytes; this changes configuration identity and requires fresh qualification.
+python tools/run_isolated_regressions.py
+
+Open docs/UNIFIED_WORKER_STATUS.html and docs/ALL_LANGUAGE_ACTION_PLAN.html locally. Every ID has explicit ordered actions and all obligation dimensions. A selected multiplex subset reports its own fresh round plus the v4.8 baseline; use the full round/worker table for complete current coverage.
+The optional USL-V4.9.0-WORKER-CHECKPOINTS.tar.xz restores current SQLite/CAS state into the extracted source root. It is unnecessary for fresh source tests. Earlier checkpoint archives remain on their prior download branches. Current-host/clean-extraction testing does not qualify a new installation or another OS.
+
+Directory relocation can change the template implementation path bound in dependency identity. The first restored run then requalifies freshly; subsequent matching checkpoints execute no new actions. Other host/runtime/source changes likewise require fresh validation.

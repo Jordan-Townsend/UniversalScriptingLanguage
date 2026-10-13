@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "reason": "Directory relocation changes the template implementation path bound in dependency identity; all native/processing evidence was requalified freshly",
+  "jobs": 2428,
+  "native_code_programs": 1468,
+  "generated_USL_processing_executions": 16114,
+  "seconds": 360.13192691899894
+}

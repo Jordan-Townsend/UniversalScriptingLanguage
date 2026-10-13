@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "service_version": "4.9.0",
+  "watcher_waiting": true,
+  "restart_jobs_executed": 0,
+  "restart_native_observations_replayed": 0,
+  "actual_restarted_service_output": "v49 restarted service\n56\n"
+}

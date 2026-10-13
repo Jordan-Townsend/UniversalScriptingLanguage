@@ -1,0 +1,16 @@
+{
+  "reason": "Stop overlapping regression runner after 35-second module deadlines; rerun after catalog workers finish",
+  "runner_pids": [
+    694032
+  ],
+  "only_owned_descendants_signalled": [
+    715350,
+    716814,
+    716846,
+    694032
+  ],
+  "deadline_failures_observed": [
+    "test_v45_completion_ledger.py",
+    "test_v47_typescript.py"
+  ]
+}

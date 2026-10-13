@@ -1,0 +1,86 @@
+{
+  "schema": "usl.download.verified.v9",
+  "version": "4.9.0",
+  "qualification": {
+    "book_pages": 293,
+    "checkpoint_native_replays": 0,
+    "code_comparisons": 726,
+    "current_Linux_host_verified": true,
+    "current_case_result_CAS_verified": true,
+    "exact_reference_stages": 36,
+    "fresh_backend_case_checks": 362,
+    "fresh_backend_profiles": 165,
+    "fresh_native_code_program_executions": 1468,
+    "multiplex_seconds": 63.37027993200172,
+    "multiplex_workers": 4,
+    "new_feature_tests": 33,
+    "new_installation_or_other_OS_verified": false,
+    "new_profile_ids_passed": 121,
+    "processing_generated_USL_executions": 16114,
+    "processing_original_engine_evaluations": 16114,
+    "test_modules": 98,
+    "tests_enumerated": 910,
+    "tests_executed": 901,
+    "tests_skipped": 9,
+    "worker_jobs": 2428
+  },
+  "scope": {
+    "all_scoped_ids": 149,
+    "category_processing_profiles": 88,
+    "entity_tracks_complete": 0,
+    "extra_ids": 1,
+    "full_objective_complete": false,
+    "full_standard_ids_remaining": 606,
+    "full_standards_qualified": 0,
+    "original_ids": 606,
+    "original_ids_without_any_scope": 457,
+    "typed_code_profiles": 61
+  },
+  "clean_extraction_manifest": {
+    "verified": true,
+    "version": "4.9.0",
+    "expected_files": 10748,
+    "errors": [],
+    "manifest_signed": false
+  },
+  "clean_extraction_new_tests": {
+    "passed": true,
+    "executed": 33,
+    "skipped": 0
+  },
+  "checkpoint_restoration": {
+    "passed": true,
+    "restored_files": 4059,
+    "archive_sha256": "909f850c04ee8264ac9c954954e1e1ab2b929fbe1df4819bf104c1bfcc052eec",
+    "every_file_hash_verified": true,
+    "seconds": 1.0238268859975506
+  },
+  "checkpoint_resume": {
+    "passed": true,
+    "restored_records": 2428,
+    "exact_complete_evidence_bytes": 29475049,
+    "new_jobs": 0,
+    "new_native_executions": 0,
+    "native_observations_replayed": 0,
+    "source_identity": "4ff67f70ec964559efac447606b7406574de7bfe2e0db6e83db10ba71f379441",
+    "after_required_directory_requalification": true
+  },
+  "all_previous_archives_unchanged": true,
+  "onboarding_draft": {
+    "revision": 9,
+    "install_script_saved": true,
+    "start_skill_saved": true,
+    "published": false,
+    "fresh_task_verified": false
+  },
+  "initial_overlapping_regression_attempt": "Two module35-second deadlines exceeded; stopped owned overlapping runner and reran the complete suite after catalog workers finished. All901 executed tests passed; nine skipped.",
+  "full_objective_complete": false,
+  "clean_directory_requalification": {
+    "passed": true,
+    "reason": "Directory relocation changes the template implementation path bound in dependency identity; all native/processing evidence was requalified freshly",
+    "jobs": 2428,
+    "native_code_programs": 1468,
+    "generated_USL_processing_executions": 16114,
+    "seconds": 360.13192691899894
+  }
+}

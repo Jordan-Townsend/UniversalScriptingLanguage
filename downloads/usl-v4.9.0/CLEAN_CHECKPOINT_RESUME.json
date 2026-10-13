@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "restored_records": 2428,
+  "exact_complete_evidence_bytes": 29475049,
+  "new_jobs": 0,
+  "new_native_executions": 0,
+  "native_observations_replayed": 0,
+  "source_identity": "4ff67f70ec964559efac447606b7406574de7bfe2e0db6e83db10ba71f379441",
+  "after_required_directory_requalification": true
+}
