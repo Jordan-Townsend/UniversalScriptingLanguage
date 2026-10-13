@@ -1,0 +1,597 @@
+{
+  "schema": "usl.packaged.validation.v1",
+  "version": "4.5.0",
+  "archive_sha256": "413ea5b8ec2e07e432249ae3a4ce4bd9b62939830b35473fff1de8536cd1a12b",
+  "archive_bytes": 35600104,
+  "clean_manifest_members_verified": 2398,
+  "core_hello_executed": true,
+  "semantic_usl_supervisor": {
+    "schema": "usl.semantic.supervisor.v1",
+    "stdout": "Native source/target agreement and independent intent acceptance passed.\n",
+    "operations": 40,
+    "evidence": [
+      {
+        "operation": "translate",
+        "native_execution": false,
+        "result": {
+          "schema": "usl.semantic.translation.v1",
+          "profile": "usl.python-js.scalar-list.v1",
+          "source_language": "python",
+          "target_language": "javascript",
+          "source_sha256": "6d5024d92fc8d912e14c31f2ac86bda091ab86e321dafaed99a1fffaf48cfde0",
+          "generated_source_sha256": "041f5292f86b18f2c5fe1c0a79d2748c7e36269c02dd0e6bb60e3fb82fc91d8e",
+          "implementation_identity": {
+            "translator_sha256": "72747ad11c2099de8bef14c679ede33daae10805a17f80ec044ac164d8089e0d",
+            "typed_ir_sha256": "0c413c7e700fbaf27a3f583af464f40941efed9d8d5020da8152dc992562e7b7",
+            "compatibility_helper_sha256": "236b1b36933c0616e4d83232eba1887484f2482158654b06d8ba4ac7eaa3e96c"
+          },
+          "ir": {
+            "schema": "usl.semantic.typed-effects.v2",
+            "profile": "usl.python-js.scalar-list.v1",
+            "source_language": "python",
+            "source_sha256": "6d5024d92fc8d912e14c31f2ac86bda091ab86e321dafaed99a1fffaf48cfde0",
+            "scopes": {
+              "module": {
+                "parent": null,
+                "kind": "module"
+              },
+              "scope1": {
+                "parent": null,
+                "kind": "function"
+              }
+            },
+            "bindings": {
+              "v1": {
+                "name": "values",
+                "scope": "scope1",
+                "type": "list[int]",
+                "constant": false
+              },
+              "v2": {
+                "name": "bound",
+                "scope": "scope1",
+                "type": "int",
+                "constant": false
+              },
+              "v3": {
+                "name": "result",
+                "scope": "scope1",
+                "type": "int",
+                "constant": false
+              },
+              "v4": {
+                "name": "item",
+                "scope": "scope1",
+                "type": "int",
+                "constant": false
+              }
+            },
+            "functions": [
+              {
+                "name": "selected",
+                "scope": "scope1",
+                "parameters": [
+                  "v1",
+                  "v2"
+                ],
+                "returns": "int",
+                "body": [
+                  {
+                    "op": "assign",
+                    "binding": "v3",
+                    "value": {
+                      "op": "const",
+                      "type": "int",
+                      "value": 0
+                    },
+                    "scope": "scope1"
+                  },
+                  {
+                    "op": "for",
+                    "binding": "v4",
+                    "iterable": {
+                      "op": "var",
+                      "type": "list[int]",
+                      "binding": "v1"
+                    },
+                    "body": [
+                      {
+                        "op": "if",
+                        "condition": {
+                          "op": "compare",
+                          "values": [
+                            {
+                              "op": "var",
+                              "type": "int",
+                              "binding": "v4"
+                            },
+                            {
+                              "op": "var",
+                              "type": "int",
+                              "binding": "v2"
+                            }
+                          ],
+                          "operators": [
+                            ">="
+                          ],
+                          "policy": "python",
+                          "type": "bool"
+                        },
+                        "then": [
+                          {
+                            "op": "assign",
+                            "binding": "v3",
+                            "value": {
+                              "op": "bin",
+                              "operator": "+",
+                              "left": {
+                                "op": "var",
+                                "type": "int",
+                                "binding": "v3"
+                              },
+                              "right": {
+                                "op": "var",
+                                "type": "int",
+                                "binding": "v4"
+                              },
+                              "type": "int"
+                            },
+                            "scope": "scope1"
+                          }
+                        ],
+                        "else": [],
+                        "then_scope": "scope1",
+                        "else_scope": "scope1",
+                        "scope": "scope1"
+                      }
+                    ],
+                    "body_scope": "scope1",
+                    "scope": "scope1"
+                  },
+                  {
+                    "op": "return",
+                    "value": {
+                      "op": "var",
+                      "type": "int",
+                      "binding": "v3"
+                    },
+                    "scope": "scope1"
+                  }
+                ]
+              }
+            ],
+            "body": [
+              {
+                "op": "print",
+                "values": [
+                  {
+                    "op": "call",
+                    "name": "selected",
+                    "args": [
+                      {
+                        "op": "list",
+                        "items": [
+                          {
+                            "op": "unary",
+                            "operator": "-",
+                            "value": {
+                              "op": "const",
+                              "type": "int",
+                              "value": 4
+                            },
+                            "type": "int"
+                          },
+                          {
+                            "op": "const",
+                            "type": "int",
+                            "value": 3
+                          },
+                          {
+                            "op": "const",
+                            "type": "int",
+                            "value": 0
+                          },
+                          {
+                            "op": "const",
+                            "type": "int",
+                            "value": 8
+                          }
+                        ],
+                        "type": "list[int]"
+                      },
+                      {
+                        "op": "const",
+                        "type": "int",
+                        "value": 3
+                      }
+                    ],
+                    "type": "int"
+                  }
+                ],
+                "policy": "python",
+                "scope": "module"
+              }
+            ],
+            "frontend": {
+              "parser": "CPython ast",
+              "version": "3.12.14",
+              "source_profile": "Python 3.12 typed scalar-list subset"
+            },
+            "static_analysis": {
+              "schema": "usl.semantic.static-analysis.v1",
+              "typechecked": true,
+              "lexical_scope_checked": true,
+              "definite_assignment_checked": true,
+              "recursion_rejected": true,
+              "function_effects": {
+                "selected": []
+              },
+              "module_effects": [
+                "stdout"
+              ],
+              "ownership": "shared scalar-element heap lists; alias-preserving assignment and parameter borrowing",
+              "exception_contract": "source-named observable errors; no catch/finally in this profile",
+              "module_contract": "one closed module; imports, exports and captured globals rejected",
+              "abi_contract": "generated-program native process; no FFI or callbacks qualified",
+              "universal_semantic_proof": false,
+              "original_intent_proved": false
+            },
+            "ir_sha256": "5cde323cbdd17cc7fb9343b000871c9080a87c9bf8b8346c088b9e19e678bdb4"
+          },
+          "code": "\"use strict\";\nclass __usl_Error extends Error { constructor(name,message) { super(message); this.name=name; } }\nfunction __usl_div(a,b,policy,mod) {\n  if (b===0n) throw new __usl_Error(policy===\"python\"?\"ZeroDivisionError\":\"RangeError\",policy===\"python\"?(mod?\"integer modulo by zero\":\"integer division or modulo by zero\"):\"Division by zero\");\n  let q=a/b;\n  if (policy===\"python\" && a%b!==0n && (a<0n)!==(b<0n)) q-=1n;\n  return mod?a-q*b:q;\n}\nfunction* __usl_range(a,b,s) {\n  if(s===0n) throw new __usl_Error(\"ValueError\",\"range() arg 3 must not be zero\");\n  for(let x=a;s>0n?x<b:x>b;x+=s) yield x;\n}\nfunction __usl_length(value,units) { return BigInt(typeof value===\"string\" && units===\"unicode_codepoints\"?Array.from(value).length:value.length); }\nfunction __usl_index(value,index) {\n  if(index>9223372036854775807n || index<(-9223372036854775807n-1n))throw new __usl_Error(\"IndexError\",\"cannot fit 'int' into an index-sized integer\");\n  const seq=typeof value===\"string\"?Array.from(value):value;\n  let i=index; const n=BigInt(seq.length); if(i<0n)i+=n;\n  if(i<0n || i>=n)throw new __usl_Error(\"IndexError\",typeof value===\"string\"?\"string index out of range\":\"list index out of range\");\n  return seq[Number(i)];\n}\nfunction __usl_text(value,policy,printing) {\n  if(typeof value===\"boolean\") return policy===\"python\"?(value?\"True\":\"False\"):(value?\"true\":\"false\");\n  if(policy===\"python\" && typeof value===\"bigint\" && String(value).replace(/^-/,'').length>4300) throw new __usl_Error(\"ValueError\",\"Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit\");\n  return String(value)+(printing && policy===\"javascript\" && typeof value===\"bigint\"?\"n\":\"\");\n}\nfunction __usl_print(values,policy) { process.stdout.write(values.map(v=>__usl_text(v,policy,true)).join(\" \")+\"\\n\"); }\nfunction __usl_order(a,b,policy) {\n  if(typeof a===\"string\" && policy===\"python\") { a=Array.from(a,c=>c.codePointAt(0));b=Array.from(b,c=>c.codePointAt(0)); }\n  if(Array.isArray(a)) { const n=Math.min(a.length,b.length); for(let i=0;i<n;i++) {const c=__usl_order(a[i],b[i],policy);if(c!==0)return c;}return a.length===b.length?0:a.length<b.length?-1:1; }\n  return a===b?0:a<b?-1:1;\n}\nfunction __usl_compare(a,b,op,policy) {\n  if(op===\"is\"||op===\"is_not\")return op===\"is\"?a===b:a!==b;\n  if(policy===\"javascript\" && Array.isArray(a))return op===\"==\"?a===b:a!==b;\n  const c=__usl_order(a,b,policy);\n  return op===\"==\"?c===0:op===\"!=\"?c!==0:op===\"<\"?c<0:op===\"<=\"?c<=0:op===\">\"?c>0:c>=0;\n}\nfunction __usl_chain(thunks,ops,policy) {let a=thunks[0]();for(let i=0;i<ops.length;i++){const b=thunks[i+1]();if(!__usl_compare(a,b,ops[i],policy))return false;a=b;}return true;}\nfunction __usl_fn0(__usl_v1,__usl_v2) {\n    let __usl_v3,__usl_v4;\n    __usl_v3 = (0n);\n    for (__usl_v4 of __usl_v1) {\n        if (__usl_chain([()=> (__usl_v4),()=> (__usl_v2)],[\">=\"],'python')) {\n            __usl_v3 = (__usl_v3 + __usl_v4);\n        }\n    }\n    return __usl_v3;\n}\n__usl_print([__usl_fn0([(-(4n)),(3n),(0n),(8n)],(3n))],'python');\n",
+          "specification_references": [
+            "https://docs.python.org/3.12/reference/expressions.html",
+            "https://docs.python.org/3.12/reference/simple_stmts.html",
+            "https://docs.python.org/3.12/reference/compound_stmts.html"
+          ],
+          "route": "real AST -> typed/effect USL IR -> target source + source-semantic compatibility helpers",
+          "foreign_source_embedded": false,
+          "full_language_conformance": false,
+          "semantic_preservation_universally_proved": false,
+          "original_intent_proved": false
+        }
+      },
+      {
+        "operation": "verify",
+        "native_execution": true,
+        "result": {
+          "schema": "usl.semantic.differential.v1",
+          "translation": {
+            "schema": "usl.semantic.translation.v1",
+            "profile": "usl.python-js.scalar-list.v1",
+            "source_language": "python",
+            "target_language": "javascript",
+            "source_sha256": "6d5024d92fc8d912e14c31f2ac86bda091ab86e321dafaed99a1fffaf48cfde0",
+            "generated_source_sha256": "041f5292f86b18f2c5fe1c0a79d2748c7e36269c02dd0e6bb60e3fb82fc91d8e",
+            "implementation_identity": {
+              "translator_sha256": "72747ad11c2099de8bef14c679ede33daae10805a17f80ec044ac164d8089e0d",
+              "typed_ir_sha256": "0c413c7e700fbaf27a3f583af464f40941efed9d8d5020da8152dc992562e7b7",
+              "compatibility_helper_sha256": "236b1b36933c0616e4d83232eba1887484f2482158654b06d8ba4ac7eaa3e96c"
+            },
+            "ir": {
+              "schema": "usl.semantic.typed-effects.v2",
+              "profile": "usl.python-js.scalar-list.v1",
+              "source_language": "python",
+              "source_sha256": "6d5024d92fc8d912e14c31f2ac86bda091ab86e321dafaed99a1fffaf48cfde0",
+              "scopes": {
+                "module": {
+                  "parent": null,
+                  "kind": "module"
+                },
+                "scope1": {
+                  "parent": null,
+                  "kind": "function"
+                }
+              },
+              "bindings": {
+                "v1": {
+                  "name": "values",
+                  "scope": "scope1",
+                  "type": "list[int]",
+                  "constant": false
+                },
+                "v2": {
+                  "name": "bound",
+                  "scope": "scope1",
+                  "type": "int",
+                  "constant": false
+                },
+                "v3": {
+                  "name": "result",
+                  "scope": "scope1",
+                  "type": "int",
+                  "constant": false
+                },
+                "v4": {
+                  "name": "item",
+                  "scope": "scope1",
+                  "type": "int",
+                  "constant": false
+                }
+              },
+              "functions": [
+                {
+                  "name": "selected",
+                  "scope": "scope1",
+                  "parameters": [
+                    "v1",
+                    "v2"
+                  ],
+                  "returns": "int",
+                  "body": [
+                    {
+                      "op": "assign",
+                      "binding": "v3",
+                      "value": {
+                        "op": "const",
+                        "type": "int",
+                        "value": 0
+                      },
+                      "scope": "scope1"
+                    },
+                    {
+                      "op": "for",
+                      "binding": "v4",
+                      "iterable": {
+                        "op": "var",
+                        "type": "list[int]",
+                        "binding": "v1"
+                      },
+                      "body": [
+                        {
+                          "op": "if",
+                          "condition": {
+                            "op": "compare",
+                            "values": [
+                              {
+                                "op": "var",
+                                "type": "int",
+                                "binding": "v4"
+                              },
+                              {
+                                "op": "var",
+                                "type": "int",
+                                "binding": "v2"
+                              }
+                            ],
+                            "operators": [
+                              ">="
+                            ],
+                            "policy": "python",
+                            "type": "bool"
+                          },
+                          "then": [
+                            {
+                              "op": "assign",
+                              "binding": "v3",
+                              "value": {
+                                "op": "bin",
+                                "operator": "+",
+                                "left": {
+                                  "op": "var",
+                                  "type": "int",
+                                  "binding": "v3"
+                                },
+                                "right": {
+                                  "op": "var",
+                                  "type": "int",
+                                  "binding": "v4"
+                                },
+                                "type": "int"
+                              },
+                              "scope": "scope1"
+                            }
+                          ],
+                          "else": [],
+                          "then_scope": "scope1",
+                          "else_scope": "scope1",
+                          "scope": "scope1"
+                        }
+                      ],
+                      "body_scope": "scope1",
+                      "scope": "scope1"
+                    },
+                    {
+                      "op": "return",
+                      "value": {
+                        "op": "var",
+                        "type": "int",
+                        "binding": "v3"
+                      },
+                      "scope": "scope1"
+                    }
+                  ]
+                }
+              ],
+              "body": [
+                {
+                  "op": "print",
+                  "values": [
+                    {
+                      "op": "call",
+                      "name": "selected",
+                      "args": [
+                        {
+                          "op": "list",
+                          "items": [
+                            {
+                              "op": "unary",
+                              "operator": "-",
+                              "value": {
+                                "op": "const",
+                                "type": "int",
+                                "value": 4
+                              },
+                              "type": "int"
+                            },
+                            {
+                              "op": "const",
+                              "type": "int",
+                              "value": 3
+                            },
+                            {
+                              "op": "const",
+                              "type": "int",
+                              "value": 0
+                            },
+                            {
+                              "op": "const",
+                              "type": "int",
+                              "value": 8
+                            }
+                          ],
+                          "type": "list[int]"
+                        },
+                        {
+                          "op": "const",
+                          "type": "int",
+                          "value": 3
+                        }
+                      ],
+                      "type": "int"
+                    }
+                  ],
+                  "policy": "python",
+                  "scope": "module"
+                }
+              ],
+              "frontend": {
+                "parser": "CPython ast",
+                "version": "3.12.14",
+                "source_profile": "Python 3.12 typed scalar-list subset"
+              },
+              "static_analysis": {
+                "schema": "usl.semantic.static-analysis.v1",
+                "typechecked": true,
+                "lexical_scope_checked": true,
+                "definite_assignment_checked": true,
+                "recursion_rejected": true,
+                "function_effects": {
+                  "selected": []
+                },
+                "module_effects": [
+                  "stdout"
+                ],
+                "ownership": "shared scalar-element heap lists; alias-preserving assignment and parameter borrowing",
+                "exception_contract": "source-named observable errors; no catch/finally in this profile",
+                "module_contract": "one closed module; imports, exports and captured globals rejected",
+                "abi_contract": "generated-program native process; no FFI or callbacks qualified",
+                "universal_semantic_proof": false,
+                "original_intent_proved": false
+              },
+              "ir_sha256": "5cde323cbdd17cc7fb9343b000871c9080a87c9bf8b8346c088b9e19e678bdb4"
+            },
+            "code": "\"use strict\";\nclass __usl_Error extends Error { constructor(name,message) { super(message); this.name=name; } }\nfunction __usl_div(a,b,policy,mod) {\n  if (b===0n) throw new __usl_Error(policy===\"python\"?\"ZeroDivisionError\":\"RangeError\",policy===\"python\"?(mod?\"integer modulo by zero\":\"integer division or modulo by zero\"):\"Division by zero\");\n  let q=a/b;\n  if (policy===\"python\" && a%b!==0n && (a<0n)!==(b<0n)) q-=1n;\n  return mod?a-q*b:q;\n}\nfunction* __usl_range(a,b,s) {\n  if(s===0n) throw new __usl_Error(\"ValueError\",\"range() arg 3 must not be zero\");\n  for(let x=a;s>0n?x<b:x>b;x+=s) yield x;\n}\nfunction __usl_length(value,units) { return BigInt(typeof value===\"string\" && units===\"unicode_codepoints\"?Array.from(value).length:value.length); }\nfunction __usl_index(value,index) {\n  if(index>9223372036854775807n || index<(-9223372036854775807n-1n))throw new __usl_Error(\"IndexError\",\"cannot fit 'int' into an index-sized integer\");\n  const seq=typeof value===\"string\"?Array.from(value):value;\n  let i=index; const n=BigInt(seq.length); if(i<0n)i+=n;\n  if(i<0n || i>=n)throw new __usl_Error(\"IndexError\",typeof value===\"string\"?\"string index out of range\":\"list index out of range\");\n  return seq[Number(i)];\n}\nfunction __usl_text(value,policy,printing) {\n  if(typeof value===\"boolean\") return policy===\"python\"?(value?\"True\":\"False\"):(value?\"true\":\"false\");\n  if(policy===\"python\" && typeof value===\"bigint\" && String(value).replace(/^-/,'').length>4300) throw new __usl_Error(\"ValueError\",\"Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit\");\n  return String(value)+(printing && policy===\"javascript\" && typeof value===\"bigint\"?\"n\":\"\");\n}\nfunction __usl_print(values,policy) { process.stdout.write(values.map(v=>__usl_text(v,policy,true)).join(\" \")+\"\\n\"); }\nfunction __usl_order(a,b,policy) {\n  if(typeof a===\"string\" && policy===\"python\") { a=Array.from(a,c=>c.codePointAt(0));b=Array.from(b,c=>c.codePointAt(0)); }\n  if(Array.isArray(a)) { const n=Math.min(a.length,b.length); for(let i=0;i<n;i++) {const c=__usl_order(a[i],b[i],policy);if(c!==0)return c;}return a.length===b.length?0:a.length<b.length?-1:1; }\n  return a===b?0:a<b?-1:1;\n}\nfunction __usl_compare(a,b,op,policy) {\n  if(op===\"is\"||op===\"is_not\")return op===\"is\"?a===b:a!==b;\n  if(policy===\"javascript\" && Array.isArray(a))return op===\"==\"?a===b:a!==b;\n  const c=__usl_order(a,b,policy);\n  return op===\"==\"?c===0:op===\"!=\"?c!==0:op===\"<\"?c<0:op===\"<=\"?c<=0:op===\">\"?c>0:c>=0;\n}\nfunction __usl_chain(thunks,ops,policy) {let a=thunks[0]();for(let i=0;i<ops.length;i++){const b=thunks[i+1]();if(!__usl_compare(a,b,ops[i],policy))return false;a=b;}return true;}\nfunction __usl_fn0(__usl_v1,__usl_v2) {\n    let __usl_v3,__usl_v4;\n    __usl_v3 = (0n);\n    for (__usl_v4 of __usl_v1) {\n        if (__usl_chain([()=> (__usl_v4),()=> (__usl_v2)],[\">=\"],'python')) {\n            __usl_v3 = (__usl_v3 + __usl_v4);\n        }\n    }\n    return __usl_v3;\n}\n__usl_print([__usl_fn0([(-(4n)),(3n),(0n),(8n)],(3n))],'python');\n",
+            "specification_references": [
+              "https://docs.python.org/3.12/reference/expressions.html",
+              "https://docs.python.org/3.12/reference/simple_stmts.html",
+              "https://docs.python.org/3.12/reference/compound_stmts.html"
+            ],
+            "route": "real AST -> typed/effect USL IR -> target source + source-semantic compatibility helpers",
+            "foreign_source_embedded": false,
+            "full_language_conformance": false,
+            "semantic_preservation_universally_proved": false,
+            "original_intent_proved": false
+          },
+          "reference_native": {
+            "native_syntax_checked": true,
+            "status": "ok",
+            "stdout": "11\n",
+            "error": null,
+            "exit_code": 0,
+            "runtime": {
+              "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+              "version": "Python 3.12.14",
+              "executable_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+              "platform": "linux",
+              "machine": "x86_64"
+            },
+            "source_sha256": "6d5024d92fc8d912e14c31f2ac86bda091ab86e321dafaed99a1fffaf48cfde0",
+            "stderr_unmodelled": "",
+            "limits": {
+              "wall_seconds": 5.0,
+              "file_bytes": 1048576,
+              "captured_output_bytes": 262144
+            },
+            "os_security_sandbox": false
+          },
+          "translated_native": {
+            "native_syntax_checked": true,
+            "status": "ok",
+            "stdout": "11\n",
+            "error": null,
+            "exit_code": 0,
+            "runtime": {
+              "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+              "version": "v24.19.0",
+              "executable_sha256": "bc17c508ffeed0ec622934f9b7fa72f8e78da65350e63c3eceb56fa688aa5e12",
+              "platform": "linux",
+              "machine": "x86_64"
+            },
+            "source_sha256": "041f5292f86b18f2c5fe1c0a79d2748c7e36269c02dd0e6bb60e3fb82fc91d8e",
+            "stderr_unmodelled": "",
+            "limits": {
+              "wall_seconds": 5.0,
+              "file_bytes": 1048576,
+              "captured_output_bytes": 262144
+            },
+            "os_security_sandbox": false
+          },
+          "observable_dimensions": [
+            "stdout sequence",
+            "normalized exception name/message",
+            "normal versus exception completion"
+          ],
+          "semantic_differential_passed": true,
+          "intent_contract": {
+            "intent": "Sum only list elements at least three and print the exact sum.",
+            "expected_stdout": "11\n",
+            "expected_error": null
+          },
+          "intent_acceptance_passed": true,
+          "formal_whole_program_proof": false,
+          "termination_or_resource_equivalence_proved": false,
+          "unmodelled_obligations": [
+            "complete language specification",
+            "native ABI/FFI",
+            "stack/memory resource equivalence",
+            "upstream standard conformance",
+            "independent formal simulation proof"
+          ]
+        }
+      }
+    ],
+    "capability_calls": 2,
+    "supervisor_sha256": "ba014493e435398a94a43c0992c6df4e7c09172aec3b825f69db4e9f94935a35",
+    "full_specifications_qualified": 0,
+    "all_606_complete": false
+  },
+  "integrated_entity_cycle": {
+    "stdout": "25\n\n",
+    "operations": 23,
+    "capability_calls": 4,
+    "durable_memory": true,
+    "external_effects": false,
+    "human_equivalence": false
+  },
+  "bounded_intent_proof": true,
+  "trained_perception_entity_checks": [
+    {
+      "name": "independently_labelled_perception_to_verified_usl_action",
+      "expected": "19\n",
+      "observed": "19\n",
+      "passed": true
+    },
+    {
+      "name": "embedding_evidence_survives_restart",
+      "passed": true
+    },
+    {
+      "name": "wrong_independent_outcome_rejected",
+      "passed": true
+    }
+  ],
+  "all_checks_passed": true,
+  "qualification": "clean source extraction using the existing documented Linux dependencies; not fresh-machine or Windows/macOS qualification",
+  "full_606_or_entity_objective_complete": false
+}

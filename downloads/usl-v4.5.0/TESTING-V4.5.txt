@@ -1,0 +1,42 @@
+USL v4.5 test guide
+
+This is a tested development release. The full606 semantic/human-capability
+objective remains incomplete. See docs/V4.5_BUILD_STATUS.md and the all606 table.
+
+1. Verify the downloaded ZIP against its .sha256 file, then extract it.
+2. Core USL uses Python3.12 (the qualified version); native/source/AI features
+   need the separately installed pinned tools described in NATIVE_RUNTIME_SETUP.md.
+3. Run from the extracted source root:
+   python -m usl_systems run examples/hello.usl
+4. On this cloud machine first run:
+   source /workspace/.onboarding/activate-usl.sh
+5. Test actual typed source translation and independent intent:
+   python -m usl_systems semantic-verify examples/semantic_translation_filter.py --source-language python --target-language javascript --intent examples/semantic_translation_filter.contract.json --i-allow-execution
+   python -m usl_systems semantic-program examples/semantic_translation_supervisor.usl --i-allow-execution
+6. Test the persisted study/observe/USL-action/verify loop:
+   python -m usl_systems entity-cycle-program examples/entity_cycle.usl --imports-file examples/entity_cycle_imports.json --data /tmp/usl-v45-entity-demo --i-allow-execution
+7. With the requirements-neural.txt interpreter, test actual trained inference:
+   python -m usl_systems multimodal-infer --bundle test_results/v4.5.0_multimodal --image test_results/v4.5.0_multimodal/heldout_digit.png --audio test_results/v4.5.0_multimodal/heldout_digit.wav --audio-mode synthetic_test
+   python -m tools.qualify_perception_entity
+8. Audit/run every installed catalog backend and retain all missing profiles:
+   python -m usl_systems catalog-sweep --workers 4 --i-allow-execution
+   Exit2 means the audit completed and the all606 goal remains incomplete.
+   python -m tools.qualify_current_completion
+   python -m usl_systems completion-status
+9. Run regressions (core env plus USL_NEURAL_PYTHON for neural modules):
+   python -m tools.run_isolated_regressions
+10. Open docs/LANGUAGE_COMPLETION_TABLE.html or its 606-row CSV. The standalone
+    HTML has search, family/status filters, sorting and expandable families.
+11. For Ghostshell changes, read docs/V4.5_SUBSYSTEM_ASSETS.md and restore the
+    preserved, verified overlay into the intended Ghostshell MMO checkout.
+
+Neural speech is synthetic; image evaluation is developmental. Individual
+acceptance checks and benchmark results do not prove general understanding.
+Source-target agreement and intent acceptance are separate checks. The formal
+proofs cover explicit bounded arithmetic models, not whole arbitrary programs.
+GLSL has compilation/SPIR-V validation, not GPU execution. Windows/macOS, XR,
+physical human senses, licensed hosts and general Ollama inference remain
+unqualified. See the machine backlog for each exact obligation.
+
+Fresh source regression evidence: 669 passed, 9 skipped, 678 enumerated across
+77 isolated modules. No failed modules; exact source snapshot unchanged.
