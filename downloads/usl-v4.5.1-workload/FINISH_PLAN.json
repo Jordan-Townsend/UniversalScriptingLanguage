@@ -1,0 +1,122 @@
+{
+  "schema": "usl.finish.plan.v1",
+  "build": "4.5.0",
+  "overall_objective_complete": false,
+  "current": {
+    "catalog_entries": 606,
+    "native_or_format_subset_observed": 158,
+    "native_or_format_unqualified": 448,
+    "typed_translation_source_subsets": 2,
+    "fully_qualified_standards": 0,
+    "remaining_full_qualification": 606,
+    "classification_review_needed": 4,
+    "primary_family_count": 22,
+    "distinct_standard_count": null,
+    "distinct_standard_count_reason": "exact version/dialect/alias identity audit is unfinished; 606 catalog descriptors are not 606 proven distinct standards",
+    "all_606_complete": false
+  },
+  "phases": [
+    {
+      "id": "specifications",
+      "dependencies": [],
+      "work": "Audit exact version, dialect, category, platform, licensing, normative chapters and complete library surface for every catalog ID. Resolve aliases without removing IDs. Reuse retrieved public sources and signed upstream source/doc archives; apply the saved network configuration before retrying denied references.",
+      "finish_gate": "Every entry has an audited versioned normative contract, explicit category-appropriate execution mode and chapter/feature obligations; unavailable hosts/licenses remain blocked."
+    },
+    {
+      "id": "semantic_ir",
+      "dependencies": [
+        "specifications"
+      ],
+      "work": "Extend the typed/effect USL IR with float/integer policies, object/heap identity, mutation, closures and recursion, imports/modules, exceptions, ownership/lifetimes, IO effects, concurrency/async/cancellation and ABI contracts. Add explicit compatible runtime helpers where source semantics differ.",
+      "finish_gate": "Every accepted construct has a validated semantic representation and checked lowering; unsupported or uncertain semantics reject admission."
+    },
+    {
+      "id": "family_frontends",
+      "dependencies": [
+        "semantic_ir"
+      ],
+      "work": "Extend Python/JavaScript first; implement shared family infrastructure for native systems/LLVM/GCC, JVM, CLR, ML/Haskell, Lisp and BEAM, retaining each source grammar/type/runtime rules. Implement query/template/configuration/format/grammar/transcript IR and processing contracts by category.",
+      "finish_gate": "Actual source ASTs lower into typed USL semantics and genuine target translation; opaque native execution stays separately labelled."
+    },
+    {
+      "id": "execution_backends",
+      "dependencies": [
+        "specifications"
+      ],
+      "work": "Add reviewed exact-version profiles for the448 entries without backend evidence; install available public upstream tools, real runtimes and libraries. Run programs, queries, renderers, format/schema processors, grammar generators and transcript hosts appropriately. Connect native macOS/Windows, licensed hosts and devices only when available.",
+      "finish_gate": "Fresh independent positive/negative/boundary/native cases pass with exact executable/dependency/platform identities; shaders require actual qualifying execution, not only compilation."
+    },
+    {
+      "id": "libraries_and_interop",
+      "dependencies": [
+        "family_frontends",
+        "execution_backends"
+      ],
+      "work": "Complete audited standard libraries and host APIs; qualify layout/marshaling, callbacks, GC/pinning and ownership, exceptions, shared memory, async and cancellation across actual native ABIs.",
+      "finish_gate": "Chapter/library coverage and independent source-target observable-state/effect/order/lifetime tests pass; JSON exchange cannot certify arbitrary native compatibility."
+    },
+    {
+      "id": "intent_and_conformance",
+      "dependencies": [
+        "family_frontends",
+        "execution_backends",
+        "libraries_and_interop"
+      ],
+      "work": "Run authoritative suites, invalid/boundary/property/metamorphic/fuzz cases and native-versus-translated differential tests. Define original task intent contracts before generation; perform native typechecking, independent holdout acceptance and relevant AST/IR/SMT/model obligations. Independently review exact profile coverage.",
+      "finish_gate": "All applicable gates pass for the exact specification/profile. Unknown solver results, counterexamples, missing libraries, unmodelled effects and stale identities block promotion. Finite tests are not universal arbitrary-program proofs."
+    },
+    {
+      "id": "entity_learning_and_models",
+      "dependencies": [
+        "semantic_ir"
+      ],
+      "work": "Build grounded spatial/temporal/causal task planning and dialogue; working/episodic/semantic/procedural consolidation; general traceable study/hypothesis/independent experiment/skill acquisition; staged isolated candidate evaluation, unseen-task and restart/forgetting checks, promotion and rollback. Install actual pretrained models, train modality encoders on real paired datasets, use a new protected evaluation set and measure calibration/robustness/cost against baselines.",
+      "finish_gate": "Measured independent integrated tasks demonstrate each declared capability after restart; synthetic fixtures, generated speech and developmental image tests stay labelled; no general superiority/human claim without evidence."
+    },
+    {
+      "id": "senses_and_subsystems",
+      "dependencies": [
+        "entity_learning_and_models"
+      ],
+      "work": "Connect calibrated camera/microphone/speech, touch/force, position/joint, IMU/balance, temperature, chemical smell/taste and physical controllers with units, acquisition timestamps, frames and sync. Complete actual Shadow/Ollama, Swarm, Chrome, EmoVision, mesh/GPU and Ghostshell/Nexus task integration. Resolve missing intended client/model/worker protocols and assets.",
+      "finish_gate": "Actual device/model/controller tasks pass against independent calibrated references; desktop previews and software adapters are not live physical qualification."
+    },
+    {
+      "id": "release_qualification",
+      "dependencies": [
+        "intent_and_conformance",
+        "senses_and_subsystems"
+      ],
+      "work": "Rerun source-bound regressions and native/model/device/platform checks, package with manifests, validate clean extraction, publish authorized GitHub downloads and verify remote hashes. Update each of606 language records and21 entity tracks after every tranche.",
+      "finish_gate": "Every requested language and entity capability meets its exact gates. Until then overall_objective_complete remains false and no all-complete handoff is issued."
+    }
+  ],
+  "classification_review_remaining": [
+    [
+      "arrow",
+      "Arrow"
+    ],
+    [
+      "flatline",
+      "Flatline"
+    ],
+    [
+      "floscript",
+      "FloScript"
+    ],
+    [
+      "rsl",
+      "RSL"
+    ]
+  ],
+  "implementation_owner": "Codex engineering work within the authorized scope; actual parallel workers/agents when available",
+  "external_dependency_owners": {
+    "network_policy": "Cloud environment publication/settings owner; saved changes have not been applied",
+    "proprietary_hosts": "Entitled SAP/SAS/Stata/MathWorks/IDL host/license owners",
+    "platform_hosts": "Authorized native macOS/Windows runner owners",
+    "physical_devices": "Sensor/controller owners with model/calibration/driver protocols",
+    "missing_project_assets": "Owner of intended Ghostshell/nexus-earth source and missing client/model/worker contracts"
+  },
+  "scope_boundary": "This plan describes remaining implementation, not completed work. Public documents, keyword inventories, parser installs and native wrappers do not close semantic/conformance gates.",
+  "no_calendar_promise": "No credible finish date can be inferred before the exact versioned standards and external dependencies are audited."
+}

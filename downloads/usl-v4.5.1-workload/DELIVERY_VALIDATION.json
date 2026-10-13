@@ -1,0 +1,18 @@
+{
+  "schema": "usl.clean.delivery.validation.v1",
+  "zip_sha256": "96061a0e584a624346054d3fef8b20047540f98c4459c61049bdb9e566526600",
+  "payload_files_hash_verified": 2417,
+  "base_source_preserved_byte_exact": true,
+  "core_hello_usl_passed": true,
+  "clean_addon_tests_passed": 8,
+  "clean_full_usl_supervisor_passed": true,
+  "clean_benchmark_fresh_native_executions": 156,
+  "clean_benchmark_heldout_speedup": 2.663598649972545,
+  "raw_source_sha256_fields_checked": true,
+  "delivered_code_matches_clean_execution_byte_exact": true,
+  "documentation_only_tree_update_after_clean_execution": true,
+  "execution_results_reused": 0,
+  "all606_ids_preserved": true,
+  "full_objective_complete": false,
+  "scope": "clean extraction on the same Linux host with existing installed dependencies; not fresh-machine/platform qualification"
+}
