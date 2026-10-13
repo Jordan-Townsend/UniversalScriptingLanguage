@@ -1,0 +1,56 @@
+USL v4.2 testing guide
+
+1. Extract USL-UNIVERSAL-SYSTEMS-V4.2.0-FULL-SOURCE.zip into a new folder.
+2. Open a terminal in that extracted folder. Python 3.12 is recommended.
+3. Check the core interpreter:
+
+   python -m usl_systems run examples/hello.usl
+
+   Expected output:
+   Hello from USL Universal Systems
+   55
+
+4. Start the local interface:
+
+   python -m usl_systems serve
+
+   The application displays its local address. Source Lab is the new engine interface.
+
+5. For the new native-source engines, install the optional Python dependencies:
+
+   python -m pip install -r requirements-engines.txt
+
+   Also install Node.js, Ruby and PHP CLI with PHP's tokenizer extension.
+   Then run:
+
+   python -m usl_systems source-program examples/native_sources.usl --i-allow-execution --output source-test.json
+
+   The stdout field in source-test.json should contain two lines: 18 and 374.
+
+6. The integrated 27-task workflow additionally needs Cython/C compiler,
+   LLVM, RDFLib and Protobuf prerequisites:
+
+   python -m usl_systems cooperate examples/source_fleet.coop.json --threads 4 --processes 0 --i-approve-native --output fleet-test.json
+
+   The application task's stdout should contain three lines: 18, 374 and 96.
+
+7. For complete qualifications and remaining prerequisites, read:
+
+   docs/V4.2_BUILD_STATUS.md
+   requirements-engines.txt
+
+   Commands:
+   python tools/qualify_v42_release.py
+   python tools/run_isolated_regressions.py
+
+The ZIP contains source, examples, launchers, tests, reports, six recovered
+archives and the original v4.1 package. Native input runs with your account's
+permissions; run trusted examples. It is a development source release, not an
+EXE installer. Validation was on Linux; Windows/device behavior remains unverified.
+
+Checksum verification on Linux/macOS:
+   sha256sum -c USL-UNIVERSAL-SYSTEMS-V4.2.0-FULL-SOURCE.zip.sha256
+
+On Windows PowerShell:
+   Get-FileHash .\USL-UNIVERSAL-SYSTEMS-V4.2.0-FULL-SOURCE.zip -Algorithm SHA256
+Compare its hash with the .sha256 file.
