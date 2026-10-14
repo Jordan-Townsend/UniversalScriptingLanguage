@@ -1,0 +1,452 @@
+{
+  "schema": "usl.all359.coordinator-independent-review.v1",
+  "passed": true,
+  "reviewed_source_sha256": {
+    "coordinator.py": "4910fe37049fb8f55917bc5851a512ef35b5b6201ea88b29ad972def7f25f165",
+    "coordinator.usl": "a5d233a4fb4b433b93cf661addacf72d80f001fa0352b03e916ccecb14f21d8e",
+    "test_coordinator.py": "c185b640904a897c5eb05a44140d1d4f5364d216eec8e596053715028c2ab170",
+    "test_coordinator_independent.py": "d824c8b6d3053256f1a1a3b4837919cabebefbeed861bed179b1cdd479a09be7",
+    "verify.py": "5bedbe640ae0b7bc43f09ea4c90478929b561d256645cd9295b5dc77a9696b72"
+  },
+  "test_command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_coordinator",
+    "test_coordinator_independent",
+    "-v"
+  ],
+  "tests_passed": 14,
+  "independent_test_methods": 9,
+  "producer_test_methods": 5,
+  "test_seconds": 0.41260951198637486,
+  "test_output": "test_actual_USL_policy_preserves_all359_counts (test_coordinator.CoordinatorReviewTests.test_actual_USL_policy_preserves_all359_counts) ... ok\ntest_catalog_omissions_and_substitutions_rejected (test_coordinator.CoordinatorReviewTests.test_catalog_omissions_and_substitutions_rejected) ... ok\ntest_counts_require_exact_positive_integers (test_coordinator.CoordinatorReviewTests.test_counts_require_exact_positive_integers) ... ok\ntest_full_standard_and_erased_obligations_rejected (test_coordinator.CoordinatorReviewTests.test_full_standard_and_erased_obligations_rejected) ... ok\ntest_raw_passed_flag_is_insufficient (test_coordinator.CoordinatorReviewTests.test_raw_passed_flag_is_insufficient) ... ok\ntest_failure_cancels_and_reaps_sibling_process_group (test_coordinator_independent.IndependentAsyncReview.test_failure_cancels_and_reaps_sibling_process_group) ... ok\ntest_invalid_output_path_has_no_source_side_effect (test_coordinator_independent.IndependentAsyncReview.test_invalid_output_path_has_no_source_side_effect) ... ok\ntest_output_cannot_mutate_frozen_runtime_or_previous_release (test_coordinator_independent.IndependentAsyncReview.test_output_cannot_mutate_frozen_runtime_or_previous_release) ... ok\ntest_preexisting_output_symlink_cannot_redirect_logs_into_source (test_coordinator_independent.IndependentAsyncReview.test_preexisting_output_symlink_cannot_redirect_logs_into_source) ... ok\ntest_registry_cannot_execute_outside_registered_source_root (test_coordinator_independent.IndependentAsyncReview.test_registry_cannot_execute_outside_registered_source_root) ... ok\ntest_registry_rejects_duplicate_directories_and_empty_assignments (test_coordinator_independent.IndependentAsyncReview.test_registry_rejects_duplicate_directories_and_empty_assignments) ... ok\ntest_all_executed_helper_source_extensions_are_pinned (test_coordinator_independent.IndependentValidationTests.test_all_executed_helper_source_extensions_are_pinned) ... ok\ntest_nonrecord_or_nonstring_catalog_identity_is_rejected (test_coordinator_independent.IndependentValidationTests.test_nonrecord_or_nonstring_catalog_identity_is_rejected) ... ok\ntest_obligations_must_describe_actual_open_work (test_coordinator_independent.IndependentValidationTests.test_obligations_must_describe_actual_open_work) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.302s\n\nOK\n",
+  "source_unchanged_during_test_run": true,
+  "baseline_scope_sha256": "4208f6e4e365bac58a5474eb3314806a3e971fbc22df07191a9bc2e268adda8d",
+  "usl_runtime_sha256": "28572d10c70421c71777a4562bbdd075acf6077d5ea4c3b9ebca3278e6dc76cc",
+  "registered_families_review": {
+    "registry_present": true,
+    "registry_sha256_at_review": "d0cb0f647d647d3728e2ce8eb6eaa691789d81667bf8e5b71928000dbfc24945",
+    "registry_snapshot_is_provisional_until_release_freeze": false,
+    "family_count": 7,
+    "unique_original_pending_IDs": 30,
+    "baseline_remaining_IDs": 359,
+    "baseline_identity_matches": true,
+    "all_assigned_IDs_are_distinct_original_pending_IDs": true,
+    "all_native_unit_descriptions_are_nonempty_strings": true,
+    "families": [
+      {
+        "directory": "agda",
+        "catalog_ids": [
+          "agda",
+          "literate-agda"
+        ],
+        "native_unit": "Compiled-original result observations; compiler/Node processes and rejection controls separate",
+        "source_identity_map_matches_at_review": true,
+        "changed_source_paths_at_review": [],
+        "actual_source_file_count_at_review": 5
+      },
+      {
+        "directory": "preprocessor",
+        "catalog_ids": [
+          "mozhashpreproc",
+          "mozpercentpreproc",
+          "css+mozpreproc",
+          "javascript+mozpreproc",
+          "xul+mozpreproc"
+        ],
+        "native_unit": "Fresh upstream processor instance evaluations; batched process and downstream processes separate",
+        "source_identity_map_matches_at_review": true,
+        "changed_source_paths_at_review": [],
+        "actual_source_file_count_at_review": 7
+      },
+      {
+        "directory": "templates",
+        "catalog_ids": [
+          "haml",
+          "slim",
+          "mask"
+        ],
+        "native_unit": "Native template case observations in batched engine processes",
+        "source_identity_map_matches_at_review": true,
+        "changed_source_paths_at_review": [],
+        "actual_source_file_count_at_review": 9
+      },
+      {
+        "directory": "configuration",
+        "catalog_ids": [
+          "basemake",
+          "termcap",
+          "terminfo",
+          "resourcebundle",
+          "devicetree",
+          "kconfig",
+          "ldapconf",
+          "unixconfig"
+        ],
+        "native_unit": "Fresh native subprocess invocations, including compilation and processing; not case count",
+        "source_identity_map_matches_at_review": true,
+        "changed_source_paths_at_review": [],
+        "actual_source_file_count_at_review": 22
+      },
+      {
+        "directory": "native_languages",
+        "catalog_ids": [
+          "wren",
+          "berry",
+          "moonscript",
+          "rd"
+        ],
+        "native_unit": "Fresh native subprocess executions including expected errors and domain probes",
+        "source_identity_map_matches_at_review": true,
+        "changed_source_paths_at_review": [],
+        "actual_source_file_count_at_review": 12
+      },
+      {
+        "directory": "grammar_native",
+        "catalog_ids": [
+          "peg",
+          "bst",
+          "swig",
+          "webidl"
+        ],
+        "native_unit": "Native parser/style/binding/conversion calls; physical processes separate",
+        "source_identity_map_matches_at_review": true,
+        "changed_source_paths_at_review": [],
+        "actual_source_file_count_at_review": 16
+      },
+      {
+        "directory": "all359",
+        "catalog_ids": [
+          "asymptote",
+          "openscad",
+          "gdscript",
+          "robotframework"
+        ],
+        "native_unit": "Fresh native result/assertion-suite observations including expected failures",
+        "source_identity_map_matches_at_review": true,
+        "changed_source_paths_at_review": [],
+        "actual_source_file_count_at_review": 6
+      }
+    ],
+    "fresh_complete_family_join_executed_by_this_review": false,
+    "note": "Final frozen registry and all seven source maps match. Existing final Debian and Ubuntu 26.04 native-run receipts were independently inspected and hash-validated by this review; the 14 root tests were freshly rerun. Complete native family jobs were not repeated by the reviewer.",
+    "all_seven_registered_source_identity_maps_match_at_final_review": true
+  },
+  "corrected_findings": [
+    {
+      "finding": "Cancelled sibling native processes and grandchildren survived a failed join.",
+      "resolution": "Native commands start isolated sessions; failure, cancellation or timeout kills their process group and awaits the child. All actor/family tasks are settled.",
+      "evidence": "test_failure_cancels_and_reaps_sibling_process_group executes actual harmless child and grandchild processes."
+    },
+    {
+      "finding": "Rejected output paths were created inside source before validation, and baseline/runtime output paths were accepted.",
+      "resolution": "All immutable source, runtime and baseline roots are checked before mkdir.",
+      "evidence": "test_invalid_output_path_has_no_source_side_effect; test_output_cannot_mutate_frozen_runtime_or_previous_release"
+    },
+    {
+      "finding": "Output symlinks could redirect logs into the immutable source.",
+      "resolution": "Existing output symlinks are rejected before child execution or log writes.",
+      "evidence": "test_preexisting_output_symlink_cannot_redirect_logs_into_source"
+    },
+    {
+      "finding": "Absolute/traversing, duplicate-directory and empty-assignment registry jobs reached subprocess execution.",
+      "resolution": "Directory syntax, resolved containment, uniqueness, nonempty ID assignment and source identities are checked before job creation.",
+      "evidence": "test_registry_cannot_execute_outside_registered_source_root; test_registry_rejects_duplicate_directories_and_empty_assignments"
+    },
+    {
+      "finding": "Executed Ruby, Lua, R, CJS and Agda text helpers were omitted from source pins.",
+      "resolution": "All remaining source files are hashed regardless of extension; explicit provider/build/evidence directories and actual ELF binary hosts are separate dependencies. Ordinary text beginning MZ remains pinned.",
+      "evidence": "test_all_executed_helper_source_extensions_are_pinned"
+    },
+    {
+      "finding": "Malformed record entries, bool catalog identities and empty/whitespace obligation descriptions were not rejected consistently.",
+      "resolution": "Exact record/catalog/count/boolean types and nonempty descriptive profile/obligation strings are required.",
+      "evidence": "test_nonrecord_or_nonstring_catalog_identity_is_rejected; test_obligations_must_describe_actual_open_work; producer exact integer/boolean tests"
+    },
+    {
+      "finding": "The verifier could abruptly kill its coordinator at an outer timeout, bypassing descendant cleanup.",
+      "resolution": "The coordinator owns its asyncio wait_for deadline; verifier waits for that cleanup-aware process rather than applying an abrupt subprocess timeout to the family join.",
+      "evidence": "Static review of coordinator CLI and verify.py; the independent cancellation fixture exercises the same run() cleanup branch. A 240-second timeout was not intentionally exhausted."
+    }
+  ],
+  "review_scope": [
+    "Root registered-family source/identity validation",
+    "Exact bounded receipt shape and counter accounting",
+    "All-359 actor bookkeeping and pinned USL policy",
+    "Immutable input/output path boundaries",
+    "Owned process-group cancellation",
+    "Verifier manifest and deadline behavior"
+  ],
+  "trusted_assumptions": [
+    "The registered family implementations, their independently authored tests and declared native dependency identities are trusted semantic evidence producers; the root validates their identities and fresh invocation, not every language semantic rule.",
+    "The pinned USL runtime, Python interpreter, POSIX process/session behavior and operating system are part of the trusted computing base.",
+    "The local workspace has no hostile concurrent path substitutions or source changes that are restored before final hash checks.",
+    "Native children do not deliberately escape their owned session/process group or launch persistent external services."
+  ],
+  "limitations": [
+    "This structural independent review supplies zero new language profiles and zero full-standard qualifications.",
+    "No standalone proof of all family frontend, generator, runtime, library or natural-language-intent semantics is claimed.",
+    "Historical 247 bounded profiles are retained by hash-bound baseline status; this review does not freshly reexecute them.",
+    "Resource admission uses an explicitly estimated per-family memory reservation; it is not a proven peak-resource bound.",
+    "New-task restoration, other operating systems, full language standards and all entity capability tracks remain outside this review."
+  ],
+  "reporting_units_review": {
+    "native_work_reported_separately_by_family": true,
+    "heterogeneous_native_units_summed_into_one_total": false,
+    "unit_metadata_origin": "Registered family native_unit descriptions, checked as nonempty text in this read-only registry review",
+    "evidence": "Static review of final summary construction. Native execution units and physical process/case counts remain family-specific."
+  },
+  "final_host_receipt_integrity_review": {
+    "passed": true,
+    "audits": [
+      {
+        "passed": true,
+        "verification_root": "/tmp/usl-v4114-debian-final",
+        "root_regressions": 14,
+        "family_regressions": 199,
+        "all_original_pending_IDs_retained": 359,
+        "new_bounded_profiles": 30,
+        "bounded_original_profiles": 277,
+        "remaining_without_bounded_profile": 329,
+        "full_standards_qualified": 0,
+        "complete_entity_tracks": 0,
+        "all_family_result_and_log_hashes_match": true,
+        "all_family_source_maps_match_final_registry": true,
+        "scoped_profiles_retain_exact_profiles_and_nonempty_open_obligations": true,
+        "fresh_family_join_reexecuted_by_this_review": false,
+        "final_registry_sha256": "d0cb0f647d647d3728e2ce8eb6eaa691789d81667bf8e5b71928000dbfc24945",
+        "source_manifest_files_checked_by_original_verifier": 0,
+        "verified_receipt_sha256": {
+          "VERIFICATION.json": "28b5078f2883b769b5c12dc9a1cba43ac6d95d5fdef9db24561a241e5b6da2af",
+          "fresh/SUMMARY.json": "701b67952d9ee083e3105e8a2f50f71681c7d8f0427bd5881985692cefb836e2",
+          "fresh/FAMILY_RECEIPTS.json": "1ae2022ff9c76a62261eb0ca7d4c7491d4affeeb5baaaaf642944a4732a79b26",
+          "fresh/ALL359_PROGRESS.json": "88759058d00348d52c4ec4a6682b6df8d3c6cb5c0c4f25354ff5dba9a0cd6e5b"
+        },
+        "family_checks": [
+          {
+            "directory": "agda",
+            "IDs": 2,
+            "regression_tests": 14,
+            "fresh_result_sha256": "9eed1188a1eb526759f58d89acda302113dc0b6d4b77286831f219caa3ac8ebe",
+            "native_work": {
+              "reported_units": 2036,
+              "unit": "Compiled-original result observations; compiler/Node processes and rejection controls separate",
+              "case_records": 2036
+            },
+            "USL_executions": 2,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "preprocessor",
+            "IDs": 5,
+            "regression_tests": 6,
+            "fresh_result_sha256": "6a4a8810e641ab4e7bfd8590de23130a1b6d74cf75b1ba6e51ca639c71d1e6e6",
+            "native_work": {
+              "reported_units": 1021,
+              "unit": "Fresh upstream processor instance evaluations; batched process and downstream processes separate",
+              "case_records": 1021
+            },
+            "USL_executions": 1021,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "templates",
+            "IDs": 3,
+            "regression_tests": 7,
+            "fresh_result_sha256": "2a126c0d86cbf0a80f88133341723b3f53d310968e70f9019c59ad936e70849a",
+            "native_work": {
+              "reported_units": 126,
+              "unit": "Native template case observations in batched engine processes",
+              "case_records": 126
+            },
+            "USL_executions": 123,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "configuration",
+            "IDs": 8,
+            "regression_tests": 153,
+            "fresh_result_sha256": "2f861f3270290422614b0ddaf218770825f78570aa2de4435bac8d7a3c334b7d",
+            "native_work": {
+              "reported_units": 206,
+              "unit": "Fresh native subprocess invocations, including compilation and processing; not case count",
+              "case_records": 140
+            },
+            "USL_executions": 118,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "native_languages",
+            "IDs": 4,
+            "regression_tests": 7,
+            "fresh_result_sha256": "557d69512f0cf4f9145c923c126db9b561a90e9679e031342da8497960b98708",
+            "native_work": {
+              "reported_units": 240,
+              "unit": "Fresh native subprocess executions including expected errors and domain probes",
+              "case_records": 237
+            },
+            "USL_executions": 229,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "grammar_native",
+            "IDs": 4,
+            "regression_tests": 5,
+            "fresh_result_sha256": "df514d3f9a66d663b71da02c935a00470320fe2138fbea18d71ca96c353d29a7",
+            "native_work": {
+              "reported_units": 2635,
+              "unit": "Native parser/style/binding/conversion calls; physical processes separate",
+              "case_records": 2635
+            },
+            "USL_executions": 2627,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "all359",
+            "IDs": 4,
+            "regression_tests": 7,
+            "fresh_result_sha256": "d66f3adc3a407bfcd97c3b72e6fca1a89aad7790bc4cbac1f8c7f25fc4492597",
+            "native_work": {
+              "reported_units": 742,
+              "unit": "Fresh native result/assertion-suite observations including expected failures",
+              "case_records": 742
+            },
+            "USL_executions": 742,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          }
+        ]
+      },
+      {
+        "passed": true,
+        "verification_root": "/tmp/usl-v4114-ubuntu26-readiness",
+        "root_regressions": 14,
+        "family_regressions": 199,
+        "all_original_pending_IDs_retained": 359,
+        "new_bounded_profiles": 30,
+        "bounded_original_profiles": 277,
+        "remaining_without_bounded_profile": 329,
+        "full_standards_qualified": 0,
+        "complete_entity_tracks": 0,
+        "all_family_result_and_log_hashes_match": true,
+        "all_family_source_maps_match_final_registry": true,
+        "scoped_profiles_retain_exact_profiles_and_nonempty_open_obligations": true,
+        "fresh_family_join_reexecuted_by_this_review": false,
+        "final_registry_sha256": "d0cb0f647d647d3728e2ce8eb6eaa691789d81667bf8e5b71928000dbfc24945",
+        "source_manifest_files_checked_by_original_verifier": 0,
+        "verified_receipt_sha256": {
+          "VERIFICATION.json": "61be102aadffd5d5474d1f136a695fe5d97330f7c5ccaca537deb50bb8d24fb1",
+          "fresh/SUMMARY.json": "39f44c284305f81957b812a92d5a8aa767288c7a6a2214609ee24302be8fa627",
+          "fresh/FAMILY_RECEIPTS.json": "b0a2662cfa089fe4315299879f0cfbcaf817b8e071bdd552002a71b65f7227e0",
+          "fresh/ALL359_PROGRESS.json": "4a3c94c3679922f93280e203553e5f6ad7ee1edbd6bf132782ee4475a31df8c6"
+        },
+        "family_checks": [
+          {
+            "directory": "agda",
+            "IDs": 2,
+            "regression_tests": 14,
+            "fresh_result_sha256": "c5142ad719525a953a87bc337276fe3a69834fbb353171d79711aec3478b5f0f",
+            "native_work": {
+              "reported_units": 2036,
+              "unit": "Compiled-original result observations; compiler/Node processes and rejection controls separate",
+              "case_records": 2036
+            },
+            "USL_executions": 2,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "preprocessor",
+            "IDs": 5,
+            "regression_tests": 6,
+            "fresh_result_sha256": "2cbc943e7f726c6b754f29069c5b64fcaef1e809dfccc4ba7e9b7fabfe51bcac",
+            "native_work": {
+              "reported_units": 1021,
+              "unit": "Fresh upstream processor instance evaluations; batched process and downstream processes separate",
+              "case_records": 1021
+            },
+            "USL_executions": 1021,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "templates",
+            "IDs": 3,
+            "regression_tests": 7,
+            "fresh_result_sha256": "f321c8ad25036c1a12c54681bf166491d545ab26cf3956e6e432bd2a2380568e",
+            "native_work": {
+              "reported_units": 126,
+              "unit": "Native template case observations in batched engine processes",
+              "case_records": 126
+            },
+            "USL_executions": 123,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "configuration",
+            "IDs": 8,
+            "regression_tests": 153,
+            "fresh_result_sha256": "afcd1d84fd3d255561cbd212ec7849b74e3bf6a66a3ccd98916352771622806d",
+            "native_work": {
+              "reported_units": 206,
+              "unit": "Fresh native subprocess invocations, including compilation and processing; not case count",
+              "case_records": 140
+            },
+            "USL_executions": 118,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "native_languages",
+            "IDs": 4,
+            "regression_tests": 7,
+            "fresh_result_sha256": "da3a7e57a571f2998a9b24ba22fe29d6929ff45bc73a2a140f9b6f43e3b17b5d",
+            "native_work": {
+              "reported_units": 240,
+              "unit": "Fresh native subprocess executions including expected errors and domain probes",
+              "case_records": 237
+            },
+            "USL_executions": 229,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "grammar_native",
+            "IDs": 4,
+            "regression_tests": 5,
+            "fresh_result_sha256": "66831035625820a591d7ff8f8c5a8687608006250fb9494eaa08201c8c23fd1a",
+            "native_work": {
+              "reported_units": 2635,
+              "unit": "Native parser/style/binding/conversion calls; physical processes separate",
+              "case_records": 2635
+            },
+            "USL_executions": 2627,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          },
+          {
+            "directory": "all359",
+            "IDs": 4,
+            "regression_tests": 7,
+            "fresh_result_sha256": "d84686719384d264c666e791b353adf02eb96652576121e7fc43ad30134e893b",
+            "native_work": {
+              "reported_units": 742,
+              "unit": "Fresh native result/assertion-suite observations including expected failures",
+              "case_records": 742
+            },
+            "USL_executions": 742,
+            "every_profile_keeps_open_obligations_and_full_standard_false": true
+          }
+        ]
+      }
+    ],
+    "procedure_script_sha256": "aa0a35617e068723bad0037433dd513b9af37b1348c045c205b1ac05b9ea62ab",
+    "checks": [
+      "Match verification and summary documents, log hashes, family source maps and fresh result hashes",
+      "Revalidate each strict bounded profile record and exact per-ID fresh receipt links",
+      "Retain exactly all 359 pending IDs with 30 evidence-backed bounded profiles and 329 explicit gaps",
+      "Recompute 199 family regression tests, 4862 USL executions and per-family native unit counts",
+      "Require every new profile to retain open obligations and full_standard_qualified=false"
+    ],
+    "limitations": [
+      "Existing complete native runs were inspected, not replayed or rerun by this reviewer.",
+      "Both inspected original verification runs preceded the source archive manifest, so source_manifest_files_checked is zero; family registry and runtime source identities are separately checked. Clean-extraction/archive verification is release integration work.",
+      "Only the recorded Debian and Ubuntu Linux hosts are evidenced; new task restoration, other operating systems and full-standard qualification are not established."
+    ]
+  }
+}

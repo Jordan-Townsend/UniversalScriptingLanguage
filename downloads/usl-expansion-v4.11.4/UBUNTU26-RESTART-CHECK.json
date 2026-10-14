@@ -1,0 +1,45 @@
+{
+  "schema": "usl.ubuntu26.platform-check.v1",
+  "os_release": {
+    "PRETTY_NAME": "Ubuntu 26.04.1 LTS",
+    "NAME": "Ubuntu",
+    "VERSION_ID": "26.04",
+    "VERSION": "26.04.1 LTS (Resolute Raccoon)",
+    "VERSION_CODENAME": "resolute",
+    "ID": "ubuntu",
+    "ID_LIKE": "debian",
+    "HOME_URL": "https://www.ubuntu.com/",
+    "SUPPORT_URL": "https://help.ubuntu.com/",
+    "BUG_REPORT_URL": "https://bugs.launchpad.net/ubuntu/",
+    "PRIVACY_POLICY_URL": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+    "UBUNTU_CODENAME": "resolute",
+    "LOGO": "ubuntu-logo"
+  },
+  "architecture": "x86_64",
+  "libc": [
+    "glibc",
+    "2.43"
+  ],
+  "toolchains": {
+    "python": {
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+      "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+    },
+    "node": {
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "sha256": "bc17c508ffeed0ec622934f9b7fa72f8e78da65350e63c3eceb56fa688aa5e12"
+    },
+    "godot": {
+      "path": "/usr/local/bin/godot",
+      "sha256": "f64d4ed19fc9df9440321653fcc80df8c6e365ba7b6de0a29e2cfa9fa71bfeb3"
+    }
+  },
+  "node_version": "v24.19.0",
+  "python_version": "3.12.14",
+  "usl_runtime_sha256": "28572d10c70421c71777a4562bbdd075acf6077d5ea4c3b9ebca3278e6dc76cc",
+  "usl_smoke_result": 42,
+  "ubuntu_userspace_check_passed": true,
+  "all359_native_profiles_qualified": false,
+  "fresh_ubuntu_install_validated": false,
+  "scope": "Ubuntu26.04 x86_64 userspace with retained mounted toolchains and USL source"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "usl.ubuntu26.retained-toolchains.v1",
+  "platform": {
+    "id": "ubuntu",
+    "version_id": "26.04",
+    "architecture": "x86_64"
+  },
+  "base_image": "ubuntu:26.04@sha256:f144425ff09be612d6d9ad965196e9cdc23dae1f42110a8a11a3e9a8198759f7",
+  "runtime_mount": "/opt/codex/runtimes",
+  "workspace_mount": "/workspace",
+  "python": {
+    "relative_path": "codex-primary-runtime/dependencies/python/bin/python3.12",
+    "version": "3.12.14",
+    "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+  },
+  "node": {
+    "relative_path": "codex-primary-runtime/dependencies/node/bin/node",
+    "version": "v24.19.0",
+    "sha256": "bc17c508ffeed0ec622934f9b7fa72f8e78da65350e63c3eceb56fa688aa5e12"
+  },
+  "usl_runtime": {
+    "relative_path": "usl-v4.10.0-clean-test/usl_systems/language.py",
+    "sha256": "28572d10c70421c71777a4562bbdd075acf6077d5ea4c3b9ebca3278e6dc76cc"
+  },
+  "qualification": {
+    "retained_toolchains_required": true,
+    "fresh_ubuntu_install_validated": false,
+    "all359_native_profiles_qualified": false,
+    "full_standards_qualified": false
+  },
+  "godot": {
+    "relative_path": "4.6.3/Godot_v4.6.3-stable_linux.x86_64",
+    "version": "4.6.3",
+    "sha256": "f64d4ed19fc9df9440321653fcc80df8c6e365ba7b6de0a29e2cfa9fa71bfeb3"
+  },
+  "godot_mount": "/opt/godot"
+}

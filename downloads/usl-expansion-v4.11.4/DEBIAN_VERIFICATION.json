@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "root_regressions": {
+    "passed": true,
+    "log_sha256": "1b37609e1c0c5f5a74d73c5872b501a639a8b3273d84aff04323e35940480e34",
+    "tests_run": 14
+  },
+  "fresh_join": {
+    "passed": true,
+    "log_sha256": "2e11021da7a026bc0f8678a30e5b73951a867bd73a3e831ec75a2447a3db675e"
+  },
+  "source_manifest_files_checked": 0,
+  "summary": {
+    "passed": true,
+    "all_initially_remaining_original_IDs": 359,
+    "all_logical_actors_started_together": true,
+    "peak_live_logical_actors": 359,
+    "family_jobs_executed": 7,
+    "resource_admission": {
+      "native_family_slots": 7,
+      "distinct_family_jobs": 7,
+      "memory_limit_bytes": 34359738368,
+      "memory_current_bytes": 31545069568,
+      "estimated_family_reservation_bytes": 268435456,
+      "estimate_is_not_a_proved_peak_memory_bound": true,
+      "fixed_batches_or_round_caps": false
+    },
+    "new_validated_bounded_profiles": 30,
+    "historical_bounded_profiles_preserved": 247,
+    "bounded_original_profiles": 277,
+    "original_IDs_without_bounded_profile": 329,
+    "full_standards_qualified": 0,
+    "complete_entity_tracks": 0,
+    "fresh_family_regression_tests": 199,
+    "fresh_native_work_by_family": {
+      "agda": {
+        "reported_units": 2036,
+        "unit": "Compiled-original result observations; compiler/Node processes and rejection controls separate",
+        "case_records": 2036
+      },
+      "preprocessor": {
+        "reported_units": 1021,
+        "unit": "Fresh upstream processor instance evaluations; batched process and downstream processes separate",
+        "case_records": 1021
+      },
+      "templates": {
+        "reported_units": 126,
+        "unit": "Native template case observations in batched engine processes",
+        "case_records": 126
+      },
+      "configuration": {
+        "reported_units": 206,
+        "unit": "Fresh native subprocess invocations, including compilation and processing; not case count",
+        "case_records": 140
+      },
+      "native_languages": {
+        "reported_units": 240,
+        "unit": "Fresh native subprocess executions including expected errors and domain probes",
+        "case_records": 237
+      },
+      "grammar_native": {
+        "reported_units": 2635,
+        "unit": "Native parser/style/binding/conversion calls; physical processes separate",
+        "case_records": 2635
+      },
+      "all359": {
+        "reported_units": 742,
+        "unit": "Fresh native result/assertion-suite observations including expected failures",
+        "case_records": 742
+      }
+    },
+    "fresh_USL_executions": 4862,
+    "native_observations_replayed": false,
+    "source_unchanged_during_run": true,
+    "full_project_ETA_seconds": null,
+    "seconds_through_primary_join_and_exports": 81.34196047199657,
+    "cost_excludes": [
+      "Writing final summary and cost metadata",
+      "Console reporting and process shutdown"
+    ]
+  },
+  "source_unchanged_during_verification": true,
+  "seconds": 81.84091878900654,
+  "cost_excludes": [
+    "Writing this final verification record",
+    "Console reporting and process shutdown"
+  ],
+  "new_task_or_other_OS_restoration_verified": false
+}

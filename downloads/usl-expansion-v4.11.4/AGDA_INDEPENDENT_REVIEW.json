@@ -1,0 +1,235 @@
+{
+  "schema": "usl.agda.independent-native-and-proof-review.v1",
+  "passed": true,
+  "tests_run": 9,
+  "source_unchanged_during_review": true,
+  "source_sha256": {
+    "/workspace/usl-expansion-v4.11.4/agda/agda_frontend.py": "a4b7f7dae0f20b38d9e853cabe4871db51b3e726090e06b18bc65b05c35304d0",
+    "/workspace/usl-expansion-v4.11.4/agda/run.py": "2a17132259bab2f511f865bf31515c892546ca5b1fbee4389af12f4090ce2c79",
+    "/workspace/usl-expansion-v4.11.4/agda/test_agda_frontend.py": "4f73c637c50906c16c7cc7f897a9ceeb1156bd5a3a8ee337bf590f26771732bb",
+    "/workspace/usl-expansion-v4.11.4/agda/test_agda_independent.py": "3341ec89709738c1c5b36fe9e0ab712d82a3b2253888bdfa69635c4876df43af",
+    "/workspace/usl-v4.10.0-clean-test/usl_systems/language.py": "28572d10c70421c71777a4562bbdd075acf6077d5ea4c3b9ebca3278e6dc76cc"
+  },
+  "Python_version": "3.12.14",
+  "Agda_version": "Agda version 2.6.4.3",
+  "native_rejection_programs": 19,
+  "fresh_native_positive_observations": 5,
+  "fresh_USL_positive_observations": 5,
+  "actual_generated_AST_mutations_rejected": 2,
+  "original_defects_reproduced_and_repaired": [
+    "Application parser wrongly interpreted bare function-valued arguments as nested calls",
+    "Lexer split operator-containing and numeric-prefix Agda identifiers into new expressions",
+    "Embedded double hyphen was stripped as a line comment",
+    "Declaration indentation was silently erased",
+    "Agda2.6.4.3 import/opaque/unfolding keywords were accepted as names",
+    "Fixture native export driver assumed curried arguments survived AgdaJS erasure; root now uses compiler-checked ground Harness module"
+  ],
+  "proof_review": {
+    "actual_artifact_checked": "formal_proofs reparses actual generated USL via pinned runtime normalization, checks modeled emitted return-expression AST against typed IR denotation, and rejects independently mutated subtraction/Boolean expressions",
+    "scope": "Selected Nat/Bool IR and return-expression model; not a full source/frontend/runtime proof",
+    "trusted_assumptions": [
+      "Pinned USL normalize/AST behavior",
+      "Source-to-IR parser and selected Agda builtin Nat/Bool interpretation",
+      "Z3 implementation and integer/Boolean theory",
+      "USL runtime implements modeled operators and function calls",
+      "Native Agda/Node/compiler dependencies behave according to their specified implementations"
+    ],
+    "remaining_obligations": [
+      "Complete normative/version/library/FFI inventory",
+      "Complete Agda dependent types, universes, data/record families, recursion, coverage, modules, implicit/instance args",
+      "Frontend correctness and parser/source semantic refinement proof",
+      "USL interpreter and Agda/native compiler correctness or independent qualification",
+      "Full native host release/platform and standard conformance review"
+    ]
+  },
+  "full_standard_qualified": false,
+  "seconds": 0.644170284998836,
+  "test_log": "test_agda_names_cannot_be_split_into_operators_or_numeric_arguments (test_agda_independent.IndependentAgdaReview.test_agda_names_cannot_be_split_into_operators_or_numeric_arguments) ... ok\ntest_application_arguments_are_atoms_not_implicit_nested_calls (test_agda_independent.IndependentAgdaReview.test_application_arguments_are_atoms_not_implicit_nested_calls) ... ok\ntest_declaration_indentation_cannot_be_silently_erased (test_agda_independent.IndependentAgdaReview.test_declaration_indentation_cannot_be_silently_erased) ... ok\ntest_embedded_double_hyphen_is_not_an_agda_line_comment (test_agda_independent.IndependentAgdaReview.test_embedded_double_hyphen_is_not_an_agda_line_comment) ... ok\ntest_literate_extraction_does_not_hide_invalid_application (test_agda_independent.IndependentAgdaReview.test_literate_extraction_does_not_hide_invalid_application) ... ok\ntest_parenthesized_calls_and_separated_comments_have_fresh_native_evidence (test_agda_independent.IndependentAgdaReview.test_parenthesized_calls_and_separated_comments_have_fresh_native_evidence) ... ok\ntest_prover_rejects_mutated_actual_generated_arithmetic (test_agda_independent.IndependentAgdaReview.test_prover_rejects_mutated_actual_generated_arithmetic) ... ok\ntest_prover_rejects_mutated_actual_generated_boolean (test_agda_independent.IndependentAgdaReview.test_prover_rejects_mutated_actual_generated_boolean) ... ok\ntest_version_specific_keywords_are_not_function_or_parameter_names (test_agda_independent.IndependentAgdaReview.test_version_specific_keywords_are_not_function_or_parameter_names) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.631s\n\nOK\n",
+  "receipts": [
+    {
+      "source_sha256": "d2c06738f8266af3889c89cdd6d8ca3fbaf5e2e4c727bb59a6fd8237af06cbaa",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat \u2192 Nat\nbad x y = x+y\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-lxj21weu/Review.agda).\n/tmp/usl-agda-review-lxj21weu/Review.agda:9,11-14\nNot in scope:\n  x+y at /tmp/usl-agda-review-lxj21weu/Review.agda:9,11-14\nwhen scope checking x+y\n"
+    },
+    {
+      "source_sha256": "ff346a6c1ce986c649cb864698d6d3c1360d95370dce54b682a9b9e4f689e97e",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\nbad x = x +1\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-r0l9iv2t/Review.agda).\n/tmp/usl-agda-review-r0l9iv2t/Review.agda:9,11-13\nNot in scope:\n  +1 at /tmp/usl-agda-review-r0l9iv2t/Review.agda:9,11-13\nwhen scope checking +1\n"
+    },
+    {
+      "source_sha256": "ad7dcfeb2d131d6cf1aea90ffb7c332d1f3ed51059423c34b26ef03e8d568de2",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\nbad x = 1+ x\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-36nbi8ey/Review.agda).\n/tmp/usl-agda-review-36nbi8ey/Review.agda:9,9-11\nNot in scope:\n  1+ at /tmp/usl-agda-review-36nbi8ey/Review.agda:9,9-11\nwhen scope checking 1+\n"
+    },
+    {
+      "source_sha256": "9e98490edbd95f4babb35ee4637ad2856fd8d13fa6a083d1f270eb057b82ba9e",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat \u2192 Bool\nbad x y = x==y\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-k7jmdgnx/Review.agda).\n/tmp/usl-agda-review-k7jmdgnx/Review.agda:9,11-15\nNot in scope:\n  x==y at /tmp/usl-agda-review-k7jmdgnx/Review.agda:9,11-15\nwhen scope checking x==y\n"
+    },
+    {
+      "source_sha256": "543b1c37b34d3029e78d486feef11eb57011845d7dcfa48c117b4e1bc45fd137",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\nbad x = plus 1x\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-159c576x/Review.agda).\n/tmp/usl-agda-review-159c576x/Review.agda:9,14-16\nNot in scope:\n  1x at /tmp/usl-agda-review-159c576x/Review.agda:9,14-16\nwhen scope checking 1x\n"
+    },
+    {
+      "source_sha256": "fe7b0a77fdbdf2e1be97b25aca3d20feef26340ff338405e65a9f5eec806e3cd",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\nbad x = suc suc x\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-6jwe36rq/Review.agda).\n/tmp/usl-agda-review-6jwe36rq/Review.agda:9,13-16\n(Nat \u2192 Nat) !=< Nat\nwhen checking that the expression suc has type Nat\n"
+    },
+    {
+      "source_sha256": "69fdf49afae9af1eb469c0d14af44147a59209ee15a625804292f69260f1d29c",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat \u2192 Nat\nbad x y = plus suc x y\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-2vxyoffa/Review.agda).\n/tmp/usl-agda-review-2vxyoffa/Review.agda:9,16-19\n(Nat \u2192 Nat) !=< Nat\nwhen checking that the expression suc has type Nat\n"
+    },
+    {
+      "source_sha256": "511cf3d2c420758157aebd4ae1336e74ba6082c39d8544c265808f0f8e0547e7",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\nbad x = suc bump x\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-vvh4tq6u/Review.agda).\n/tmp/usl-agda-review-vvh4tq6u/Review.agda:9,13-17\n(Nat \u2192 Nat) !=< Nat\nwhen checking that the expression bump has type Nat\n"
+    },
+    {
+      "source_sha256": "0b98b93216b9a62a480a64c6a0f86cc86deff9795164afbaa0c974bf38dfc72b",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat \u2192 Nat\nbad x y = plus bump x y\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-66jo0ewl/Review.agda).\n/tmp/usl-agda-review-66jo0ewl/Review.agda:9,16-20\n(Nat \u2192 Nat) !=< Nat\nwhen checking that the expression bump has type Nat\n"
+    },
+    {
+      "source_sha256": "6670cfa1a7212bd0c0e91c39e58731da656c45d2a3506ad8e7382bbae3d69363",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\n  bad : Nat \u2192 Nat\nbad x = x\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "/tmp/usl-agda-review-ffjq8zax/Review.agda:8,7-7\n/tmp/usl-agda-review-ffjq8zax/Review.agda:8,7: Parse error\n:<ERROR>\n Nat \u2192 Nat\nbad x = x\n...\n"
+    },
+    {
+      "source_sha256": "5c0c83cceecd820b88536f2efb814b435ee416fc28f9fa5f427505f72cb59c0b",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\n  bad x = x\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "/tmp/usl-agda-review-5ggslhwo/Review.agda:9,9-9\n/tmp/usl-agda-review-5ggslhwo/Review.agda:9,9: Parse error\n=<ERROR>\n x\n...\n"
+    },
+    {
+      "source_sha256": "59ce4216b4228dc7e9bd0fe55884d64d096168e1a94b340917cedd4ab8edd4c4",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\nbad x = x--comment\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-wginzq3s/Review.agda).\n/tmp/usl-agda-review-wginzq3s/Review.agda:9,9-19\nNot in scope:\n  x--comment at /tmp/usl-agda-review-wginzq3s/Review.agda:9,9-19\nwhen scope checking x--comment\n"
+    },
+    {
+      "source_sha256": "44b217b4c2c931f56953d861822e8e108bd30280125583a7e1403a0669233395",
+      "source_text": "# Review prose\n```agda\nmodule Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\nbad x = suc bump x\n```\n",
+      "literate": true,
+      "native_exit_status": 42,
+      "diagnostic": "Checking Review (/tmp/usl-agda-review-owoll72v/Review.lagda.md).\n/tmp/usl-agda-review-owoll72v/Review.lagda.md:11,13-17\n(Nat \u2192 Nat) !=< Nat\nwhen checking that the expression bump has type Nat\n"
+    },
+    {
+      "source_sha256": "67c892e1c09174b69fba3cc674e75eb8cc234b95f66b744c6f854eb9c6c2f686",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\ncomposed : Nat \u2192 Nat \u2192 Nat\ncomposed x y = plus (bump x) (suc y) -- ordinary comment\npreserve : Bool \u2192 Nat \u2192 Bool\npreserve flag x = flag\ntruth : Bool\ntruth = true\nobserved0 : Nat\nobserved0 = composed 0 0\nobserved1 : Nat\nobserved1 = composed 100000000000 9\nobserved2 : Bool\nobserved2 = preserve false 0\nobserved3 : Bool\nobserved3 = preserve true 100000000000\nobserved4 : Bool\nobserved4 = truth\n",
+      "native_exit_status": 0,
+      "fresh_native_observations": 5,
+      "observations": [
+        {
+          "type": "bigint",
+          "value": "2"
+        },
+        {
+          "type": "bigint",
+          "value": "100000000011"
+        },
+        {
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "boolean",
+          "value": true
+        }
+      ],
+      "USL_observations": [
+        2,
+        100000000011,
+        false,
+        true,
+        true
+      ],
+      "diagnostic": "Checking Review (/tmp/usl-agda-positive-review-p4f3obht/Review.agda).\nCompiling Agda.Primitive in /workspace/.onboarding/sysroot/usr/share/libghc-agda-dev/lib/prim/_build/2.6.4.3/agda/Agda/Primitive.agdai to /tmp/usl-agda-positive-review-p4f3obht/js/./jAgda.Agda.Primitive.js\nCompiling Agda.Builtin.Bool in /workspace/.onboarding/sysroot/usr/share/libghc-agda-dev/lib/prim/_build/2.6.4.3/agda/Agda/Builtin/Bool.agdai to /tmp/usl-agda-positive-review-p4f3obht/js/./jAgda.Agda.Builtin.Bool.js\nCompiling Agda.Builtin.Nat in /workspace/.onboarding/sysroot/usr/share/libghc-agda-dev/lib/prim/_build/2.6.4.3/agda/Agda/Builtin/Nat.agdai to /tmp/usl-agda-positive-review-p4f3obht/js/./jAgda.Agda.Builtin.Nat.js\nCompiling Review in /tmp/usl-agda-positive-review-p4f3obht/Review.agdai to /tmp/usl-agda-positive-review-p4f3obht/js/./jAgda.Review.js\n"
+    },
+    {
+      "kind": "actual_generated_AST_mutation",
+      "mutation": "replace saturating subtraction by integer subtraction",
+      "generated_sha256": "2acc24e7758883f0570972aac0289e0f76634d2d15ab74fc6838bfc3e92ad557",
+      "mutated_sha256": "d718870efa57949ae6a42a3b52bc50bf589c6e2013bad909a6739bb73c9e41dd",
+      "rejected": true,
+      "diagnostic": "Translation proof not established: monus sat"
+    },
+    {
+      "kind": "actual_generated_AST_mutation",
+      "mutation": "replace Boolean identity by constant True",
+      "generated_sha256": "0ee667c84e7bad25031ac7a30996aa68d770bc881905b5fd12eb106444cb89e7",
+      "mutated_sha256": "4fdd9eb82616b4da6582da1154acb432505111a3e80e937dce516fc021762cd7",
+      "rejected": true,
+      "diagnostic": "Translation proof not established: preserve sat"
+    },
+    {
+      "source_sha256": "e2536075428fd3f54dbe293465ac065f5bf4e6f3347567e39d917b95b6bd8913",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nimport : Nat\nimport = 1\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "/tmp/usl-agda-review-d900kiq6/Review.agda:8,8-8\n/tmp/usl-agda-review-d900kiq6/Review.agda:8,8: Parse error\n:<ERROR>\n Nat\nimport = 1\n...\n"
+    },
+    {
+      "source_sha256": "082ca4851d25edb17fcce3b0b410a509a38b5b05c159b598499637785008c560",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\nbad import = import\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "/tmp/usl-agda-review-vmid3cpt/Review.agda:9,5-5\n/tmp/usl-agda-review-vmid3cpt/Review.agda:9,5: Parse error\nimport<ERROR>\n = import\n...\n"
+    },
+    {
+      "source_sha256": "6e41d06dcca6f14f257cb0fb665391ac7e29b47112ef623d415260941c37cc5d",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nopaque : Nat\nopaque = 1\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "/tmp/usl-agda-review-s69w50_w/Review.agda:8,8-8\n/tmp/usl-agda-review-s69w50_w/Review.agda:8,8: Parse error\n:<ERROR>\n Nat\nopaque = 1\n...\n"
+    },
+    {
+      "source_sha256": "d19161b6f583e516fbec147d9081096b55f4d6932aa7cef42d14f3955553ec27",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\nbad opaque = opaque\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "/tmp/usl-agda-review-xmqth4si/Review.agda:9,5-5\n/tmp/usl-agda-review-xmqth4si/Review.agda:9,5: Parse error\nopaque<ERROR>\n = opaque\n...\n"
+    },
+    {
+      "source_sha256": "7164a4b30979acbb5cb3486ed3a9c5edbfffb10d7ef8fd008b7abbaa7938d2f6",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nunfolding : Nat\nunfolding = 1\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "/tmp/usl-agda-review-i8zr9vtz/Review.agda:8,11-11\n/tmp/usl-agda-review-i8zr9vtz/Review.agda:8,11: Parse error\n:<ERROR>\n Nat\nunfolding = 1\n...\n"
+    },
+    {
+      "source_sha256": "686f1bfbec166a5397af630cc520c116fd93ebd0152bf89449e2a1198f2e3b6f",
+      "source_text": "module Review where\nopen import Agda.Builtin.Nat\nopen import Agda.Builtin.Bool\nplus : Nat \u2192 Nat \u2192 Nat\nplus x y = x + y\nbump : Nat \u2192 Nat\nbump x = suc x\nbad : Nat \u2192 Nat\nbad unfolding = unfolding\n",
+      "literate": false,
+      "native_exit_status": 42,
+      "diagnostic": "/tmp/usl-agda-review-duxb_269/Review.agda:9,5-5\n/tmp/usl-agda-review-duxb_269/Review.agda:9,5: Parse error\nunfolding<ERROR>\n = unfolding\n...\n"
+    }
+  ]
+}

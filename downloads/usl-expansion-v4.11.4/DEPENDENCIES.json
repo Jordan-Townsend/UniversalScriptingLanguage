@@ -1,0 +1,37 @@
+{
+  "native_binaries_shipped": false,
+  "qualified_host": "Debian13 and Ubuntu26.04.1 x86_64 retained-toolchain workflows, see PLATFORM_MATRIX.json",
+  "other_platforms_qualified": false,
+  "source_dependencies": [
+    {
+      "release": "4.10.0",
+      "url": "https://github.com/Jordan-Townsend/UniversalScriptingLanguage/raw/refs/heads/downloads/usl-preparation-v4.11.0/downloads/usl-v4.10.0/USL-UNIVERSAL-SYSTEMS-V4.10.0-FULL-SOURCE.zip",
+      "sha256": "70a6f2bbd075d56100009907c9e89588819ee7f64f0346fa05c7803271f100d6"
+    },
+    {
+      "release": "4.11.2",
+      "url": "https://github.com/Jordan-Townsend/UniversalScriptingLanguage/raw/refs/heads/downloads/usl-preparation-v4.11.0/downloads/usl-planning-v4.11.2/USL-V4.11.2-CONCURRENT-TRANCHES-AND-ALL-ID-SCOPING.zip",
+      "sha256": "0ec8164764712255e29ea9a22f887e6629bcd21bf32d93d5974cccc4808f39ae"
+    },
+    {
+      "release": "4.11.3 qualification",
+      "url": "https://github.com/Jordan-Townsend/UniversalScriptingLanguage/raw/refs/heads/downloads/usl-preparation-v4.11.0/downloads/usl-qualification-v4.11.3/USL-V4.11.3-ALL-607-FULL-QUALIFICATION-GATES.zip",
+      "sha256": "0219c7a676e660763d4a78d34a3e225a51cc129d15235622059bea0824e51d79"
+    }
+  ],
+  "family_provider_instructions": [
+    "agda/README.md",
+    "preprocessor/README.md",
+    "templates/README.md",
+    "configuration/README.md",
+    "native_languages/README.md",
+    "grammar_native/README.md",
+    "all359/README.md"
+  ],
+  "native_source_package_manifests_are_family_specific": true,
+  "new_task_restoration_verified": false,
+  "setup_skill": "cloud-environment-onboarding:setup",
+  "ubuntu26_userspace_validated": true,
+  "source_only_fresh_ubuntu_install_verified": false,
+  "ubuntu_instructions": "ubuntu/README.md"
+}

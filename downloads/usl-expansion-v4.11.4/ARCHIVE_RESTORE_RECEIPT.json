@@ -1,0 +1,18 @@
+{
+  "schema": "usl.v4114.archive-clean-restore.v1",
+  "archive": "USL-V4.11.4-30-PROFILES-UBUNTU26.zip",
+  "archive_sha256": "15e7c36e72e8045c86b6498add52fb94dd710c4363fc8439574d28b344084417",
+  "archive_bytes": 10819596,
+  "manifest_files_verified": 10209,
+  "clean_extract_path": "/workspace/usl-expansion-v4.11.4-clean/usl-expansion-v4.11.4",
+  "command": "USL_EXPANSION_ROOT=/workspace/usl-expansion-v4.11.4-clean/usl-expansion-v4.11.4 bash /workspace/.onboarding/restore_expansion_v4114.sh",
+  "providers_restored_from_source_only_archive": true,
+  "retained_external_native_prerequisites_required": true,
+  "passed": true,
+  "source_unchanged": true,
+  "new_task_verified": false,
+  "fresh_ubuntu_install_verified": false,
+  "native_binaries_shipped": false,
+  "helper_sha256": "b57c2c48065e175316cd7141e9ab6563885f59754b6c06c3f821d6798b177691",
+  "verification_file": "CLEAN_EXTRACTION_VERIFICATION.json"
+}

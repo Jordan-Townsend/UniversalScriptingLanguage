@@ -1,0 +1,61 @@
+{
+  "schema": "usl.v4114.platform-validation.v1",
+  "debian": {
+    "os": "Debian 13",
+    "architecture": "x86_64",
+    "verification": "validation/debian/VERIFICATION.json",
+    "passed": true,
+    "root_tests": 14,
+    "family_tests": 199
+  },
+  "ubuntu26": {
+    "os": {
+      "PRETTY_NAME": "Ubuntu 26.04.1 LTS",
+      "NAME": "Ubuntu",
+      "VERSION_ID": "26.04",
+      "VERSION": "26.04.1 LTS (Resolute Raccoon)",
+      "VERSION_CODENAME": "resolute",
+      "ID": "ubuntu",
+      "ID_LIKE": "debian",
+      "HOME_URL": "https://www.ubuntu.com/",
+      "SUPPORT_URL": "https://help.ubuntu.com/",
+      "BUG_REPORT_URL": "https://bugs.launchpad.net/ubuntu/",
+      "PRIVACY_POLICY_URL": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+      "UBUNTU_CODENAME": "resolute",
+      "LOGO": "ubuntu-logo"
+    },
+    "architecture": "x86_64",
+    "libc": [
+      "glibc",
+      "2.43"
+    ],
+    "toolchains": {
+      "python": {
+        "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+        "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+      },
+      "node": {
+        "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "sha256": "bc17c508ffeed0ec622934f9b7fa72f8e78da65350e63c3eceb56fa688aa5e12"
+      },
+      "godot": {
+        "path": "/usr/local/bin/godot",
+        "sha256": "f64d4ed19fc9df9440321653fcc80df8c6e365ba7b6de0a29e2cfa9fa71bfeb3"
+      }
+    },
+    "base_image": "ubuntu:26.04@sha256:f144425ff09be612d6d9ad965196e9cdc23dae1f42110a8a11a3e9a8198759f7",
+    "verification": "validation/ubuntu26/VERIFICATION.json",
+    "passed": true,
+    "root_tests": 14,
+    "family_tests": 199,
+    "ubuntu_setup_tests": 19,
+    "scope": "Ubuntu26.04.1 userspace with retained mounted workspace and native toolchains",
+    "source_only_fresh_install_verified": false,
+    "dockerfile_image_build_verified": false,
+    "host_kernel": "Shared Docker host kernel, not a separate booted Ubuntu machine"
+  },
+  "historical_247_profiles_requalified": false,
+  "new_bounded_profiles": 30,
+  "full_standards_qualified": 0,
+  "native_binaries_shipped": false
+}
