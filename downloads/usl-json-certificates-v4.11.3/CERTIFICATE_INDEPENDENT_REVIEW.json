@@ -1,0 +1,20 @@
+{
+  "schema": "usl.JSON.independent-certificate-review.v1",
+  "passed": true,
+  "tests_run": 6,
+  "failures": 0,
+  "errors": 0,
+  "source_sha256": {
+    "json_certificate.py": "ac4be28337a0d2e76dac9f14935b5db6339f509f7ffcd456a5f7e6c742b35547",
+    "test_certificate_independent_review.py": "aed8eaad076502d3b8f6034e6092aa2608268fbbbd550510d58c43159bf7758c"
+  },
+  "source_unchanged_during_tests": true,
+  "seconds": 0.05395702799432911,
+  "full_standards_qualified": 0,
+  "findings": [
+    "Previous exact-dictionary equality defect fixed before this review; boolean/integer certificate substitutions now fail",
+    "No additional defect found in the independently exercised restricted-artifact domain"
+  ],
+  "claim": "Independent adversarial code/artifact review, not a formal checker-correctness proof or whole-language qualification",
+  "test_output": "test_boundary_unicode_and_representation_survive_actual_execution (test_certificate_independent_review.IndependentCertificateReview.test_boundary_unicode_and_representation_survive_actual_execution) ... ok\ntest_claim_and_trusted_assumptions_cannot_be_removed_or_strengthened (test_certificate_independent_review.IndependentCertificateReview.test_claim_and_trusted_assumptions_cannot_be_removed_or_strengthened) ... ok\ntest_external_contract_retains_duplicate_pair_order_and_number_spelling (test_certificate_independent_review.IndependentCertificateReview.test_external_contract_retains_duplicate_pair_order_and_number_spelling) ... ok\ntest_json_transport_preserves_certificate_and_exact_boolean_binding (test_certificate_independent_review.IndependentCertificateReview.test_json_transport_preserves_certificate_and_exact_boolean_binding) ... ok\ntest_subclass_callbacks_are_rejected_before_iteration_or_representation (test_certificate_independent_review.IndependentCertificateReview.test_subclass_callbacks_are_rejected_before_iteration_or_representation) ... ok\ntest_value_equivalent_unmodeled_expressions_do_not_acquire_certificates (test_certificate_independent_review.IndependentCertificateReview.test_value_equivalent_unmodeled_expressions_do_not_acquire_certificates) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.050s\n\nOK\n"
+}

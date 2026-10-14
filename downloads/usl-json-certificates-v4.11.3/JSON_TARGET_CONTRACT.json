@@ -1,0 +1,70 @@
+{
+  "actual_resource_profile": {
+    "decoded_string_codepoints_max": 8192,
+    "generator_output_bytes_limit": "No explicit65536-byte bound; generator validates IR/tree limits, so output-size equality is not promised",
+    "known_label_correction": "Do not describe root-zero value recursion depth as an exact maximum40nested containers",
+    "limit_interpretation_review_complete": false,
+    "number_lexeme_characters_max": 1024,
+    "parser_input_bytes_max": 65536,
+    "value_nodes_max": 10000,
+    "value_recursion_depth_root_zero_max": 40
+  },
+  "authority": {
+    "identifier": "RFC8259",
+    "profile_id": "RFC8259-published-December2017",
+    "published": "December2017",
+    "source_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+    "source_url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+    "title": "The JavaScript Object Notation (JSON) Data Interchange Format"
+  },
+  "catalog_id": "json",
+  "category": "document_processing",
+  "claims": {
+    "full_standard_qualified": false,
+    "normative_dependency_closure_complete": false,
+    "official_certification": false,
+    "published_body_inventory_reviewed": true,
+    "universal_translation_proved": false
+  },
+  "equivalence_contract": {
+    "nondeterministic_or_foreign_receivers": "No duplicate-member, unpaired-surrogate or numeric-capability agreement beyond the explicit native comparison domain is claimed",
+    "parse_generate": "For supported canonical IR, parse(generate(IR,preserve)) == IR with exact number spellings, pair order/duplicates and string codepoint lists",
+    "source_roundtrip": "Parsing then generating preserves the chosen IR, not insignificant whitespace, escape spelling, original BOM or byte-for-byte source text",
+    "usl_materialization": "Generated USL binds document to the same validated tagged IR under the exact USL runtime; native JSON has no program execution semantics"
+  },
+  "errata_policy": {
+    "5318": "Archived official snapshot changes unescaped solidus despite published raw-solidus allowance; retain raw solidus for this target and leave the alternate target unresolved",
+    "current_errata_conformance_claimed": false,
+    "selected": "Exact published text; no erratum silently patches the grammar",
+    "snapshot_sha256": "7008a92cd448e4093547c637a8d29fe04df23039f8763ef4f1fcb3957c76d5c1"
+  },
+  "generator": {
+    "domain": "Validated canonical tagged IR; unknown tags, malformed shapes, invalid lexemes/codepoints and adjacent uncombined surrogate pairs are rejected",
+    "duplicates_default": "reject",
+    "duplicates_preserve_mode": "explicit documented SHOULD exception for lossless data transport",
+    "member_order": "preserve representation order without promising object-order interoperability",
+    "number_spelling": "preserved exactly",
+    "output": "UTF-8 JSON bytes with mandatory escapes and no prefix BOM",
+    "unicode_normalization": "none"
+  },
+  "not_defined_by_rfc8259": {
+    "http_or_device_host": "No server, protocol stack or real-device execution is supplied by this pure data API",
+    "language_execution_library_threads_or_abi": "RFC sections1,9,10 define data interchange and parse/generate operations, not a programming execution model, standard executable library, thread model or language ABI",
+    "project_interfaces": "Python/USL API boundaries and host runtime behavior still require project integration evidence; absence of RFC semantics does not auto-complete those gates"
+  },
+  "operation": "Strict open-interchange UTF-8 JSON parsing, validated tagged-IR generation, and data-only USL literal materialization",
+  "parser": {
+    "complete_input": "exactly one ws value ws after optional initial BOM",
+    "duplicates": "preserve all ordered member pairs",
+    "extensions": "none",
+    "failure_classes": [
+      "JSONRuleError for syntax/encoding/API errors",
+      "JSONResourceLimit for disclosed resource refusal"
+    ],
+    "initial_bom": "ignore one initial U+FEFF after UTF-8 decode",
+    "input": "UTF-8 bytes or Unicode text strictly UTF-8 encodable",
+    "numbers": "preserve exact JSON number lexeme, without floating-point arithmetic",
+    "strings": "decoded integer codepoint list; combine valid adjacent escaped surrogate pairs and preserve unmatched escaped surrogate values"
+  },
+  "schema": "usl.json.target-contract.v1"
+}

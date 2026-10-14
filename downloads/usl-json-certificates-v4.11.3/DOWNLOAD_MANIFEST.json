@@ -1,0 +1,10 @@
+{
+  "archive": "USL-V4.11.3-JSON-TRANSLATION-CERTIFICATES.zip",
+  "archive_sha256": "532d2cf515114a938a1779b56db599494b2c0ab998a8def0f986e5aec804cf8d",
+  "archive_bytes": 397692,
+  "source_manifest_sha256": "2e4a369a2b25ba61f31fa4cf2259f4ee070a05653c4fb5f6796e85678f21538d",
+  "source_files": 25,
+  "clean_verification_available": true,
+  "full_standards_qualified": 0,
+  "source_dependencies_external": true
+}

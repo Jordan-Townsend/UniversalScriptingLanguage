@@ -1,0 +1,1373 @@
+{
+  "additional_explicit_obligations": [
+    {
+      "id": "A01",
+      "obligation": "Expand imported DIGIT and HEXDIG and audit the used ABNF composition/operator semantics against pinned RFC5234.",
+      "section": "1.1 and14.1",
+      "status": "open_dependency_clause_audit"
+    },
+    {
+      "id": "A02",
+      "obligation": "Bind the complete applicable RFC3629 UTF-8 validity rules, including overlongs, surrogate values, maximum scalar and truncation behavior.",
+      "section": "8.1 and14.1",
+      "status": "open_dependency_clause_audit"
+    },
+    {
+      "id": "A03",
+      "obligation": "Apply RFC2119/RFC8174 force and record deliberate SHOULD uniqueness exceptions without upgrading SHOULD/MAY to MUST.",
+      "section": "1.1,4 and14.1",
+      "status": "open_dependency_clause_audit"
+    },
+    {
+      "id": "A04",
+      "obligation": "Select Unicode authority/version applicability and verify the ECMA-404 syntax-alignment reference; distinguish code units, code points, scalars and noncharacters.",
+      "section": "1,1.2,7,8 and14.1",
+      "status": "open_dependency_clause_audit"
+    },
+    {
+      "id": "A05",
+      "obligation": "Record IEEE754 as conditional interoperability guidance for this lexeme-preserving API; do not fabricate a required JSON arithmetic library.",
+      "section": "6 and14.1",
+      "status": "applicability_review_required"
+    },
+    {
+      "id": "A06",
+      "obligation": "For any claimed transport, bind application/json and published parameter/charset policy to actual MIME/HTTP behavior; no such transport operation is supplied here.",
+      "section": "11",
+      "status": "separate_integration_gate_if_claimed"
+    },
+    {
+      "id": "A07",
+      "obligation": "Check IETF Trust document and extracted-code conditions for the exact redistributed material.",
+      "section": "Copyright Notice",
+      "status": "distribution_review_required"
+    },
+    {
+      "id": "A08",
+      "obligation": "Define actual limit metrics and maintain distinct resource-refusal versus invalid-syntax classifications, including the depth and node/lexeme issues in F01/F02.",
+      "section": "9",
+      "status": "open_profile_review"
+    }
+  ],
+  "candidate_audit_sha256": "3be3801d9002dc411d00d533780999389f6baab0bd01ce6443eb6bcfa2fc8c53",
+  "conclusion": {
+    "all_10_operative_uppercase_statements_represented_in_candidate": true,
+    "all_30_local_productions_match_published_source": true,
+    "all_62_candidate_rows_individually_reviewed": true,
+    "candidate_prose_requires_scope_and_attribution_corrections": true,
+    "complete_rule_to_implementation_to_test_proof_map": false,
+    "full_standard_qualified": false,
+    "normative_dependency_closure_complete": false,
+    "official_certification": false,
+    "universal_parser_or_generator_correctness_proved": false,
+    "whole_published_document_checked_for_additional_obligations": true
+  },
+  "findings": [
+    {
+      "action": "Name the metric value_recursion_depth_root_zero_max40 in the target contract, then independently review every boundary and propagation path.",
+      "candidate_ids": [
+        "N08",
+        "P17"
+      ],
+      "finding": "container_depth40 is not the actual code predicate. value(depth) begins at root0, rejects depth>40, and increments for every child value. Forty-one nested empty containers can pass; a scalar under41containers cannot.",
+      "id": "F01",
+      "severity": "scope_precision"
+    },
+    {
+      "action": "Document and independently review their permitted-size interpretation; otherwise revise limits or keep full acceptance qualification blocked. Never classify over-limit conforming syntax as invalid JSON.",
+      "candidate_ids": [
+        "N08",
+        "P10",
+        "P17"
+      ],
+      "finding": "The RFC expressly discusses text size/nesting/numeric range/precision/string limits. Value-node count10000 and number-lexeme1024 are extra resource-size metrics, not literal clauses or arbitrary missing semantics.",
+      "id": "F02",
+      "severity": "normative_justification_open"
+    },
+    {
+      "action": "Retain the useful policies, but label origin and force accurately; see per-row review rationales.",
+      "candidate_ids": [
+        "P06",
+        "P16",
+        "P18",
+        "P20"
+      ],
+      "finding": "Rows combine RFC descriptions/guidance with project policies: no normalization, no eval and preallocation checks are not additional uppercase RFC MUST statements.",
+      "id": "F03",
+      "severity": "attribution_correction"
+    },
+    {
+      "action": "Audit relevant RFC5234, RFC3629, BCP14 and Unicode clauses and the special ECMA-404 alignment reference; record IEEE754 applicability without inventing arithmetic requirements.",
+      "candidate_ids": [
+        "P02",
+        "P03",
+        "P22"
+      ],
+      "finding": "Thirty local productions plus ten uppercase statements and22prose summaries do not enumerate every imported normative dependency clause.",
+      "id": "F04",
+      "severity": "dependency_audit_open"
+    },
+    {
+      "action": "Explicitly label historical published-text conformance only; resolve a separately selected current-errata target before claiming it.",
+      "candidate_ids": [
+        "unescaped",
+        "P12"
+      ],
+      "finding": "The archived official errata snapshot labels5318 Verified Editorial yet changes the raw-solidus range. Published raw solidus is retained by this target.",
+      "id": "F05",
+      "severity": "version_policy"
+    },
+    {
+      "action": "Keep transport integration out of the pure data API claim and create fresh media/protocol tests for any separately claimed server integration.",
+      "candidate_ids": [
+        "P19"
+      ],
+      "finding": "Section11 registers a media type but this parser/generator does not implement HTTP headers, transport negotiation or MIME routing.",
+      "id": "F06",
+      "severity": "integration_boundary"
+    },
+    {
+      "action": "Review applicable notices for any redistributed RFC text or extracted components; grammar implementation does not require a proprietary execution license.",
+      "candidate_ids": [
+        "P22"
+      ],
+      "finding": "Prior category-inapplicability shorthand about no external licenses must not erase IETF text/extracted-code copyright and redistribution conditions.",
+      "id": "F07",
+      "severity": "distribution_boundary"
+    }
+  ],
+  "implementation_source": {
+    "file": "json_semantics.py",
+    "method": "Static source review; no universal code correctness proof inferred",
+    "sha256": "acd176b34c4636c8b937d3795a1d5ce2a55b7f0969a5a8b02644e5a8e52c934c"
+  },
+  "review_counts": {
+    "grammar_productions": 30,
+    "prose_and_interoperability": 22,
+    "uppercase_requirements": 10
+  },
+  "review_kind": "Separately authored full-source technical inventory and interpretation review; not external accreditation or implementation certification",
+  "reviewed_candidate_rows": [
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "JSON-text",
+      "candidate_row_sha256": "977ffc268b271d03a6efecf171f15213ae69558d3e498af36c8e349421129eac",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "parse_json, Parser.whitespace, Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The production admits one value surrounded by zero or more of the four JSON whitespace characters. The serialized value may be scalar; full-input consumption is necessary.",
+      "source_clause": {
+        "anchor": "JSON-text = ws value ws",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "29f759f7928df2238f1f5bf31d063a5a41d6df27923ada8a0fd9889018258dec",
+        "section": "2",
+        "source_line_end": 257,
+        "source_line_start": 257
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "begin-array",
+      "candidate_row_sha256": "e934f1e55057d736317aa3c2fcad968f2c276f0034aa2908692583b123bc3828",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The numeric terminal is exactly U+005B. Surrounding ws belongs to the grammar, not arbitrary Unicode whitespace.",
+      "source_clause": {
+        "anchor": "begin-array     = ws %x5B ws  ; [ left square bracket",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "7a0cab122b1ece07ffb18370f897a41335aeaa74eb5804514565cdd3680f8e50",
+        "section": "2",
+        "source_line_end": 261,
+        "source_line_start": 261
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "begin-object",
+      "candidate_row_sha256": "976263850e1de0f2cd9d9c42b3e6c4e5c9a879a57e2b17c6b5540b3a7b51d0dc",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The numeric terminal is exactly U+007B. Its ws factors permit whitespace both before and after the brace.",
+      "source_clause": {
+        "anchor": "begin-object    = ws %x7B ws  ; { left curly bracket",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "ed4b6d2810f0f79bd67c95ecda69aea2530e4db62534abea828d5e11892191b7",
+        "section": "2",
+        "source_line_end": 263,
+        "source_line_start": 263
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "end-array",
+      "candidate_row_sha256": "03391ca133cba16f28f35b07936b00e5638a420d4403f0b415734ff19e8cd15c",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The numeric terminal is exactly U+005D. This terminal does not itself permit trailing commas before the closing bracket.",
+      "source_clause": {
+        "anchor": "end-array       = ws %x5D ws  ; ] right square bracket",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "b38213565ad8f6baa546e14721ce9868ceac2a8bbb0568851a2ba44b77948677",
+        "section": "2",
+        "source_line_end": 265,
+        "source_line_start": 265
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "end-object",
+      "candidate_row_sha256": "47847d0a111ec9d21bcadc994515cb52fa24a0686d75da412de9d35b13cc5270",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The numeric terminal is exactly U+007D; object member sequencing, not this terminal, controls whether a comma may precede it.",
+      "source_clause": {
+        "anchor": "end-object      = ws %x7D ws  ; } right curly bracket",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "9ff2cf2c2ee28d5ab79159b46c33bb720c191ef514ae9b1d33230b2bb0236f0c",
+        "section": "2",
+        "source_line_end": 267,
+        "source_line_start": 267
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "name-separator",
+      "candidate_row_sha256": "bbd62c0dbb48e204fe3d38163aa7e5faf4ed696e6551e2d1c2a0c90f833355d4",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "Exactly one U+003A separates a string name and a value, with optional JSON whitespace. Equals signs and unquoted names are outside the published grammar.",
+      "source_clause": {
+        "anchor": "name-separator  = ws %x3A ws  ; : colon",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "6a354d3b102497e563e8648b2040e995030acd1fb18960445bf10562bd127809",
+        "section": "2",
+        "source_line_end": 269,
+        "source_line_start": 269
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "value-separator",
+      "candidate_row_sha256": "01b6f39dd63784153801fa34a60359b278e09460c3f40ba2a5df53df2d393a05",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "Exactly one U+002C separates adjacent members or elements. The enclosing repetition requires a member/value after each separator.",
+      "source_clause": {
+        "anchor": "value-separator = ws %x2C ws  ; , comma",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "c40f3548c6d6cda6b557286edf746b73919a15bfce5b267f9fd829e67f70ebac",
+        "section": "2",
+        "source_line_end": 271,
+        "source_line_start": 271
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "ws",
+      "candidate_row_sha256": "a69d3cd348d75c9ed71ffcd2090d4bf1e35b974a4bd58e6722e699637abd0ed7",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.whitespace",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The zero-or-more repetition contains only U+0020, U+0009, U+000A and U+000D. NBSP, form feed and other Unicode spacing characters are not ws.",
+      "source_clause": {
+        "anchor": "ws = *(",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "6f87155ed4828ff42d6ce48dc472dafd100605b7ae5384484752fda206c929d5",
+        "section": "2",
+        "source_line_end": 290,
+        "source_line_start": 290
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "value",
+      "candidate_row_sha256": "b965197ae3060efa14aab839e16cb37cd9388463ecfb06108f9132ed8b93071f",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "All seven syntactic alternatives are represented. false and true share the boolean data type; seven grammar alternatives do not imply seven data-model types.",
+      "source_clause": {
+        "anchor": "value = false / null / true / object / array / number / string",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "988b4abde81b6e60f3963627c1fe2277681e476d24c9b17d531f5b57d6e8b851",
+        "section": "3",
+        "source_line_end": 308,
+        "source_line_start": 308
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "false",
+      "candidate_row_sha256": "a4d6f5bb7e3da2ce7e17f516d676730b88adb91b3595f8a04e64c2dc811b5b3a",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The dotted numeric terminals spell the five lowercase ASCII letters exactly. Lowercase hex digits in the RFC notation do not authorize uppercase FALSE.",
+      "source_clause": {
+        "anchor": "false = %x66.61.6c.73.65   ; false",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "852ed28d43306e8f12c58b0a167b7438cf29866217a9a29f9f1d8b5896651b2f",
+        "section": "3",
+        "source_line_end": 310,
+        "source_line_start": 310
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "null",
+      "candidate_row_sha256": "28b69e0eaf056ef4b44a7b489698e8f05eeb726f3dc3c22faa4c3954f38fc488",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The dotted numeric terminals spell lowercase null exactly. The null literal is distinct from the string containing those letters.",
+      "source_clause": {
+        "anchor": "null  = %x6e.75.6c.6c      ; null",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "2ecc229b08b888aa3a722a9b0ee25a24d985ec5c48904d30d809dcf44081bf65",
+        "section": "3",
+        "source_line_end": 312,
+        "source_line_start": 312
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "true",
+      "candidate_row_sha256": "9b0f25ab4c4411a6c08e3bb305b45738018b22255e82ea49b3dd86a0a33a6520",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The four numeric terminals spell lowercase true. Prefix matching alone is insufficient: the enclosing grammar must reject trailing letters.",
+      "source_clause": {
+        "anchor": "true  = %x74.72.75.65      ; true",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "1f1321dc1ace0ac8acde9250ac70e5160d8e4ad73cbc5488d06b093032949e62",
+        "section": "3",
+        "source_line_end": 314,
+        "source_line_start": 314
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "object",
+      "candidate_row_sha256": "d738fac0f1c757b5e03d6caf10122465ac346eb8d3410d2b52863e339989cd8e",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The optional member-plus-repetition permits an empty object and comma-separated members, with no trailing comma. Duplicate names are grammar-valid despite the separate SHOULD guidance.",
+      "source_clause": {
+        "anchor": "object = begin-object [ member *( value-separator member ) ]",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "bffd96b6f0abdc58d46ee5429db2152dcbdbb999f430c0a13d16d054e52acde5",
+        "section": "4",
+        "source_line_end": 324,
+        "source_line_start": 324
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "member",
+      "candidate_row_sha256": "00e2bb1011f7a00458810cf1eef389c309ba446d4adfb452573344e9b986d279",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "A name must use the string production, followed by a name separator and any JSON value. Object member order is not assigned semantic significance by this production.",
+      "source_clause": {
+        "anchor": "member = string name-separator value",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "6873ff0050d8c8419ce71039c9df26b495c3fbb304cfa32476d842986a101ba8",
+        "section": "4",
+        "source_line_end": 327,
+        "source_line_start": 327
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "array",
+      "candidate_row_sha256": "d8f742b8264dafb46b9f1a9642b2fb720cbf9381c7ee9f60465b6d01d8f777a3",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.value",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The optional value-plus-repetition permits an empty array and heterogeneous ordered elements. No trailing comma or omitted element is introduced by this grammar.",
+      "source_clause": {
+        "anchor": "array = begin-array [ value *( value-separator value ) ] end-array",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "428c5d7cb65a4f278e1a50cacb165ad4e4bce797bde5c76d7bf8bb901218dec4",
+        "section": "5",
+        "source_line_end": 357,
+        "source_line_start": 357
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "number",
+      "candidate_row_sha256": "b5724d04b1875adf33317cf8f59323e205deffbe6115dbf46e976af78b4865c0",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "NUMBER regular expression, Parser.value, generate_json",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The optional minus, mandatory int and optional frac/exp exclude unary plus, hex, NaN and Infinity. A numeric lexeme is not a promise to execute IEEE arithmetic.",
+      "source_clause": {
+        "anchor": "number = [ minus ] int [ frac ] [ exp ]",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "a381640d5a981111abd46a6a8ea2d0b8eff0d62b18a2500a48851f4a8c5b83d9",
+        "section": "6",
+        "source_line_end": 380,
+        "source_line_start": 380
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "decimal-point",
+      "candidate_row_sha256": "1fd756331461c1c2945178bee0fef9e9ef6bf9832743e226474ddcd4c708dfd2",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "NUMBER regular expression, Parser.value, generate_json",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The decimal separator is U+002E, independent of process locale; comma and other locale-specific separators are not accepted here.",
+      "source_clause": {
+        "anchor": "decimal-point = %x2E       ; .",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "b723de783cd828da07b01e4591541e9291329f4f7db3394a5f643bfcb71e0605",
+        "section": "6",
+        "source_line_end": 382,
+        "source_line_start": 382
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "digit1-9",
+      "candidate_row_sha256": "234dc8128b3d34e27dea455c10a9b16ea17b9ca1934f3693f769530daeb76cce",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "NUMBER regular expression, Parser.value, generate_json",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The range is the nine ASCII digits U+0031 through U+0039, not the host regular-expression Unicode digit class.",
+      "source_clause": {
+        "anchor": "digit1-9 = %x31-39         ; 1-9",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "ea0dfbcef957b6892fdf2c0b804abdd35baa8c81384cb07daa908db046d931f8",
+        "section": "6",
+        "source_line_end": 384,
+        "source_line_start": 384
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "e",
+      "candidate_row_sha256": "fdcd635bd924d90d1a7c34cce16ff257e1c7bdb5d93dcc12566d34ebf7197fb7",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "NUMBER regular expression, Parser.value, generate_json",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "Only ASCII e and E introduce an exponent. Both are allowed, with identical structural meaning.",
+      "source_clause": {
+        "anchor": "e = %x65 / %x45            ; e E",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "bb4ba7e09772b8821917958e0dfe58aab884cce932bb7718c80e1b43f26e51d4",
+        "section": "6",
+        "source_line_end": 386,
+        "source_line_start": 386
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "exp",
+      "candidate_row_sha256": "ce7981d758319cab273dd8f7de5f1e4397b1b845898de50268e4d67624c6f1d8",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "NUMBER regular expression, Parser.value, generate_json",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "At least one imported DIGIT follows e and its optional plus/minus. Leading exponent zeros are allowed by the grammar.",
+      "source_clause": {
+        "anchor": "exp = e [ minus / plus ] 1*DIGIT",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "b3851a6c5ac10b3bb7f06777ab52dde9602b05ef61d8dd6006f6b3bef651c993",
+        "section": "6",
+        "source_line_end": 388,
+        "source_line_start": 388
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "frac",
+      "candidate_row_sha256": "b7f7a2b1ac66e0a047d275feca0502ae203fdb37bf6bcc568e2648db3fe6c566",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "NUMBER regular expression, Parser.value, generate_json",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "At least one imported DIGIT follows the decimal point. Fractional leading or trailing zeros are allowed; a bare decimal point is not.",
+      "source_clause": {
+        "anchor": "frac = decimal-point 1*DIGIT",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "736e88c96da2e46fc4b426397d939b593e8cc82c586976f40b9cd6fd435918c5",
+        "section": "6",
+        "source_line_end": 390,
+        "source_line_start": 390
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "int",
+      "candidate_row_sha256": "6d7619cb24a86971e9b4f0cc27cb06f985b3a73f940d4139817869a0858d7dfc",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "NUMBER regular expression, Parser.value, generate_json",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The integer component is either one zero or a nonzero ASCII digit followed by zero or more DIGITs. It forbids 00 and 01, not 0.001 or 1E01.",
+      "source_clause": {
+        "anchor": "int = zero / ( digit1-9 *DIGIT )",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "70d0b961ffac921bec8b428b9912a498cb41b7b8f33aff8c193c875bbd861d62",
+        "section": "6",
+        "source_line_end": 399,
+        "source_line_start": 399
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "minus",
+      "candidate_row_sha256": "53b80404135034001e3c6df8d59e98d78dda03468b4d0c73d5655880c4a913c8",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "NUMBER regular expression, Parser.value, generate_json",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "This is the ASCII hyphen-minus U+002D, not a Unicode mathematical minus sign. The number and exp productions determine where it may occur.",
+      "source_clause": {
+        "anchor": "minus = %x2D               ; -",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "2d0ac4f5cb7af6545377c1fd3c110d1552a2d3319fd4922959ef2521ff108499",
+        "section": "6",
+        "source_line_end": 401,
+        "source_line_start": 401
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "plus",
+      "candidate_row_sha256": "54d7245f706de5545347e77576d666c05f7db8cfa9da274b167b78bb85be1b8e",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "NUMBER regular expression, Parser.value, generate_json",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "This is ASCII U+002B. Its only route into a number is through exp; there is no leading plus route in number.",
+      "source_clause": {
+        "anchor": "plus = %x2B                ; +",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "c4aaceec9ec8ccdfd7f37ec945e638de644ab09bef9bee9da3f9c0028e7d0089",
+        "section": "6",
+        "source_line_end": 403,
+        "source_line_start": 403
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "zero",
+      "candidate_row_sha256": "ab7184f0dc1eae39fe83546cee6533d34feec330328284c8d5a453010920cb2c",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "NUMBER regular expression, Parser.value, generate_json",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "This is ASCII U+0030. Combined with int it prevents multi-digit leading-zero integer components.",
+      "source_clause": {
+        "anchor": "zero = %x30                ; 0",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "9a37db33b91ef567ad4897aede44220ba35fad947bbc9892a1d942fcc058581c",
+        "section": "6",
+        "source_line_end": 405,
+        "source_line_start": 405
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "string",
+      "candidate_row_sha256": "8dc590e5ca793bde60fa15ff07ab79fa1ade4c947f05fe37361fa73701bc405b",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.string, Parser.hex_quad, quote",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "A pair of quotation marks encloses zero or more local char occurrences. The local rule must be used rather than accidentally substituting ABNF core CHAR.",
+      "source_clause": {
+        "anchor": "string = quotation-mark *char quotation-mark",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "0939fdf8673f80323b353c459437bdc6072f311faa3137c2c83e1693133f261f",
+        "section": "7",
+        "source_line_end": 461,
+        "source_line_start": 461
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "char",
+      "candidate_row_sha256": "6ff998edd4da86a75484dbffc7d61e071f36145b820d364351e5297620658af9",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.string, Parser.hex_quad, quote",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The published rule contains unescaped or a backslash followed by one of nine alternatives. The u alternative takes exactly four HEXDIGs; the short escapes are case-sensitive numeric terminals.",
+      "source_clause": {
+        "anchor": "char = unescaped /",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "4efe794e64bbb4bcb41f50cb72903454b2cde5191cccf622c5a0a3447a761761",
+        "section": "7",
+        "source_line_end": 463,
+        "source_line_start": 463
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "escape",
+      "candidate_row_sha256": "6847401c5cf848c5b9d97f3dd329bebb1fb4733a6817b2cbc043f13ec553681d",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.string, Parser.hex_quad, quote",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The escape prefix is U+005C reverse solidus. A literal reverse solidus inside a JSON string therefore requires a valid escape sequence.",
+      "source_clause": {
+        "anchor": "escape = %x5C              ; \\",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "f871fe3a8305c6349956100e8eb61b9662da4cc9d7af148d41e535081c538080",
+        "section": "7",
+        "source_line_end": 475,
+        "source_line_start": 475
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "quotation-mark",
+      "candidate_row_sha256": "31bfa1f6aeec4ec1eaf375b8eb2678699e55c0dcfa58f5cd3216b5d30d0290a7",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.string, quote",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The delimiter is ASCII U+0022, not single quotes or typographic quotation marks. Quotes as content must be escaped.",
+      "source_clause": {
+        "anchor": "quotation-mark = %x22      ; \"",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "22b512a9711e42dd77e9a31e3374cb497b0b9866c3024fdf14e2ab2e36bebb07",
+        "section": "7",
+        "source_line_end": 477,
+        "source_line_start": 477
+      }
+    },
+    {
+      "candidate_group": "grammar_productions",
+      "candidate_id": "unescaped",
+      "candidate_row_sha256": "b0ba83d509cde5a457fdfff33a75be0b54955e4d1e5b8f354152c6351cae46be",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Parser.string, Parser.hex_quad, quote",
+      "review_disposition": "accurate_published_production",
+      "review_rationale": "The published ranges exclude U+0000..001F, quote and reverse solidus but include raw solidus, DEL/C1 and U+2028/U+2029. The abstract range includes surrogate code points; strict network UTF-8 disallows raw surrogate encodings, while escaped surrogates remain grammar-valid.",
+      "source_clause": {
+        "anchor": "unescaped = %x20-21 / %x23-5B / %x5D-10FFFF",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "677230cbd93c75721899be10b2e866943501e484e23d067ed6b37257f16d0ad9",
+        "section": "7",
+        "source_line_end": 479,
+        "source_line_start": 479
+      }
+    },
+    {
+      "candidate_group": "uppercase_requirements",
+      "candidate_id": "N01",
+      "candidate_row_sha256": "fef0093c6e8991cb98956d6561bf7ae661c365cd49cfb1418cf7531b12a83505",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Candidate mapping is historical, not newly executed evidence",
+      "review_disposition": "accurate",
+      "review_rationale": "The MUST restricts value alternatives, and its list contains the three literal names. It does not define native program execution or arithmetic on parsed numbers.",
+      "source_clause": {
+        "anchor": "A JSON value MUST be an object, array, number, or string, or one of the following three literal names:",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "0d0ea046aaf5dd683e17706057a30ad1da91d07e31e10d3ec2b731aaf94bbbf4",
+        "section": "3",
+        "source_line_end": 299,
+        "source_line_start": 298
+      }
+    },
+    {
+      "candidate_group": "uppercase_requirements",
+      "candidate_id": "N02",
+      "candidate_row_sha256": "920db0d41573f1fa445686a0330ac9afadf4b89bd1050a6e6627b11e8bfdd15f",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Candidate mapping is historical, not newly executed evidence",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "Lowercase literal spelling is mandatory for the JSON grammar. Section 9 separately permits parser extensions; rejecting every extension is this profile choice, not a requirement imposed on every conforming parser.",
+      "source_clause": {
+        "anchor": "The literal names MUST be lowercase. No other literal names are allowed.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "924b479c4e08bf9b7d6a92ba8ba4fbeb3987fe1ec822f12fd8659b1b247d7f9c",
+        "section": "3",
+        "source_line_end": 306,
+        "source_line_start": 305
+      }
+    },
+    {
+      "candidate_group": "uppercase_requirements",
+      "candidate_id": "N03",
+      "candidate_row_sha256": "3215f14b7e1480d7994b8520c9d884b9d266db2d312bf2354a2b9324447c0dee",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Candidate mapping is historical, not newly executed evidence",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "SHOULD uniqueness is interoperability guidance with BCP14 exception discipline, not a grammar prohibition. A parser must not silently lose duplicate members while claiming lossless preservation. Explicit generator preserve mode needs a documented deliberate exception.",
+      "source_clause": {
+        "anchor": "The names within an object SHOULD be unique.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "7081c92b764d57657acb9b8f750d18ee05eaae0bd5d7af68e7129de4fb45e623",
+        "section": "4",
+        "source_line_end": 322,
+        "source_line_start": 322
+      }
+    },
+    {
+      "candidate_group": "uppercase_requirements",
+      "candidate_id": "N04",
+      "candidate_row_sha256": "2a6637e871fa2da09a09dd9ed045b28fe21766627277e63c85f76aaa620f705f",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Candidate mapping is historical, not newly executed evidence",
+      "review_disposition": "accurate",
+      "review_rationale": "Quote, reverse solidus and U+0000..001F require escaping. Solidus is an optional escape in the published text, not an additional mandatory escape.",
+      "source_clause": {
+        "anchor": "All Unicode characters may be placed within the quotation marks, except for the characters that MUST be escaped: quotation mark, reverse solidus, and the control characters (U+0000 through U+001F).",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "6c583b318f785b4df454d3aadb1ff890397c10220e511712858136856d812b9f",
+        "section": "7",
+        "source_line_end": 431,
+        "source_line_start": 428
+      }
+    },
+    {
+      "candidate_group": "uppercase_requirements",
+      "candidate_id": "N05",
+      "candidate_row_sha256": "52eff8f137ad4f7fa6e87146d34f7f2b316bcc9cc0286ba7e4cc33a24c64dbb3",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Candidate mapping is historical, not newly executed evidence",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "UTF-8 is mandatory for interchange outside a closed ecosystem. A strict UTF-8 public API is a suitable profile choice; the RFC does not require accepting UTF-16 network data or every closed-ecosystem encoding.",
+      "source_clause": {
+        "anchor": "JSON text exchanged between systems that are not part of a closed ecosystem MUST be encoded using UTF-8 [RFC3629].",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "16d56ff74f4d95dc3ef788f12a950feda6d16d52ca7d8f4a94a53e76549381e4",
+        "section": "8.1",
+        "source_line_end": 486,
+        "source_line_start": 485
+      }
+    },
+    {
+      "candidate_group": "uppercase_requirements",
+      "candidate_id": "N06",
+      "candidate_row_sha256": "8d733c9d7abec863c76b82d1122d09b648f8a14a3e3e415c5eef3ccd2aeaec7f",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Candidate mapping is historical, not newly executed evidence",
+      "review_disposition": "accurate",
+      "review_rationale": "A network generator must not prepend a BOM. A U+FEFF contained inside a quoted string is data and is not prohibited by this statement.",
+      "source_clause": {
+        "anchor": "Implementations MUST NOT add a byte order mark (U+FEFF) to the beginning of a networked-transmitted JSON text.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "e8c816330639ad40a2114ad795ee4e0fafc2392dcf8efd6196be38f70a6cccb8",
+        "section": "8.1",
+        "source_line_end": 495,
+        "source_line_start": 494
+      }
+    },
+    {
+      "candidate_group": "uppercase_requirements",
+      "candidate_id": "N07",
+      "candidate_row_sha256": "6dc803622d52356503a2a708102b665b792a301f91c73ff214bd04d8943ab95a",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Candidate mapping is historical, not newly executed evidence",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "Ignoring an initial BOM is an explicitly permitted parser choice. This does not permit arbitrary U+FEFF between tokens or require every parser to ignore a BOM.",
+      "source_clause": {
+        "anchor": "In the interests of interoperability, implementations that parse JSON texts MAY ignore the presence of a byte order mark rather than treating it as an error.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "345abe4125d4243d43b36086d3025191617ce2e2ed06c33848fe54b47e05fd48",
+        "section": "8.1",
+        "source_line_end": 498,
+        "source_line_start": 495
+      }
+    },
+    {
+      "candidate_group": "uppercase_requirements",
+      "candidate_id": "N08",
+      "candidate_row_sha256": "7f5a9ee3dc9be90caf77746c42a8fc6e59f33a5bf471a394b6b0b6d11f5a6e51",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Candidate mapping is historical, not newly executed evidence",
+      "review_disposition": "needs_limit_qualification",
+      "review_rationale": "The parser MUST accept conforming texts subject to the explicitly discussed implementation limits. The blanket candidate assertion that all five current limits are allowed needs a precise metric/justification, especially value-node and number-lexeme limits; valid over-limit input must remain a resource refusal, not invalid JSON.",
+      "source_clause": {
+        "anchor": "A JSON parser MUST accept all texts that conform to the JSON grammar.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "8ab7f36eba9cca8710e3c6bc468caca26ffc3f6cf11faea3c9e2f41445a8d98b",
+        "section": "9",
+        "source_line_end": 544,
+        "source_line_start": 543
+      }
+    },
+    {
+      "candidate_group": "uppercase_requirements",
+      "candidate_id": "N09",
+      "candidate_row_sha256": "63538656bdb0f724b9d0c3c21a9ed18f3f46b5abd4c46a4c4691a979bf659a30",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Candidate mapping is historical, not newly executed evidence",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "Extensions are optional. Electing none supports strict syntax validation; a native parser accepting an extension is not automatically an RFC violation, and differential tests must distinguish that policy choice.",
+      "source_clause": {
+        "anchor": "A JSON parser MAY accept non-JSON forms or extensions.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "f1f396f801c1ed2af00cd82ab78d8bd6f8c9efe4f14f3554adc4d49215bc5779",
+        "section": "9",
+        "source_line_end": 545,
+        "source_line_start": 545
+      }
+    },
+    {
+      "candidate_group": "uppercase_requirements",
+      "candidate_id": "N10",
+      "candidate_row_sha256": "80764c2f1da0098fa95063f566f42995253ad2af127828c9f11318d44969c650",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "Candidate mapping is historical, not newly executed evidence",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "Every successfully generated text must conform to the grammar. The RFC does not require a generator to accept every arbitrary host object or every possible malformed IR; rejected caller IR is an API-domain issue, not a generated invalid JSON text.",
+      "source_clause": {
+        "anchor": "A JSON generator produces JSON text. The resulting text MUST strictly conform to the JSON grammar.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "c0b51225243bb5bf0fe57e284df3d5bf6a50f795528fd35769d5b44d1ad17104",
+        "section": "10",
+        "source_line_end": 556,
+        "source_line_start": 555
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P01",
+      "candidate_row_sha256": "8a4c9a69ae1d3f5bc14affc13dcc1db792f040bb49f493b4b94d9573c7428628",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate",
+      "review_rationale": "The introduction defines four primitive and two structured types, an unordered object and ordered array. Retaining source member order is useful representation metadata, not normative object ordering.",
+      "source_clause": {
+        "anchor": "JSON can represent four primitive types",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "06e80194411b75aa3247dccbf2feab92f0f8dac7dc5f13ce7cee2710ac75dcc3",
+        "section": "1",
+        "source_line_end": 154,
+        "source_line_start": 154
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P02",
+      "candidate_row_sha256": "2d37179874e0b94e61014cb6d1768e05190155bc11b236e5c8f3df376391596c",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "needs_dependency_closure",
+      "review_rationale": "BCP14 force and ABNF interpretation are correctly identified. DIGIT and HEXDIG come from RFC5234 core rules and must be separately clause-bound; this row alone does not audit those imported definitions.",
+      "source_clause": {
+        "anchor": "The grammatical rules in this document are to be interpreted",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "481097bd53faa36244d5ddee4822007ca024eceb22c48430ae8a3d9aed9cf32a",
+        "section": "1.1",
+        "source_line_end": 189,
+        "source_line_start": 189
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P03",
+      "candidate_row_sha256": "6097a2f421f92be554d214edb5f9651253b379c799d172c7209e3d04540fca49",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "Section 1.2 gives ECMA-404 a special alignment purpose and distinguishes its permitted practices from interoperability advice. It does not import the ECMAScript language or require a JavaScript engine.",
+      "source_clause": {
+        "anchor": "The reference to ECMA-404 in the previous sentence is normative",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "0d9f438ecb7a95aff9fe8604cedded0b4619e95c9d92dfeced9b27abdcd11861",
+        "section": "1.2",
+        "source_line_end": 200,
+        "source_line_start": 200
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P04",
+      "candidate_row_sha256": "d9d5a4e4f0931d9913ede802c89812d7f8f3bc489e282fa549ca77ac186ae7cb",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate",
+      "review_rationale": "This prose and JSON-text jointly permit primitive top-level values and require a single complete value. Concatenated values are not a JSON text.",
+      "source_clause": {
+        "anchor": "A JSON text is a serialized value.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "7ebc4ce8542584766a332d2a052c5a731199d3145d8dcf7a7e1a9f7576b0fbe3",
+        "section": "2",
+        "source_line_end": 251,
+        "source_line_start": 251
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P05",
+      "candidate_row_sha256": "1d3c8ebb0325f6ddd2518a91bf72d240bad43c217dc28b6f6ad1e5c13e24a2bb",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "The RFC warns about unpredictable receiver behavior and lists last-value, rejection and duplicate-preserving implementations. Lossless duplicate retention is a chosen local representation, not guaranteed interoperability.",
+      "source_clause": {
+        "anchor": "When the names within an object are not unique",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "2cb15c67c64bf7d982f41f3df82440e7c9e8e4d9200525b365ea23f6021f93bc",
+        "section": "4",
+        "source_line_end": 332,
+        "source_line_start": 331
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P06",
+      "candidate_row_sha256": "8f36dd18dda51c666778163076315a51dc8f1a7113c9bd3c7b8dd821153ac980",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "clarify_guidance_not_must",
+      "review_rationale": "The source describes interoperability when behavior does not depend on order. Candidate wording that applications must not assume order is prudent guidance, not an additional uppercase normative MUST.",
+      "source_clause": {
+        "anchor": "whether or not they make the ordering of object members visible",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "2d6df5ceb50dffdffae07320b6d2a3c7079ee347ba2f808d139a9c19adc612ee",
+        "section": "4",
+        "source_line_end": 347,
+        "source_line_start": 346
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P07",
+      "candidate_row_sha256": "46007ff767314fa05dadce7c023c247f58bdb1ae3c5ba63b57ec9f92d305b2da",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate",
+      "review_rationale": "Arrays preserve sequence and permit mixed types. Homogeneous arrays cannot substitute for implementing the complete array value grammar.",
+      "source_clause": {
+        "anchor": "There is no requirement that the values in an array be of the same",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "c15601eede33bc8726b79c40aefeeca1deee85784b179bb94a859325f41564a4",
+        "section": "5",
+        "source_line_end": 359,
+        "source_line_start": 359
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P08",
+      "candidate_row_sha256": "d58d68f49be2a445195c85a8366e2b222e9f442cbb83d72189dbf1bf00f9a00b",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "The grammar resolves the broad prose about leading zeros: only multi-digit integer leading zeros are excluded. Verified snapshot erratum7600 clarifies the same reading, but the target here remains the published text.",
+      "source_clause": {
+        "anchor": "int = zero / ( digit1-9 *DIGIT )",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "70d0b961ffac921bec8b428b9912a498cb41b7b8f33aff8c193c875bbd861d62",
+        "section": "6",
+        "source_line_end": 399,
+        "source_line_start": 399
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P09",
+      "candidate_row_sha256": "68931935ad81538a36a73d5eda658ea4446a23c894feb57f4591cd829430aa92",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "NaN and Infinity are not grammar-valid numbers. Exact lexemes preserve decimal text without committing to IEEE754 conversion or numeric operations; an extension-accepting native parser needs strict comparison settings.",
+      "source_clause": {
+        "anchor": "Numeric values that cannot be represented in the grammar below",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "ee91d4d44ac87b2818933fa9ae5c0ec2b64444d2beaea7ec895a0dd70a538220",
+        "section": "6",
+        "source_line_end": 377,
+        "source_line_start": 377
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P10",
+      "candidate_row_sha256": "e00f8053f2bd141e04e0643b76119410750e75738789d00b2a1f1c2a7e6cafd1",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "needs_limit_qualification",
+      "review_rationale": "Range and precision limits are expressly allowed. A 1024-character numeric-lexeme cap is a lexical/storage policy, not literally the same thing as a numeric range/precision cap; justify it as a documented text/resource size metric rather than claiming the sentence directly specifies it.",
+      "source_clause": {
+        "anchor": "This specification allows implementations to set limits on the range",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "590bf1b941d4479453287cefe88026ce2623abf37b5a9d85038790a2cffd967f",
+        "section": "6",
+        "source_line_end": 407,
+        "source_line_start": 407
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P11",
+      "candidate_row_sha256": "766122acaee8dd54fdf9c70b615d95808ab2de8160939c688bc677bea2de7bf6",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "clarify_conditional_interoperability",
+      "review_rationale": "The RFC discusses common binary64 receiver capabilities and exact agreement within the safe-integer range when that software is used. It does not say exact agreement is impossible outside that range or require binary64 arithmetic in every parser.",
+      "source_clause": {
+        "anchor": "[IEEE754] is generally",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "28fab6e6dface4e2db8cef702611fcde98b041066330ce38fa9280983e4014c7",
+        "section": "6",
+        "source_line_end": 409,
+        "source_line_start": 409
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P12",
+      "candidate_row_sha256": "52b9573477dc1a6ffa12c3dd5f9d6f298adc0fb1867d6db6b9bd85a536cfb3f5",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate",
+      "review_rationale": "The published string grammar permits raw solidus and optional escapes. The retrieved erratum5318 changes that range and is intentionally not adopted into this historical target.",
+      "source_clause": {
+        "anchor": "Any character may be escaped.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "5c38cd938206b4fded8900efc371e2f4fa196a06c763d243a9393c9d6101556d",
+        "section": "7",
+        "source_line_end": 433,
+        "source_line_start": 433
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P13",
+      "candidate_row_sha256": "cc8e8b4dc9f1db873b3f6756cc2bb09a4389eb81184d6f5be524520c64d8d8ff",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "The RFC gives a two-escape surrogate-pair representation of a non-BMP character. Combining it into one scalar is this IR canonicalization; section8.2 also requires accounting for syntactically permitted unpaired escapes without promising receiver agreement.",
+      "source_clause": {
+        "anchor": "encoding the UTF-16 surrogate pair.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "a4f0ffe3fc9e0b116b1b5ef6ab4bb21a81e965a32c15649f36a62e188b8ec21d",
+        "section": "7",
+        "source_line_end": 457,
+        "source_line_start": 457
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P14",
+      "candidate_row_sha256": "22293ce067048fd46d83d3f2e81217544827494c841c858b73b5a75f209d2e15",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "Strict decoding realizes the selected open-interchange profile. Full RFC3629 dependency validation is a separate obligation, including overlong, surrogate, out-of-range and incomplete encodings.",
+      "source_clause": {
+        "anchor": "MUST be encoded using UTF-8 [RFC3629].",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "dced03e6e08fe50b0e62e4e071734a9f255846b0dd2f73094c13b61db2f4ceb6",
+        "section": "8.1",
+        "source_line_end": 486,
+        "source_line_start": 486
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P15",
+      "candidate_row_sha256": "e050875749df54390f5918853a3168e56789e5cbbbfeba7c6fba24c46023843e",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "Section8.2 explicitly acknowledges escaped unpaired surrogates and unpredictable software behavior. The profile can retain their code points and escape output without emitting invalid raw UTF-8.",
+      "source_clause": {
+        "anchor": "allows member names and string values to contain bit sequences",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "5f724f14cda792703fc4a1703f7cdaf2fdfcc50feae0805905037f720bb0e362",
+        "section": "8.2",
+        "source_line_end": 520,
+        "source_line_start": 519
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P16",
+      "candidate_row_sha256": "c15c814dd3be62123d2842b4102c9e1a09e511ddb3c70a39850447ee9bf6b8f1",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "correct_project_policy_attribution",
+      "review_rationale": "The RFC recommends decoded numerical code-unit equality and gives an escaped-name example. No normalization and using a scalar-canonicalized code-point IR are chosen preservation policies; this paragraph does not define sorting/collation or an independent MUST about normalization.",
+      "source_clause": {
+        "anchor": "code unit by code unit, are interoperable",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "8aab4037925c120309a20fd179a45fe1196bbf604ecd865b674eaacefa146cc7",
+        "section": "8.3",
+        "source_line_end": 535,
+        "source_line_start": 534
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P17",
+      "candidate_row_sha256": "0771d9ebbf1c4e8386914efdbbdb4de53d01202118c5691bf51bd1ddce9f4a05",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "needs_limit_qualification",
+      "review_rationale": "Section9 lists text size, maximum nesting, numeric range/precision and string length/content limits. Boundary tests and visible error classes are project evidence requirements. Depth must be documented as actually implemented, not simply relabeled container_depth40.",
+      "source_clause": {
+        "anchor": "An implementation may set limits on the size of texts",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "c907640ca62acf21b2c208c9ea1c741ef922283dca08219b91100776f9b77179",
+        "section": "9",
+        "source_line_end": 547,
+        "source_line_start": 547
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P18",
+      "candidate_row_sha256": "b52a9336de8d0b36d17632fd87976d367d262356d84a9a68a1fcca991706e9fa",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "correct_project_policy_attribution",
+      "review_rationale": "Section10 requires valid generated JSON. Avoiding eval is security guidance in section12 and an implementation policy, not an extra generator MUST in section10. Invalid IR refusal is necessary for the chosen API contract.",
+      "source_clause": {
+        "anchor": "The resulting text MUST strictly conform to the JSON grammar.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "9fb6c24905e03cfe0a8bcfd170fd9dec94a72ce84a16921bbb06b288be836e40",
+        "section": "10",
+        "source_line_end": 556,
+        "source_line_start": 555
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P19",
+      "candidate_row_sha256": "63ec43a6b5c7a03d58d47b40f23c21b10cd880daedfe0799c290dea7b7b4bf42",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate_with_scope",
+      "review_rationale": "The registration includes no required/optional parameters, binary encoding considerations, .json and a charset note. A pure bytes parser/generator has no HTTP behavior; a claimed server/transport must separately enforce media handling against the selected published policy.",
+      "source_clause": {
+        "anchor": "The media type for JSON text is application/json.",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "b65c522e92fe0a2385305a5673b4f4e5050a255682ba64b2e7d4196981571dc6",
+        "section": "11",
+        "source_line_end": 569,
+        "source_line_start": 569
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P20",
+      "candidate_row_sha256": "f244271d04010c1261b50e10619e2bd32da42166552dd80084728bfbc4a3af90",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "correct_project_policy_attribution",
+      "review_rationale": "The RFC explains the eval risk and legal U+2028/U+2029 characters; it does not state an uppercase ban on eval or mandate a particular preallocation algorithm. The parser must still be data-only and resource-safe under the project deployment contract.",
+      "source_clause": {
+        "anchor": "This generally constitutes an unacceptable security risk",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "801cd80ba9c520e0633e79d9fec17011f083890a2a69b92c1956c1d5ecfafc1d",
+        "section": "12",
+        "source_line_end": 635,
+        "source_line_start": 634
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P21",
+      "candidate_row_sha256": "3edc97aa58afab1b1b7aee570744732a22e90d85ca07b0f4cef47aba88fdfe5d",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "accurate",
+      "review_rationale": "The object, array-of-objects and three scalar examples should be covered, but examples do not enumerate all grammar, encodings or semantic edge cases.",
+      "source_clause": {
+        "anchor": "Here are three small JSON texts containing only values:",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "3a53d0f96944bc4ffabb1aa4695ef3a807ceee8174f6ca1f9f52073e7412a222",
+        "section": "13",
+        "source_line_end": 704,
+        "source_line_start": 704
+      }
+    },
+    {
+      "candidate_group": "prose_and_interoperability",
+      "candidate_id": "P22",
+      "candidate_row_sha256": "51b238bee4dd7470f07542d11748944609b68d264e31cba047611c808c0056ca",
+      "implementation_correctness_proved_by_this_review": false,
+      "implementation_traceability_note": "See source review; no new execution or proof is inferred from this prose row",
+      "review_disposition": "needs_dependency_closure",
+      "review_rationale": "Seven normative references are listed: ECMA-404, IEEE754, RFC2119, RFC3629, RFC5234, RFC8174 and Unicode. Each needs an applicability/version/authority decision; retrieval metadata and a single summary row do not close the dependency audit.",
+      "source_clause": {
+        "anchor": "[ECMA-404] Ecma International,",
+        "document": "RFC8259-published-December2017",
+        "document_sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+        "matched_source_sha256": "69ebb08971bf7b8260988c6516152273a5b8e008a9f79144e3872292f7cb0578",
+        "section": "14",
+        "source_line_end": 739,
+        "source_line_start": 739
+      }
+    }
+  ],
+  "schema": "usl.json.published-rfc8259.separate-normative-review.v1",
+  "source": {
+    "bytes": 28360,
+    "full_document_read": true,
+    "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7",
+    "url": "https://www.rfc-editor.org/rfc/rfc8259.txt"
+  },
+  "whole_document_section_review": [
+    {
+      "review_rationale": "Describes language-independent data interchange and Standards Track publication. Publication status is not certification of this implementation; no runtime rule is added here.",
+      "section": "Abstract and status"
+    },
+    {
+      "review_rationale": "RFC text and extracted code components have IETF Trust legal conditions. Distribution review is separate from whether implementing JSON grammar requires a proprietary runtime license.",
+      "section": "Copyright Notice"
+    },
+    {
+      "review_rationale": "Type/data-model definitions and Unicode citation are represented by P01 and dependency work. Historical JavaScript derivation does not import execution semantics.",
+      "section": "1"
+    },
+    {
+      "review_rationale": "BCP14 applies only to uppercase keywords, and ABNF is delegated to RFC5234. The keyword-definition list is metalinguistic and is not ten extra feature obligations.",
+      "section": "1.1"
+    },
+    {
+      "review_rationale": "Authority replacement, special ECMA alignment and future coordination are covered. Coordination duties belong to the standards organizations rather than a parser API.",
+      "section": "1.2"
+    },
+    {
+      "review_rationale": "Historical errata motivate the revision; they are not new independent runtime features to import on top of the published revised grammar.",
+      "section": "1.3"
+    },
+    {
+      "review_rationale": "All eight local productions in this section and the four allowed whitespace terminals are represented. The one-value top-level rule includes scalars.",
+      "section": "2"
+    },
+    {
+      "review_rationale": "All four local productions and two operative MUST statements are represented; no other literal names are allowed in the JSON grammar.",
+      "section": "3"
+    },
+    {
+      "review_rationale": "Object/member grammar, SHOULD uniqueness and receiver/order caveats are represented. Duplicate acceptance and local lossless behavior remain distinct.",
+      "section": "4"
+    },
+    {
+      "review_rationale": "Array grammar, order and heterogeneous values are represented.",
+      "section": "5"
+    },
+    {
+      "review_rationale": "All ten numeric productions are represented. Number syntax, permitted limits and conditional binary64 interoperability need separate treatment.",
+      "section": "6"
+    },
+    {
+      "review_rationale": "All five string productions and mandatory escaping are represented; imported HEXDIG and Unicode/UTF16 interpretation remain dependency obligations.",
+      "section": "7"
+    },
+    {
+      "review_rationale": "Open-interchange UTF-8, network no-BOM and optional input-BOM handling are represented. Closed ecosystems are outside this selected transport profile.",
+      "section": "8.1"
+    },
+    {
+      "review_rationale": "Unpaired-surrogate syntax and interoperability warnings are represented. Accepting an escape is not a promise that arbitrary receivers agree on it.",
+      "section": "8.2"
+    },
+    {
+      "review_rationale": "Decoded code-unit equality guidance is represented. The standard does not supply a general Unicode normalization/collation API.",
+      "section": "8.3"
+    },
+    {
+      "review_rationale": "Parser acceptance, optional extensions and each named permitted-limit class are represented; actual metric semantics require the qualifications identified in this review.",
+      "section": "9"
+    },
+    {
+      "review_rationale": "Every generated output must conform. The caller IR domain is an implementation contract; the RFC does not require generating every possible text.",
+      "section": "10"
+    },
+    {
+      "review_rationale": "Registration has application/json, no defined parameters, binary encoding, .json and the published charset note. This is a transport-registration boundary, not an HTTP implementation supplied by the parser.",
+      "section": "11"
+    },
+    {
+      "review_rationale": "Eval security guidance and U+2028/U+2029 distinction are covered. Modern ECMAScript behavior is version-dependent and is not used as the JSON acceptance oracle.",
+      "section": "12"
+    },
+    {
+      "review_rationale": "Both composite examples and all three scalar examples are represented as finite acceptance inputs, not as a conformance proof.",
+      "section": "13"
+    },
+    {
+      "review_rationale": "All seven normative references identified; the source-body review is complete but the normative-reference closure is not.",
+      "section": "14.1"
+    },
+    {
+      "review_rationale": "Historical RFCs, ECMAScript and prior errata are informative, so they do not silently extend the selected JSON syntax or runtime contract.",
+      "section": "14.2"
+    },
+    {
+      "review_rationale": "Changes explain authority, UTF-8 and security revisions; each operational change is already reflected in the main-body obligations.",
+      "section": "Appendix A"
+    },
+    {
+      "review_rationale": "Attribution/contact information adds no implementation feature obligations.",
+      "section": "Contributors and author"
+    }
+  ]
+}

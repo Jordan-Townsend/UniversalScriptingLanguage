@@ -1,0 +1,32 @@
+{
+  "python": "CPython3.12; stdlib only for this addon",
+  "git": "Required for upstream corpus identity",
+  "new_third_party_dependencies": [],
+  "native_binaries_shipped": false,
+  "source_dependencies": [
+    {
+      "release": "v4.11.2",
+      "archive": "USL-V4.11.2-CONCURRENT-TRANCHES-AND-ALL-ID-SCOPING.zip",
+      "sha256": "0ec8164764712255e29ea9a22f887e6629bcd21bf32d93d5974cccc4808f39ae",
+      "url": "https://github.com/Jordan-Townsend/UniversalScriptingLanguage/raw/refs/heads/downloads/usl-preparation-v4.11.0/downloads/usl-planning-v4.11.2/USL-V4.11.2-CONCURRENT-TRANCHES-AND-ALL-ID-SCOPING.zip"
+    },
+    {
+      "release": "v4.10.0",
+      "archive": "USL-UNIVERSAL-SYSTEMS-V4.10.0-FULL-SOURCE.zip",
+      "sha256": "70a6f2bbd075d56100009907c9e89588819ee7f64f0346fa05c7803271f100d6",
+      "url": "https://github.com/Jordan-Townsend/UniversalScriptingLanguage/raw/refs/heads/downloads/usl-preparation-v4.11.0/downloads/usl-v4.10.0/USL-UNIVERSAL-SYSTEMS-V4.10.0-FULL-SOURCE.zip"
+    }
+  ],
+  "corpus": {
+    "url": "https://github.com/nst/JSONTestSuite.git",
+    "commit": "1ef36fa01286573e846ac449e8683f8833c5b26a",
+    "parsing_files": 318,
+    "bodies_rechecked_against_pinned_historical_sha256": true
+  },
+  "normative_source": {
+    "url": "https://www.rfc-editor.org/rfc/rfc8259.txt",
+    "sha256": "61a5378f4255c720beb2a4b4a63b29540147c140f36988bf086291989b4cd2d7"
+  },
+  "setup_skill": "cloud-environment-onboarding:setup",
+  "new_environment_restoration_verified": false
+}

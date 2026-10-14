@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "package_manifest_files_checked": 25,
+  "checker_tests": {
+    "passed": true,
+    "log_sha256": "b3b6cce15b36495a353fc2b0ae0453ad2bb3ef5ac9900b88e3612ece6af88217",
+    "tests_run": 17
+  },
+  "fresh_execution": {
+    "passed": true,
+    "log_sha256": "0964e902582855275961d5329209a156e287932285496758d2c917bfb18023ab"
+  },
+  "certificate_recheck": {
+    "passed": true,
+    "log_sha256": "0257639637ff2f3d82f016dd2efd9f035312c9b79a2322b6d3a87668c001cd27"
+  },
+  "pinned_source_review": {
+    "passed": true,
+    "log_sha256": "bb1a48e5964c6b2475c713d8dc195b44222c423a57ca882e35d38ed39ebebf8e"
+  },
+  "case_actors": 930,
+  "accepted_case_certificates_checked": 626,
+  "fresh_generated_USL_executions": 626,
+  "fresh_native_processing_cases": 1556,
+  "rejected_cases": 296,
+  "disclosed_resource_limit_cases": 8,
+  "full_standards_qualified": 0,
+  "native_receipts_replayed": false,
+  "source_unchanged_during_verification": true,
+  "source_sha256": {
+    "json_certificate.py": "ac4be28337a0d2e76dac9f14935b5db6339f509f7ffcd456a5f7e6c742b35547",
+    "json_normative_review.py": "56484409fabbb2c3a5586c496a5c63e793e151a428b0d234d0d2b63530faca90",
+    "run_certificates.py": "f86b52f3146a140381bb91f18ccacabf773bef368feab1621472a96cc7636bf0",
+    "test_certificate_independent_review.py": "aed8eaad076502d3b8f6034e6092aa2608268fbbbd550510d58c43159bf7758c",
+    "test_json_certificate.py": "455259a8327d076c76fe76ae73e6783f7451b9dc7b6463f50264ddc32dfa6285",
+    "verify_certificates.py": "363b577c55a88707792df39b565cf6bcb704c86e09402b9dfc95c95a34c25c70",
+    "verify_release.py": "177c3f574a96b478fde4ad0394c0cd0f752e2085a0c87c114383eb5b5e0aa8ad"
+  },
+  "seconds_through_primary_checks": 7.768211021000752,
+  "cost_excludes": [
+    "Writing this final verification record",
+    "Console reporting and shutdown"
+  ],
+  "claim": "Concrete data artifact translation validation under recorded trusted assumptions; full-standard obligations remain open"
+}
