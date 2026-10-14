@@ -1,0 +1,24 @@
+{
+  "version": "4.11.2",
+  "passed": true,
+  "source_clean_extracted": true,
+  "unit_tests": 73,
+  "concurrent_native_tranches": [
+    "forth",
+    "antlr"
+  ],
+  "Forth_fresh_native_cases": 866,
+  "ANTLR_fresh_native_cases": 5676,
+  "all_ID_scoping_actors": 607,
+  "scoped_originals": 247,
+  "originals_without_scope": 359,
+  "full_standards_qualified": 0,
+  "native_execution_evidence_replayed": false,
+  "source_code_matches_clean_tested_tree": true,
+  "clean_verification_report_sha256": "1b57e54f357d023f155ff5e323eaca6782fa5849226fef116f200fda02b19cef",
+  "metadata_only_final_updates": [
+    "CLEAN_VERIFICATION.json",
+    "RUNTIME_VERIFICATION.json",
+    "MANIFEST.json"
+  ]
+}

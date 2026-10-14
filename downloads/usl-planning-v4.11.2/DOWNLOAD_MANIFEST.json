@@ -1,0 +1,45 @@
+{
+  "version": "4.11.2",
+  "files": {
+    "CLEAN_VERIFICATION.json": {
+      "sha256": "9634a6a4f47026c57ab858a77905224530e87aa2cf666b87dc8d1e792b1961b8",
+      "bytes": 685
+    },
+    "CONTINUE_FROM_HERE.md": {
+      "sha256": "a878ac2fcb17bec867cb4be929881761e524aa5b22fed28b1bfcd32eb6c57c29",
+      "bytes": 3871
+    },
+    "CURRENT_SCOPE.json": {
+      "sha256": "4208f6e4e365bac58a5474eb3314806a3e971fbc22df07191a9bc2e268adda8d",
+      "bytes": 784378
+    },
+    "CURRENT_SCOPE.md": {
+      "sha256": "9f9cff91bde3435d5a1871cc01c9bee0a14d3b57e34fade0a5168ae15c7b33bc",
+      "bytes": 75235
+    },
+    "DELIVERY_SUMMARY.json": {
+      "sha256": "83f11a20ed28cca7063e336b6d16cad1cbf6b22b9994724b0b964e679421a8ea",
+      "bytes": 1103
+    },
+    "RECOVERY_TABLE.md": {
+      "sha256": "5da12fd6a81ce425eb7fa9d8c93b8685befbcbb2104e503ad5d2b391af498667",
+      "bytes": 12870
+    },
+    "RULE_SET_PROGRESS.json": {
+      "sha256": "df5f4d118e982b8c48f138b5da6271ddc700f8670181f75c814f4237d0412f9d",
+      "bytes": 263773
+    },
+    "SOURCE_MANIFEST.json": {
+      "sha256": "f418a71ad6a069fa0baeec26fd8705c3e9990c7f48011e3283154f10c53b4e9c",
+      "bytes": 39807
+    },
+    "TESTING_GUIDE.md": {
+      "sha256": "48ac29e93ff1399366b16663a8fa34284103c92d04ff22550a2a00fc82f2f66c",
+      "bytes": 7206
+    },
+    "USL-V4.11.2-CONCURRENT-TRANCHES-AND-ALL-ID-SCOPING.zip": {
+      "sha256": "0ec8164764712255e29ea9a22f887e6629bcd21bf32d93d5974cccc4808f39ae",
+      "bytes": 3007328
+    }
+  }
+}
