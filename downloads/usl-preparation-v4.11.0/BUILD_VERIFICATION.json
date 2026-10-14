@@ -1,0 +1,24 @@
+{
+  "addon_archive": "USL-V4.11.0-PREPARATION-AND-60-PROFILES.zip",
+  "addon_sha256": "21f2acf4f6ef763ef9099ad614e2d66cbfbd720b33469e544b34989951f2f2cf",
+  "addon_bytes": 7888778,
+  "combined_archive": "USL-V4.11.0-BASE-AND-ADDON.zip",
+  "combined_sha256": "d79e83a123ea838589110611986d8147f8ab7b68a2493fb4a850128cbbd5c0c0",
+  "combined_bytes": 52967945,
+  "manifest_files": 1821,
+  "summary": {
+    "original_ids": 606,
+    "USL_extra": 1,
+    "original_scoped": 243,
+    "original_without_scope": 363,
+    "new_scoped": 60,
+    "code_expression_profiles": 82,
+    "category_processing_profiles": 161,
+    "all_ID_preparation_records": 607,
+    "logical_ID_dimension_tasks": 10926,
+    "original_normative_dimension_tasks": 10908,
+    "full_standards": 0,
+    "complete_entity_tracks": 0,
+    "entire_objective_ETA_seconds": null
+  }
+}

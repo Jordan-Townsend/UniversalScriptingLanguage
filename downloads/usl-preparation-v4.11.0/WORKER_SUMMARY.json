@@ -1,0 +1,647 @@
+{
+  "schema": "usl.scoped.partial-worker-set.v1",
+  "passed": true,
+  "finished": true,
+  "candidate_ids": [
+    "antlr",
+    "antlr-java",
+    "asc",
+    "c-objdump",
+    "capnp",
+    "console",
+    "cpp-objdump",
+    "css+smarty",
+    "d-objdump",
+    "doscon",
+    "dpatch",
+    "dylan-console",
+    "gas",
+    "html+smarty",
+    "html+twig",
+    "html+velocity",
+    "irc",
+    "javascript+smarty",
+    "jlcon",
+    "kmsg",
+    "livescript",
+    "llvm",
+    "matlabsession",
+    "meson",
+    "nasm",
+    "nginx",
+    "notmuch",
+    "objdump",
+    "objdump-nasm",
+    "output",
+    "postgres-explain",
+    "promela",
+    "protobuf",
+    "psql",
+    "psysh",
+    "pwsh-session",
+    "py2tb",
+    "pypylog",
+    "pytb",
+    "ragel",
+    "ragel-c",
+    "ragel-cpp",
+    "ragel-em",
+    "ragel-java",
+    "ragel-objc",
+    "ragel-ruby",
+    "raw-token-data",
+    "scdoc",
+    "sed",
+    "smarty",
+    "sqlite3",
+    "tap",
+    "tcshcon",
+    "twig",
+    "vctreestatus",
+    "velocity",
+    "vim",
+    "wdiff",
+    "xml+smarty",
+    "xml+velocity"
+  ],
+  "candidate_count": 60,
+  "completed": 60,
+  "passed_new_profiles": 60,
+  "failed_profiles": 0,
+  "pending_candidates": 0,
+  "previous_original_scoped": 183,
+  "original_scoped": 243,
+  "original_without_scope": 363,
+  "original_catalog": 606,
+  "USL_extra": 1,
+  "all_ID_plan_entries": 607,
+  "new_code_profiles": 6,
+  "new_category_processing_profiles": 54,
+  "full_standards_qualified": 0,
+  "entity_tracks_complete": 0,
+  "workers": 32,
+  "resource_admission": {
+    "workers": 98,
+    "USL_admission_policy": {
+      "source": "admission.usl",
+      "sha256": "df765106b2ec3ce789a4986fe1ca08a95712ace8a74648a20f3ca1db329d832f",
+      "operations": 76,
+      "elapsed_seconds": 0.0006480839947471395,
+      "actual_USL_execution": true
+    },
+    "requested_workers": 99,
+    "cpu_equivalent_quota": 4.0,
+    "logical_cpus_observed": 5,
+    "memory_admission_budget_bytes": 26541461504,
+    "per_worker_reservation_bytes": 268435456,
+    "non_reclaimable_memory_bytes": 3523309568,
+    "memory_working_set_reserve_bytes": 4294967296,
+    "memory_snapshot": {
+      "statistics": {
+        "anon": 1007652864,
+        "file": 28183375872,
+        "kernel": 2347212800,
+        "kernel_stack": 1392640,
+        "pagetables": 7561216,
+        "sec_pagetables": 0,
+        "percpu": 19740,
+        "sock": 0,
+        "vmalloc": 36864,
+        "shmem": 91754496,
+        "file_mapped": 32280576,
+        "file_dirty": 76689408,
+        "file_writeback": 0,
+        "swapcached": 0,
+        "anon_thp": 0,
+        "file_thp": 2973761536,
+        "shmem_thp": 0,
+        "inactive_anon": 1018392576,
+        "active_anon": 80691200,
+        "inactive_file": 11620904960,
+        "active_file": 16470745088,
+        "unevictable": 0,
+        "slab_reclaimable": 2322331248,
+        "slab_unreclaimable": 15835152,
+        "slab": 2338166400,
+        "workingset_refault_anon": 0,
+        "workingset_refault_file": 102,
+        "workingset_activate_anon": 0,
+        "workingset_activate_file": 102,
+        "workingset_restore_anon": 0,
+        "workingset_restore_file": 0,
+        "workingset_nodereclaim": 0,
+        "pgdemote_kswapd": 0,
+        "pgdemote_direct": 0,
+        "pgdemote_khugepaged": 0,
+        "pgdemote_proactive": 0,
+        "pgscan": 765388,
+        "pgsteal": 765386,
+        "pswpin": 0,
+        "pswpout": 0,
+        "pgscan_kswapd": 0,
+        "pgscan_direct": 765388,
+        "pgscan_khugepaged": 0,
+        "pgscan_proactive": 0,
+        "pgsteal_kswapd": 0,
+        "pgsteal_direct": 765386,
+        "pgsteal_khugepaged": 0,
+        "pgsteal_proactive": 0,
+        "pgfault": 3457319987,
+        "pgmajfault": 5,
+        "pgrefill": 64,
+        "pgactivate": 15052077,
+        "pgdeactivate": 64,
+        "pglazyfree": 949223,
+        "pglazyfreed": 0,
+        "swpin_zero": 0,
+        "swpout_zero": 0,
+        "thp_fault_alloc": 400,
+        "thp_collapse_alloc": 0,
+        "thp_swpout": 0,
+        "thp_swpout_fallback": 0
+      },
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 9138,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "resources": {
+      "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+      "machine": "x86_64",
+      "cpu_logical": 5,
+      "cpu_effective": 4.0,
+      "memory_bytes": {
+        "total": 34359738368,
+        "available": 2755293184,
+        "host_total": 35743784960
+      },
+      "cgroup_constraints": {
+        "observed": true,
+        "cpu_quota": "400000",
+        "cpu_period": 100000,
+        "memory_maximum": "34359738368",
+        "memory_current": 31604445184
+      },
+      "gpus_detected": [],
+      "acceleration_claim": "Read-only hardware discovery; no USL GPU kernel execution or throughput claims."
+    },
+    "GPUs_qualified": [],
+    "remote_pools_registered": [],
+    "logical_workers_are_not_limited_by_executor_slots": true,
+    "physical_capacity_not_created_by_virtualization": true
+  },
+  "logical_partial_tasks": 10926,
+  "continuous_scheduler": true,
+  "fixed_rounds": false,
+  "logical_worker_counts": {
+    "created": 10926,
+    "started": 10926,
+    "finished": 10926,
+    "awaiting_native": 0,
+    "max_awaiting_native": 1080
+  },
+  "elapsed_seconds": 11.655598090001149,
+  "validation_only_ETA_seconds": null,
+  "entire_implementation_ETA_seconds": null,
+  "base_source_identity": "701c351812b571c3d75033bee78a8fbfeb23c6b324f7a8d59a6666dea7b12fa7",
+  "addon_source_identity": "328a5c9300923f1251c0dcde38aecff99547b4c8394ebad4bf9d8a1b5547531d",
+  "source_unchanged_during_run": true,
+  "native_execution_evidence_replayed": false,
+  "counterexample_blockers": {
+    "ragel-d": {
+      "reason": "Ragel6 D1 generated carriers fail the installed D2 compiler: const-table pointer types or implicit switch fallthrough.",
+      "attempts": [
+        "default table: const(char)* cannot convert to char*",
+        "G2 goto: switch fallthrough rejected",
+        "F1 flat: const(char)* and const(byte)* mutable pointer assignments rejected"
+      ],
+      "needed": "Implement and validate a versioned D2-compatible backend, or install a compatible native D host. Preserve original rejected generated code evidence; no native pass inferred from other Ragel IDs."
+    }
+  },
+  "records": [
+    {
+      "catalog_id": "nginx",
+      "passed": true,
+      "module": "category_profiles",
+      "seconds": 0.12742921499011572,
+      "evidence_sha256": "1341e50ff86f3c2df4224c4e6786f44a0ea76a6058b7f214486b283d800de227"
+    },
+    {
+      "catalog_id": "capnp",
+      "passed": true,
+      "module": "category_profiles",
+      "seconds": 0.4907402990065748,
+      "evidence_sha256": "1e6787bc81a16c4b44b980fa995b8ac1e972df07cec4b128c05eb3e7d9e9b320"
+    },
+    {
+      "catalog_id": "protobuf",
+      "passed": true,
+      "module": "category_profiles",
+      "seconds": 0.6468108219996793,
+      "evidence_sha256": "00e5186a87ae220950e3f1cd6e5b4db747aa326651c5263ac809f71d5dca25fe"
+    },
+    {
+      "catalog_id": "sed",
+      "passed": true,
+      "module": "category_profiles",
+      "seconds": 0.7888997449917952,
+      "evidence_sha256": "965015d200a421c899f0175895ccd5733a7029a859879c5976926a0b70abbe43"
+    },
+    {
+      "catalog_id": "scdoc",
+      "passed": true,
+      "module": "category_profiles",
+      "seconds": 0.8980511840054533,
+      "evidence_sha256": "52af7da883d5d521ea5d7f67c0c34b93f20335e6222db6a2204c3f1bebb46594"
+    },
+    {
+      "catalog_id": "html+twig",
+      "passed": true,
+      "module": "new_templates",
+      "seconds": 1.2915579980035545,
+      "evidence_sha256": "dc4b88a8783ce2bb8185cd158e4360219c9b1a54dbf23f17fe437f7f15f230c2"
+    },
+    {
+      "catalog_id": "css+smarty",
+      "passed": true,
+      "module": "new_templates",
+      "seconds": 1.395234405004885,
+      "evidence_sha256": "5bd28885b1a24ae55ed643b07c25731751b0e1a6fba7b92e8c927471f1ca5d0e"
+    },
+    {
+      "catalog_id": "html+smarty",
+      "passed": true,
+      "module": "new_templates",
+      "seconds": 1.5745433589909226,
+      "evidence_sha256": "923878c85686fff722a7ea7724591a35d2754c64d12b024fd937dba7ebef5f24"
+    },
+    {
+      "catalog_id": "smarty",
+      "passed": true,
+      "module": "new_templates",
+      "seconds": 1.5605083980044583,
+      "evidence_sha256": "13c3be66eb3fa51ddb320db043188b91c51161ebbc94cc6fc335713702446c23"
+    },
+    {
+      "catalog_id": "twig",
+      "passed": true,
+      "module": "new_templates",
+      "seconds": 1.6148402240069117,
+      "evidence_sha256": "212cc65d9d78cde01a748065804b5a6731db75e30e1d628624da18547d1d1ce9"
+    },
+    {
+      "catalog_id": "xml+smarty",
+      "passed": true,
+      "module": "new_templates",
+      "seconds": 2.121750513993902,
+      "evidence_sha256": "74ed72d9e503b642279b2dbd54f5af282497dd9dfd579017e2a1624c989b6a6f"
+    },
+    {
+      "catalog_id": "ragel-objc",
+      "passed": true,
+      "module": "ragel_profiles",
+      "seconds": 2.247336311993422,
+      "evidence_sha256": "2334382d0c4a734e09903ba780b03b4750c9f943175abfcf4745ffa1ce15e7a8"
+    },
+    {
+      "catalog_id": "ragel-em",
+      "passed": true,
+      "module": "ragel_profiles",
+      "seconds": 2.554517021999345,
+      "evidence_sha256": "7dfb6625df506567bb8528cfbdaf5796d5f257b53e16b1c4a6ae70feb33fbdb8"
+    },
+    {
+      "catalog_id": "ragel",
+      "passed": true,
+      "module": "ragel_profiles",
+      "seconds": 2.599854181986302,
+      "evidence_sha256": "61d53c7f8c3cacdd00b1c484dd5b21fdc40a5cf20f2e5a03b360f9e1ed702017"
+    },
+    {
+      "catalog_id": "ragel-cpp",
+      "passed": true,
+      "module": "ragel_profiles",
+      "seconds": 2.7151871810056036,
+      "evidence_sha256": "d0d42851bcff9eb95450a613cf5bc243933af8fd2999b5836677a611f2d3acfa"
+    },
+    {
+      "catalog_id": "ragel-c",
+      "passed": true,
+      "module": "ragel_profiles",
+      "seconds": 2.7376181579893455,
+      "evidence_sha256": "d5013ee51b99a0a3f473b312675e8b9bfae0fea448fb5172856e43afe5ac600c"
+    },
+    {
+      "catalog_id": "velocity",
+      "passed": true,
+      "module": "new_templates",
+      "seconds": 2.652413792995503,
+      "evidence_sha256": "a309a5e595e7f341248f11ae49e8c42b01b82bc6791da75c0062a4e8649fdd31"
+    },
+    {
+      "catalog_id": "ragel-ruby",
+      "passed": true,
+      "module": "ragel_profiles",
+      "seconds": 2.7720691169961356,
+      "evidence_sha256": "005ccc997c966e6c6a9890ebd822afcd9f77e9262263d66a2350e55cefb81ac0"
+    },
+    {
+      "catalog_id": "javascript+smarty",
+      "passed": true,
+      "module": "new_templates",
+      "seconds": 3.2789508950081654,
+      "evidence_sha256": "3b4ea5f45dfb5a85f4f1ea416385ae9d0703a882e999cd55e28aa8975acb13e8"
+    },
+    {
+      "catalog_id": "html+velocity",
+      "passed": true,
+      "module": "new_templates",
+      "seconds": 3.5506629849987803,
+      "evidence_sha256": "ed275a17ce80402474e612c37b0462a9a1a363a8214612dcdc072f0262956bd1"
+    },
+    {
+      "catalog_id": "xml+velocity",
+      "passed": true,
+      "module": "new_templates",
+      "seconds": 3.487033108001924,
+      "evidence_sha256": "e29821331bfcebfa87acd3ed10e64b020b443d2eb408f8232d78a20def0ff02f"
+    },
+    {
+      "catalog_id": "asc",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.1972357640042901,
+      "evidence_sha256": "0747c796165efdde2113db49c84533b7379217f84e54094f67dbdddf3990fe93"
+    },
+    {
+      "catalog_id": "c-objdump",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.29587217399966903,
+      "evidence_sha256": "5673447d962b0eed0bfc877e2cf7c07246876b2b7c039aae77652dab69096ad6"
+    },
+    {
+      "catalog_id": "console",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.2252911200048402,
+      "evidence_sha256": "29b1b5a9f2a107ef7c009db54a94181dd9a693941ceb1e744c3da0fe6298af62"
+    },
+    {
+      "catalog_id": "cpp-objdump",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.16601986899331678,
+      "evidence_sha256": "fa16f16886284c16992f05ed7a05d833c91cd98a802a0b84343fd7c4a09761a5"
+    },
+    {
+      "catalog_id": "d-objdump",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.19798743400315288,
+      "evidence_sha256": "c12461c21eed38e5fe67f10dc464b9ca50e225d94b45591c5219d6c70b8033e9"
+    },
+    {
+      "catalog_id": "doscon",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.15000905899796635,
+      "evidence_sha256": "5ee93d443efdee47ec8b4337b515191eb18ea6f0b0dbc6f97a88f16bdc6049b5"
+    },
+    {
+      "catalog_id": "dpatch",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.2835350850073155,
+      "evidence_sha256": "4fb4aca7988deff01bd4c3e3fc5ca59c490763861f518c5215a3bd0c8720f05a"
+    },
+    {
+      "catalog_id": "dylan-console",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.21515692200046033,
+      "evidence_sha256": "3272d828026b0210adeb67cc8baa663b140c5734ba7706b671c2aeb666d345c5"
+    },
+    {
+      "catalog_id": "irc",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.18683806899935007,
+      "evidence_sha256": "935fcac78973facb78ab80dbba50ff67dd37d9e408a724a17a79f39b4026a9b6"
+    },
+    {
+      "catalog_id": "jlcon",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.20529968300252222,
+      "evidence_sha256": "3ccb86eb42413188705f648f3de3377138c29457c504d4a2d4047981eeca83d6"
+    },
+    {
+      "catalog_id": "kmsg",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.15814685900113545,
+      "evidence_sha256": "a03bee6048e01b382d02dc65e3cf823e770bfb71468bb1e70d0718fa23117a3b"
+    },
+    {
+      "catalog_id": "matlabsession",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.1407835510035511,
+      "evidence_sha256": "4625d4fa57b675bea8b1a074f22c04bd4759b971e5f9b037491945e06d2d5751"
+    },
+    {
+      "catalog_id": "notmuch",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.14629408498876728,
+      "evidence_sha256": "440d6033c81250239cc63da16c0333e9b3a941c8d0e9ec512916f77e97084b3b"
+    },
+    {
+      "catalog_id": "objdump",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.14496367900574114,
+      "evidence_sha256": "7644c7cb87e5d27bedfa01871364d3a97bc90da18fa2a9b47128519a97496223"
+    },
+    {
+      "catalog_id": "objdump-nasm",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.1736062270065304,
+      "evidence_sha256": "cab0dc7eacb68ef501dde720bbc2ee68883c049f803f2f6e6750fd60b34e5485"
+    },
+    {
+      "catalog_id": "output",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.147431407996919,
+      "evidence_sha256": "db65d934bfd7817cea5252da588ea48b0bc656bbe85ad676f7c333c0c9295b5d"
+    },
+    {
+      "catalog_id": "postgres-explain",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.16520744901208673,
+      "evidence_sha256": "fc473fe0a7b521183279545ad57b8ea68ea70eb28b5f971e729bb2c3e3099b4b"
+    },
+    {
+      "catalog_id": "psql",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.16757134599902201,
+      "evidence_sha256": "8d29504b6116e17bc9703c8494ef4f1a798b176886d4d315dc9438e2150bafe0"
+    },
+    {
+      "catalog_id": "psysh",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.13203454099129885,
+      "evidence_sha256": "b169a7a0836c9306ccb729a56e2356d745f0219e967502aa65f333abc0baa75c"
+    },
+    {
+      "catalog_id": "pwsh-session",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.2043350640014978,
+      "evidence_sha256": "56d339eac12dcc71bff77985768fdcfb1c49e8060745f1d0ff7b551ff1eb3cb1"
+    },
+    {
+      "catalog_id": "py2tb",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.17710598499979824,
+      "evidence_sha256": "3429ff3e33afaa2849c1535f0ca8c9f337e28badfed54b51a3aba496c4b5a9d9"
+    },
+    {
+      "catalog_id": "pypylog",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.149121563998051,
+      "evidence_sha256": "48c67497a4a793ceb58522611c8e49dcb83c969f21e9d87733cea513d27b5997"
+    },
+    {
+      "catalog_id": "pytb",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.13952903499011882,
+      "evidence_sha256": "04f8c7a4529823511af6ac925ce1c420ba62fe9f4b140d168f679b7d2e112447"
+    },
+    {
+      "catalog_id": "raw-token-data",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.1955246480065398,
+      "evidence_sha256": "ea205a1eb79ecd234330f5ea71e0e23a7618f871be959b1e87d07778878ebea0"
+    },
+    {
+      "catalog_id": "sqlite3",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.12466899600985926,
+      "evidence_sha256": "d3cfbc0d4259860a16a464fc7b66234725c385e465f9f5f28344a9b623ac3edb"
+    },
+    {
+      "catalog_id": "tap",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.14576390400179662,
+      "evidence_sha256": "e0440520f94961ea8c2ff1b9d3994ede281f222603a2916e2bbf7afa36e819d1"
+    },
+    {
+      "catalog_id": "tcshcon",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.13701892099925317,
+      "evidence_sha256": "c206c4c497442d65b5ab06ce2bc52449ff70195371df820ed2bf784d1b0a1c8b"
+    },
+    {
+      "catalog_id": "vctreestatus",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.16960745099640917,
+      "evidence_sha256": "c8cf62a96b38b62a3ff1a6c78fe737fd18ee1a1cdab7ab5f22d81e64f21a1385"
+    },
+    {
+      "catalog_id": "wdiff",
+      "passed": true,
+      "module": "transcript_profiles",
+      "seconds": 0.19735955599753652,
+      "evidence_sha256": "754aff807064f2c8d584fc09258d82aa17cb1e353fe8ee156932b87318e61216"
+    },
+    {
+      "catalog_id": "meson",
+      "passed": true,
+      "module": "category_profiles",
+      "seconds": 5.347123286002898,
+      "evidence_sha256": "739c6b8765a709ea9dc364fd88279aecdac70c5ef9ddaaae23c82fa757d42b71"
+    },
+    {
+      "catalog_id": "antlr-java",
+      "passed": true,
+      "module": "category_profiles",
+      "seconds": 8.177150966992485,
+      "evidence_sha256": "4383d46bf53d779b6d3f04ee7f635f5202cc36b72a4588206ab5836c26c16239"
+    },
+    {
+      "catalog_id": "promela",
+      "passed": true,
+      "module": "native_profiles",
+      "seconds": 8.283750237998902,
+      "evidence_sha256": "118470145171f4a2a3c561919d55d1e7bf2fa7749584cc78cc112063e5372a13"
+    },
+    {
+      "catalog_id": "vim",
+      "passed": true,
+      "module": "native_profiles",
+      "seconds": 8.154837006004527,
+      "evidence_sha256": "2e295e325e50683cb5b03404f792f8663ef44dd2f7e2de70618ec89a5bbe5b54"
+    },
+    {
+      "catalog_id": "antlr",
+      "passed": true,
+      "module": "category_profiles",
+      "seconds": 8.693208582990337,
+      "evidence_sha256": "50860f40cc0979884da081142109045ed83c3f2a695292039827570ff4a4f51b"
+    },
+    {
+      "catalog_id": "gas",
+      "passed": true,
+      "module": "native_profiles",
+      "seconds": 9.385557096000412,
+      "evidence_sha256": "1b2217d61ad1e9cfd93d8841d7491e5981da387bbad35c5efad31a03cfa6be77"
+    },
+    {
+      "catalog_id": "ragel-java",
+      "passed": true,
+      "module": "ragel_profiles",
+      "seconds": 9.430445108009735,
+      "evidence_sha256": "d39e10a0928430e1c780a03408abe6bf5edcf3d4cc43324f1a79d5f92c44145b"
+    },
+    {
+      "catalog_id": "nasm",
+      "passed": true,
+      "module": "native_profiles",
+      "seconds": 9.560251941002207,
+      "evidence_sha256": "41f447cb00322bcb69bb0b0b0d62eb2049fc2dc75b079ba2b3ef5cce193052a1"
+    },
+    {
+      "catalog_id": "llvm",
+      "passed": true,
+      "module": "native_profiles",
+      "seconds": 9.68101376699633,
+      "evidence_sha256": "4ed2349736ccab4321deec81251635a35c94789e55d792b102ce1d5a8562bef6"
+    },
+    {
+      "catalog_id": "livescript",
+      "passed": true,
+      "module": "native_profiles",
+      "seconds": 11.05842436500825,
+      "evidence_sha256": "57a9d6ea376f0e4b99ebeb2c5e580e969e209a23a690dd99cd0f0dc80fb22ecb"
+    }
+  ]
+}

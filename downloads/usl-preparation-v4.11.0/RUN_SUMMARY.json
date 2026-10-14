@@ -1,0 +1,1426 @@
+{
+  "skills": {
+    "schema": "usl.retained-skills.fresh-verification.v1",
+    "passed": true,
+    "skills": 14,
+    "fresh_exhaustive_executions": 6638,
+    "records": [
+      {
+        "name": "affine",
+        "passed": true,
+        "fresh_exhaustive_executions": 65,
+        "formal_proof": {
+          "schema": "usl.intent.proof.v1",
+          "contract_sha256": "24990f93a5c2b630f4a33e0770f3d73cf5cc9883fdfc5e3141c0daa649d6fc0c",
+          "expression_sha256": "4334e20c2d61e6f27e4cc033821257b1daabc0ada34aaaaba9120d94dd7f96c8",
+          "solver": "5.1.0",
+          "proved": true,
+          "domain": "bounded int32 inputs and overflow-free primitive arithmetic",
+          "modelled_operations": [
+            "integer literals",
+            "variables",
+            "add",
+            "subtract",
+            "multiply",
+            "unary signs",
+            "comparisons",
+            "short-circuit boolean connectives",
+            "guarded conditional expressions"
+          ],
+          "whole_language_conformance": false,
+          "arbitrary_natural_language_intent_proven": false,
+          "solver_result": "unsat"
+        },
+        "skill_sha256": "f8ad0472f0bb276f97e29a6a0dbffb40d268e8626ab5435d26a420cdff4cbca6"
+      },
+      {
+        "name": "square",
+        "passed": true,
+        "fresh_exhaustive_executions": 65,
+        "formal_proof": {
+          "schema": "usl.intent.proof.v1",
+          "contract_sha256": "e5f60703a1eb17921c3b8e7f2d64d775cb6f507b6a1287bbaf0b42e9ca820051",
+          "expression_sha256": "3a1f3da489fc2a47ba14a3f7121514fcd7bb544fd3dcd237c866a13431fe2a37",
+          "solver": "5.1.0",
+          "proved": true,
+          "domain": "bounded int32 inputs and overflow-free primitive arithmetic",
+          "modelled_operations": [
+            "integer literals",
+            "variables",
+            "add",
+            "subtract",
+            "multiply",
+            "unary signs",
+            "comparisons",
+            "short-circuit boolean connectives",
+            "guarded conditional expressions"
+          ],
+          "whole_language_conformance": false,
+          "arbitrary_natural_language_intent_proven": false,
+          "solver_result": "unsat"
+        },
+        "skill_sha256": "6cdd7b9a235049f87210c30ffc467e4f80f4252ed971a39ee69ac6c0fe1b7251"
+      },
+      {
+        "name": "absolute",
+        "passed": true,
+        "fresh_exhaustive_executions": 65,
+        "formal_proof": null,
+        "skill_sha256": "df87f7d8a5ea1a1af0706c882a75dc16764cfe7fddb5ab47e56f7c128c6d6cfa"
+      },
+      {
+        "name": "negate",
+        "passed": true,
+        "fresh_exhaustive_executions": 65,
+        "formal_proof": {
+          "schema": "usl.intent.proof.v1",
+          "contract_sha256": "59ef4a16907f006110212a55345275b963658148d8fecc90d2ff60aafdab55d3",
+          "expression_sha256": "d086d5d726b163e629d08e247e2d7580e2ad64bf37805ea4e7c5b12347b11ec2",
+          "solver": "5.1.0",
+          "proved": true,
+          "domain": "bounded int32 inputs and overflow-free primitive arithmetic",
+          "modelled_operations": [
+            "integer literals",
+            "variables",
+            "add",
+            "subtract",
+            "multiply",
+            "unary signs",
+            "comparisons",
+            "short-circuit boolean connectives",
+            "guarded conditional expressions"
+          ],
+          "whole_language_conformance": false,
+          "arbitrary_natural_language_intent_proven": false,
+          "solver_result": "unsat"
+        },
+        "skill_sha256": "1df7b95d249e90bd14637ed81d4b322e18b78e1fc54f8d79748ef7802882192f"
+      },
+      {
+        "name": "nonnegative",
+        "passed": true,
+        "fresh_exhaustive_executions": 65,
+        "formal_proof": null,
+        "skill_sha256": "625f2ef9917186203beba1e6153009afd37e0db7e0bf3bfd875273e4214600de"
+      },
+      {
+        "name": "even",
+        "passed": true,
+        "fresh_exhaustive_executions": 65,
+        "formal_proof": null,
+        "skill_sha256": "8e58280d0adf11634abfe840562f29f599bf8f51f29889ee2470792cffcb7605"
+      },
+      {
+        "name": "list_sum",
+        "passed": true,
+        "fresh_exhaustive_executions": 781,
+        "formal_proof": null,
+        "skill_sha256": "932378bca9e7544ae2f297747c6178c95599ac5b66f2870d0d46bc9696e47b7c"
+      },
+      {
+        "name": "sum_squares",
+        "passed": true,
+        "fresh_exhaustive_executions": 781,
+        "formal_proof": null,
+        "skill_sha256": "7461bc7dbb6dd0fe299fbb77ab9acfa42ecea13b6150aa71f156823fdee6b060"
+      },
+      {
+        "name": "count_nonnegative",
+        "passed": true,
+        "fresh_exhaustive_executions": 781,
+        "formal_proof": null,
+        "skill_sha256": "fe1d8e261e969120e94e49544aed13c67f04108ed82a11cf4c023e9a00237615"
+      },
+      {
+        "name": "keep_nonnegative",
+        "passed": true,
+        "fresh_exhaustive_executions": 781,
+        "formal_proof": null,
+        "skill_sha256": "bfc41f07669887d30f06c4744e32c701646e9bf9de57c07e8bcd8cfb9f426688"
+      },
+      {
+        "name": "double_list",
+        "passed": true,
+        "fresh_exhaustive_executions": 781,
+        "formal_proof": null,
+        "skill_sha256": "4ec8cc2b651d3d8ee5790118d4985ef65bb6fe8e9fce98383f4d0f1bbbe48f21"
+      },
+      {
+        "name": "all_nonnegative",
+        "passed": true,
+        "fresh_exhaustive_executions": 781,
+        "formal_proof": null,
+        "skill_sha256": "b4e32a60990b388450eda262d3351254b0e6724069efd1f2c8dbe1250ba5d382"
+      },
+      {
+        "name": "any_negative",
+        "passed": true,
+        "fresh_exhaustive_executions": 781,
+        "formal_proof": null,
+        "skill_sha256": "84e5a46f436de099eea37cfcb4057f978335df7726364c4c934b458e4e4399f3"
+      },
+      {
+        "name": "count_even",
+        "passed": true,
+        "fresh_exhaustive_executions": 781,
+        "formal_proof": null,
+        "skill_sha256": "d09a81e27a5b6e069b2ffe49e2dc33c2657223db14cece18805c918aa9738704"
+      }
+    ],
+    "elapsed_seconds": 0.9259952470019925,
+    "original_learning_holdouts_reused": false,
+    "new_learning_claimed": false
+  },
+  "tests": {
+    "tests_executed": 24,
+    "passed": true
+  },
+  "transfer": {
+    "passed": true,
+    "fresh_native_programs": 24,
+    "elapsed_seconds": 5.85649078899587
+  },
+  "preparation": {
+    "schema": "usl.all-language.preparation.v1",
+    "version": "4.11.0-preparation",
+    "passed": true,
+    "base_version": "4.10.0",
+    "base_source_identity": "701c351812b571c3d75033bee78a8fbfeb23c6b324f7a8d59a6666dea7b12fa7",
+    "source_unchanged_during_run": true,
+    "addon_source_identity": "328a5c9300923f1251c0dcde38aecff99547b4c8394ebad4bf9d8a1b5547531d",
+    "addon_unchanged_during_run": true,
+    "elapsed_seconds": 5.629264724004315,
+    "original_ids_inventoried": 606,
+    "extra_USL_inventoried": 1,
+    "original_scoped_profiles": 183,
+    "remaining_original_ids_without_scope": 423,
+    "normative_preparation_complete": 0,
+    "full_standards_qualified": 0,
+    "entity_tracks_complete": 0,
+    "prepared_USL_skills": 14,
+    "keyword_metadata_inventories": 604,
+    "actual_parser_schemas": 155,
+    "actual_USL_kernel_applications": 1822,
+    "exact_all_ID_graph_join": {
+      "family_sets": 23,
+      "sum_of_family_counts": 607,
+      "original_obligation_dimensions": 10908,
+      "per_ID_ordered_steps": 15,
+      "total_ordered_steps": 9105,
+      "lossless_factor_join_verified": true,
+      "family_sharing_does_not_transfer_semantic_guarantees": true
+    },
+    "actual_USL_family_aggregation": {
+      "observed": {
+        "stdout": "607\n",
+        "operations": 170,
+        "wall_seconds": 0.00027643599605653435
+      },
+      "independent_expected": "607\n",
+      "passed": true,
+      "input": [
+        11,
+        35,
+        27,
+        16,
+        45,
+        50,
+        69,
+        49,
+        42,
+        42,
+        4,
+        12,
+        18,
+        20,
+        13,
+        14,
+        89,
+        4,
+        26,
+        3,
+        3,
+        14,
+        1
+      ]
+    },
+    "resource_pool_contract": {
+      "executor": "local_process",
+      "capacity_cpu": 4.0,
+      "workers": 99,
+      "admission": {
+        "workers": 99,
+        "USL_admission_policy": {
+          "source": "admission.usl",
+          "sha256": "df765106b2ec3ce789a4986fe1ca08a95712ace8a74648a20f3ca1db329d832f",
+          "operations": 76,
+          "elapsed_seconds": 0.0006615129968849942,
+          "actual_USL_execution": true
+        },
+        "requested_workers": 99,
+        "cpu_equivalent_quota": 4.0,
+        "logical_cpus_observed": 5,
+        "memory_admission_budget_bytes": 26587717632,
+        "per_worker_reservation_bytes": 134217728,
+        "non_reclaimable_memory_bytes": 3477053440,
+        "memory_working_set_reserve_bytes": 4294967296,
+        "memory_snapshot": {
+          "statistics": {
+            "anon": 1004101632,
+            "file": 28145532928,
+            "kernel": 2342354944,
+            "kernel_stack": 1392640,
+            "pagetables": 7421952,
+            "sec_pagetables": 0,
+            "percpu": 19628,
+            "sock": 0,
+            "vmalloc": 36864,
+            "shmem": 91754496,
+            "file_mapped": 32280576,
+            "file_dirty": 38842368,
+            "file_writeback": 0,
+            "swapcached": 0,
+            "anon_thp": 0,
+            "file_thp": 2959081472,
+            "shmem_thp": 0,
+            "inactive_anon": 1014931456,
+            "active_anon": 80678912,
+            "inactive_file": 11603709952,
+            "active_file": 16450097152,
+            "unevictable": 0,
+            "slab_reclaimable": 2317621152,
+            "slab_unreclaimable": 15833120,
+            "slab": 2333454272,
+            "workingset_refault_anon": 0,
+            "workingset_refault_file": 102,
+            "workingset_activate_anon": 0,
+            "workingset_activate_file": 102,
+            "workingset_restore_anon": 0,
+            "workingset_restore_file": 0,
+            "workingset_nodereclaim": 0,
+            "pgdemote_kswapd": 0,
+            "pgdemote_direct": 0,
+            "pgdemote_khugepaged": 0,
+            "pgdemote_proactive": 0,
+            "pgscan": 765388,
+            "pgsteal": 765386,
+            "pswpin": 0,
+            "pswpout": 0,
+            "pgscan_kswapd": 0,
+            "pgscan_direct": 765388,
+            "pgscan_khugepaged": 0,
+            "pgscan_proactive": 0,
+            "pgsteal_kswapd": 0,
+            "pgsteal_direct": 765386,
+            "pgsteal_khugepaged": 0,
+            "pgsteal_proactive": 0,
+            "pgfault": 3455664779,
+            "pgmajfault": 5,
+            "pgrefill": 64,
+            "pgactivate": 15047781,
+            "pgdeactivate": 64,
+            "pglazyfree": 949223,
+            "pglazyfreed": 0,
+            "swpin_zero": 0,
+            "swpout_zero": 0,
+            "thp_fault_alloc": 400,
+            "thp_collapse_alloc": 0,
+            "thp_swpout": 0,
+            "thp_swpout_fallback": 0
+          },
+          "events": {
+            "low": 0,
+            "high": 0,
+            "max": 9138,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          }
+        },
+        "resources": {
+          "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+          "machine": "x86_64",
+          "cpu_logical": 5,
+          "cpu_effective": 4.0,
+          "memory_bytes": {
+            "total": 34359738368,
+            "available": 2866872320,
+            "host_total": 35743784960
+          },
+          "cgroup_constraints": {
+            "observed": true,
+            "cpu_quota": "400000",
+            "cpu_period": 100000,
+            "memory_maximum": "34359738368",
+            "memory_current": 31492866048
+          },
+          "gpus_detected": [],
+          "acceleration_claim": "Read-only hardware discovery; no USL GPU kernel execution or throughput claims."
+        },
+        "GPUs_qualified": [],
+        "remote_pools_registered": [],
+        "logical_workers_are_not_limited_by_executor_slots": true,
+        "physical_capacity_not_created_by_virtualization": true
+      },
+      "requests_serializable_JSON": true,
+      "native_compiler_host_requirements_remain_per_ID": true,
+      "qualified_hosts": [
+        "current Linux/POSIX host"
+      ],
+      "additional_hardware_or_remote_pools_qualified": false
+    },
+    "retrieved_reference_groups": 0,
+    "all_evidence_CAS_hashes_restored": true,
+    "preparation_scope": "Catalog, public lexical/parser metadata, reference provenance and required semantic/host actions. Reading source metadata or retrieving documents does not complete normative audit or native semantic implementation."
+  },
+  "race": {
+    "passed": true,
+    "selected_before_heldout": "factored/1",
+    "physical_pool_sizes_measured": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "end_to_end_seconds": 9.824585388007108
+  },
+  "qualification": {
+    "schema": "usl.scoped.partial-worker-set.v1",
+    "passed": true,
+    "finished": true,
+    "candidate_ids": [
+      "antlr",
+      "antlr-java",
+      "asc",
+      "c-objdump",
+      "capnp",
+      "console",
+      "cpp-objdump",
+      "css+smarty",
+      "d-objdump",
+      "doscon",
+      "dpatch",
+      "dylan-console",
+      "gas",
+      "html+smarty",
+      "html+twig",
+      "html+velocity",
+      "irc",
+      "javascript+smarty",
+      "jlcon",
+      "kmsg",
+      "livescript",
+      "llvm",
+      "matlabsession",
+      "meson",
+      "nasm",
+      "nginx",
+      "notmuch",
+      "objdump",
+      "objdump-nasm",
+      "output",
+      "postgres-explain",
+      "promela",
+      "protobuf",
+      "psql",
+      "psysh",
+      "pwsh-session",
+      "py2tb",
+      "pypylog",
+      "pytb",
+      "ragel",
+      "ragel-c",
+      "ragel-cpp",
+      "ragel-em",
+      "ragel-java",
+      "ragel-objc",
+      "ragel-ruby",
+      "raw-token-data",
+      "scdoc",
+      "sed",
+      "smarty",
+      "sqlite3",
+      "tap",
+      "tcshcon",
+      "twig",
+      "vctreestatus",
+      "velocity",
+      "vim",
+      "wdiff",
+      "xml+smarty",
+      "xml+velocity"
+    ],
+    "candidate_count": 60,
+    "completed": 60,
+    "passed_new_profiles": 60,
+    "failed_profiles": 0,
+    "pending_candidates": 0,
+    "previous_original_scoped": 183,
+    "original_scoped": 243,
+    "original_without_scope": 363,
+    "original_catalog": 606,
+    "USL_extra": 1,
+    "all_ID_plan_entries": 607,
+    "new_code_profiles": 6,
+    "new_category_processing_profiles": 54,
+    "full_standards_qualified": 0,
+    "entity_tracks_complete": 0,
+    "workers": 32,
+    "resource_admission": {
+      "workers": 98,
+      "USL_admission_policy": {
+        "source": "admission.usl",
+        "sha256": "df765106b2ec3ce789a4986fe1ca08a95712ace8a74648a20f3ca1db329d832f",
+        "operations": 76,
+        "elapsed_seconds": 0.0006480839947471395,
+        "actual_USL_execution": true
+      },
+      "requested_workers": 99,
+      "cpu_equivalent_quota": 4.0,
+      "logical_cpus_observed": 5,
+      "memory_admission_budget_bytes": 26541461504,
+      "per_worker_reservation_bytes": 268435456,
+      "non_reclaimable_memory_bytes": 3523309568,
+      "memory_working_set_reserve_bytes": 4294967296,
+      "memory_snapshot": {
+        "statistics": {
+          "anon": 1007652864,
+          "file": 28183375872,
+          "kernel": 2347212800,
+          "kernel_stack": 1392640,
+          "pagetables": 7561216,
+          "sec_pagetables": 0,
+          "percpu": 19740,
+          "sock": 0,
+          "vmalloc": 36864,
+          "shmem": 91754496,
+          "file_mapped": 32280576,
+          "file_dirty": 76689408,
+          "file_writeback": 0,
+          "swapcached": 0,
+          "anon_thp": 0,
+          "file_thp": 2973761536,
+          "shmem_thp": 0,
+          "inactive_anon": 1018392576,
+          "active_anon": 80691200,
+          "inactive_file": 11620904960,
+          "active_file": 16470745088,
+          "unevictable": 0,
+          "slab_reclaimable": 2322331248,
+          "slab_unreclaimable": 15835152,
+          "slab": 2338166400,
+          "workingset_refault_anon": 0,
+          "workingset_refault_file": 102,
+          "workingset_activate_anon": 0,
+          "workingset_activate_file": 102,
+          "workingset_restore_anon": 0,
+          "workingset_restore_file": 0,
+          "workingset_nodereclaim": 0,
+          "pgdemote_kswapd": 0,
+          "pgdemote_direct": 0,
+          "pgdemote_khugepaged": 0,
+          "pgdemote_proactive": 0,
+          "pgscan": 765388,
+          "pgsteal": 765386,
+          "pswpin": 0,
+          "pswpout": 0,
+          "pgscan_kswapd": 0,
+          "pgscan_direct": 765388,
+          "pgscan_khugepaged": 0,
+          "pgscan_proactive": 0,
+          "pgsteal_kswapd": 0,
+          "pgsteal_direct": 765386,
+          "pgsteal_khugepaged": 0,
+          "pgsteal_proactive": 0,
+          "pgfault": 3457319987,
+          "pgmajfault": 5,
+          "pgrefill": 64,
+          "pgactivate": 15052077,
+          "pgdeactivate": 64,
+          "pglazyfree": 949223,
+          "pglazyfreed": 0,
+          "swpin_zero": 0,
+          "swpout_zero": 0,
+          "thp_fault_alloc": 400,
+          "thp_collapse_alloc": 0,
+          "thp_swpout": 0,
+          "thp_swpout_fallback": 0
+        },
+        "events": {
+          "low": 0,
+          "high": 0,
+          "max": 9138,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0
+        }
+      },
+      "resources": {
+        "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+        "machine": "x86_64",
+        "cpu_logical": 5,
+        "cpu_effective": 4.0,
+        "memory_bytes": {
+          "total": 34359738368,
+          "available": 2755293184,
+          "host_total": 35743784960
+        },
+        "cgroup_constraints": {
+          "observed": true,
+          "cpu_quota": "400000",
+          "cpu_period": 100000,
+          "memory_maximum": "34359738368",
+          "memory_current": 31604445184
+        },
+        "gpus_detected": [],
+        "acceleration_claim": "Read-only hardware discovery; no USL GPU kernel execution or throughput claims."
+      },
+      "GPUs_qualified": [],
+      "remote_pools_registered": [],
+      "logical_workers_are_not_limited_by_executor_slots": true,
+      "physical_capacity_not_created_by_virtualization": true
+    },
+    "logical_partial_tasks": 10926,
+    "continuous_scheduler": true,
+    "fixed_rounds": false,
+    "logical_worker_counts": {
+      "created": 10926,
+      "started": 10926,
+      "finished": 10926,
+      "awaiting_native": 0,
+      "max_awaiting_native": 1080
+    },
+    "elapsed_seconds": 11.655598090001149,
+    "validation_only_ETA_seconds": null,
+    "entire_implementation_ETA_seconds": null,
+    "base_source_identity": "701c351812b571c3d75033bee78a8fbfeb23c6b324f7a8d59a6666dea7b12fa7",
+    "addon_source_identity": "328a5c9300923f1251c0dcde38aecff99547b4c8394ebad4bf9d8a1b5547531d",
+    "source_unchanged_during_run": true,
+    "native_execution_evidence_replayed": false,
+    "counterexample_blockers": {
+      "ragel-d": {
+        "reason": "Ragel6 D1 generated carriers fail the installed D2 compiler: const-table pointer types or implicit switch fallthrough.",
+        "attempts": [
+          "default table: const(char)* cannot convert to char*",
+          "G2 goto: switch fallthrough rejected",
+          "F1 flat: const(char)* and const(byte)* mutable pointer assignments rejected"
+        ],
+        "needed": "Implement and validate a versioned D2-compatible backend, or install a compatible native D host. Preserve original rejected generated code evidence; no native pass inferred from other Ragel IDs."
+      }
+    }
+  },
+  "backlog": {
+    "original_ids": 606,
+    "USL_extra": 1,
+    "original_scoped": 243,
+    "original_without_scope": 363,
+    "new_scoped": 60,
+    "code_expression_profiles": 82,
+    "category_processing_profiles": 161,
+    "all_ID_preparation_records": 607,
+    "logical_ID_dimension_tasks": 10926,
+    "original_normative_dimension_tasks": 10908,
+    "full_standards": 0,
+    "complete_entity_tracks": 0,
+    "entire_objective_ETA_seconds": null
+  },
+  "schema": "usl.entire-workflow.v1",
+  "passed": true,
+  "actual_USL_control": {
+    "source": "workflow.usl",
+    "sha256": "ccd692ab71532555ca17e872fc6e635f48b123001ce6a84463a6970c15f72b39",
+    "stdout": "USL workflow verified all required stages 7\n",
+    "operations": 831
+  },
+  "stages": [
+    {
+      "name": "test",
+      "dependencies": []
+    },
+    {
+      "name": "skills",
+      "dependencies": []
+    },
+    {
+      "name": "prepare",
+      "dependencies": [
+        "test",
+        "skills"
+      ]
+    },
+    {
+      "name": "transfer",
+      "dependencies": [
+        "test",
+        "skills"
+      ]
+    },
+    {
+      "name": "qualify",
+      "dependencies": [
+        "prepare"
+      ]
+    },
+    {
+      "name": "race",
+      "dependencies": [
+        "prepare"
+      ]
+    },
+    {
+      "name": "tables",
+      "dependencies": [
+        "qualify",
+        "race"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "started",
+      "stage": "test",
+      "pid": 1010126,
+      "elapsed_seconds": 0.0023148949985625222
+    },
+    {
+      "event": "started",
+      "stage": "skills",
+      "pid": 1010128,
+      "elapsed_seconds": 0.0027958730061072856
+    },
+    {
+      "event": "completed",
+      "stage": "skills",
+      "passed": true,
+      "returncode": 0,
+      "elapsed_seconds": 1.3807815960026346,
+      "report": "ecosystem-validated/workflow-stages/skills.json"
+    },
+    {
+      "event": "completed",
+      "stage": "test",
+      "passed": true,
+      "returncode": 0,
+      "elapsed_seconds": 1.6951803520059912,
+      "report": "ecosystem-validated/workflow-stages/test.json"
+    },
+    {
+      "event": "started",
+      "stage": "prepare",
+      "pid": 1010134,
+      "elapsed_seconds": 1.6959105360001558
+    },
+    {
+      "event": "started",
+      "stage": "transfer",
+      "pid": 1010135,
+      "elapsed_seconds": 1.696382074005669
+    },
+    {
+      "event": "completed",
+      "stage": "transfer",
+      "passed": true,
+      "returncode": 0,
+      "elapsed_seconds": 8.165070956005366,
+      "report": "ecosystem-validated/workflow-stages/transfer.json"
+    },
+    {
+      "event": "completed",
+      "stage": "prepare",
+      "passed": true,
+      "returncode": 0,
+      "elapsed_seconds": 8.214732406006078,
+      "report": "ecosystem-validated/workflow-stages/prepare.json"
+    },
+    {
+      "event": "started",
+      "stage": "qualify",
+      "pid": 1010441,
+      "elapsed_seconds": 8.215281985001639
+    },
+    {
+      "event": "started",
+      "stage": "race",
+      "pid": 1010442,
+      "elapsed_seconds": 8.215564521000488
+    },
+    {
+      "event": "completed",
+      "stage": "race",
+      "passed": true,
+      "returncode": 0,
+      "elapsed_seconds": 18.545798350998666,
+      "report": "ecosystem-validated/workflow-stages/race.json"
+    },
+    {
+      "event": "completed",
+      "stage": "qualify",
+      "passed": true,
+      "returncode": 0,
+      "elapsed_seconds": 20.558953761996236,
+      "report": "ecosystem-validated/workflow-stages/qualify.json"
+    },
+    {
+      "event": "started",
+      "stage": "tables",
+      "pid": 1011731,
+      "elapsed_seconds": 20.55957048900018
+    },
+    {
+      "event": "completed",
+      "stage": "tables",
+      "passed": true,
+      "returncode": 0,
+      "elapsed_seconds": 21.51615457200387,
+      "report": "ecosystem-validated/workflow-stages/tables.json"
+    }
+  ],
+  "stage_summaries": {
+    "skills": {
+      "skills": {
+        "schema": "usl.retained-skills.fresh-verification.v1",
+        "passed": true,
+        "skills": 14,
+        "fresh_exhaustive_executions": 6638,
+        "records": [
+          {
+            "name": "affine",
+            "passed": true,
+            "fresh_exhaustive_executions": 65,
+            "formal_proof": {
+              "schema": "usl.intent.proof.v1",
+              "contract_sha256": "24990f93a5c2b630f4a33e0770f3d73cf5cc9883fdfc5e3141c0daa649d6fc0c",
+              "expression_sha256": "4334e20c2d61e6f27e4cc033821257b1daabc0ada34aaaaba9120d94dd7f96c8",
+              "solver": "5.1.0",
+              "proved": true,
+              "domain": "bounded int32 inputs and overflow-free primitive arithmetic",
+              "modelled_operations": [
+                "integer literals",
+                "variables",
+                "add",
+                "subtract",
+                "multiply",
+                "unary signs",
+                "comparisons",
+                "short-circuit boolean connectives",
+                "guarded conditional expressions"
+              ],
+              "whole_language_conformance": false,
+              "arbitrary_natural_language_intent_proven": false,
+              "solver_result": "unsat"
+            },
+            "skill_sha256": "f8ad0472f0bb276f97e29a6a0dbffb40d268e8626ab5435d26a420cdff4cbca6"
+          },
+          {
+            "name": "square",
+            "passed": true,
+            "fresh_exhaustive_executions": 65,
+            "formal_proof": {
+              "schema": "usl.intent.proof.v1",
+              "contract_sha256": "e5f60703a1eb17921c3b8e7f2d64d775cb6f507b6a1287bbaf0b42e9ca820051",
+              "expression_sha256": "3a1f3da489fc2a47ba14a3f7121514fcd7bb544fd3dcd237c866a13431fe2a37",
+              "solver": "5.1.0",
+              "proved": true,
+              "domain": "bounded int32 inputs and overflow-free primitive arithmetic",
+              "modelled_operations": [
+                "integer literals",
+                "variables",
+                "add",
+                "subtract",
+                "multiply",
+                "unary signs",
+                "comparisons",
+                "short-circuit boolean connectives",
+                "guarded conditional expressions"
+              ],
+              "whole_language_conformance": false,
+              "arbitrary_natural_language_intent_proven": false,
+              "solver_result": "unsat"
+            },
+            "skill_sha256": "6cdd7b9a235049f87210c30ffc467e4f80f4252ed971a39ee69ac6c0fe1b7251"
+          },
+          {
+            "name": "absolute",
+            "passed": true,
+            "fresh_exhaustive_executions": 65,
+            "formal_proof": null,
+            "skill_sha256": "df87f7d8a5ea1a1af0706c882a75dc16764cfe7fddb5ab47e56f7c128c6d6cfa"
+          },
+          {
+            "name": "negate",
+            "passed": true,
+            "fresh_exhaustive_executions": 65,
+            "formal_proof": {
+              "schema": "usl.intent.proof.v1",
+              "contract_sha256": "59ef4a16907f006110212a55345275b963658148d8fecc90d2ff60aafdab55d3",
+              "expression_sha256": "d086d5d726b163e629d08e247e2d7580e2ad64bf37805ea4e7c5b12347b11ec2",
+              "solver": "5.1.0",
+              "proved": true,
+              "domain": "bounded int32 inputs and overflow-free primitive arithmetic",
+              "modelled_operations": [
+                "integer literals",
+                "variables",
+                "add",
+                "subtract",
+                "multiply",
+                "unary signs",
+                "comparisons",
+                "short-circuit boolean connectives",
+                "guarded conditional expressions"
+              ],
+              "whole_language_conformance": false,
+              "arbitrary_natural_language_intent_proven": false,
+              "solver_result": "unsat"
+            },
+            "skill_sha256": "1df7b95d249e90bd14637ed81d4b322e18b78e1fc54f8d79748ef7802882192f"
+          },
+          {
+            "name": "nonnegative",
+            "passed": true,
+            "fresh_exhaustive_executions": 65,
+            "formal_proof": null,
+            "skill_sha256": "625f2ef9917186203beba1e6153009afd37e0db7e0bf3bfd875273e4214600de"
+          },
+          {
+            "name": "even",
+            "passed": true,
+            "fresh_exhaustive_executions": 65,
+            "formal_proof": null,
+            "skill_sha256": "8e58280d0adf11634abfe840562f29f599bf8f51f29889ee2470792cffcb7605"
+          },
+          {
+            "name": "list_sum",
+            "passed": true,
+            "fresh_exhaustive_executions": 781,
+            "formal_proof": null,
+            "skill_sha256": "932378bca9e7544ae2f297747c6178c95599ac5b66f2870d0d46bc9696e47b7c"
+          },
+          {
+            "name": "sum_squares",
+            "passed": true,
+            "fresh_exhaustive_executions": 781,
+            "formal_proof": null,
+            "skill_sha256": "7461bc7dbb6dd0fe299fbb77ab9acfa42ecea13b6150aa71f156823fdee6b060"
+          },
+          {
+            "name": "count_nonnegative",
+            "passed": true,
+            "fresh_exhaustive_executions": 781,
+            "formal_proof": null,
+            "skill_sha256": "fe1d8e261e969120e94e49544aed13c67f04108ed82a11cf4c023e9a00237615"
+          },
+          {
+            "name": "keep_nonnegative",
+            "passed": true,
+            "fresh_exhaustive_executions": 781,
+            "formal_proof": null,
+            "skill_sha256": "bfc41f07669887d30f06c4744e32c701646e9bf9de57c07e8bcd8cfb9f426688"
+          },
+          {
+            "name": "double_list",
+            "passed": true,
+            "fresh_exhaustive_executions": 781,
+            "formal_proof": null,
+            "skill_sha256": "4ec8cc2b651d3d8ee5790118d4985ef65bb6fe8e9fce98383f4d0f1bbbe48f21"
+          },
+          {
+            "name": "all_nonnegative",
+            "passed": true,
+            "fresh_exhaustive_executions": 781,
+            "formal_proof": null,
+            "skill_sha256": "b4e32a60990b388450eda262d3351254b0e6724069efd1f2c8dbe1250ba5d382"
+          },
+          {
+            "name": "any_negative",
+            "passed": true,
+            "fresh_exhaustive_executions": 781,
+            "formal_proof": null,
+            "skill_sha256": "84e5a46f436de099eea37cfcb4057f978335df7726364c4c934b458e4e4399f3"
+          },
+          {
+            "name": "count_even",
+            "passed": true,
+            "fresh_exhaustive_executions": 781,
+            "formal_proof": null,
+            "skill_sha256": "d09a81e27a5b6e069b2ffe49e2dc33c2657223db14cece18805c918aa9738704"
+          }
+        ],
+        "elapsed_seconds": 0.9259952470019925,
+        "original_learning_holdouts_reused": false,
+        "new_learning_claimed": false
+      }
+    },
+    "test": {
+      "tests": {
+        "tests_executed": 24,
+        "passed": true
+      }
+    },
+    "transfer": {
+      "transfer": {
+        "passed": true,
+        "fresh_native_programs": 24,
+        "elapsed_seconds": 5.85649078899587
+      }
+    },
+    "prepare": {
+      "preparation": {
+        "schema": "usl.all-language.preparation.v1",
+        "version": "4.11.0-preparation",
+        "passed": true,
+        "base_version": "4.10.0",
+        "base_source_identity": "701c351812b571c3d75033bee78a8fbfeb23c6b324f7a8d59a6666dea7b12fa7",
+        "source_unchanged_during_run": true,
+        "addon_source_identity": "328a5c9300923f1251c0dcde38aecff99547b4c8394ebad4bf9d8a1b5547531d",
+        "addon_unchanged_during_run": true,
+        "elapsed_seconds": 5.629264724004315,
+        "original_ids_inventoried": 606,
+        "extra_USL_inventoried": 1,
+        "original_scoped_profiles": 183,
+        "remaining_original_ids_without_scope": 423,
+        "normative_preparation_complete": 0,
+        "full_standards_qualified": 0,
+        "entity_tracks_complete": 0,
+        "prepared_USL_skills": 14,
+        "keyword_metadata_inventories": 604,
+        "actual_parser_schemas": 155,
+        "actual_USL_kernel_applications": 1822,
+        "exact_all_ID_graph_join": {
+          "family_sets": 23,
+          "sum_of_family_counts": 607,
+          "original_obligation_dimensions": 10908,
+          "per_ID_ordered_steps": 15,
+          "total_ordered_steps": 9105,
+          "lossless_factor_join_verified": true,
+          "family_sharing_does_not_transfer_semantic_guarantees": true
+        },
+        "actual_USL_family_aggregation": {
+          "observed": {
+            "stdout": "607\n",
+            "operations": 170,
+            "wall_seconds": 0.00027643599605653435
+          },
+          "independent_expected": "607\n",
+          "passed": true,
+          "input": [
+            11,
+            35,
+            27,
+            16,
+            45,
+            50,
+            69,
+            49,
+            42,
+            42,
+            4,
+            12,
+            18,
+            20,
+            13,
+            14,
+            89,
+            4,
+            26,
+            3,
+            3,
+            14,
+            1
+          ]
+        },
+        "resource_pool_contract": {
+          "executor": "local_process",
+          "capacity_cpu": 4.0,
+          "workers": 99,
+          "admission": {
+            "workers": 99,
+            "USL_admission_policy": {
+              "source": "admission.usl",
+              "sha256": "df765106b2ec3ce789a4986fe1ca08a95712ace8a74648a20f3ca1db329d832f",
+              "operations": 76,
+              "elapsed_seconds": 0.0006615129968849942,
+              "actual_USL_execution": true
+            },
+            "requested_workers": 99,
+            "cpu_equivalent_quota": 4.0,
+            "logical_cpus_observed": 5,
+            "memory_admission_budget_bytes": 26587717632,
+            "per_worker_reservation_bytes": 134217728,
+            "non_reclaimable_memory_bytes": 3477053440,
+            "memory_working_set_reserve_bytes": 4294967296,
+            "memory_snapshot": {
+              "statistics": {
+                "anon": 1004101632,
+                "file": 28145532928,
+                "kernel": 2342354944,
+                "kernel_stack": 1392640,
+                "pagetables": 7421952,
+                "sec_pagetables": 0,
+                "percpu": 19628,
+                "sock": 0,
+                "vmalloc": 36864,
+                "shmem": 91754496,
+                "file_mapped": 32280576,
+                "file_dirty": 38842368,
+                "file_writeback": 0,
+                "swapcached": 0,
+                "anon_thp": 0,
+                "file_thp": 2959081472,
+                "shmem_thp": 0,
+                "inactive_anon": 1014931456,
+                "active_anon": 80678912,
+                "inactive_file": 11603709952,
+                "active_file": 16450097152,
+                "unevictable": 0,
+                "slab_reclaimable": 2317621152,
+                "slab_unreclaimable": 15833120,
+                "slab": 2333454272,
+                "workingset_refault_anon": 0,
+                "workingset_refault_file": 102,
+                "workingset_activate_anon": 0,
+                "workingset_activate_file": 102,
+                "workingset_restore_anon": 0,
+                "workingset_restore_file": 0,
+                "workingset_nodereclaim": 0,
+                "pgdemote_kswapd": 0,
+                "pgdemote_direct": 0,
+                "pgdemote_khugepaged": 0,
+                "pgdemote_proactive": 0,
+                "pgscan": 765388,
+                "pgsteal": 765386,
+                "pswpin": 0,
+                "pswpout": 0,
+                "pgscan_kswapd": 0,
+                "pgscan_direct": 765388,
+                "pgscan_khugepaged": 0,
+                "pgscan_proactive": 0,
+                "pgsteal_kswapd": 0,
+                "pgsteal_direct": 765386,
+                "pgsteal_khugepaged": 0,
+                "pgsteal_proactive": 0,
+                "pgfault": 3455664779,
+                "pgmajfault": 5,
+                "pgrefill": 64,
+                "pgactivate": 15047781,
+                "pgdeactivate": 64,
+                "pglazyfree": 949223,
+                "pglazyfreed": 0,
+                "swpin_zero": 0,
+                "swpout_zero": 0,
+                "thp_fault_alloc": 400,
+                "thp_collapse_alloc": 0,
+                "thp_swpout": 0,
+                "thp_swpout_fallback": 0
+              },
+              "events": {
+                "low": 0,
+                "high": 0,
+                "max": 9138,
+                "oom": 0,
+                "oom_kill": 0,
+                "oom_group_kill": 0
+              }
+            },
+            "resources": {
+              "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+              "machine": "x86_64",
+              "cpu_logical": 5,
+              "cpu_effective": 4.0,
+              "memory_bytes": {
+                "total": 34359738368,
+                "available": 2866872320,
+                "host_total": 35743784960
+              },
+              "cgroup_constraints": {
+                "observed": true,
+                "cpu_quota": "400000",
+                "cpu_period": 100000,
+                "memory_maximum": "34359738368",
+                "memory_current": 31492866048
+              },
+              "gpus_detected": [],
+              "acceleration_claim": "Read-only hardware discovery; no USL GPU kernel execution or throughput claims."
+            },
+            "GPUs_qualified": [],
+            "remote_pools_registered": [],
+            "logical_workers_are_not_limited_by_executor_slots": true,
+            "physical_capacity_not_created_by_virtualization": true
+          },
+          "requests_serializable_JSON": true,
+          "native_compiler_host_requirements_remain_per_ID": true,
+          "qualified_hosts": [
+            "current Linux/POSIX host"
+          ],
+          "additional_hardware_or_remote_pools_qualified": false
+        },
+        "retrieved_reference_groups": 0,
+        "all_evidence_CAS_hashes_restored": true,
+        "preparation_scope": "Catalog, public lexical/parser metadata, reference provenance and required semantic/host actions. Reading source metadata or retrieving documents does not complete normative audit or native semantic implementation."
+      }
+    },
+    "race": {
+      "race": {
+        "passed": true,
+        "selected_before_heldout": "factored/1",
+        "physical_pool_sizes_measured": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "end_to_end_seconds": 9.824585388007108
+      }
+    },
+    "qualify": {
+      "qualification": {
+        "schema": "usl.scoped.partial-worker-set.v1",
+        "passed": true,
+        "finished": true,
+        "candidate_ids": [
+          "antlr",
+          "antlr-java",
+          "asc",
+          "c-objdump",
+          "capnp",
+          "console",
+          "cpp-objdump",
+          "css+smarty",
+          "d-objdump",
+          "doscon",
+          "dpatch",
+          "dylan-console",
+          "gas",
+          "html+smarty",
+          "html+twig",
+          "html+velocity",
+          "irc",
+          "javascript+smarty",
+          "jlcon",
+          "kmsg",
+          "livescript",
+          "llvm",
+          "matlabsession",
+          "meson",
+          "nasm",
+          "nginx",
+          "notmuch",
+          "objdump",
+          "objdump-nasm",
+          "output",
+          "postgres-explain",
+          "promela",
+          "protobuf",
+          "psql",
+          "psysh",
+          "pwsh-session",
+          "py2tb",
+          "pypylog",
+          "pytb",
+          "ragel",
+          "ragel-c",
+          "ragel-cpp",
+          "ragel-em",
+          "ragel-java",
+          "ragel-objc",
+          "ragel-ruby",
+          "raw-token-data",
+          "scdoc",
+          "sed",
+          "smarty",
+          "sqlite3",
+          "tap",
+          "tcshcon",
+          "twig",
+          "vctreestatus",
+          "velocity",
+          "vim",
+          "wdiff",
+          "xml+smarty",
+          "xml+velocity"
+        ],
+        "candidate_count": 60,
+        "completed": 60,
+        "passed_new_profiles": 60,
+        "failed_profiles": 0,
+        "pending_candidates": 0,
+        "previous_original_scoped": 183,
+        "original_scoped": 243,
+        "original_without_scope": 363,
+        "original_catalog": 606,
+        "USL_extra": 1,
+        "all_ID_plan_entries": 607,
+        "new_code_profiles": 6,
+        "new_category_processing_profiles": 54,
+        "full_standards_qualified": 0,
+        "entity_tracks_complete": 0,
+        "workers": 32,
+        "resource_admission": {
+          "workers": 98,
+          "USL_admission_policy": {
+            "source": "admission.usl",
+            "sha256": "df765106b2ec3ce789a4986fe1ca08a95712ace8a74648a20f3ca1db329d832f",
+            "operations": 76,
+            "elapsed_seconds": 0.0006480839947471395,
+            "actual_USL_execution": true
+          },
+          "requested_workers": 99,
+          "cpu_equivalent_quota": 4.0,
+          "logical_cpus_observed": 5,
+          "memory_admission_budget_bytes": 26541461504,
+          "per_worker_reservation_bytes": 268435456,
+          "non_reclaimable_memory_bytes": 3523309568,
+          "memory_working_set_reserve_bytes": 4294967296,
+          "memory_snapshot": {
+            "statistics": {
+              "anon": 1007652864,
+              "file": 28183375872,
+              "kernel": 2347212800,
+              "kernel_stack": 1392640,
+              "pagetables": 7561216,
+              "sec_pagetables": 0,
+              "percpu": 19740,
+              "sock": 0,
+              "vmalloc": 36864,
+              "shmem": 91754496,
+              "file_mapped": 32280576,
+              "file_dirty": 76689408,
+              "file_writeback": 0,
+              "swapcached": 0,
+              "anon_thp": 0,
+              "file_thp": 2973761536,
+              "shmem_thp": 0,
+              "inactive_anon": 1018392576,
+              "active_anon": 80691200,
+              "inactive_file": 11620904960,
+              "active_file": 16470745088,
+              "unevictable": 0,
+              "slab_reclaimable": 2322331248,
+              "slab_unreclaimable": 15835152,
+              "slab": 2338166400,
+              "workingset_refault_anon": 0,
+              "workingset_refault_file": 102,
+              "workingset_activate_anon": 0,
+              "workingset_activate_file": 102,
+              "workingset_restore_anon": 0,
+              "workingset_restore_file": 0,
+              "workingset_nodereclaim": 0,
+              "pgdemote_kswapd": 0,
+              "pgdemote_direct": 0,
+              "pgdemote_khugepaged": 0,
+              "pgdemote_proactive": 0,
+              "pgscan": 765388,
+              "pgsteal": 765386,
+              "pswpin": 0,
+              "pswpout": 0,
+              "pgscan_kswapd": 0,
+              "pgscan_direct": 765388,
+              "pgscan_khugepaged": 0,
+              "pgscan_proactive": 0,
+              "pgsteal_kswapd": 0,
+              "pgsteal_direct": 765386,
+              "pgsteal_khugepaged": 0,
+              "pgsteal_proactive": 0,
+              "pgfault": 3457319987,
+              "pgmajfault": 5,
+              "pgrefill": 64,
+              "pgactivate": 15052077,
+              "pgdeactivate": 64,
+              "pglazyfree": 949223,
+              "pglazyfreed": 0,
+              "swpin_zero": 0,
+              "swpout_zero": 0,
+              "thp_fault_alloc": 400,
+              "thp_collapse_alloc": 0,
+              "thp_swpout": 0,
+              "thp_swpout_fallback": 0
+            },
+            "events": {
+              "low": 0,
+              "high": 0,
+              "max": 9138,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0
+            }
+          },
+          "resources": {
+            "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+            "machine": "x86_64",
+            "cpu_logical": 5,
+            "cpu_effective": 4.0,
+            "memory_bytes": {
+              "total": 34359738368,
+              "available": 2755293184,
+              "host_total": 35743784960
+            },
+            "cgroup_constraints": {
+              "observed": true,
+              "cpu_quota": "400000",
+              "cpu_period": 100000,
+              "memory_maximum": "34359738368",
+              "memory_current": 31604445184
+            },
+            "gpus_detected": [],
+            "acceleration_claim": "Read-only hardware discovery; no USL GPU kernel execution or throughput claims."
+          },
+          "GPUs_qualified": [],
+          "remote_pools_registered": [],
+          "logical_workers_are_not_limited_by_executor_slots": true,
+          "physical_capacity_not_created_by_virtualization": true
+        },
+        "logical_partial_tasks": 10926,
+        "continuous_scheduler": true,
+        "fixed_rounds": false,
+        "logical_worker_counts": {
+          "created": 10926,
+          "started": 10926,
+          "finished": 10926,
+          "awaiting_native": 0,
+          "max_awaiting_native": 1080
+        },
+        "elapsed_seconds": 11.655598090001149,
+        "validation_only_ETA_seconds": null,
+        "entire_implementation_ETA_seconds": null,
+        "base_source_identity": "701c351812b571c3d75033bee78a8fbfeb23c6b324f7a8d59a6666dea7b12fa7",
+        "addon_source_identity": "328a5c9300923f1251c0dcde38aecff99547b4c8394ebad4bf9d8a1b5547531d",
+        "source_unchanged_during_run": true,
+        "native_execution_evidence_replayed": false,
+        "counterexample_blockers": {
+          "ragel-d": {
+            "reason": "Ragel6 D1 generated carriers fail the installed D2 compiler: const-table pointer types or implicit switch fallthrough.",
+            "attempts": [
+              "default table: const(char)* cannot convert to char*",
+              "G2 goto: switch fallthrough rejected",
+              "F1 flat: const(char)* and const(byte)* mutable pointer assignments rejected"
+            ],
+            "needed": "Implement and validate a versioned D2-compatible backend, or install a compatible native D host. Preserve original rejected generated code evidence; no native pass inferred from other Ragel IDs."
+          }
+        }
+      }
+    },
+    "tables": {
+      "backlog": {
+        "original_ids": 606,
+        "USL_extra": 1,
+        "original_scoped": 243,
+        "original_without_scope": 363,
+        "new_scoped": 60,
+        "code_expression_profiles": 82,
+        "category_processing_profiles": 161,
+        "all_ID_preparation_records": 607,
+        "logical_ID_dimension_tasks": 10926,
+        "original_normative_dimension_tasks": 10908,
+        "full_standards": 0,
+        "complete_entity_tracks": 0,
+        "entire_objective_ETA_seconds": null
+      }
+    }
+  },
+  "elapsed_seconds": 21.517734145003487,
+  "source_identity": "328a5c9300923f1251c0dcde38aecff99547b4c8394ebad4bf9d8a1b5547531d",
+  "source_unchanged_during_run": true,
+  "independent_ready_stages_overlap": true,
+  "fixed_stage_rounds": false
+}

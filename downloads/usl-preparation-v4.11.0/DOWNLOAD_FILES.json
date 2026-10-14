@@ -1,0 +1,82 @@
+{
+  "BUILD_VERIFICATION.json": {
+    "sha256": "26b79d9fe2b3ddfc6d6088e300ae13a6c74bbf3d490e07ddcc995d8c9a338c30",
+    "bytes": 837
+  },
+  "CLEAN_VERIFICATION.json": {
+    "sha256": "562d7de5ab7b24c5f056d79c8505ed92996aa739167db5df5ea679f5c473db19",
+    "bytes": 8046
+  },
+  "CLEAN_WORKFLOW.json": {
+    "sha256": "e42dd2502c727b60b179202b6da906827d93cd01471aec4c7e713cb307672645",
+    "bytes": 46539
+  },
+  "CONTINUE_FROM_HERE.md": {
+    "sha256": "6b8c8ccecb97a40d093fb8020507eecc1e154fbfe4752d46e5b885c05bf9f28f",
+    "bytes": 6870
+  },
+  "EQUATION_RACE.json": {
+    "sha256": "2838c07d6906f50d6dac45c246ca3af3c199e087fafa32f62b8b5358a8acf399",
+    "bytes": 33457
+  },
+  "LANGUAGES.csv": {
+    "sha256": "78bfb8f6ce79455c804c8aa8e31e660f63cfa44c3a26a094d1975fd0795b93f5",
+    "bytes": 189387
+  },
+  "LANGUAGES.html": {
+    "sha256": "c36fa037d4bbeb640de425db433a5c758011418ba5a0f42b023ee613e0f38dcb",
+    "bytes": 3303214
+  },
+  "LANGUAGES.json": {
+    "sha256": "0e3af364a220e0fc1bedfb30bddbe100fde463533594cf3f6572cc99b013858d",
+    "bytes": 10232187
+  },
+  "PARTIAL_WORKERS.json": {
+    "sha256": "4b383102eb91bbb670fac78127a2a8f4ec84620dfe53bde28722fb7be6bb204b",
+    "bytes": 5359186
+  },
+  "README.md": {
+    "sha256": "071a0317e49cdb2969e3020047c9070f42a6d556b6972702f0d0505c6b94b5ce",
+    "bytes": 7402
+  },
+  "REFERENCE_RESOLUTION.json": {
+    "sha256": "af6505b56de37e1e4c755df2c829f6f374fa640d51ab0185643ad2cd3a7d3140",
+    "bytes": 1169299
+  },
+  "RUN_SUMMARY.json": {
+    "sha256": "3fe8e1b87595b4e01934f4172f47cb49fe89404f32725f253b447ac75167c646",
+    "bytes": 46590
+  },
+  "SHA256SUMS.json": {
+    "sha256": "ee3dd7771561826bb268f2fa1bf5ceaeb7cec8207ec42a7eddf229675d6e0203",
+    "bytes": 371153
+  },
+  "TESTING.md": {
+    "sha256": "5d5e6489ca690bcacff05d507e2aca601ed0a994e4dbb55271e6ccae10d532d7",
+    "bytes": 3729
+  },
+  "USL-V4.11.0-BASE-AND-ADDON.zip": {
+    "sha256": "d79e83a123ea838589110611986d8147f8ab7b68a2493fb4a850128cbbd5c0c0",
+    "bytes": 52967945
+  },
+  "USL-V4.11.0-BASE-AND-ADDON.zip.sha256": {
+    "sha256": "9c32c09f7a6e41b0f805316bbbe4e02732c42d9f7d34255f424480520c738c2c",
+    "bytes": 97
+  },
+  "USL-V4.11.0-PREPARATION-AND-60-PROFILES.zip": {
+    "sha256": "21f2acf4f6ef763ef9099ad614e2d66cbfbd720b33469e544b34989951f2f2cf",
+    "bytes": 7888778
+  },
+  "USL-V4.11.0-PREPARATION-AND-60-PROFILES.zip.sha256": {
+    "sha256": "6710a4c0ae1d6b4b4878a19ad725b4b2072cd56d0bbe2fcf2cf6de4b3ac8efd7",
+    "bytes": 110
+  },
+  "WORKER_SUMMARY.json": {
+    "sha256": "d3bc1695a698979daa7baa9dd47bc6926a21a39874ef88c116a39d223e444dfe",
+    "bytes": 20248
+  },
+  "WORKFLOW_AUDIT.md": {
+    "sha256": "4bd4f9e3ea01e85b98763727ed9a4e81efeb83ef05da91a15a417da32cb8d3c4",
+    "bytes": 4318
+  }
+}
