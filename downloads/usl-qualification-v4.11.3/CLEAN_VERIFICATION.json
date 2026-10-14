@@ -1,0 +1,19 @@
+{
+  "version": "4.11.3",
+  "passed": true,
+  "source_clean_extracted": true,
+  "regression_tests": 42,
+  "fresh_USL_core_tests": 18,
+  "catalog_IDs": 607,
+  "gate_dimensions": 10926,
+  "requirement_groups": 29136,
+  "full_standards_qualified": 0,
+  "fresh_native_language_runs_from_old_receipt_audit": 0,
+  "source_code_matches_tested_clean_tree": true,
+  "clean_verification_report_sha256": "79ab0ab0085f823e447085689f9873feace5de46a3d201b0d21dc36abfa38d32",
+  "metadata_only_final_updates": [
+    "CLEAN_VERIFICATION.json",
+    "RUNTIME_VERIFICATION.json",
+    "MANIFEST.json"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "version": "4.11.3",
+  "files": {
+    "ALL_ID_STATUS.md": {
+      "sha256": "1b94bd09252edeec833bfb8bbbeae554e4bbc691365488a242c41d24ae0d2043",
+      "bytes": 72564
+    },
+    "CLEAN_VERIFICATION.json": {
+      "sha256": "5d7dd4afbfa2a025ab653bc0714aeb6842429cd5e59442d56d5750a510244180",
+      "bytes": 585
+    },
+    "CONTINUE_FROM_HERE.md": {
+      "sha256": "d37884d68a0a50c814fb028cd946a7b7ad021b364b51f7d74f8e20b5aca80ddf",
+      "bytes": 4147
+    },
+    "DELIVERY_SUMMARY.json": {
+      "sha256": "0b48b3f17f66634e44d8f83faa47306231dcb3db538bee12c75ff53bad20e669",
+      "bytes": 1510
+    },
+    "DEPENDENCIES.json": {
+      "sha256": "f0a6ca7bb1761bdef7e5db22d3bbef34216758e8d5532703956688d929b99208",
+      "bytes": 619
+    },
+    "QUALIFICATION_STEPS.md": {
+      "sha256": "d88b494d02b8eeda28e7f52cb48f885a13d4af19864a3ece76fbe803ad423303",
+      "bytes": 8546
+    },
+    "SOURCE_MANIFEST.json": {
+      "sha256": "1320ec9fae5d8b0a445ac59c85ee748f39904f4f7f4a62a3587b8012164c7061",
+      "bytes": 4382
+    },
+    "TESTING_GUIDE.md": {
+      "sha256": "2fe45d1796c4dd28e6b2c62c3256c072708c4500cb5d33569e49275463a7727a",
+      "bytes": 6955
+    },
+    "USL-V4.11.3-ALL-607-FULL-QUALIFICATION-GATES.zip": {
+      "sha256": "0219c7a676e660763d4a78d34a3e225a51cc129d15235622059bea0824e51d79",
+      "bytes": 1056666
+    }
+  }
+}

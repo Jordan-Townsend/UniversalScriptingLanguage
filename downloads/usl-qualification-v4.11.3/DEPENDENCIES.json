@@ -1,0 +1,10 @@
+{
+  "input_release": "4.11.2",
+  "source_root_expected": "usl-planning-v4.11.2",
+  "source_archive_sha256": "0ec8164764712255e29ea9a22f887e6629bcd21bf32d93d5974cccc4808f39ae",
+  "source_manifest_sha256": "f418a71ad6a069fa0baeec26fd8705c3e9990c7f48011e3283154f10c53b4e9c",
+  "source_download": "https://github.com/Jordan-Townsend/UniversalScriptingLanguage/raw/refs/heads/downloads/usl-preparation-v4.11.0/downloads/usl-planning-v4.11.2/USL-V4.11.2-CONCURRENT-TRANCHES-AND-ALL-ID-SCOPING.zip",
+  "runtime_root_expected": "usl-v4.10.0-clean-test",
+  "new_dependencies_installed": [],
+  "native_binaries_shipped": false
+}
