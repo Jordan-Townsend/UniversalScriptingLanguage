@@ -36,8 +36,12 @@
     "bytes": 5359186
   },
   "README.md": {
-    "sha256": "071a0317e49cdb2969e3020047c9070f42a6d556b6972702f0d0505c6b94b5ce",
-    "bytes": 7402
+    "sha256": "bc6c7c1b662dca22f6ba3070a3601f548b71c515694cad04f76f26222182d099",
+    "bytes": 7707
+  },
+  "REFERENCE_REFRESH.json": {
+    "sha256": "3de5ad3ca58ed8603ca4732b036600c7721dc5cf64b0613d6734dfe2c9b1f95c",
+    "bytes": 542211
   },
   "REFERENCE_RESOLUTION.json": {
     "sha256": "af6505b56de37e1e4c755df2c829f6f374fa640d51ab0185643ad2cd3a7d3140",

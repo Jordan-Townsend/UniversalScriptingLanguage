@@ -1,3 +1,5 @@
+Post-publication reference refresh: **188/479 reference groups retrieved;4 official replacements verified** (Raku,IRC,dev-kmsg andnginx). [Provenance and failures](REFERENCE_REFRESH.json). Additional404 replacement candidates remain unverified. The qualified ZIP retains its original reference snapshot.
+
 Download [base + addon ZIP](USL-V4.11.0-BASE-AND-ADDON.zip?raw=true), [addon only](USL-V4.11.0-PREPARATION-AND-60-PROFILES.zip?raw=true), [testing guide](TESTING.md), [607-ID table](LANGUAGES.html) and [clean verification](CLEAN_VERIFICATION.json). Native toolchains remain prerequisites.
 
 # USL preparation and60-profile addon —4.11.0
