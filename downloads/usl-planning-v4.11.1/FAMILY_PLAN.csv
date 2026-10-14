@@ -1,0 +1,23 @@
+family,planning_class,original_IDs,scoped,without_scope,normative_audits_complete,full_qualified,reference_scoped_budget_hours,reference_full_budget_hours
+.NET managed languages,code_like,4,1,3,0,0,120,6080
+"Array, numerical and statistical",code_like,27,4,23,0,0,600,35520
+Assembly and intermediate representations,code_like,14,4,10,0,0,288,18880
+BASIC and business procedural,code_like,16,2,14,0,0,384,21440
+BEAM languages,code_like,3,2,1,0,0,72,4800
+"Configuration, build and deployment",processing_heavy,50,14,36,0,0,312,16320
+Domain-specific and classification pending,mixed_unknown,45,3,42,0,0,1392,72960
+Esoteric languages,code_like,4,1,3,0,0,120,6080
+"Grammars, interfaces and schemas",processing_heavy,49,19,30,0,0,264,16000
+"HDL, shaders and compute",code_like,11,3,8,0,0,240,15040
+JVM and managed object languages,code_like,12,4,8,0,0,240,16320
+Lisp and related languages,code_like,14,6,8,0,0,240,18880
+"Logic, proof and verification",code_like,20,3,17,0,0,456,26560
+ML/Haskell and typed functional,code_like,18,4,14,0,0,384,24000
+"Markup, documents and styles",processing_heavy,42,33,9,0,0,96,13760
+SQL and query languages,code_like,26,6,20,0,0,528,34240
+Scripting and general application languages,code_like,69,19,50,0,0,1248,89280
+Shell and automation languages,code_like,13,6,7,0,0,216,17600
+Stack and concatenative languages,code_like,3,0,3,0,0,120,4800
+Systems and native imperative,code_like,35,13,22,0,0,576,45760
+Templates and composite sources,processing_heavy,89,55,34,0,0,296,28800
+"Transcripts, logs and protocol messages",processing_heavy,42,42,0,0,0,0,13760

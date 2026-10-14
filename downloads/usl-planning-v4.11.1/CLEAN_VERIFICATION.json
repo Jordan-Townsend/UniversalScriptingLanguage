@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "source_clean_extracted": true,
+  "unit_tests": 33,
+  "all_ID_records": 607,
+  "ID_reference_bodies": 384,
+  "all_original_plan_steps": 9090,
+  "scenarios": 6,
+  "Brainfuck_intent_cases": 426,
+  "Brainfuck_native_executions": 849,
+  "JSON_upstream_cases": 318,
+  "JSON_independent_cases": 612,
+  "JSON_native_processing_cases": 1556,
+  "JSON_USL_cases": 626,
+  "scoped_originals": 244,
+  "originals_without_scope": 362,
+  "full_standards_qualified": 0,
+  "full_project_ETA_weeks": null,
+  "native_observations_replayed": false,
+  "components": [
+    "estimate.usl",
+    "capacity.usl",
+    "semantic_worker.usl",
+    "semantic_records.usl",
+    "context_pack.usl"
+  ]
+}

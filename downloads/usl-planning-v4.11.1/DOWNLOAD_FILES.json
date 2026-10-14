@@ -1,0 +1,42 @@
+{
+  "CLEAN_VERIFICATION.json": {
+    "sha256": "08738be7d2d756f891815d5579fb4d59f7b64304f9da1f30d11f41c658adbd89",
+    "bytes": 692
+  },
+  "CONTEXT_VIEW.metrics.json": {
+    "sha256": "e7c3853c00c2d68ca8d22900705b812432d0221cffd113d4b1b70218c68c9d5b",
+    "bytes": 297
+  },
+  "CONTINUE_FROM_HERE.md": {
+    "sha256": "b8e12e59c4963db5464a297bce678eb2f700f89c42d7d8668d58d76e189e4a93",
+    "bytes": 5691
+  },
+  "DELIVERY_SUMMARY.json": {
+    "sha256": "ebbd0ca21df08f07ef1bc0ed2508099061a22e97ab5e9a0123a5f1de8be0440c",
+    "bytes": 842
+  },
+  "FAMILY_PLAN.csv": {
+    "sha256": "450f4f28cdcadb22556585272e659515ec840f3d5787c3c8f9db3f5af7299e92",
+    "bytes": 1607
+  },
+  "README.md": {
+    "sha256": "9fa51474cae7a1d7c56a44b272c10cbdd8b00a0681d5266f62ecedf15de9d3a9",
+    "bytes": 6456
+  },
+  "REPORT.md": {
+    "sha256": "435656331167484c3f85312a4b7fc6d0f43d7f4454ce58c04265d9adb59841df",
+    "bytes": 5528
+  },
+  "RULE_SET_PROGRESS.json": {
+    "sha256": "4f03cd100d649c7a2016c0429d9d06fe77c25176de9271c4985f8d996991eacd",
+    "bytes": 237732
+  },
+  "SHA256SUMS.json": {
+    "sha256": "5d73b0070984c7d809a54733802d467bf2fb1d1aaf9f1da0ac3d01d0265af74b",
+    "bytes": 186
+  },
+  "USL-V4.11.1-RULES-WORKERS-AND-SCHEDULE.zip": {
+    "sha256": "c4c2adb03c24fba4f8b255cab72686aa40fbd10dfc850b87edcf798d107124d7",
+    "bytes": 1925736
+  }
+}
