@@ -1,0 +1,19 @@
+{
+  "schema": "usl.v4115.archive-clean-restore.v1",
+  "archive": "USL-V4.11.5-19-PROFILES-PORTABLE-UBUNTU.zip",
+  "archive_sha256": "a324d5421b3a03bd52f1d91291a0552b9102063e60c34897ab6a56c5f9370629",
+  "archive_bytes": 9309334,
+  "manifest_files_verified": 2604,
+  "native_clean_restore_passed": true,
+  "native_tests": 165,
+  "native_usl_executions": 2152,
+  "portable_ubuntu_python": "3.14.4",
+  "portable_clean_archive_tests": 19,
+  "full_native_fresh_ubuntu_install_verified": false,
+  "new_cloud_task_restoration_verified": false,
+  "retained_external_native_prerequisites_required": true,
+  "portable_cli_requires_retained_codex_toolchains": false,
+  "source_unchanged": true,
+  "native_binaries_shipped": false,
+  "helper_sha256": "ad20f28f88f65ea5c1b1d39c5fa5e25b701b17bc4d033b38188d0b0d550fbef8"
+}

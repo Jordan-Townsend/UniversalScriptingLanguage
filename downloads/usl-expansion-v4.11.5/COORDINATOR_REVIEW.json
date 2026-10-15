@@ -1,0 +1,41 @@
+{
+  "schema": "usl.v4115.coordinator-review.v1",
+  "passed": true,
+  "independent_test_authorship": "A separate implementation worker authored test_coordinator_review_new.py and adversarial supervisor fixtures; root reran and integrated them after worker interruption. This is not independent full-profile approval.",
+  "source_sha256": {
+    "coordinator.py": "1323ebedc07b5c8df311aadb70bd0afa1b78bf689a953ed22ac59968b33b946c",
+    "coordinator.usl": "a5d233a4fb4b433b93cf661addacf72d80f001fa0352b03e916ccecb14f21d8e",
+    "baseline.py": "387fef2db04a126629c2173138a37751673f30c356d0a5422a12f508897569d6",
+    "family_supervisor.py": "1d586c02140b5619f9814bf44fab29c76193297400bac9687ef376ed7366c55c",
+    "test_coordinator.py": "6235fb3f81fa1f5c67d5f675dc26cf83313eb1483b5afb810c47dfd822027aa8",
+    "test_coordinator_independent.py": "42029a6a3037d01d7f85e4da41a5452ef4f59224c51b191ce0af4ebde2f3d8cb",
+    "test_coordinator_review_new.py": "e9b718e4a38460242eaeedfca90ee22b918081628225db6db33b3204e41c55ce",
+    "test_baseline.py": "9f08493b12b0ddcb7d928aff7edd7ede68154631f7d859bb39375ae2312ad987",
+    "REGISTERED_FAMILIES.json": "10435667c16f0c1d7d5992f4e6042fde7dd4b3c7c90fe76ae619b7dae757bdd6"
+  },
+  "actual_final_root_tests": 70,
+  "actual_final_family_tests": 95,
+  "platforms_passed": [
+    "Debian13",
+    "Ubuntu26.04.1"
+  ],
+  "evidence_files": [
+    "DEBIAN_VERIFICATION.json",
+    "UBUNTU26_VERIFICATION.json"
+  ],
+  "verified_invariants": [
+    "Every329 starting gap and every606original ID retained",
+    "Duplicate/omitted/borrowed profiles and raw full-standard claims rejected",
+    "Cancellation during startup/spawn/failure drains dedicated owned subreaper trees including detached sessions",
+    "Unrelated preexisting and newly concurrent child processes survive cleanup",
+    "Ancestor/descendant output overlap and source symlink escapes rejected",
+    "Runtime and previous baseline identities checked before and after fresh jobs",
+    "Memory/FD admission uses explicitly estimated reclaimable clean cache; no guaranteed peak bound"
+  ],
+  "not_proved": [
+    "Arbitrary process behavior beyond exercised Linux fixtures",
+    "Any complete language standard",
+    "Whole-program original intent or all607normative rules"
+  ],
+  "registry_source_files": 124
+}

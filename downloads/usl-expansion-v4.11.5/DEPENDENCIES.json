@@ -1,0 +1,32 @@
+{
+  "portable_translation": {
+    "python": "Linuxx86_64 Python3.12+; testedUbuntu26 native3.14.4",
+    "installer": "setup_portable.py",
+    "requirements": "requirements-portable.txt",
+    "bundled_interpreter": "bundled_runtime/usl_systems/language.py",
+    "native_hosts_required": false
+  },
+  "native_validation": {
+    "retained_toolchains_required": true,
+    "java_image_recipe": "restore_java.py",
+    "java_identity": "JAVA_IMAGE.json",
+    "snapshot_root": "/workspace/.onboarding",
+    "source_dependencies": [
+      {
+        "release": "4.10.0",
+        "url": "https://github.com/Jordan-Townsend/UniversalScriptingLanguage/raw/refs/heads/downloads/usl-preparation-v4.11.0/downloads/usl-v4.10.0/USL-UNIVERSAL-SYSTEMS-V4.10.0-FULL-SOURCE.zip",
+        "sha256": "70a6f2bbd075d56100009907c9e89588819ee7f64f0346fa05c7803271f100d6"
+      },
+      {
+        "release": "4.11.4",
+        "url": "https://github.com/Jordan-Townsend/UniversalScriptingLanguage/raw/refs/heads/downloads/usl-preparation-v4.11.0/downloads/usl-expansion-v4.11.4/USL-V4.11.4-30-PROFILES-UBUNTU26.zip",
+        "sha256": "15e7c36e72e8045c86b6498add52fb94dd710c4363fc8439574d28b344084417"
+      }
+    ],
+    "qualification_plans": "/workspace/usl-qualification-v4.11.3",
+    "original_catalog_plans": "/workspace/usl-planning-v4.11.2"
+  },
+  "native_binaries_shipped": false,
+  "fresh_full_native_ubuntu_installer_qualified": false,
+  "setup_workflow": "cloud-environment-onboarding:setup"
+}

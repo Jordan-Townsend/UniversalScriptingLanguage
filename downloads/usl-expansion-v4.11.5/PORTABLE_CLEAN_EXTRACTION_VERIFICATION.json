@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "tests_run": 19,
+  "failures": 0,
+  "errors": 0,
+  "python_version": "3.14.4",
+  "python_executable": "/workspace/.onboarding/portable-v4115-ubuntu/bin/python",
+  "python_prefix": "/workspace/.onboarding/portable-v4115-ubuntu",
+  "os_release": "PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\n",
+  "architecture": "x86_64",
+  "packages": {
+    "lark": "1.3.1",
+    "z3-solver": "5.1.0.0"
+  },
+  "bundled_runtime_sha256": "28572d10c70421c71777a4562bbdd075acf6077d5ea4c3b9ebca3278e6dc76cc",
+  "all19_selected_adapters_exercised": true,
+  "native_original_hosts_installed_by_this_workflow": false,
+  "retained_codex_python_or_node_required": false,
+  "scope": "Pure supported source-to-USL adapters, caller tests and limited shader IR proofs; native/conformance suites remain separate",
+  "elapsed_seconds": 4.144039859995246
+}

@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "root_regressions": {
+    "passed": true,
+    "log_sha256": "4486ff739fee9777277d21cb550aa53e02d0f47b0a8aa349640bc1ced3fd5896",
+    "tests_run": 70
+  },
+  "fresh_join": {
+    "passed": true,
+    "log_sha256": "08e53e33d58a83b442a469093e41ec0683d9018c2e4da6704c28a15fd82fe674"
+  },
+  "source_manifest_files_checked": 2604,
+  "summary": {
+    "passed": true,
+    "all_initially_remaining_original_IDs": 329,
+    "all_logical_actors_started_together": true,
+    "peak_live_logical_actors": 329,
+    "family_jobs_executed": 6,
+    "resource_admission": {
+      "native_family_slots": 6,
+      "distinct_family_jobs": 6,
+      "memory_limit_bytes": 34359738368,
+      "memory_current_bytes": 32451563520,
+      "clean_inactive_file_estimate_bytes": 11047604224,
+      "available_after_estimated_reclaim_bytes": 12955779072,
+      "estimated_family_reservation_bytes": 268435456,
+      "estimate_is_not_a_proved_peak_memory_bound": true,
+      "reclaim_is_not_guaranteed": true,
+      "fixed_batches_or_round_caps": false
+    },
+    "new_validated_bounded_profiles": 19,
+    "historical_bounded_profiles_preserved": 277,
+    "bounded_original_profiles": 296,
+    "original_IDs_without_bounded_profile": 310,
+    "full_standards_qualified": 0,
+    "complete_entity_tracks": 0,
+    "fresh_family_regression_tests": 95,
+    "fresh_native_work_by_family": {
+      "lisp": {
+        "reported_units": 1517,
+        "unit": "Fresh native interpreter/parser result observations in three batch processes; process identities separate",
+        "case_records": 1517
+      },
+      "native_code": {
+        "reported_units": 162,
+        "unit": "Fresh native case observations and rejection/domain probes; physical processes separately reported",
+        "case_records": 153
+      },
+      "grammar_hosts": {
+        "reported_units": 124,
+        "unit": "Fresh native generation/compilation/runtime subprocess invocations; acceptance/result observations separate",
+        "case_records": 3440
+      },
+      "server_config": {
+        "reported_units": 648,
+        "unit": "Fresh native loopback HTTP result observations; configuration/server processes separately reported",
+        "case_records": 648
+      },
+      "semantic_hosts": {
+        "reported_units": 5650,
+        "unit": "Fresh uint32 CPU Vulkan result observations; dispatch and compiler processes separately reported",
+        "case_records": 5650
+      },
+      "web_templates": {
+        "reported_units": 78,
+        "unit": "Fresh upstream SSR render observations in one Node process per catalog ID",
+        "case_records": 78
+      }
+    },
+    "fresh_USL_executions": 2152,
+    "native_observations_replayed": false,
+    "source_unchanged_during_run": true,
+    "full_project_ETA_seconds": null,
+    "seconds_through_primary_join_and_exports": 37.042220755974995,
+    "cost_excludes": [
+      "Writing final summary and cost metadata",
+      "Console reporting and process shutdown"
+    ]
+  },
+  "source_unchanged_during_verification": true,
+  "seconds": 51.60125815900392,
+  "cost_excludes": [
+    "Writing this final verification record",
+    "Console reporting and process shutdown"
+  ],
+  "new_task_or_other_OS_restoration_verified": false
+}

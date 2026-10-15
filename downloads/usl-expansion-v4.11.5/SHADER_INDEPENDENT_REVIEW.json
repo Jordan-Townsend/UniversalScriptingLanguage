@@ -1,0 +1,4121 @@
+{
+  "source_bound": true,
+  "reviewed_source_sha256": {
+    "semantic_hosts/shader_profile.py": "ce3c737e8ec8cc9b9e78b595add4674ea5f9335fbc752287a421986b189756c4",
+    "semantic_hosts/proofs.py": "48702c9c4496ade0edb697013358b8bd5cc06034157733c306f5622c620a1969",
+    "semantic_hosts/provider_restore.py": "1853847bc1d168e21882ec828e8e1dcde21ee176dc8a35e59c662a371f603366",
+    "semantic_hosts/restore.py": "59a36820ffd08cb622368922711326e091786dd8746fcf941f477ca187cc03e4",
+    "semantic_hosts/run.py": "88651a81b716f32c033821faeab5ff20adc826cb06ded6aabaad2152973c1c32",
+    "semantic_hosts/vulkan_runner.c": "bfc8c3ddf8f7491650cd39819b4f68ba650bd4d92cd255c8b4fa54872f0426e0",
+    "semantic_hosts/test_shader_profiles.py": "341124fcb465e20f96ee60c24072d094a67b6021e092273bcf1425afb418f40e",
+    "semantic_hosts/README.md": "057bea268e600ced4c1278fd1e7f9d8923f7b2cb6a3a48e226e6a33d65f70a56",
+    "semantic_hosts/PROVIDER.json": "efb66fb921f2eaddc576cbfab4d588437a1ae096a69fbe998f21c974da4b5980",
+    "semantic_hosts/SOURCE_SHA256.json": "6797bf850687c348298f8494bc6b9fb13c84cd3bd127ab3da26e2cd6fd0af8ee",
+    "semantic_hosts/references/HEADERS.json": "e10bc7f978289d227ccf79a134209861eb6e01c47f25c2aae863a030fcb5246e",
+    "test_shader_independent.py": "a9efc3cf11474a16c939e9b48d0914e28c02ce96beaa56056bf517b0a614f012"
+  },
+  "source_unchanged_during_review": true,
+  "test_command": "source /workspace/.onboarding/activate-usl.sh && python -m unittest -v test_shader_independent",
+  "structured_run": "unittest.defaultTestLoader.loadTestsFromModule(test_shader_independent), unittest.TextTestRunner(verbosity=2)",
+  "tests_run": 9,
+  "tests_passed": true,
+  "test_output": "test_actual_AST_zero_division_mutants_rejected (test_shader_independent.ShaderIndependent.test_actual_AST_zero_division_mutants_rejected) ... ok\ntest_actual_native_additional_intent_corpus (test_shader_independent.ShaderIndependent.test_actual_native_additional_intent_corpus) ... ok\ntest_actual_provider_authentication_and_member_hashes (test_shader_independent.ShaderIndependent.test_actual_provider_authentication_and_member_hashes) ... ok\ntest_comments_and_other_lexical_extensions_rejected (test_shader_independent.ShaderIndependent.test_comments_and_other_lexical_extensions_rejected) ... ok\ntest_input_domain_including_upper_limit (test_shader_independent.ShaderIndependent.test_input_domain_including_upper_limit) ... ok\ntest_missing_wrap_mutation_fails_intent (test_shader_independent.ShaderIndependent.test_missing_wrap_mutation_fails_intent) ... ok\ntest_native_rejects_unicode_and_control_tokens (test_shader_independent.ShaderIndependent.test_native_rejects_unicode_and_control_tokens) ... ok\ntest_proof_scope_excludes_call_marshalling (test_shader_independent.ShaderIndependent.test_proof_scope_excludes_call_marshalling) ... ok\ntest_unicode_and_control_source_fail_closed (test_shader_independent.ShaderIndependent.test_unicode_and_control_source_fail_closed) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 3.295s\n\nOK\n",
+  "elapsed_seconds": 3.2962283809902146,
+  "independent_fresh_native_observations": 336,
+  "additional_native_dispatch_processes": 24,
+  "additional_native_compilation_processes": 24,
+  "native_invalid_source_compilation_processes": 12,
+  "fresh_C_host_builds": 1,
+  "cryptographic_authentication_invocations": 2,
+  "independently_authored_oracles": true,
+  "oracles_read_parser_IR_or_proof_denotation": false,
+  "original_or_generated_execution_evidence_replayed_from_cache": false,
+  "actual_generated_function_AST_proofs_unsat": 24,
+  "findings": [
+    {
+      "id": "unicode-and-control-tokens",
+      "status": "fixed and independently verified",
+      "before": "Python Unicode \\d and \\s accepted Arabic/fullwidth digits, NBSP and control whitespace rejected by the native shader compiler",
+      "after": "source frontend rejects nonprintable/nonASCII characters except TAB/LF/CR; native rejection reproduced for both dialects",
+      "tests": [
+        "test_unicode_and_control_source_fail_closed",
+        "test_native_rejects_unicode_and_control_tokens"
+      ]
+    },
+    {
+      "id": "Z3-totalized-division",
+      "status": "fixed and independently verified",
+      "before": "actual generated return AST +0*(1//0) proved UNSAT equivalence, but real USL raised division by zero",
+      "after": "actual generated FloorDiv/Mod models require strictly positive literal divisor; zero/negative denominator mutants reject; real zero-division mutants still fail USL execution",
+      "tests": [
+        "test_actual_AST_zero_division_mutants_rejected"
+      ]
+    },
+    {
+      "id": "proof-call-marshalling-scope",
+      "status": "known uncovered obligation; function proof is explicitly narrow",
+      "observation": "swapping actual emitted top-level shader_evaluate(1,2) arguments to (2,1) preserves the function AST equivalence proof while actual generated output changes",
+      "implication": "function-return AST proof does not prove emitted top-level calls, input marshalling, output assembly, parser correctness, or complete intent",
+      "test": "test_proof_scope_excludes_call_marshalling"
+    },
+    {
+      "id": "stale-default-provider-host-receipt",
+      "status": "unused derived build; avoided in review",
+      "observation": "default excluded providers/vulkan_runner receipt referred to an older C source; actual family run builds a fresh host under its output directory",
+      "review_method": "independent review compiles current source into a temporary directory and hashes its result; no shader-owned files modified"
+    }
+  ],
+  "trusted_assumptions": [
+    "Pinned glslang native compiler, selected SwiftShader CPU binary and Vulkan loader implement their actual observed native semantics",
+    "Current C host and independently written buffer harness correctly transport tested uint32 values",
+    "Hash-pinned USL interpreter implements its documented integer/builtin/conditional semantics",
+    "Trusted Z3 solver and positive literal integer division model",
+    "Public Debian archive keyring and sqv signature verifier",
+    "Finite independent native corpus is evidence for tested inputs, not proof of parser or complete standards"
+  ],
+  "uncovered_semantics": [
+    "Full GLSL/HLSL standard/dialect conformance",
+    "Floating point, vectors, matrices, textures, atomics, GPU/device behavior and resources",
+    "Full lexical/preprocessor/semantic/library and parser correctness",
+    "General control flow, interoperation and ABI",
+    "Intent and whole-generated-program/input-output equivalence beyond these finite test cases",
+    "Fresh-host/toolchain installation and portability outside root qualified platform reports"
+  ],
+  "full_standard_qualified": false,
+  "native_and_proof_observations": [
+    {
+      "kind": "host_build",
+      "command": [
+        "/usr/bin/gcc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "/workspace/usl-expansion-v4.11.5/semantic_hosts/vulkan_runner.c",
+        "-l:libvulkan.so.1",
+        "-o",
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner"
+      ],
+      "source_sha256": "bfc8c3ddf8f7491650cd39819b4f68ba650bd4d92cd255c8b4fa54872f0426e0",
+      "C_compiler_launch_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+      "binary_sha256": "eedfeed3df4c77458ef441d56d096b41b4bc44abf1cf28f85ecaaf24d8d60b6c",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "add-before-shift",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return x + 1u << 2u;}\n",
+      "source_sha256": "58549e2a3c080f34b8b8244c10d6cb888fe110b1f2a6adabd60a0c82ee2b1f55",
+      "generated_sha256": "3e2fb9ad9db8dcd1667001d27e40b02ed0c748cd3d8e9f126d81535ab1d52e03",
+      "SPIRV_sha256": "5531f7eda0fe3ce6fbf77894732b2193cce557e5d24bf9fdb09a3ce57402bf3f",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        4,
+        4,
+        8,
+        8,
+        16,
+        40,
+        32,
+        0,
+        4,
+        0,
+        0,
+        8,
+        4294967292,
+        72
+      ],
+      "native_observed": [
+        4,
+        4,
+        8,
+        8,
+        16,
+        40,
+        32,
+        0,
+        4,
+        0,
+        0,
+        8,
+        4294967292,
+        72
+      ],
+      "USL_observed": [
+        4,
+        4,
+        8,
+        8,
+        16,
+        40,
+        32,
+        0,
+        4,
+        0,
+        0,
+        8,
+        4294967292,
+        72
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-dt2g4rjh/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-dt2g4rjh/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-dt2g4rjh/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-dt2g4rjh/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x15 (mod (* (mod (+ x 1) 4294967296) 4) 4294967296)))\n(and (distinct ?x15 ?x15) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "left-subtraction",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return x - y - 1u;}\n",
+      "source_sha256": "02c8b69a27328477c7d41f3f9e8758e8eb3bb5256a841be3f5bdc1ff4b2ea909",
+      "generated_sha256": "450042a2281728fbae4a21f017626ec2f2f690de67a203aca643497e2a98b3e2",
+      "SPIRV_sha256": "5d00e7fdebc66dd22f9039215f11ffeff25d50de1d7a498aecc725ac5882efeb",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967289,
+        5,
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967293,
+        1,
+        4294967276,
+        18
+      ],
+      "native_observed": [
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967289,
+        5,
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967293,
+        1,
+        4294967276,
+        18
+      ],
+      "USL_observed": [
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967289,
+        5,
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967293,
+        1,
+        4294967276,
+        18
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-gn5amlnv/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-gn5amlnv/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-gn5amlnv/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-gn5amlnv/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x53 (mod (- (mod (- x y) 4294967296) 1) 4294967296)))\n(and (distinct ?x53 ?x53) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "quotient-remainder",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return x / 3u * 3u + x % 3u;}\n",
+      "source_sha256": "bec6ca3f01e16d4b4652d9a3191eac978ef2a9072474d2fce74c9e8a10369121",
+      "generated_sha256": "3d10634107cf141ab0163c02a906aacc5e6ffa9901ea01c77e8f5725859e751f",
+      "SPIRV_sha256": "99b15c8e5335d4ef82db859d62dbe4ea1d169614d7df01fd573070f7a5edbaf5",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "native_observed": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "USL_observed": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-lhnw15hl/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-lhnw15hl/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-lhnw15hl/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-lhnw15hl/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x31 (mod (+ (mod (* (div x 3) 3) 4294967296) (mod x 3)) 4294967296)))\n(and (distinct ?x31 ?x31) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "spaced-unary-minus",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return x - - y;}\n",
+      "source_sha256": "81d76b78d1761ed526f27025614116937ccf7c24be350395ae87f387e9a75a77",
+      "generated_sha256": "4a37e413b51421e1976dd64a03ab5297761eda5455239d933b2845468fecc730",
+      "SPIRV_sha256": "d687b5d51d09179995658ef2a822381dc239007b1ece804b2785699465a94a64",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        1,
+        1,
+        2,
+        12,
+        12,
+        14,
+        4294967295,
+        4294967295,
+        4294967294,
+        0,
+        0,
+        15,
+        15
+      ],
+      "native_observed": [
+        0,
+        1,
+        1,
+        2,
+        12,
+        12,
+        14,
+        4294967295,
+        4294967295,
+        4294967294,
+        0,
+        0,
+        15,
+        15
+      ],
+      "USL_observed": [
+        0,
+        1,
+        1,
+        2,
+        12,
+        12,
+        14,
+        4294967295,
+        4294967295,
+        4294967294,
+        0,
+        0,
+        15,
+        15
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-4yvnrqrp/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-4yvnrqrp/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-4yvnrqrp/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-4yvnrqrp/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x39 (mod (- x (mod (- y) 4294967296)) 4294967296)))\n(and (distinct ?x39 ?x39) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "double-spaced-negation",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return - - x;}\n",
+      "source_sha256": "a063c5b5a757984ccb715f5478cd90caf5871ef9a9530042321765bc3ad12429",
+      "generated_sha256": "1c7e655622ee5cabd8dd23ab950aa9c2feefd1de1b8895daba7a9e311fd4afe8",
+      "SPIRV_sha256": "a14072da2e6cd6bfe411eb8f9d4957cf807a3f6434d30d2ce7fe5f9ea980f8fe",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "native_observed": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "USL_observed": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-cpk1dcii/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-cpk1dcii/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-cpk1dcii/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-cpk1dcii/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x37 (mod (- (mod (- x) 4294967296)) 4294967296)))\n(and (distinct ?x37 ?x37) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "nested-true",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return x > y ? x < 7u ? 0u : x : y;}\n",
+      "source_sha256": "5e863e139fbc9e41ed671d002ee3e04fbf20ebced91d5946f5df6fba9fca8d55",
+      "generated_sha256": "79b50be8c55b51108dfd5a879147c29777e3ef9293c201425590678513a899d1",
+      "SPIRV_sha256": "53c62d7ecaeddf8089ae41b72d15fa3200cf7c3f42bd96a8ee81c144eeb8dc56",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        1,
+        0,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "native_observed": [
+        0,
+        1,
+        0,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "USL_observed": [
+        0,
+        1,
+        0,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-axtbpjw0/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-axtbpjw0/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-axtbpjw0/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-axtbpjw0/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x52 (ite (> x y) (ite (> 7 x) 0 x) y)))\n(and (distinct ?x52 ?x52) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "bool-conditional",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return (x == y ? x < 7u : x > 7u) ? 5u : 11u;}\n",
+      "source_sha256": "b4991bb5dde5a7a2eea8e2a2fd0653bb53192be1cdaba369dc611a36fe751359",
+      "generated_sha256": "e1fdc447172f428cfe51a468a4652ab3b46c7d47ba219e5a65796161efc1d712",
+      "SPIRV_sha256": "58ea457611d113d5c8467665bd9dc8cb02d7f7232ad753babcb7269130034033",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        5,
+        11,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5
+      ],
+      "native_observed": [
+        5,
+        11,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5
+      ],
+      "USL_observed": [
+        5,
+        11,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-kzmfbvao/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-kzmfbvao/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-kzmfbvao/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-kzmfbvao/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x59 (ite (ite (= x y) (> 7 x) (< 7 x)) 5 11)))\n(and (distinct ?x59 ?x59) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "complement-product",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return ~(x * y);}\n",
+      "source_sha256": "10c8a20d4a36a53f2ed8d493d3e1b74b5e987a29fd8366791653c73a8460f05a",
+      "generated_sha256": "a277c04f1e88a14ab2c4c1a8e78dcb4c06bb208288b8b67ad6bae29d9b77693a",
+      "SPIRV_sha256": "1b1f7e1a2c557b154b006c7a3ec7f42d14fdc999c63d72a8fdd900515a2148a6",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967268,
+        4294967268,
+        4294967246,
+        2147483647,
+        2147483647,
+        4294967294,
+        0,
+        0,
+        33,
+        33
+      ],
+      "native_observed": [
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967268,
+        4294967268,
+        4294967246,
+        2147483647,
+        2147483647,
+        4294967294,
+        0,
+        0,
+        33,
+        33
+      ],
+      "USL_observed": [
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967268,
+        4294967268,
+        4294967246,
+        2147483647,
+        2147483647,
+        4294967294,
+        0,
+        0,
+        33,
+        33
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-spe1_ayn/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-spe1_ayn/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-spe1_ayn/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-spe1_ayn/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x55 (mod (* x y) 4294967296)))\n(let ((?x41 (- 4294967295 ?x55)))\n(and (distinct ?x41 ?x41) true))))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "clamp-boundaries",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return max(0u, clamp(x,1u,4294967295u));}\n",
+      "source_sha256": "0aa933b2ec4541d80384e5e98d5d7ede8c82648090c0df8243f27d703da262fa",
+      "generated_sha256": "d9263fff86d380f966191f14fb3a4654da60e4596ac17a1a284e4b72f5ddc287",
+      "SPIRV_sha256": "7ccf53cd6525600592736095f07d93e346086d3d2152987847eaf229f1d3f45a",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "native_observed": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "USL_observed": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-w8zifbg2/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-w8zifbg2/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-w8zifbg2/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-w8zifbg2/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let (($x34 (<= 1 x)))\n(let ((?x16 (ite $x34 x 1)))\n(let ((?x42 (ite (>= 4294967295 ?x16) ?x16 4294967295)))\n(let ((?x8 (ite (>= 0 ?x42) 0 ?x42)))\n(let ((?x51 (ite (> 1 x) 1 (ite (< 4294967295 x) 4294967295 x))))\n(let ((?x28 (ite (>= 0 ?x51) 0 ?x51)))\n(and (distinct ?x28 ?x8) true))))))))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "negate-top-bit",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return -(x << 31u);}\n",
+      "source_sha256": "ad9c4bdb62a7c07c6230c31c73947cbc913b51d6fe65f06302803dcbfb226f9e",
+      "generated_sha256": "f713a12e1b421590f239ade3833b26d939a31e69191d2c3167865196492c16b4",
+      "SPIRV_sha256": "ab67bf5b65df3ca6523862013584102c1f6c5121c98c703d5798f4efc82b9dad",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648
+      ],
+      "native_observed": [
+        0,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648
+      ],
+      "USL_observed": [
+        0,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-8bloxq_1/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-8bloxq_1/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-8bloxq_1/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-8bloxq_1/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x81 (mod (- (mod (* x 2147483648) 4294967296)) 4294967296)))\n(and (distinct ?x81 ?x81) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "boolean-precedence",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return (x >= y && !(x == 0u) || y < 7u) ? x : y;}\n",
+      "source_sha256": "67242ad99bb347e2dfde37ec641b6127c95d330de99da9030b518df25957b730",
+      "generated_sha256": "a31c1795f2325f4475977338b5b92cea17e26f4088c9c2c571c805003f295d37",
+      "SPIRV_sha256": "3663da3c097035545cf91346783011bb2bc208c472e42606b9eeb7723afc970c",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        0,
+        1,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "native_observed": [
+        0,
+        0,
+        1,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "USL_observed": [
+        0,
+        0,
+        1,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-p2r4pfx1/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-p2r4pfx1/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-p2r4pfx1/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-p2r4pfx1/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x30 (ite (or (and (>= x y) (not (= 0 x))) (> 7 y)) x y)))\n(and (distinct ?x30 ?x30) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "glsl",
+      "case": "ternary-else-shift",
+      "source": "#version 450\nuint evaluate(uint x,uint y){return x < y ? 0u : x + 1u << 1u;}\n",
+      "source_sha256": "ee2b36cca2ccc5923dec9bbc09ab9b32e294bebf58ba984e095cf295ffb72172",
+      "generated_sha256": "62072a84167efcd7eaf5a3cffe4110d1902bea92f5ab09d72e5c235b1baf5697",
+      "SPIRV_sha256": "fa7e8bb20a2100b793402dafac9bdd3d8113cada1d1ef3020bf9fe530c6fbf01",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        2,
+        0,
+        4,
+        4,
+        0,
+        20,
+        16,
+        0,
+        2,
+        0,
+        0,
+        0,
+        4294967294,
+        0
+      ],
+      "native_observed": [
+        2,
+        0,
+        4,
+        4,
+        0,
+        20,
+        16,
+        0,
+        2,
+        0,
+        0,
+        0,
+        4294967294,
+        0
+      ],
+      "USL_observed": [
+        2,
+        0,
+        4,
+        4,
+        0,
+        20,
+        16,
+        0,
+        2,
+        0,
+        0,
+        0,
+        4294967294,
+        0
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-independent-rdu4pf0h/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-rdu4pf0h/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-rdu4pf0h/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-rdu4pf0h/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x31 (ite (< x y) 0 (mod (* (mod (+ x 1) 4294967296) 2) 4294967296))))\n(and (distinct ?x31 ?x31) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "add-before-shift",
+      "source": "uint evaluate(uint x,uint y){return x + 1u << 2u;}\n",
+      "source_sha256": "3de631df7e55085f25ff81679bd9b31ce81363b0f036203a0dfd703651d9c36d",
+      "generated_sha256": "3e2fb9ad9db8dcd1667001d27e40b02ed0c748cd3d8e9f126d81535ab1d52e03",
+      "SPIRV_sha256": "868b935e2c0b531f81989059ccec1031d0d089e94e063e0bf294e7aa11cfff83",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        4,
+        4,
+        8,
+        8,
+        16,
+        40,
+        32,
+        0,
+        4,
+        0,
+        0,
+        8,
+        4294967292,
+        72
+      ],
+      "native_observed": [
+        4,
+        4,
+        8,
+        8,
+        16,
+        40,
+        32,
+        0,
+        4,
+        0,
+        0,
+        8,
+        4294967292,
+        72
+      ],
+      "USL_observed": [
+        4,
+        4,
+        8,
+        8,
+        16,
+        40,
+        32,
+        0,
+        4,
+        0,
+        0,
+        8,
+        4294967292,
+        72
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-lqroac0i/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-lqroac0i/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-lqroac0i/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-lqroac0i/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x14 (mod (* (mod (+ x 1) 4294967296) 4) 4294967296)))\n(and (distinct ?x14 ?x14) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "left-subtraction",
+      "source": "uint evaluate(uint x,uint y){return x - y - 1u;}\n",
+      "source_sha256": "678b994f5a51749a8dfb10f3ddc6da8870d41c2f253c9701412b405927fe897f",
+      "generated_sha256": "450042a2281728fbae4a21f017626ec2f2f690de67a203aca643497e2a98b3e2",
+      "SPIRV_sha256": "0932e06cfd10fe38de024ed13b96348c21ba39f22f7872c668be534b0c9c5f75",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967289,
+        5,
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967293,
+        1,
+        4294967276,
+        18
+      ],
+      "native_observed": [
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967289,
+        5,
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967293,
+        1,
+        4294967276,
+        18
+      ],
+      "USL_observed": [
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967289,
+        5,
+        4294967295,
+        4294967294,
+        0,
+        4294967295,
+        4294967293,
+        1,
+        4294967276,
+        18
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-dy5hvy4_/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-dy5hvy4_/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-dy5hvy4_/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-dy5hvy4_/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x55 (mod (- (mod (- x y) 4294967296) 1) 4294967296)))\n(and (distinct ?x55 ?x55) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "quotient-remainder",
+      "source": "uint evaluate(uint x,uint y){return x / 3u * 3u + x % 3u;}\n",
+      "source_sha256": "1cf2d531fe946ab8534e46160ccfb4f0674e0b3ebf4af10154a6e126cf69dfe3",
+      "generated_sha256": "3d10634107cf141ab0163c02a906aacc5e6ffa9901ea01c77e8f5725859e751f",
+      "SPIRV_sha256": "9a9dbbfb5d15cbcc3baa9b44f401de22fcc026cedbb39046630fe7410cbb8d34",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "native_observed": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "USL_observed": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-gp7v5fkg/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-gp7v5fkg/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-gp7v5fkg/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-gp7v5fkg/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x48 (mod (+ (mod (* (div x 3) 3) 4294967296) (mod x 3)) 4294967296)))\n(and (distinct ?x48 ?x48) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "spaced-unary-minus",
+      "source": "uint evaluate(uint x,uint y){return x - - y;}\n",
+      "source_sha256": "0a01e142b498a39760361a0ef199d19c94e99615758c87b2487b8a4eb21a7837",
+      "generated_sha256": "4a37e413b51421e1976dd64a03ab5297761eda5455239d933b2845468fecc730",
+      "SPIRV_sha256": "71e05667cc74c128c25c866d1bcfb70f0c786e2f2b43fe31dc0441f00b9cc7f3",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        1,
+        1,
+        2,
+        12,
+        12,
+        14,
+        4294967295,
+        4294967295,
+        4294967294,
+        0,
+        0,
+        15,
+        15
+      ],
+      "native_observed": [
+        0,
+        1,
+        1,
+        2,
+        12,
+        12,
+        14,
+        4294967295,
+        4294967295,
+        4294967294,
+        0,
+        0,
+        15,
+        15
+      ],
+      "USL_observed": [
+        0,
+        1,
+        1,
+        2,
+        12,
+        12,
+        14,
+        4294967295,
+        4294967295,
+        4294967294,
+        0,
+        0,
+        15,
+        15
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-lhja819f/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-lhja819f/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-lhja819f/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-lhja819f/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x50 (mod (- x (mod (- y) 4294967296)) 4294967296)))\n(and (distinct ?x50 ?x50) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "double-spaced-negation",
+      "source": "uint evaluate(uint x,uint y){return - - x;}\n",
+      "source_sha256": "4fe0b624bbac4239da0b6ac298ccdd94a291023c6420942f4986ac58ae69f281",
+      "generated_sha256": "1c7e655622ee5cabd8dd23ab950aa9c2feefd1de1b8895daba7a9e311fd4afe8",
+      "SPIRV_sha256": "06304e0f294d5c239fc2c5879674abab9a6e90551bad1b80045ed84a807c9f9c",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "native_observed": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "USL_observed": [
+        0,
+        0,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-d4ukp3tg/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-d4ukp3tg/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-d4ukp3tg/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-d4ukp3tg/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x37 (mod (- (mod (- x) 4294967296)) 4294967296)))\n(and (distinct ?x37 ?x37) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "nested-true",
+      "source": "uint evaluate(uint x,uint y){return x > y ? x < 7u ? 0u : x : y;}\n",
+      "source_sha256": "a7cf96f352a57914a6fba07a67fc0df0c99a9112546e773c0d7ab98a8ffb23ce",
+      "generated_sha256": "79b50be8c55b51108dfd5a879147c29777e3ef9293c201425590678513a899d1",
+      "SPIRV_sha256": "807b7b236306ddc78c98fd2ac50af3c152c1e52a30016ee917594bc48f4a4031",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        1,
+        0,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "native_observed": [
+        0,
+        1,
+        0,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "USL_observed": [
+        0,
+        1,
+        0,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-ztlbo21t/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-ztlbo21t/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-ztlbo21t/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-ztlbo21t/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x59 (ite (> x y) (ite (> 7 x) 0 x) y)))\n(and (distinct ?x59 ?x59) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "bool-conditional",
+      "source": "uint evaluate(uint x,uint y){return (x == y ? x < 7u : x > 7u) ? 5u : 11u;}\n",
+      "source_sha256": "ccc33f247873f219ff4b503cabb4020e4674e4adfff6483f0a1f3157d67ebe4a",
+      "generated_sha256": "e1fdc447172f428cfe51a468a4652ab3b46c7d47ba219e5a65796161efc1d712",
+      "SPIRV_sha256": "aea12d3594ef5b5f4bdda753ac6083c292bc86e6c21a15811cf314bcc405e4b7",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        5,
+        11,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5
+      ],
+      "native_observed": [
+        5,
+        11,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5
+      ],
+      "USL_observed": [
+        5,
+        11,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5,
+        11,
+        5,
+        11,
+        5,
+        5
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-4gsih6z9/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-4gsih6z9/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-4gsih6z9/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-4gsih6z9/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x53 (ite (ite (= x y) (> 7 x) (< 7 x)) 5 11)))\n(and (distinct ?x53 ?x53) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "complement-product",
+      "source": "uint evaluate(uint x,uint y){return ~(x * y);}\n",
+      "source_sha256": "201fdca4bd4002014c34b393e969827b5dc9fb5267330ca7ad63e3d0d2beff58",
+      "generated_sha256": "a277c04f1e88a14ab2c4c1a8e78dcb4c06bb208288b8b67ad6bae29d9b77693a",
+      "SPIRV_sha256": "63baefd9dd73860e650be3a2a3403b3ac43710152ed7941385c122668d17b6e2",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967268,
+        4294967268,
+        4294967246,
+        2147483647,
+        2147483647,
+        4294967294,
+        0,
+        0,
+        33,
+        33
+      ],
+      "native_observed": [
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967268,
+        4294967268,
+        4294967246,
+        2147483647,
+        2147483647,
+        4294967294,
+        0,
+        0,
+        33,
+        33
+      ],
+      "USL_observed": [
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967268,
+        4294967268,
+        4294967246,
+        2147483647,
+        2147483647,
+        4294967294,
+        0,
+        0,
+        33,
+        33
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-f8n9y789/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-f8n9y789/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-f8n9y789/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-f8n9y789/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x73 (mod (* x y) 4294967296)))\n(let ((?x66 (- 4294967295 ?x73)))\n(and (distinct ?x66 ?x66) true))))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "clamp-boundaries",
+      "source": "uint evaluate(uint x,uint y){return max(0u, clamp(x,1u,4294967295u));}\n",
+      "source_sha256": "c7583d752d8549605019fe88f6042ee91a95a9260b384ea21461ef842bfb1728",
+      "generated_sha256": "d9263fff86d380f966191f14fb3a4654da60e4596ac17a1a284e4b72f5ddc287",
+      "SPIRV_sha256": "b5b3cb08f410b687c5f91f41cc7cabf50f2305f996cde9752e1e95434a6bf05c",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "native_observed": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "USL_observed": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        9,
+        7,
+        2147483647,
+        2147483648,
+        4294967295,
+        4294967295,
+        1,
+        4294967294,
+        17
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-_gdhlzqr/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-_gdhlzqr/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-_gdhlzqr/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-_gdhlzqr/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let (($x74 (<= 1 x)))\n(let ((?x28 (ite $x74 x 1)))\n(let ((?x33 (ite (>= 4294967295 ?x28) ?x28 4294967295)))\n(let ((?x34 (ite (>= 0 ?x33) 0 ?x33)))\n(let ((?x46 (ite (> 1 x) 1 (ite (< 4294967295 x) 4294967295 x))))\n(let ((?x8 (ite (>= 0 ?x46) 0 ?x46)))\n(and (distinct ?x8 ?x34) true))))))))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "negate-top-bit",
+      "source": "uint evaluate(uint x,uint y){return -(x << 31u);}\n",
+      "source_sha256": "06ad087644aed359b66b76a9b8dd5595eb27731921e1a5ced81dab3e30b25bad",
+      "generated_sha256": "f713a12e1b421590f239ade3833b26d939a31e69191d2c3167865196492c16b4",
+      "SPIRV_sha256": "5028a14a78b66e7226c1d0f77bdcd966256d3bc4dccb5fc9bca8cbe73dcc9a49",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648
+      ],
+      "native_observed": [
+        0,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648
+      ],
+      "USL_observed": [
+        0,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648,
+        2147483648,
+        2147483648,
+        0,
+        2147483648
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-t0mfuwe5/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-t0mfuwe5/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-t0mfuwe5/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-t0mfuwe5/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x84 (mod (- (mod (* x 2147483648) 4294967296)) 4294967296)))\n(and (distinct ?x84 ?x84) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "boolean-precedence",
+      "source": "uint evaluate(uint x,uint y){return (x >= y && !(x == 0u) || y < 7u) ? x : y;}\n",
+      "source_sha256": "1e9614f60e6f1c8c948c6e1a8eb8b6f3a524345b7abe4e76de07ed32b55df146",
+      "generated_sha256": "a31c1795f2325f4475977338b5b92cea17e26f4088c9c2c571c805003f295d37",
+      "SPIRV_sha256": "ffbd6f873defbc7e5d248e4f8fc611549c3eb848cdfb985ad5ba35a0418a3674",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        0,
+        0,
+        1,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "native_observed": [
+        0,
+        0,
+        1,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "USL_observed": [
+        0,
+        0,
+        1,
+        1,
+        9,
+        9,
+        7,
+        2147483648,
+        2147483648,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967294,
+        4294967294
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-ztipts8b/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-ztipts8b/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-ztipts8b/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-ztipts8b/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x25 (ite (or (and (>= x y) (not (= 0 x))) (> 7 y)) x y)))\n(and (distinct ?x25 ?x25) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_execution",
+      "language": "hlsl",
+      "case": "ternary-else-shift",
+      "source": "uint evaluate(uint x,uint y){return x < y ? 0u : x + 1u << 1u;}\n",
+      "source_sha256": "119b6d66a8081dc5c98445bd3670dd29687947e94bfc29fee0b357360ea05513",
+      "generated_sha256": "62072a84167efcd7eaf5a3cffe4110d1902bea92f5ab09d72e5c235b1baf5697",
+      "SPIRV_sha256": "1774743383b5af2c9a9ae6c90d23a610734a53c4236b579492e137a9fb75ae96",
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          2147483647,
+          2147483648
+        ],
+        [
+          2147483648,
+          2147483647
+        ],
+        [
+          4294967295,
+          4294967295
+        ],
+        [
+          4294967295,
+          1
+        ],
+        [
+          1,
+          4294967295
+        ],
+        [
+          4294967294,
+          17
+        ],
+        [
+          17,
+          4294967294
+        ]
+      ],
+      "independent_expected": [
+        2,
+        0,
+        4,
+        4,
+        0,
+        20,
+        16,
+        0,
+        2,
+        0,
+        0,
+        0,
+        4294967294,
+        0
+      ],
+      "native_observed": [
+        2,
+        0,
+        4,
+        4,
+        0,
+        20,
+        16,
+        0,
+        2,
+        0,
+        0,
+        0,
+        4294967294,
+        0
+      ],
+      "USL_observed": [
+        2,
+        0,
+        4,
+        4,
+        0,
+        20,
+        16,
+        0,
+        2,
+        0,
+        0,
+        0,
+        4294967294,
+        0
+      ],
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-independent-n87pwrjm/independent.comp",
+        "-o",
+        "/tmp/usl-shader-independent-n87pwrjm/independent.spv"
+      ],
+      "compile_returncode": 0,
+      "compile_stdout": "/tmp/usl-shader-independent-n87pwrjm/independent.comp\n",
+      "compile_stderr": "",
+      "native_command": [
+        "/tmp/usl-independent-host-8x8r8qzu/vulkan_runner",
+        "/tmp/usl-shader-independent-n87pwrjm/independent.spv",
+        "14"
+      ],
+      "native_returncode": 0,
+      "device_receipt": "device=SwiftShader Device (Subzero);type=4;vendor=6880;device_id=49374;api=4206592\n",
+      "scoped_function_AST_proof": {
+        "result": "unsat",
+        "SMT2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Int)\n(declare-fun y () Int)\n(assert\n (>= x 0))\n(assert\n (< x 4294967296))\n(assert\n (>= y 0))\n(assert\n (< y 4294967296))\n(assert\n (let ((?x48 (ite (< x y) 0 (mod (* (mod (+ x 1) 4294967296) 2) 4294967296))))\n(and (distinct ?x48 ?x48) true)))\n(check-sat)\n",
+        "counterexample": null,
+        "claim": "Typed selected uint32 IR denotation equals actual emitted function return AST for all 2^64 uint32 argument pairs",
+        "assumptions": [
+          "Correct source-to-IR parser and selected source semantic model",
+          "Trusted Z3 integer arithmetic solver",
+          "USL implements modeled Python integer arithmetic/Boolean/conditional/builtin AST semantics"
+        ],
+        "not_proved": [
+          "Parser correctness",
+          "USL interpreter correctness",
+          "Native GLSL/HLSL compiler or Vulkan implementation correctness",
+          "Independent-intent equivalence outside the authored finite native execution corpus",
+          "Full language standard conformance"
+        ]
+      }
+    },
+    {
+      "kind": "native_rejection",
+      "language": "glsl",
+      "expression": "\u0661u",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-bad-lpkupenu/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-lpkupenu/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-lpkupenu/independent.comp\nERROR: /tmp/usl-shader-bad-lpkupenu/independent.comp:2: '\ufffd' : unexpected token \nERROR: /tmp/usl-shader-bad-lpkupenu/independent.comp:2: '' : compilation terminated \nERROR: 2 compilation errors.  No code generated.\n\n\nERROR: Linking compute stage: Missing entry point: Each stage requires one entry point\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "glsl",
+      "expression": "\uff12u",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-bad-sw8hiyws/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-sw8hiyws/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-sw8hiyws/independent.comp\nERROR: /tmp/usl-shader-bad-sw8hiyws/independent.comp:2: '\ufffd' : unexpected token \nERROR: /tmp/usl-shader-bad-sw8hiyws/independent.comp:2: '' : compilation terminated \nERROR: 2 compilation errors.  No code generated.\n\n\nERROR: Linking compute stage: Missing entry point: Each stage requires one entry point\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "glsl",
+      "expression": "x\u00a0+ y",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-bad-m2m6o9it/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-m2m6o9it/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-m2m6o9it/independent.comp\nERROR: /tmp/usl-shader-bad-m2m6o9it/independent.comp:2: '\ufffd' : unexpected token \nERROR: /tmp/usl-shader-bad-m2m6o9it/independent.comp:2: '' : compilation terminated \nERROR: 2 compilation errors.  No code generated.\n\n\nERROR: Linking compute stage: Missing entry point: Each stage requires one entry point\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "glsl",
+      "expression": "x\u000b+ y",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-bad-7ufnfzpu/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-7ufnfzpu/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-7ufnfzpu/independent.comp\nERROR: /tmp/usl-shader-bad-7ufnfzpu/independent.comp:2: '\u000b' : unexpected token \nERROR: /tmp/usl-shader-bad-7ufnfzpu/independent.comp:2: '' : compilation terminated \nERROR: 2 compilation errors.  No code generated.\n\n\nERROR: Linking compute stage: Missing entry point: Each stage requires one entry point\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "glsl",
+      "expression": "x\f+ y",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-bad-g9szlnz_/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-g9szlnz_/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-g9szlnz_/independent.comp\nERROR: /tmp/usl-shader-bad-g9szlnz_/independent.comp:2: '\f' : unexpected token \nERROR: /tmp/usl-shader-bad-g9szlnz_/independent.comp:2: '' : compilation terminated \nERROR: 2 compilation errors.  No code generated.\n\n\nERROR: Linking compute stage: Missing entry point: Each stage requires one entry point\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "glsl",
+      "expression": "x\u001c+ y",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "/tmp/usl-shader-bad-zxo7y4jh/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-zxo7y4jh/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-zxo7y4jh/independent.comp\nERROR: /tmp/usl-shader-bad-zxo7y4jh/independent.comp:2: '\u001c' : unexpected token \nERROR: /tmp/usl-shader-bad-zxo7y4jh/independent.comp:2: '' : compilation terminated \nERROR: 2 compilation errors.  No code generated.\n\n\nERROR: Linking compute stage: Missing entry point: Each stage requires one entry point\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "hlsl",
+      "expression": "\u0661u",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-bad-u2hkei2j/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-u2hkei2j/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-u2hkei2j/independent.comp\nERROR: /tmp/usl-shader-bad-u2hkei2j/independent.comp:1: '<bad token>' : unexpected token \nERROR: /tmp/usl-shader-bad-u2hkei2j/independent.comp:1: ';' : Expected \nERROR: /tmp/usl-shader-bad-u2hkei2j/independent.comp:1: 'declaration' : Expected \n/tmp/usl-shader-bad-u2hkei2j/independent.comp(1): error at column 37, HLSL parsing failed.\nERROR: 4 compilation errors.  No code generated.\n\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "hlsl",
+      "expression": "\uff12u",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-bad-wmwdv1bc/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-wmwdv1bc/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-wmwdv1bc/independent.comp\nERROR: /tmp/usl-shader-bad-wmwdv1bc/independent.comp:1: '<bad token>' : unexpected token \nERROR: /tmp/usl-shader-bad-wmwdv1bc/independent.comp:1: ';' : Expected \nERROR: /tmp/usl-shader-bad-wmwdv1bc/independent.comp:1: 'declaration' : Expected \n/tmp/usl-shader-bad-wmwdv1bc/independent.comp(1): error at column 37, HLSL parsing failed.\nERROR: 4 compilation errors.  No code generated.\n\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "hlsl",
+      "expression": "x\u00a0+ y",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-bad-rl79zc7y/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-rl79zc7y/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-rl79zc7y/independent.comp\nERROR: /tmp/usl-shader-bad-rl79zc7y/independent.comp:1: '<bad token>' : unexpected token \nERROR: /tmp/usl-shader-bad-rl79zc7y/independent.comp:1: ';' : Expected \nERROR: /tmp/usl-shader-bad-rl79zc7y/independent.comp:1: 'declaration' : Expected \n/tmp/usl-shader-bad-rl79zc7y/independent.comp(1): error at column 38, HLSL parsing failed.\nERROR: 4 compilation errors.  No code generated.\n\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "hlsl",
+      "expression": "x\u000b+ y",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-bad-42xo8uki/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-42xo8uki/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-42xo8uki/independent.comp\nERROR: /tmp/usl-shader-bad-42xo8uki/independent.comp:1: '\u000b' : unexpected token \nERROR: /tmp/usl-shader-bad-42xo8uki/independent.comp:1: ';' : Expected \nERROR: /tmp/usl-shader-bad-42xo8uki/independent.comp:1: 'declaration' : Expected \n/tmp/usl-shader-bad-42xo8uki/independent.comp(1): error at column 38, HLSL parsing failed.\nERROR: 4 compilation errors.  No code generated.\n\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "hlsl",
+      "expression": "x\f+ y",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-bad-upm4kda0/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-upm4kda0/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-upm4kda0/independent.comp\nERROR: /tmp/usl-shader-bad-upm4kda0/independent.comp:1: '\f' : unexpected token \nERROR: /tmp/usl-shader-bad-upm4kda0/independent.comp:1: ';' : Expected \nERROR: /tmp/usl-shader-bad-upm4kda0/independent.comp:1: 'declaration' : Expected \n/tmp/usl-shader-bad-upm4kda0/independent.comp(1): error at column 38, HLSL parsing failed.\nERROR: 4 compilation errors.  No code generated.\n\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    },
+    {
+      "kind": "native_rejection",
+      "language": "hlsl",
+      "expression": "x\u001c+ y",
+      "compile_command": [
+        "/workspace/.onboarding/sysroot/usr/bin/glslangValidator",
+        "-V",
+        "--target-env",
+        "vulkan1.0",
+        "-S",
+        "comp",
+        "-e",
+        "main",
+        "-D",
+        "/tmp/usl-shader-bad-8tljcy9z/independent.comp",
+        "-o",
+        "/tmp/usl-shader-bad-8tljcy9z/independent.spv"
+      ],
+      "returncode": 2,
+      "stdout": "/tmp/usl-shader-bad-8tljcy9z/independent.comp\nERROR: /tmp/usl-shader-bad-8tljcy9z/independent.comp:1: '\u001c' : unexpected token \nERROR: /tmp/usl-shader-bad-8tljcy9z/independent.comp:1: ';' : Expected \nERROR: /tmp/usl-shader-bad-8tljcy9z/independent.comp:1: 'declaration' : Expected \n/tmp/usl-shader-bad-8tljcy9z/independent.comp(1): error at column 38, HLSL parsing failed.\nERROR: 4 compilation errors.  No code generated.\n\n\nSPIR-V is not generated for failed compile or link\n",
+      "stderr": ""
+    }
+  ]
+}

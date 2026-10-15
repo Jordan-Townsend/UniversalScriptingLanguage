@@ -1,0 +1,2634 @@
+{
+  "schema": "usl.v4115.server.independent-review.v1",
+  "reviewed_family": "server_config",
+  "catalog_ids": [
+    "apacheconf",
+    "lighttpd",
+    "vcl",
+    "vclsnippets"
+  ],
+  "reviewer_scope": "Independent source reading plus separately authored intent fixtures and fresh native host probes; reviewer did not edit family source",
+  "passed": true,
+  "tests_run": 8,
+  "probe_counts": {
+    "fresh_successful_native_processes": 6,
+    "fresh_rejected_native_processes": 2,
+    "fresh_native_HTTP_observations": 30,
+    "generated_USL_function_calls": 30,
+    "source_rejections": 16,
+    "request_domain_rejections_per_validator": 45,
+    "translation_mutation_negative_controls": 3
+  },
+  "reviewed_source_sha256": {
+    "DEBIAN_RELEASE.txt": "8604eb6fba4e103b48f029f4d945e8c96d07a418b663de8386617d0b78bd3bcf",
+    "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+    "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+    "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+    "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+    "README.md": "9d1cbc5e791d203f468f1db23f0a042324cbdb3ee25b31c16fe07712a388c24d",
+    "PROVIDERS.json": "2622252e7f1a01d2aa28cc32f418efcd331561111d03b1e3f589ab14e576345a",
+    "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+    "REFERENCES.json": "014926be9969675090b9befde06e1f5931fb64961617e84553688a42cc355910",
+    "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2",
+    "DEBIAN_INRELEASE.asc": "0584fba32e13e0ab8285fb16c27adea1ec03a73669c18702821094fd6ca86675"
+  },
+  "independent_test_sha256": "166728eddfbdff14470508c038027e8a03df4917484001803dcf4385b392a8a4",
+  "test_log_sha256": "518acd8b08afa880f0e2227f3e04cac799882ad4efbba6b90da4bceb70e46584",
+  "runtime_sha256": "28572d10c70421c71777a4562bbdd075acf6077d5ea4c3b9ebca3278e6dc76cc",
+  "findings": [
+    {
+      "id": "VCL-ADJACENT-NOT",
+      "severity": "semantic-profile correctness",
+      "status": "fixed and freshly regression-tested",
+      "counterexample": "if (!!req.url == \"/r\") { return(synth(200,\"Double\")); } return(synth(404,\"Missing\"));",
+      "original_problem": "Frontend accepted consecutive unary-not tokens and emitted executable USL while actual Varnish compiler rejected the source",
+      "fresh_native_error": "Unknown token '!' when looking for BOOL",
+      "fix_by_owner": "Reject adjacent unary-not tokens, including whitespace-separated ! !; preserve supported parenthesized nested negations",
+      "regression": "Native-rejection tests require both frontend and real Varnish rejection; !(!(req.url==\"/a\")) has actual positive original/generated observations"
+    }
+  ],
+  "other_fresh_checks": [
+    "Apache first matching complete-segment prefix, suffix copying, source order, path case, Gone versus redirects",
+    "lighttpd literal anchored maps, exact-case matching and literal destinations",
+    "VCL mixed Boolean precedence, parenthesized negation, nested partial-return branches and fallback",
+    "VCL decimal leading-zero statuses, 200/204/599 values and preserved64-character reason with internal spaces",
+    "Both pure and generated request validators reject normalization-sensitive, non-ASCII, oversized and nonstring inputs",
+    "Source-boundary rejection for unsupported regex, escape, quote, effectful and unreachable constructs",
+    "Independent wrong target/status translation mutations fail the separate intent oracle",
+    "Native carriers report zero active owned processes after every independent probe"
+  ],
+  "claim_limits": [
+    "Finite scoped independent evidence, not a universal semantic-preservation or original-intent proof",
+    "Native parser/compiler, HTTP carrier, selected response extraction, USL interpreter, Python runtime and independent oracle remain trusted",
+    "Only selected status/Location or status/reason observations are compared; bodies and unrelated headers are retained but not qualified",
+    "No full-standard qualification, general configuration support, cross-platform guarantee, TLS/backend/caching/concurrency or arbitrary HTTP normalization claim"
+  ],
+  "source_unchanged_during_tests": true,
+  "full_standard_qualified": false,
+  "evidence": [
+    {
+      "request": {
+        "action": "differential",
+        "catalog_id": "apacheconf",
+        "source": "Redirect 308 /ab/c https://specific.invalid/dest\nRedirect temp /ab https://first.invalid/start\nRedirect gone /gone\n",
+        "paths": [
+          "/ab/c",
+          "/ab/c/X_9",
+          "/ab",
+          "/ab/d",
+          "/abc",
+          "/AB",
+          "/gone",
+          "/gone/child",
+          "/gonefish"
+        ],
+        "independent_expected": [
+          [
+            308,
+            "https://specific.invalid/dest"
+          ],
+          [
+            308,
+            "https://specific.invalid/dest/X_9"
+          ],
+          [
+            302,
+            "https://first.invalid/start"
+          ],
+          [
+            302,
+            "https://first.invalid/start/d"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            410,
+            ""
+          ],
+          [
+            410,
+            ""
+          ],
+          [
+            404,
+            ""
+          ]
+        ],
+        "mutation": [
+          "https://first.invalid/start",
+          "https://wrong.invalid/start"
+        ]
+      },
+      "response": {
+        "action": "differential",
+        "catalog_id": "apacheconf",
+        "generated_sha256": "e3805f5928715088498b288e3c227642a54ee4280c093d6a54b2a44da96c2e2b",
+        "USL": [
+          [
+            308,
+            "https://specific.invalid/dest"
+          ],
+          [
+            308,
+            "https://specific.invalid/dest/X_9"
+          ],
+          [
+            302,
+            "https://first.invalid/start"
+          ],
+          [
+            302,
+            "https://first.invalid/start/d"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            410,
+            ""
+          ],
+          [
+            410,
+            ""
+          ],
+          [
+            404,
+            ""
+          ]
+        ],
+        "IR": {
+          "kind": "apache-prefix",
+          "rules": [
+            {
+              "path": "/ab/c",
+              "status": 308,
+              "target": "https://specific.invalid/dest"
+            },
+            {
+              "path": "/ab",
+              "status": 302,
+              "target": "https://first.invalid/start"
+            },
+            {
+              "path": "/gone",
+              "status": 410,
+              "target": ""
+            }
+          ],
+          "default": [
+            404,
+            ""
+          ]
+        },
+        "native": {
+          "observations": [
+            {
+              "path": "/ab/c",
+              "observed": [
+                308,
+                "https://specific.invalid/dest"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "Apache/2.4.68 (Debian)"
+                ],
+                [
+                  "Location",
+                  "https://specific.invalid/dest"
+                ],
+                [
+                  "Content-Length",
+                  "279"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Content-Type",
+                  "text/html; charset=iso-8859-1"
+                ]
+              ],
+              "body_sha256": "6d12efe196fb0f80ef00a025fd09d5522cf806771916cdaf6bcc83d21bee3891",
+              "body_bytes": 279
+            },
+            {
+              "path": "/ab/c/X_9",
+              "observed": [
+                308,
+                "https://specific.invalid/dest/X_9"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "Apache/2.4.68 (Debian)"
+                ],
+                [
+                  "Location",
+                  "https://specific.invalid/dest/X_9"
+                ],
+                [
+                  "Content-Length",
+                  "283"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Content-Type",
+                  "text/html; charset=iso-8859-1"
+                ]
+              ],
+              "body_sha256": "9b328229ffb80a31fb4811a6f4eb758dfb738f8d7178560c8f5815f425602747",
+              "body_bytes": 283
+            },
+            {
+              "path": "/ab",
+              "observed": [
+                302,
+                "https://first.invalid/start"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "Apache/2.4.68 (Debian)"
+                ],
+                [
+                  "Location",
+                  "https://first.invalid/start"
+                ],
+                [
+                  "Content-Length",
+                  "251"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Content-Type",
+                  "text/html; charset=iso-8859-1"
+                ]
+              ],
+              "body_sha256": "1ff9f278928858579ac511f74827b6b503c64d96941c054af29ba520931b22b5",
+              "body_bytes": 251
+            },
+            {
+              "path": "/ab/d",
+              "observed": [
+                302,
+                "https://first.invalid/start/d"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "Apache/2.4.68 (Debian)"
+                ],
+                [
+                  "Location",
+                  "https://first.invalid/start/d"
+                ],
+                [
+                  "Content-Length",
+                  "253"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Content-Type",
+                  "text/html; charset=iso-8859-1"
+                ]
+              ],
+              "body_sha256": "695e75ece957eaf7d23e9ef262f6dae1677eb8486152a89ae4c645cb01b39444",
+              "body_bytes": 253
+            },
+            {
+              "path": "/abc",
+              "observed": [
+                404,
+                ""
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "Apache/2.4.68 (Debian)"
+                ],
+                [
+                  "Content-Length",
+                  "236"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Content-Type",
+                  "text/html; charset=iso-8859-1"
+                ]
+              ],
+              "body_sha256": "9448f8a1159c9b14e3e1b9d8eab1a6ddf88d26e1f888a34cef430c756e4e6e1e",
+              "body_bytes": 236
+            },
+            {
+              "path": "/AB",
+              "observed": [
+                404,
+                ""
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "Apache/2.4.68 (Debian)"
+                ],
+                [
+                  "Content-Length",
+                  "236"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Content-Type",
+                  "text/html; charset=iso-8859-1"
+                ]
+              ],
+              "body_sha256": "9448f8a1159c9b14e3e1b9d8eab1a6ddf88d26e1f888a34cef430c756e4e6e1e",
+              "body_bytes": 236
+            },
+            {
+              "path": "/gone",
+              "observed": [
+                410,
+                ""
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "Apache/2.4.68 (Debian)"
+                ],
+                [
+                  "Content-Length",
+                  "322"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Content-Type",
+                  "text/html; charset=iso-8859-1"
+                ]
+              ],
+              "body_sha256": "f968d1c029c07d86f55ff517ed57ba8778bd5640516e58f17e45a12458d198e6",
+              "body_bytes": 322
+            },
+            {
+              "path": "/gone/child",
+              "observed": [
+                410,
+                ""
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "Apache/2.4.68 (Debian)"
+                ],
+                [
+                  "Content-Length",
+                  "322"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Content-Type",
+                  "text/html; charset=iso-8859-1"
+                ]
+              ],
+              "body_sha256": "f968d1c029c07d86f55ff517ed57ba8778bd5640516e58f17e45a12458d198e6",
+              "body_bytes": 322
+            },
+            {
+              "path": "/gonefish",
+              "observed": [
+                404,
+                ""
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "Apache/2.4.68 (Debian)"
+                ],
+                [
+                  "Content-Length",
+                  "236"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Content-Type",
+                  "text/html; charset=iso-8859-1"
+                ]
+              ],
+              "body_sha256": "9448f8a1159c9b14e3e1b9d8eab1a6ddf88d26e1f888a34cef430c756e4e6e1e",
+              "body_bytes": 236
+            }
+          ],
+          "command": [
+            "/workspace/usl-expansion-v4.11.5/server_config/providers/usr/sbin/apache2",
+            "-X",
+            "-f",
+            "/tmp/usl-http-spnvqw3d/config"
+          ],
+          "source_sha256": "b7f3cb1b5f9a9d51967e45150a617cb6dbeff2da8874b7d911f5e1349cef9806",
+          "native_configuration_sha256": "090118236bcb865cac3ef6a7b45e2c3b571c8fdbfaa130091598c159141c5a70",
+          "native_process_invocations": 1,
+          "native_http_observations": 9,
+          "elapsed_seconds": 0.5547409949940629,
+          "native_process_log": "",
+          "fixture_scope": "temporary files and loopback only; HTTP redirects never followed; process group terminated/reaped"
+        },
+        "native_values": [
+          [
+            308,
+            "https://specific.invalid/dest"
+          ],
+          [
+            308,
+            "https://specific.invalid/dest/X_9"
+          ],
+          [
+            302,
+            "https://first.invalid/start"
+          ],
+          [
+            302,
+            "https://first.invalid/start/d"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            410,
+            ""
+          ],
+          [
+            410,
+            ""
+          ],
+          [
+            404,
+            ""
+          ]
+        ],
+        "mutated_USL": [
+          [
+            308,
+            "https://specific.invalid/dest"
+          ],
+          [
+            308,
+            "https://specific.invalid/dest/X_9"
+          ],
+          [
+            302,
+            "https://wrong.invalid/start"
+          ],
+          [
+            302,
+            "https://wrong.invalid/start/d"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            410,
+            ""
+          ],
+          [
+            410,
+            ""
+          ],
+          [
+            404,
+            ""
+          ]
+        ],
+        "mutation_applied": true,
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "differential",
+        "catalog_id": "lighttpd",
+        "source": "url.redirect-code=307\nurl.redirect=(\"^/a-b_9$\"=>\"https://safe.invalid/P_9\", \"^/A$\"=>\"https://other.invalid/final\")",
+        "paths": [
+          "/a-b_9",
+          "/a-b_9/child",
+          "/a-b_90",
+          "/A",
+          "/a",
+          "/none"
+        ],
+        "independent_expected": [
+          [
+            307,
+            "https://safe.invalid/P_9"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            307,
+            "https://other.invalid/final"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ]
+        ],
+        "mutation": [
+          "return [307,",
+          "return [308,"
+        ]
+      },
+      "response": {
+        "action": "differential",
+        "catalog_id": "lighttpd",
+        "generated_sha256": "225cfd740b006b978fbd93e22ae28aaf12e45e5fa5985feab39d0c53a1756583",
+        "USL": [
+          [
+            307,
+            "https://safe.invalid/P_9"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            307,
+            "https://other.invalid/final"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ]
+        ],
+        "IR": {
+          "kind": "lighttpd-exact",
+          "rules": [
+            {
+              "path": "/a-b_9",
+              "status": 307,
+              "target": "https://safe.invalid/P_9"
+            },
+            {
+              "path": "/A",
+              "status": 307,
+              "target": "https://other.invalid/final"
+            }
+          ],
+          "default": [
+            404,
+            ""
+          ]
+        },
+        "native": {
+          "observations": [
+            {
+              "path": "/a-b_9",
+              "observed": [
+                307,
+                "https://safe.invalid/P_9"
+              ],
+              "all_headers": [
+                [
+                  "Location",
+                  "https://safe.invalid/P_9"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "lighttpd/1.4.79"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/a-b_9/child",
+              "observed": [
+                404,
+                ""
+              ],
+              "all_headers": [
+                [
+                  "Content-Type",
+                  "text/html"
+                ],
+                [
+                  "Content-Length",
+                  "158"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "lighttpd/1.4.79"
+                ]
+              ],
+              "body_sha256": "92412a14d3fb620d6744ade0d6e9b531230844a5eee59a72194bcfcd4b1238c2",
+              "body_bytes": 158
+            },
+            {
+              "path": "/a-b_90",
+              "observed": [
+                404,
+                ""
+              ],
+              "all_headers": [
+                [
+                  "Content-Type",
+                  "text/html"
+                ],
+                [
+                  "Content-Length",
+                  "158"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "lighttpd/1.4.79"
+                ]
+              ],
+              "body_sha256": "92412a14d3fb620d6744ade0d6e9b531230844a5eee59a72194bcfcd4b1238c2",
+              "body_bytes": 158
+            },
+            {
+              "path": "/A",
+              "observed": [
+                307,
+                "https://other.invalid/final"
+              ],
+              "all_headers": [
+                [
+                  "Location",
+                  "https://other.invalid/final"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "lighttpd/1.4.79"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/a",
+              "observed": [
+                404,
+                ""
+              ],
+              "all_headers": [
+                [
+                  "Content-Type",
+                  "text/html"
+                ],
+                [
+                  "Content-Length",
+                  "158"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "lighttpd/1.4.79"
+                ]
+              ],
+              "body_sha256": "92412a14d3fb620d6744ade0d6e9b531230844a5eee59a72194bcfcd4b1238c2",
+              "body_bytes": 158
+            },
+            {
+              "path": "/none",
+              "observed": [
+                404,
+                ""
+              ],
+              "all_headers": [
+                [
+                  "Content-Type",
+                  "text/html"
+                ],
+                [
+                  "Content-Length",
+                  "158"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ],
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:02 GMT"
+                ],
+                [
+                  "Server",
+                  "lighttpd/1.4.79"
+                ]
+              ],
+              "body_sha256": "92412a14d3fb620d6744ade0d6e9b531230844a5eee59a72194bcfcd4b1238c2",
+              "body_bytes": 158
+            }
+          ],
+          "command": [
+            "/workspace/usl-expansion-v4.11.5/server_config/providers/usr/sbin/lighttpd",
+            "-D",
+            "-m",
+            "/workspace/usl-expansion-v4.11.5/server_config/providers/usr/lib/lighttpd",
+            "-f",
+            "/tmp/usl-http-554o6tir/config"
+          ],
+          "source_sha256": "8896d37d3c33736d0f1c10d4cc0fa1140dcbe8b9bb3170087683ab488b06c942",
+          "native_configuration_sha256": "39291f9b6b6638a704272aeec9d14211f14c7f6b15088a0895b2afa351f82037",
+          "native_process_invocations": 1,
+          "native_http_observations": 6,
+          "elapsed_seconds": 0.02479583802050911,
+          "native_process_log": "",
+          "fixture_scope": "temporary files and loopback only; HTTP redirects never followed; process group terminated/reaped"
+        },
+        "native_values": [
+          [
+            307,
+            "https://safe.invalid/P_9"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            307,
+            "https://other.invalid/final"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ]
+        ],
+        "mutated_USL": [
+          [
+            308,
+            "https://safe.invalid/P_9"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            308,
+            "https://other.invalid/final"
+          ],
+          [
+            404,
+            ""
+          ],
+          [
+            404,
+            ""
+          ]
+        ],
+        "mutation_applied": true,
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "domain",
+        "catalog_id": "apacheconf",
+        "source": "Redirect 301 /a https://target.invalid/to",
+        "paths": [
+          "/a%2fb",
+          "/a/./b",
+          "//a",
+          "/a//b",
+          "/a?x=1",
+          "/a#x",
+          "/a/",
+          "/a\r\nInjected: yes",
+          "/\u00e9",
+          "/",
+          true,
+          1,
+          null,
+          [
+            "/a"
+          ],
+          "/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "response": {
+        "action": "domain",
+        "catalog_id": "apacheconf",
+        "rows": [
+          {
+            "path": "/a%2fb",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a/./b",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "//a",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a//b",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a?x=1",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a#x",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a/",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a\r\nInjected: yes",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/\u00e9",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": true,
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": 1,
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": null,
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": [
+              "/a"
+            ],
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "python_rejected": true,
+            "USL_rejected": true
+          }
+        ],
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "domain",
+        "catalog_id": "lighttpd",
+        "source": "url.redirect=(\"^/a$\"=>\"https://target.invalid/to\")",
+        "paths": [
+          "/a%2fb",
+          "/a/./b",
+          "//a",
+          "/a//b",
+          "/a?x=1",
+          "/a#x",
+          "/a/",
+          "/a\r\nInjected: yes",
+          "/\u00e9",
+          "/",
+          true,
+          1,
+          null,
+          [
+            "/a"
+          ],
+          "/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "response": {
+        "action": "domain",
+        "catalog_id": "lighttpd",
+        "rows": [
+          {
+            "path": "/a%2fb",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a/./b",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "//a",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a//b",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a?x=1",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a#x",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a/",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a\r\nInjected: yes",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/\u00e9",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": true,
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": 1,
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": null,
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": [
+              "/a"
+            ],
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "python_rejected": true,
+            "USL_rejected": true
+          }
+        ],
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "domain",
+        "catalog_id": "vclsnippets",
+        "source": "return(synth(200,\"OK\"));",
+        "paths": [
+          "/a%2fb",
+          "/a/./b",
+          "//a",
+          "/a//b",
+          "/a?x=1",
+          "/a#x",
+          "/a/",
+          "/a\r\nInjected: yes",
+          "/\u00e9",
+          "/",
+          true,
+          1,
+          null,
+          [
+            "/a"
+          ],
+          "/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "response": {
+        "action": "domain",
+        "catalog_id": "vclsnippets",
+        "rows": [
+          {
+            "path": "/a%2fb",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a/./b",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "//a",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a//b",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a?x=1",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a#x",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a/",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/a\r\nInjected: yes",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/\u00e9",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/",
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": true,
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": 1,
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": null,
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": [
+              "/a"
+            ],
+            "python_rejected": true,
+            "USL_rejected": true
+          },
+          {
+            "path": "/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "python_rejected": true,
+            "USL_rejected": true
+          }
+        ],
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "source-rejection",
+        "catalog_id": "apacheconf",
+        "sources": [
+          "RedirectMatch 302 ^/a https://target.invalid/to",
+          "Redirect 302 /a https://target.invalid/to?x=1",
+          "Redirect 302 /a https://target.invalid/to\nInclude /etc/passwd",
+          "Redirect 302 /a \"https://target.invalid/to\""
+        ]
+      },
+      "response": {
+        "action": "source-rejection",
+        "catalog_id": "apacheconf",
+        "rows": [
+          {
+            "source": "RedirectMatch 302 ^/a https://target.invalid/to",
+            "rejected": true,
+            "error": "Only selected ordered Redirect directives are supported"
+          },
+          {
+            "source": "Redirect 302 /a https://target.invalid/to?x=1",
+            "rejected": true,
+            "error": "Only selected ordered Redirect directives are supported"
+          },
+          {
+            "source": "Redirect 302 /a https://target.invalid/to\nInclude /etc/passwd",
+            "rejected": true,
+            "error": "Only selected ordered Redirect directives are supported"
+          },
+          {
+            "source": "Redirect 302 /a \"https://target.invalid/to\"",
+            "rejected": true,
+            "error": "Only selected ordered Redirect directives are supported"
+          }
+        ],
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "source-rejection",
+        "catalog_id": "lighttpd",
+        "sources": [
+          "url.redirect=(\"^/a.*$\"=>\"https://target.invalid/to\")",
+          "url.redirect=(\"^/a$\"=>\"https://target.invalid/to$1\")",
+          "url.redirect=(\"^/a\\.b$\"=>\"https://target.invalid/to\")",
+          "url.redirect=(\"^/a$\"=>\"https://target.invalid/to\")\ninclude \"/etc/passwd\""
+        ]
+      },
+      "response": {
+        "action": "source-rejection",
+        "catalog_id": "lighttpd",
+        "rows": [
+          {
+            "source": "url.redirect=(\"^/a.*$\"=>\"https://target.invalid/to\")",
+            "rejected": true,
+            "error": "Map key must be an anchored ASCII literal path, target an absolute .invalid HTTPS URL"
+          },
+          {
+            "source": "url.redirect=(\"^/a$\"=>\"https://target.invalid/to$1\")",
+            "rejected": true,
+            "error": "Map key must be an anchored ASCII literal path, target an absolute .invalid HTTPS URL"
+          },
+          {
+            "source": "url.redirect=(\"^/a\\.b$\"=>\"https://target.invalid/to\")",
+            "rejected": true,
+            "error": "Map key must be an anchored ASCII literal path, target an absolute .invalid HTTPS URL"
+          },
+          {
+            "source": "url.redirect=(\"^/a$\"=>\"https://target.invalid/to\")\ninclude \"/etc/passwd\"",
+            "rejected": true,
+            "error": "Only global literal-anchored redirect map/code is supported"
+          }
+        ],
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "source-rejection",
+        "catalog_id": "vclsnippets",
+        "sources": [
+          "return(synth(200,\"bad\\\"quote\"));",
+          "return(synth(200,\"Trailing \"));",
+          "return(synth(199,\"Below\"));",
+          "return(synth(600,\"Above\"));",
+          "set req.url=\"/a\"; return(synth(200,\"OK\"));",
+          "return(synth(200,\"OK\")); return(synth(201,\"Dead\"));"
+        ]
+      },
+      "response": {
+        "action": "source-rejection",
+        "catalog_id": "vclsnippets",
+        "rows": [
+          {
+            "source": "return(synth(200,\"bad\\\"quote\"));",
+            "rejected": true,
+            "error": "Unsupported VCL token at 17"
+          },
+          {
+            "source": "return(synth(200,\"Trailing \"));",
+            "rejected": true,
+            "error": "Literal outside exact profile"
+          },
+          {
+            "source": "return(synth(199,\"Below\"));",
+            "rejected": true,
+            "error": "Synthetic HTTP status200..599 required"
+          },
+          {
+            "source": "return(synth(600,\"Above\"));",
+            "rejected": true,
+            "error": "Synthetic HTTP status200..599 required"
+          },
+          {
+            "source": "set req.url=\"/a\"; return(synth(200,\"OK\"));",
+            "rejected": true,
+            "error": "Unsupported VCL token at 11"
+          },
+          {
+            "source": "return(synth(200,\"OK\")); return(synth(201,\"Dead\"));",
+            "rejected": true,
+            "error": "Statically unreachable statements excluded"
+          }
+        ],
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "differential",
+        "catalog_id": "vclsnippets",
+        "source": "if(req.url==\"/a\"){return(synth(0200,\"Leading zero\"));} if(req.url==\"/b\"){return(synth(0204,\"No content\"));} return(synth(599,\"Upper bound\"));",
+        "paths": [
+          "/a",
+          "/b",
+          "/c"
+        ],
+        "independent_expected": [
+          [
+            200,
+            "Leading zero"
+          ],
+          [
+            204,
+            "No content"
+          ],
+          [
+            599,
+            "Upper bound"
+          ]
+        ]
+      },
+      "response": {
+        "action": "differential",
+        "catalog_id": "vclsnippets",
+        "generated_sha256": "142306b3cec98831c7eabdfeac7f8410a4402bf14279a89e12d8f07d7cd0a58f",
+        "USL": [
+          [
+            200,
+            "Leading zero"
+          ],
+          [
+            204,
+            "No content"
+          ],
+          [
+            599,
+            "Upper bound"
+          ]
+        ],
+        "IR": {
+          "kind": "vcl-synth",
+          "statements": [
+            [
+              "if",
+              [
+                "==",
+                "/a"
+              ],
+              [
+                [
+                  "return",
+                  200,
+                  "Leading zero"
+                ]
+              ],
+              []
+            ],
+            [
+              "if",
+              [
+                "==",
+                "/b"
+              ],
+              [
+                [
+                  "return",
+                  204,
+                  "No content"
+                ]
+              ],
+              []
+            ],
+            [
+              "return",
+              599,
+              "Upper bound"
+            ]
+          ],
+          "source_form": "snippet"
+        },
+        "native": {
+          "observations": [
+            {
+              "path": "/a",
+              "observed": [
+                200,
+                "Leading zero"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:03 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "2"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/b",
+              "observed": [
+                204,
+                "No content"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:03 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "4"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/c",
+              "observed": [
+                599,
+                "Upper bound"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:03 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "6"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            }
+          ],
+          "command": [
+            "/workspace/usl-expansion-v4.11.5/server_config/providers/usr/sbin/varnishd",
+            "-F",
+            "-n",
+            "/tmp/usl-http-rwgmlgae/instance",
+            "-f",
+            "/tmp/usl-http-rwgmlgae/config",
+            "-a",
+            "127.0.0.1:54439",
+            "-s",
+            "malloc,8m",
+            "-p",
+            "thread_pool_min=5",
+            "-p",
+            "thread_pool_max=10",
+            "-p",
+            "vcc_feature=+err_unref",
+            "-p",
+            "vcl_path=/workspace/usl-expansion-v4.11.5/server_config/providers/usr/share/varnish/vcl",
+            "-p",
+            "vmod_path=/workspace/usl-expansion-v4.11.5/server_config/providers/usr/lib/x86_64-linux-gnu/varnish/vmods"
+          ],
+          "source_sha256": "3ca3c28e18231bb849de3c38fda1ecac40e8386041cfb2fae7faf1d7f2f70e1c",
+          "native_configuration_sha256": "221ecefd81bc9b13c6cb659c5cefa1871f46dcc58a9cc83618ab21be089f4a9f",
+          "native_process_invocations": 1,
+          "native_http_observations": 3,
+          "elapsed_seconds": 0.6224818720074836,
+          "native_process_log": "Debug: Version: varnish-7.7.0 revision 71fc9d211c471106e4be590f3816a56ba156a833\nDebug: Platform: Linux,6.18.44,x86_64,-jnone,-smalloc,-sdefault,-hcritbit\nDebug: Child (1638880) Started\nChild launched OK\nInfo: Child (1638880) said Child starts\nInfo: Child (1638880) said Warning: mlock() of VSM failed: Cannot allocate memory (12)\nInfo: Child (1638880) said Info: max locked memory (soft): 8388608 bytes\nInfo: Child (1638880) said Info: max locked memory (hard): 8388608 bytes\nError: Manager got SIGTERM from PID 1638860\nDebug: Stopping Child\nError: Child (1638880) died signal=15\nDebug: Child cleanup complete\nInfo: manager stopping child\nInfo: manager dies\n",
+          "fixture_scope": "temporary files and loopback only; HTTP redirects never followed; process group terminated/reaped"
+        },
+        "native_values": [
+          [
+            200,
+            "Leading zero"
+          ],
+          [
+            204,
+            "No content"
+          ],
+          [
+            599,
+            "Upper bound"
+          ]
+        ],
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "native-rejection",
+        "catalog_id": "vclsnippets",
+        "source": "if (!!(req.url == \"/a\")) {return(synth(200,\"Yes\"));} return(synth(404,\"No\"));"
+      },
+      "response": {
+        "action": "native-rejection",
+        "catalog_id": "vclsnippets",
+        "frontend_rejected": true,
+        "frontend_error": "Adjacent unary negations are not valid VCL BOOL syntax",
+        "native_rejected": true,
+        "native_error": "Native startup failed: Error:\nMessage from VCC-compiler:\nUnknown token '!' when looking for BOOL\n\n('/tmp/usl-http-_k6110tl/config' Line 4 Pos 6)\nif (!!(req.url == \"/a\")) {return(synth(200,\"Yes\"));} return(synth(404,\"No\"));\n-----#-----------------------------------------------------------------------\n\nRunning VCC-compiler failed, exited with 2\nVCL compilation failed\n\n",
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "native-rejection",
+        "catalog_id": "vclsnippets",
+        "source": "if (! !(req.url == \"/a\")) {return(synth(200,\"Yes\"));} return(synth(404,\"No\"));"
+      },
+      "response": {
+        "action": "native-rejection",
+        "catalog_id": "vclsnippets",
+        "frontend_rejected": true,
+        "frontend_error": "Adjacent unary negations are not valid VCL BOOL syntax",
+        "native_rejected": true,
+        "native_error": "Native startup failed: Error:\nMessage from VCC-compiler:\nUnknown token '!' when looking for BOOL\n\n('/tmp/usl-http-1zj2531j/config' Line 4 Pos 7)\nif (! !(req.url == \"/a\")) {return(synth(200,\"Yes\"));} return(synth(404,\"No\"));\n------#-----------------------------------------------------------------------\n\nRunning VCC-compiler failed, exited with 2\nVCL compilation failed\n\n",
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "differential",
+        "catalog_id": "vclsnippets",
+        "source": "if (!(req.url == \"/a\" || req.url == \"/b\") && req.url != \"/c\") {return(synth(599,\"A                                                              Z\"));} else {if (req.url == \"/b\") {return(synth(202,\"B route\"));}} return(synth(207,\"Fallback\"));",
+        "paths": [
+          "/a",
+          "/b",
+          "/c",
+          "/other",
+          "/A"
+        ],
+        "independent_expected": [
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            202,
+            "B route"
+          ],
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ]
+        ],
+        "mutation": [
+          "return [202,",
+          "return [500,"
+        ]
+      },
+      "response": {
+        "action": "differential",
+        "catalog_id": "vclsnippets",
+        "generated_sha256": "cd95f9926b6deffd76a0f8afbcbb79424e00789f2d63d2fd9525060fcfc39baa",
+        "USL": [
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            202,
+            "B route"
+          ],
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ]
+        ],
+        "IR": {
+          "kind": "vcl-synth",
+          "statements": [
+            [
+              "if",
+              [
+                "&&",
+                [
+                  "not",
+                  [
+                    "||",
+                    [
+                      "==",
+                      "/a"
+                    ],
+                    [
+                      "==",
+                      "/b"
+                    ]
+                  ]
+                ],
+                [
+                  "!=",
+                  "/c"
+                ]
+              ],
+              [
+                [
+                  "return",
+                  599,
+                  "A                                                              Z"
+                ]
+              ],
+              [
+                [
+                  "if",
+                  [
+                    "==",
+                    "/b"
+                  ],
+                  [
+                    [
+                      "return",
+                      202,
+                      "B route"
+                    ]
+                  ],
+                  []
+                ]
+              ]
+            ],
+            [
+              "return",
+              207,
+              "Fallback"
+            ]
+          ],
+          "source_form": "snippet"
+        },
+        "native": {
+          "observations": [
+            {
+              "path": "/a",
+              "observed": [
+                207,
+                "Fallback"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:04 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "2"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/b",
+              "observed": [
+                202,
+                "B route"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:04 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "4"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/c",
+              "observed": [
+                207,
+                "Fallback"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:04 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "6"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/other",
+              "observed": [
+                599,
+                "A                                                              Z"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:04 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "8"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/A",
+              "observed": [
+                599,
+                "A                                                              Z"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:04 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "10"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            }
+          ],
+          "command": [
+            "/workspace/usl-expansion-v4.11.5/server_config/providers/usr/sbin/varnishd",
+            "-F",
+            "-n",
+            "/tmp/usl-http-_qy976bs/instance",
+            "-f",
+            "/tmp/usl-http-_qy976bs/config",
+            "-a",
+            "127.0.0.1:44069",
+            "-s",
+            "malloc,8m",
+            "-p",
+            "thread_pool_min=5",
+            "-p",
+            "thread_pool_max=10",
+            "-p",
+            "vcc_feature=+err_unref",
+            "-p",
+            "vcl_path=/workspace/usl-expansion-v4.11.5/server_config/providers/usr/share/varnish/vcl",
+            "-p",
+            "vmod_path=/workspace/usl-expansion-v4.11.5/server_config/providers/usr/lib/x86_64-linux-gnu/varnish/vmods"
+          ],
+          "source_sha256": "53287e42708a191936a559dd7eb02450708266953da8fd47581477f8d7ce2dfe",
+          "native_configuration_sha256": "0f260da0a8ec4a0b405c190c20f6ee6161107a8c141366f0d887448bec9b19e8",
+          "native_process_invocations": 1,
+          "native_http_observations": 5,
+          "elapsed_seconds": 0.5657658290001564,
+          "native_process_log": "Debug: Version: varnish-7.7.0 revision 71fc9d211c471106e4be590f3816a56ba156a833\nDebug: Platform: Linux,6.18.44,x86_64,-jnone,-smalloc,-sdefault,-hcritbit\nDebug: Child (1638954) Started\nChild launched OK\nInfo: Child (1638954) said Child starts\nInfo: Child (1638954) said Warning: mlock() of VSM failed: Cannot allocate memory (12)\nInfo: Child (1638954) said Info: max locked memory (soft): 8388608 bytes\nInfo: Child (1638954) said Info: max locked memory (hard): 8388608 bytes\nError: Manager got SIGTERM from PID 1638923\nDebug: Stopping Child\nError: Child (1638954) died signal=15\nDebug: Child cleanup complete\nInfo: manager stopping child\nInfo: manager dies\n",
+          "fixture_scope": "temporary files and loopback only; HTTP redirects never followed; process group terminated/reaped"
+        },
+        "native_values": [
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            202,
+            "B route"
+          ],
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ]
+        ],
+        "mutated_USL": [
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            500,
+            "B route"
+          ],
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ]
+        ],
+        "mutation_applied": true,
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "differential",
+        "catalog_id": "vcl",
+        "source": "vcl 4.1; backend default none; sub vcl_recv {if (!(req.url == \"/a\" || req.url == \"/b\") && req.url != \"/c\") {return(synth(599,\"A                                                              Z\"));} else {if (req.url == \"/b\") {return(synth(202,\"B route\"));}} return(synth(207,\"Fallback\"));} sub vcl_synth {return(deliver);}",
+        "paths": [
+          "/a",
+          "/b",
+          "/c",
+          "/other",
+          "/A"
+        ],
+        "independent_expected": [
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            202,
+            "B route"
+          ],
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ]
+        ]
+      },
+      "response": {
+        "action": "differential",
+        "catalog_id": "vcl",
+        "generated_sha256": "cd95f9926b6deffd76a0f8afbcbb79424e00789f2d63d2fd9525060fcfc39baa",
+        "USL": [
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            202,
+            "B route"
+          ],
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ]
+        ],
+        "IR": {
+          "kind": "vcl-synth",
+          "statements": [
+            [
+              "if",
+              [
+                "&&",
+                [
+                  "not",
+                  [
+                    "||",
+                    [
+                      "==",
+                      "/a"
+                    ],
+                    [
+                      "==",
+                      "/b"
+                    ]
+                  ]
+                ],
+                [
+                  "!=",
+                  "/c"
+                ]
+              ],
+              [
+                [
+                  "return",
+                  599,
+                  "A                                                              Z"
+                ]
+              ],
+              [
+                [
+                  "if",
+                  [
+                    "==",
+                    "/b"
+                  ],
+                  [
+                    [
+                      "return",
+                      202,
+                      "B route"
+                    ]
+                  ],
+                  []
+                ]
+              ]
+            ],
+            [
+              "return",
+              207,
+              "Fallback"
+            ]
+          ],
+          "source_form": "vcl4.1"
+        },
+        "native": {
+          "observations": [
+            {
+              "path": "/a",
+              "observed": [
+                207,
+                "Fallback"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:05 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "32770"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/b",
+              "observed": [
+                202,
+                "B route"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:05 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "32772"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/c",
+              "observed": [
+                207,
+                "Fallback"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:05 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "32774"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/other",
+              "observed": [
+                599,
+                "A                                                              Z"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:05 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "32776"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/A",
+              "observed": [
+                599,
+                "A                                                              Z"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:05 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "32778"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            }
+          ],
+          "command": [
+            "/workspace/usl-expansion-v4.11.5/server_config/providers/usr/sbin/varnishd",
+            "-F",
+            "-n",
+            "/tmp/usl-http-xvuod4wa/instance",
+            "-f",
+            "/tmp/usl-http-xvuod4wa/config",
+            "-a",
+            "127.0.0.1:35485",
+            "-s",
+            "malloc,8m",
+            "-p",
+            "thread_pool_min=5",
+            "-p",
+            "thread_pool_max=10",
+            "-p",
+            "vcc_feature=+err_unref",
+            "-p",
+            "vcl_path=/workspace/usl-expansion-v4.11.5/server_config/providers/usr/share/varnish/vcl",
+            "-p",
+            "vmod_path=/workspace/usl-expansion-v4.11.5/server_config/providers/usr/lib/x86_64-linux-gnu/varnish/vmods"
+          ],
+          "source_sha256": "24e6f8882e8379cc5a204b952ac1b7f92a81232b37b013fad7fb6b2d6a6a050a",
+          "native_configuration_sha256": "24e6f8882e8379cc5a204b952ac1b7f92a81232b37b013fad7fb6b2d6a6a050a",
+          "native_process_invocations": 1,
+          "native_http_observations": 5,
+          "elapsed_seconds": 0.5961203789920546,
+          "native_process_log": "Debug: Version: varnish-7.7.0 revision 71fc9d211c471106e4be590f3816a56ba156a833\nDebug: Platform: Linux,6.18.44,x86_64,-jnone,-smalloc,-sdefault,-hcritbit\nDebug: Child (1639017) Started\nChild launched OK\nInfo: Child (1639017) said Child starts\nInfo: Child (1639017) said Warning: mlock() of VSM failed: Cannot allocate memory (12)\nInfo: Child (1639017) said Info: max locked memory (soft): 8388608 bytes\nInfo: Child (1639017) said Info: max locked memory (hard): 8388608 bytes\nError: Manager got SIGTERM from PID 1639001\nDebug: Stopping Child\nError: Child (1639017) died signal=15\nDebug: Child cleanup complete\nInfo: manager stopping child\nInfo: manager dies\n",
+          "fixture_scope": "temporary files and loopback only; HTTP redirects never followed; process group terminated/reaped"
+        },
+        "native_values": [
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            202,
+            "B route"
+          ],
+          [
+            207,
+            "Fallback"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ],
+          [
+            599,
+            "A                                                              Z"
+          ]
+        ],
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    },
+    {
+      "request": {
+        "action": "differential",
+        "catalog_id": "vclsnippets",
+        "source": "if (!(!(req.url == \"/a\"))) {return(synth(200,\"Twice\"));} return(synth(404,\"Other\"));",
+        "paths": [
+          "/a",
+          "/b"
+        ],
+        "independent_expected": [
+          [
+            200,
+            "Twice"
+          ],
+          [
+            404,
+            "Other"
+          ]
+        ]
+      },
+      "response": {
+        "action": "differential",
+        "catalog_id": "vclsnippets",
+        "generated_sha256": "2bba2602d0af859a77721e1e0d573ff8c76f75b254a39008b8b25de1864c05bb",
+        "USL": [
+          [
+            200,
+            "Twice"
+          ],
+          [
+            404,
+            "Other"
+          ]
+        ],
+        "IR": {
+          "kind": "vcl-synth",
+          "statements": [
+            [
+              "if",
+              [
+                "not",
+                [
+                  "not",
+                  [
+                    "==",
+                    "/a"
+                  ]
+                ]
+              ],
+              [
+                [
+                  "return",
+                  200,
+                  "Twice"
+                ]
+              ],
+              []
+            ],
+            [
+              "return",
+              404,
+              "Other"
+            ]
+          ],
+          "source_form": "snippet"
+        },
+        "native": {
+          "observations": [
+            {
+              "path": "/a",
+              "observed": [
+                200,
+                "Twice"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:06 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "2"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            },
+            {
+              "path": "/b",
+              "observed": [
+                404,
+                "Other"
+              ],
+              "all_headers": [
+                [
+                  "Date",
+                  "Wed, 14 Oct 2026 22:31:06 GMT"
+                ],
+                [
+                  "Server",
+                  "Varnish"
+                ],
+                [
+                  "X-Varnish",
+                  "32771"
+                ],
+                [
+                  "Content-Length",
+                  "0"
+                ],
+                [
+                  "Connection",
+                  "close"
+                ]
+              ],
+              "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "body_bytes": 0
+            }
+          ],
+          "command": [
+            "/workspace/usl-expansion-v4.11.5/server_config/providers/usr/sbin/varnishd",
+            "-F",
+            "-n",
+            "/tmp/usl-http-umecuulc/instance",
+            "-f",
+            "/tmp/usl-http-umecuulc/config",
+            "-a",
+            "127.0.0.1:52735",
+            "-s",
+            "malloc,8m",
+            "-p",
+            "thread_pool_min=5",
+            "-p",
+            "thread_pool_max=10",
+            "-p",
+            "vcc_feature=+err_unref",
+            "-p",
+            "vcl_path=/workspace/usl-expansion-v4.11.5/server_config/providers/usr/share/varnish/vcl",
+            "-p",
+            "vmod_path=/workspace/usl-expansion-v4.11.5/server_config/providers/usr/lib/x86_64-linux-gnu/varnish/vmods"
+          ],
+          "source_sha256": "eacae6bb63d60f41e91aac0d513fb209badeeb4d2733745cca51974321fc6aad",
+          "native_configuration_sha256": "65bb729391fd2de128096e87f8d7fb0eeafac9f084da9f52fc2be1d962ad1367",
+          "native_process_invocations": 1,
+          "native_http_observations": 2,
+          "elapsed_seconds": 0.5502566340146586,
+          "native_process_log": "Debug: Version: varnish-7.7.0 revision 71fc9d211c471106e4be590f3816a56ba156a833\nDebug: Platform: Linux,6.18.44,x86_64,-jnone,-smalloc,-sdefault,-hcritbit\nDebug: Child (1639066) Started\nChild launched OK\nInfo: Child (1639066) said Child starts\nInfo: Child (1639066) said Warning: mlock() of VSM failed: Cannot allocate memory (12)\nInfo: Child (1639066) said Info: max locked memory (soft): 8388608 bytes\nInfo: Child (1639066) said Info: max locked memory (hard): 8388608 bytes\nError: Manager got SIGTERM from PID 1639050\nDebug: Stopping Child\nError: Child (1639066) died signal=15\nDebug: Child cleanup complete\nInfo: manager stopping child\nInfo: manager dies\n",
+          "fixture_scope": "temporary files and loopback only; HTTP redirects never followed; process group terminated/reaped"
+        },
+        "native_values": [
+          [
+            200,
+            "Twice"
+          ],
+          [
+            404,
+            "Other"
+          ]
+        ],
+        "no_active_native_processes": true,
+        "reviewed_source_hashes": {
+          "native.py": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+          "cases.py": "7d82a22d66dff08563457fccd2fdf08a5d2f38edeccbba43cef8824adb9e18f3",
+          "test_server_config.py": "d8753a0ff874421806b3b2cdbd9efd597fa1e32c1b92273e4e0fefba9909c420",
+          "frontends.py": "efc41dfce008825d0af4f92c7ece75ad578ef45338714da9397b886955c0887e",
+          "restore.py": "ca883358fdb7764c78262bacfe1218a20191298ef147337e89c6d9116bf73145",
+          "run.py": "6bae55b0522a0eda7aea7928665f87f468da4178892cb65955da1f0e6afce2c2"
+        }
+      }
+    }
+  ]
+}

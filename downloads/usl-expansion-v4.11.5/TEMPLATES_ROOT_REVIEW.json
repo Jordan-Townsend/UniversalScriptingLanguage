@@ -1,0 +1,99 @@
+{
+  "schema": "usl.v4115.root-template-review.v1",
+  "root_authored": true,
+  "passed": true,
+  "source_sha256": {
+    "semantics.py": "b5b0a5e9d77b93e0629bee953f844c8b7b8a5fffe10507b23f38f877461d4026",
+    "native.cjs": "8cbe5a92113ec665f14811099aff6df3350b443e0222f40778589f16add14e32"
+  },
+  "independent_oracle_test": "test_templates_independent.py",
+  "tests_passed": 3,
+  "native_rejection_probes": 6,
+  "positive_native_render_observations": 12,
+  "fresh_positive_USL_runs": 12,
+  "actual_counterexamples": [
+    {
+      "language": "vue",
+      "case": "tag-nbsp",
+      "source": "<template><p\u00a0title=\"x\">text</p></template>",
+      "frontend_accepted": false,
+      "native_exit": 1,
+      "native_stdout": "",
+      "native_stderr": "Error: Not template-only Vue SFC\n    at main (/workspace/usl-expansion-v4.11.5/web_templates/native.cjs:12:153)\n    at Object.<anonymous> (/workspace/usl-expansion-v4.11.5/web_templates/native.cjs:29:1)\n    at Module._compile (node:internal/modules/cjs/loader:1872:14)\n    at Object..js (node:internal/modules/cjs/loader:2003:10)\n    at Module.load (node:internal/modules/cjs/loader:1594:32)\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47\n"
+    },
+    {
+      "language": "vue",
+      "case": "binding-c1",
+      "source": "<template><p :title=\"\u0085name\">x</p></template>",
+      "frontend_accepted": true,
+      "native_exit": 1,
+      "native_stdout": "",
+      "native_stderr": "Error: Not template-only Vue SFC\n    at main (/workspace/usl-expansion-v4.11.5/web_templates/native.cjs:12:153)\n    at Object.<anonymous> (/workspace/usl-expansion-v4.11.5/web_templates/native.cjs:29:1)\n    at Module._compile (node:internal/modules/cjs/loader:1872:14)\n    at Object..js (node:internal/modules/cjs/loader:2003:10)\n    at Module.load (node:internal/modules/cjs/loader:1594:32)\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47\n"
+    },
+    {
+      "language": "vue",
+      "case": "interpolation-c1",
+      "source": "<template><p>{{\u0085name}}</p></template>",
+      "frontend_accepted": true,
+      "native_exit": 1,
+      "native_stdout": "",
+      "native_stderr": "Error: Not template-only Vue SFC\n    at main (/workspace/usl-expansion-v4.11.5/web_templates/native.cjs:12:153)\n    at Object.<anonymous> (/workspace/usl-expansion-v4.11.5/web_templates/native.cjs:29:1)\n    at Module._compile (node:internal/modules/cjs/loader:1872:14)\n    at Object..js (node:internal/modules/cjs/loader:2003:10)\n    at Module.load (node:internal/modules/cjs/loader:1594:32)\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47\n"
+    },
+    {
+      "language": "ng2",
+      "case": "tag-nbsp",
+      "source": "<p\u00a0title=\"x\">text</p>",
+      "frontend_accepted": false,
+      "native_exit": 0,
+      "native_stdout": "{\"observations\":[{\"id\":\"tag-nbsp\",\"output\":\"<p title=\\\"x\\\">text</p>\",\"accepted\":true}],\"toolchain\":{\"node\":\"v24.19.0\",\"executable\":\"/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node\",\"versions\":{\"vue\":\"3.5.22\",\"angular\":\"4.4.7\"}},\"physical_processes\":1}",
+      "native_stderr": ""
+    },
+    {
+      "language": "ng2",
+      "case": "binding-c1",
+      "source": "<p [attr.title]=\"\u0085name\">x</p>",
+      "frontend_accepted": true,
+      "native_exit": 1,
+      "native_stdout": "",
+      "native_stderr": "Error: Template parse errors:\nParser Error: Unexpected token Lexer Error: Unexpected character [\u0085] at column 1 in expression [\u0085name] at column 2 in [\u0085name] in ng:///Module/App.html@0:3 (\"<p [ERROR ->][attr.title]=\"\u0085name\">x</p>\"): ng:///Module/App.html@0:3\nParser Error: Lexer Error: Unexpected character [\u0085] at column 1 in expression [\u0085name] at column 2 in [\u0085name] in ng:///Module/App.html@0:3 (\"<p [ERROR ->][attr.title]=\"\u0085name\">x</p>\"): ng:///Module/App.html@0:3\n    at syntaxError (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:1729:34)\n    at TemplateParser.parse (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:12826:19)\n    at JitCompiler._compileTemplate (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:27029:39)\n    at /workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26948:62\n    at Set.forEach (<anonymous>)\n    at JitCompiler._compileComponents (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26948:19)\n    at /workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26835:19\n    at Object.then (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:17"
+    },
+    {
+      "language": "ng2",
+      "case": "interpolation-c1",
+      "source": "<p>{{\u0085name}}</p>",
+      "frontend_accepted": true,
+      "native_exit": 1,
+      "native_stdout": "",
+      "native_stderr": "Error: Template parse errors:\nParser Error: Unexpected token Lexer Error: Unexpected character [\u0085] at column 1 in expression [\u0085name] at column 2 in [{{\u0085name}}] in ng:///Module/App.html@0:3 (\"<p>[ERROR ->]{{\u0085name}}</p>\"): ng:///Module/App.html@0:3\nParser Error: Lexer Error: Unexpected character [\u0085] at column 1 in expression [\u0085name] at column 2 in [{{\u0085name}}] in ng:///Module/App.html@0:3 (\"<p>[ERROR ->]{{\u0085name}}</p>\"): ng:///Module/App.html@0:3\n    at syntaxError (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:1729:34)\n    at TemplateParser.parse (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:12826:19)\n    at JitCompiler._compileTemplate (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:27029:39)\n    at /workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26948:62\n    at Set.forEach (<anonymous>)\n    at JitCompiler._compileComponents (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26948:19)\n    at /workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26835:19\n    at Object.then (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:1718:92)\n    at JitC"
+    },
+    {
+      "language": "html+ng2",
+      "case": "tag-nbsp",
+      "source": "<p\u00a0title=\"x\">text</p>",
+      "frontend_accepted": false,
+      "native_exit": 0,
+      "native_stdout": "{\"observations\":[{\"id\":\"tag-nbsp\",\"output\":\"<p title=\\\"x\\\">text</p>\",\"accepted\":true}],\"toolchain\":{\"node\":\"v24.19.0\",\"executable\":\"/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node\",\"versions\":{\"vue\":\"3.5.22\",\"angular\":\"4.4.7\"}},\"physical_processes\":1}",
+      "native_stderr": ""
+    },
+    {
+      "language": "html+ng2",
+      "case": "binding-c1",
+      "source": "<p [attr.title]=\"\u0085name\">x</p>",
+      "frontend_accepted": true,
+      "native_exit": 1,
+      "native_stdout": "",
+      "native_stderr": "Error: Template parse errors:\nParser Error: Unexpected token Lexer Error: Unexpected character [\u0085] at column 1 in expression [\u0085name] at column 2 in [\u0085name] in ng:///Module/App.html@0:3 (\"<p [ERROR ->][attr.title]=\"\u0085name\">x</p>\"): ng:///Module/App.html@0:3\nParser Error: Lexer Error: Unexpected character [\u0085] at column 1 in expression [\u0085name] at column 2 in [\u0085name] in ng:///Module/App.html@0:3 (\"<p [ERROR ->][attr.title]=\"\u0085name\">x</p>\"): ng:///Module/App.html@0:3\n    at syntaxError (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:1729:34)\n    at TemplateParser.parse (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:12826:19)\n    at JitCompiler._compileTemplate (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:27029:39)\n    at /workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26948:62\n    at Set.forEach (<anonymous>)\n    at JitCompiler._compileComponents (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26948:19)\n    at /workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26835:19\n    at Object.then (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:17"
+    },
+    {
+      "language": "html+ng2",
+      "case": "interpolation-c1",
+      "source": "<p>{{\u0085name}}</p>",
+      "frontend_accepted": true,
+      "native_exit": 1,
+      "native_stdout": "",
+      "native_stderr": "Error: Template parse errors:\nParser Error: Unexpected token Lexer Error: Unexpected character [\u0085] at column 1 in expression [\u0085name] at column 2 in [{{\u0085name}}] in ng:///Module/App.html@0:3 (\"<p>[ERROR ->]{{\u0085name}}</p>\"): ng:///Module/App.html@0:3\nParser Error: Lexer Error: Unexpected character [\u0085] at column 1 in expression [\u0085name] at column 2 in [{{\u0085name}}] in ng:///Module/App.html@0:3 (\"<p>[ERROR ->]{{\u0085name}}</p>\"): ng:///Module/App.html@0:3\n    at syntaxError (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:1729:34)\n    at TemplateParser.parse (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:12826:19)\n    at JitCompiler._compileTemplate (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:27029:39)\n    at /workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26948:62\n    at Set.forEach (<anonymous>)\n    at JitCompiler._compileComponents (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26948:19)\n    at /workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:26835:19\n    at Object.then (/workspace/usl-expansion-v4.11.5/web_templates/providers/node_modules/@angular/compiler/bundles/compiler.umd.js:1718:92)\n    at JitC"
+    }
+  ],
+  "repair": "OnlyASCIIspace is accepted around embedded identifiers/interpolations; Unicode text and bound string values remain supported.",
+  "claim": "Finite native/USL/expected HTML-value checks; no full framework qualification"
+}

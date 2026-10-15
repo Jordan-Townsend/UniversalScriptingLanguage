@@ -1,0 +1,38 @@
+{
+  "schema": "usl.v4115.platform-matrix.v1",
+  "native_workflows": {
+    "debian": {
+      "passed": true,
+      "root_tests": 70,
+      "family_tests": 95,
+      "fresh_usl_executions": 2152,
+      "new_bounded_profiles": 19,
+      "evidence": "validation/debian.zip",
+      "evidence_sha256": "ad619ef8f61ff24dcaaa71348bef7114a1a0fde1bbe0d847025a4328c68433b0",
+      "scope": "Debian13 retained-native-toolchain workflow"
+    },
+    "ubuntu26": {
+      "passed": true,
+      "root_tests": 70,
+      "family_tests": 95,
+      "fresh_usl_executions": 2152,
+      "new_bounded_profiles": 19,
+      "evidence": "validation/ubuntu26.zip",
+      "evidence_sha256": "b3e5fe041191e7a9686a2eab5310357e4a5c03dcc270b2c9b270b116e1f2462c",
+      "scope": "Ubuntu26.04.1 x86_64 userspace with retained native providers and private derived Java21 image"
+    }
+  },
+  "portable_translation": {
+    "passed": true,
+    "ubuntu": "26.04.1",
+    "python": "3.14.4",
+    "tests": 19,
+    "uses_bundled_interpreter": true,
+    "codex_python_or_node_required": false,
+    "scope": "Fresh Python virtual environment in the prepared Ubuntu container; no native original execution. Not a newly booted machine qualification."
+  },
+  "full_native_fresh_ubuntu_install_verified": false,
+  "new_cloud_task_restoration_verified": false,
+  "real_GPU_qualification": false,
+  "full_standard_qualifications": 0
+}

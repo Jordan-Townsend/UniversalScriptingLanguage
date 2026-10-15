@@ -1,0 +1,9 @@
+{
+  "file": "server_config/native.py",
+  "old_sha256": "c755559cb777af2dd0799407ea0f7f61095026857b3591867c0873f5966617ac",
+  "new_sha256": "6986b84e45811ad5ea26f70f0cbd810203c197ca2e9cd2d3f54721ccf54b657d",
+  "reason": "Varnish default80MiB log buffer per short native fixture exhausted temporary disk during joined Ubuntu run; upstream documentedminimum1MiB selected for logging only. Qualified status/reason behavior will be reexecuted freshly.",
+  "native_parameter_evidence": "varnishd -x parameter: vsl_space default80M, minimum1M",
+  "prior_independent_review_remains_historical": "SERVER_INDEPENDENT_REVIEW.json",
+  "root_integration_change": true
+}
